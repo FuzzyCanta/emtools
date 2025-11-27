@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Medical Calculators</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #004080;
+      color: white;
+      padding: 16px 24px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    header p {
+      margin: 4px 0 0;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+    main {
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 0 16px 40px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      border: 1px solid #ddd;
+    }
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+    .card p {
+      margin: 0 0 12px;
+      font-size: 0.9rem;
+      color: #444;
+    }
+    .card a {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: 1px solid #004080;
+      color: #004080;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .card a:hover {
+      background: #004080;
+      color: white;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+      padding-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Medical Calculators & Tools</h1>
+    <p>Quick access index for all my custom calculators and note tools.</p>
+  </header>
+
+  <main>
+    <h2>Calculators</h2>
+    <div class="grid">
+      <!-- Example cards – update filenames and descriptions to match your tools -->
+
+      <div class="card">
+        <h2>Antibiotic Dose Calculator</h2>
+        <p>Weight-based dosing calculator for common antibiotics.</p>
+        <a href="abx_calculator.html">Open calculator</a>
+      </div>
+
+      <div class="card">
+        <h2>Pediatric Medication Calculator</h2>
+        <p>mg/kg dosing with built-in safety limits.</p>
+        <a href="peds_dose.html">Open calculator</a>
+      </div>
+
+      <div class="card">
+        <h2>Cardiac Risk Calculator</h2>
+        <p>Estimate cardiovascular risk using standard inputs.</p>
+        <a href="cardiac_risk.html">Open calculator</a>
+      </div>
+
+      <div class="card">
+        <h2>Medical Note Editor</h2>
+        <p>Structured note editor with menu-driven sections.</p>
+        <a href="Test5.html">Open editor</a>
+      </div>
+
+      <!-- Add more calculators as needed: just copy-paste a card and change link/name -->
+    </div>
+
+    <h2 style="margin-top:32px;">Other tools / links</h2>
+    <ul>
+      <li><a href="README.html">Documentation</a></li>
+      <li><a href="changelog.html">Changelog</a></li>
+    </ul>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> My Tools
+  </footer>
+
+  <script>
+    // Automatically show current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -23,7 +23,7 @@
 
     .wrapper {
       max-width: 1100px;
-      width: 100%;
+      width:100%;
     }
 
     h2 {
@@ -35,13 +35,14 @@
 
     .container {
       display: flex;
-      gap: 2rem;
+      gap: 1rem;
       align-items: flex-start;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     .column {
-      flex: 1 1 360px;
+      flex: 1 1 500px; /*used to change min width of columns*/
       background: #fff;
       border-radius: 12px;
       padding: 1.5rem;
@@ -64,7 +65,7 @@
 
     .date-group input {
       width: 100%;
-      max-width: 90px;
+      max-width: 75px;
       padding: 0.4rem;
       font-size: 0.95rem;
       text-align: center;
@@ -72,23 +73,25 @@
       border: 1px solid var(--border);
       box-sizing: border-box;
     }
-
-    input[type="number"] {
-      width: 100%;
-      padding: 0.4rem;
-      font-size: 0.95rem;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      box-sizing: border-box;
-    }
-
     .ga-us-group {
       display: flex;
-      gap: 0.5rem;
+      max-width: 70px;
+      width: 75%;
+      gap: 0.4rem;
     }
 
     .ga-us-group input {
       flex: 1;
+    }
+
+    input[type="number"] {
+      /*width: 100%;*/
+      padding: 0.4rem;
+      font-size: 0.95rem;
+      text-align: center;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      box-sizing: border-box;
     }
 
     /* Results table card */
@@ -139,16 +142,11 @@
       color: #222;
     }
 
-    /* Greyed-out columns (when no data) */
-    .col-inactive {
-      opacity: 0.35;
-    }
-
-    @media (max-width: 820px) {
+    /* @media (max-width: 820px) {
       .container {
         flex-direction: column;
       }
-    }
+    }*/
   </style>
 </head>
 <body>
@@ -203,29 +201,29 @@
           <thead>
             <tr>
               <th></th>
-              <th class="col-lmp">LMP</th>
-              <th class="col-us">US</th>
-              <th class="col-edd">EDD</th>
+              <th>LMP</th>
+              <th>US</th>
+              <th>EDD</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Due date</td>
-              <td class="col-lmp"><span id="dueLMPCell"></span></td>
-              <td class="col-us"><span id="dueUSCell"></span></td>
-              <td class="col-edd"><span id="dueEDDCell"></span></td>
+              <td><span id="dueLMPCell"></span></td>
+              <td><span id="dueUSCell"></span></td>
+              <td><span id="dueEDDCell"></span></td>
             </tr>
             <tr>
               <td>GA today</td>
-              <td class="col-lmp"><span id="gaTodayLMPCell"></span></td>
-              <td class="col-us"><span id="gaTodayUSCell"></span></td>
-              <td class="col-edd"><span id="gaTodayEDDCell"></span></td>
+              <td><span id="gaTodayLMPCell"></span></td>
+              <td><span id="gaTodayUSCell"></span></td>
+              <td><span id="gaTodayEDDCell"></span></td>
             </tr>
             <tr>
               <td>GA on specific date</td>
-              <td class="col-lmp"><span id="gaDateLMPCell"></span></td>
-              <td class="col-us"><span id="gaDateUSCell"></span></td>
-              <td class="col-edd"><span id="gaDateEDDCell"></span></td>
+              <td><span id="gaDateLMPCell"></span></td>
+              <td><span id="gaDateUSCell"></span></td>
+              <td><span id="gaDateEDDCell"></span></td>
             </tr>
           </tbody>
         </table>
@@ -283,37 +281,9 @@
       cell.textContent = text && text !== "–" ? text : "";
     }
 
-    function updateColumnState() {
-      const colUSIds  = ["dueUSCell", "gaTodayUSCell", "gaDateUSCell"];
-      const colEDDIds = ["dueEDDCell", "gaTodayEDDCell", "gaDateEDDCell"];
-
-      const usHasData  = colUSIds.some(id => document.getElementById(id).textContent.trim() !== "");
-      const eddHasData = colEDDIds.some(id => document.getElementById(id).textContent.trim() !== "");
-
-      const usHeader  = document.querySelector("th.col-us");
-      const eddHeader = document.querySelector("th.col-edd");
-      const usCells   = document.querySelectorAll("td.col-us");
-      const eddCells  = document.querySelectorAll("td.col-edd");
-
-      if (!usHasData) {
-        usHeader.classList.add("col-inactive");
-        usCells.forEach(td => td.classList.add("col-inactive"));
-      } else {
-        usHeader.classList.remove("col-inactive");
-        usCells.forEach(td => td.classList.remove("col-inactive"));
-      }
-
-      if (!eddHasData) {
-        eddHeader.classList.add("col-inactive");
-        eddCells.forEach(td => td.classList.add("col-inactive"));
-      } else {
-        eddHeader.classList.remove("col-inactive");
-        eddCells.forEach(td => td.classList.remove("col-inactive"));
-      }
-    }
-
     function updateOutputs() {
       const today = new Date();
+            today.setHours(0, 0, 0, 0);
       const cycleLength = parseInt(document.getElementById("cycleLength").value, 10);
 
       const usWeeks = parseInt(document.getElementById("usWeeks").value, 10);
@@ -330,7 +300,7 @@
 
       // Due dates
       setCellText("dueLMPCell", dueLMP ? dueLMP.toISOString().split("T")[0] : "");
-      setCellText("dueUSCell",  dueUS  ? dueUS.toISOString().split("T")[0]  : "");
+      setCellText("dueUSCell", dueUS ? dueUS.toISOString().split("T")[0] : "");
       setCellText("dueEDDCell", dueEDD ? dueEDD.toISOString().split("T")[0] : "");
 
       // GA today
@@ -339,7 +309,7 @@
       const gaTodayEDDDays = calcGA(dueEDD, today);
 
       setCellText("gaTodayLMPCell", formatGA(gaTodayLMPDays));
-      setCellText("gaTodayUSCell",  formatGA(gaTodayUSDays));
+      setCellText("gaTodayUSCell", formatGA(gaTodayUSDays));
       setCellText("gaTodayEDDCell", formatGA(gaTodayEDDDays));
 
       // GA on specific date
@@ -349,16 +319,13 @@
         const gaDateEDDDays = calcGA(dueEDD, customDate);
 
         setCellText("gaDateLMPCell", formatGA(gaDateLMPDays));
-        setCellText("gaDateUSCell",  formatGA(gaDateUSDays));
+        setCellText("gaDateUSCell", formatGA(gaDateUSDays));
         setCellText("gaDateEDDCell", formatGA(gaDateEDDDays));
       } else {
         setCellText("gaDateLMPCell", "");
-        setCellText("gaDateUSCell",  "");
+        setCellText("gaDateUSCell", "");
         setCellText("gaDateEDDCell", "");
       }
-
-      // Update grey state of US / EDD columns
-      updateColumnState();
     }
 
     // Auto-focus behaviour for date segments

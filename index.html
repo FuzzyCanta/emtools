@@ -32,20 +32,32 @@
       text-align: center;
     }
     main {
+      display: block;
+      justify-content: center;
+      width: 100%;
       max-width: 900px;
       margin: 24px auto;
       padding: 0 16px 40px;
-      align-items:center;
-      justify-items: stretch;
     }
+
+    /* Center wrapper */
+    .main {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Grid layout */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 240px));
+      grid-template-columns: repeat(auto-fit, minmax(234px, max-content));
       gap: 16px;
-      align-items:center;
-      justify-items: center;
+      justify-content: center;
     }
+
+    /* Entire card is a link */
     .card {
+      display: block;
       background: white;
       width: 200px;
       height: 124px;
@@ -54,31 +66,32 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
       border: 1px solid #ddd;
       text-align: center;
+      text-decoration: none;    /* removes link underline */
+      color: inherit;           /* text inherits normal color */
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
+      cursor: pointer;
     }
+
+    /* Hover effect for entire card */
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+
+    /* Card text */
     .card h2 {
       margin: 0 0 8px;
       font-size: 1.1rem;
       text-align: center;
+      color: #004080;
     }
     .card p {
-      margin: 0 0 12px;
+      margin: 0;
       font-size: 0.9rem;
       color: #444;
       text-align: center;
     }
-    .card a {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 4px;
-      border: 1px solid #004080;
-      color: #004080;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-    .card a:hover {
-      background: #004080;
-      color: white;
-    }
+
     footer {
       text-align: center;
       font-size: 0.8rem;
@@ -95,49 +108,41 @@
 
   <main>
     <h2 style="text-align: center;">Calculators</h2>
+      
     <div class="grid">
-      <!-- Example cards – update filenames and descriptions to match your tools -->
 
-      <div class="card">
+      <!-- Card 1 -->
+      <a href="PDDC.html" class="card">
         <h2>Pregnancy Due Date Calculator</h2>
         <p>Calculate the due date based on EDD/US/LMP</p>
-        <a href="PDDC.html">Open calculator</a>
-      </div>
+      </a>
 
-      <div class="card">
-        <h2>Acid-Base calculator</h2>
+      <!-- Card 2 -->
+      <a href="acidbase.html" class="card">
+        <h2>Acid-Base Calculator</h2>
         <p>Calculate acid-base disorder values</p>
-        <a href="acidbase.html">Open calculator</a>
-      </div>
+      </a>
 
-      <!-- <div class="card">
+      <!-- Card 3 -->
+      <a href="cardiac_risk.html" class="card">
         <h2>Cardiac Risk Calculator</h2>
         <p>Estimate cardiovascular risk using standard inputs.</p>
-        <a href="cardiac_risk.html">Open calculator</a>
-      </div> -->
+      </a>
 
-      <!-- <div class="card">
-        <h2>Medical Note Editor</h2>
-        <p>Structured note editor with menu-driven sections.</p>
-        <a href="Test5.html">Open editor</a>
-      </div> -->
-
-      <!-- Add more calculators as needed: just copy-paste a card and change link/name -->
     </div>
-
+    
     <h2 style="margin-top:32px; text-align: center;">Other tools / links</h2>
     <ul>
       <li style="text-align: center;"><a href="README.html">Documentation</a></li>
       <li style="text-align: center;"><a href="changelog.html">Changelog</a></li>
     </ul>
   </main>
-
+  
   <footer>
     &copy; <span id="year"></span> My Tools
   </footer>
 
   <script>
-    // Automatically show current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>

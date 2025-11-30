@@ -42,7 +42,7 @@
     }
 
     .column {
-      flex: 1 1 500px; /*used to change min width of columns*/
+      flex: auto auto fit-content; /*used to change min width of columns*/
       background: #fff;
       border-radius: 12px;
       padding: 1.5rem;
@@ -61,6 +61,7 @@
     .date-group {
       display: flex;
       gap: 0.4rem;
+      max-width: fit-content;
     }
 
     .date-group input {
@@ -76,7 +77,7 @@
     .ga-us-group {
       display: flex;
       max-width: 70px;
-      width: 75%;
+      width: 100%;
       gap: 0.4rem;
     }
 
@@ -110,7 +111,7 @@
     }
 
     .results-table {
-      width: 100%;
+      width: 450px;
       border-collapse: collapse;
       font-size: 0.95rem;
     }
@@ -158,16 +159,16 @@
       <div class="column">
         <label>LMP (YYYY-MM-DD):</label>
         <div class="date-group">
-          <input id="lmpYear" maxlength="4" placeholder="YYYY">
-          <input id="lmpMonth" maxlength="2" placeholder="MM">
-          <input id="lmpDay" maxlength="2" placeholder="DD">
+          <input type="number" id="lmpYear" maxlength="4" placeholder="YYYY">
+          <input type="number" id="lmpMonth" maxlength="2" placeholder="MM">
+          <input type="number" id="lmpDay" maxlength="2" placeholder="DD">
         </div>
 
         <label>EDD (YYYY-MM-DD):</label>
         <div class="date-group">
-          <input id="eddYear" maxlength="4" placeholder="YYYY">
-          <input id="eddMonth" maxlength="2" placeholder="MM">
-          <input id="eddDay" maxlength="2" placeholder="DD">
+          <input type="number" id="eddYear" maxlength="4" placeholder="YYYY">
+          <input type="number" id="eddMonth" maxlength="2" placeholder="MM">
+          <input type="number" id="eddDay" maxlength="2" placeholder="DD">
         </div>
 
         <label>Cycle Length (days):</label>
@@ -175,9 +176,9 @@
 
         <label>First Ultrasound Date (YYYY-MM-DD):</label>
         <div class="date-group">
-          <input id="usYear" maxlength="4" placeholder="YYYY">
-          <input id="usMonth" maxlength="2" placeholder="MM">
-          <input id="usDay" maxlength="2" placeholder="DD">
+          <input type="number" id="usYear" maxlength="4" placeholder="YYYY">
+          <input type="number" id="usMonth" maxlength="2" placeholder="MM">
+          <input type="number" id="usDay" maxlength="2" placeholder="DD">
         </div>
 
         <label>GA at First Ultrasound:</label>
@@ -188,9 +189,9 @@
 
         <label>Specific Date (YYYY-MM-DD):</label>
         <div class="date-group">
-          <input id="customYear" maxlength="4" placeholder="YYYY">
-          <input id="customMonth" maxlength="2" placeholder="MM">
-          <input id="customDay" maxlength="2" placeholder="DD">
+          <input type="number" id="customYear" maxlength="4" placeholder="YYYY">
+          <input type="number" id="customMonth" maxlength="2" placeholder="MM">
+          <input type="number" id="customDay" maxlength="2" placeholder="DD">
         </div>
       </div>
 
@@ -233,24 +234,35 @@
 
   <script>
     function buildDateFromInputs(prefix) {
-      const y = document.getElementById(prefix + "Year").value;
-      const m = document.getElementById(prefix + "Month").value;
-      const d = document.getElementById(prefix + "Day").value;
-      if (y.length === 4 && m.length === 2 && d.length === 2) {
-        const year = parseInt(y, 10);
-        const month = parseInt(m, 10);
-        const day = parseInt(d, 10);
-        if (
-          Number.isNaN(year) || Number.isNaN(month) || Number.isNaN(day) ||
-          month < 1 || month > 12 || day < 1 || day > 31
-        ) {
-          return null;
-        }
-        return new Date(year, month - 1, day);
-      }
-      return null;
-    }
+      let y = document.getElementById(prefix + "Year").value;
+      let m = document.getElementById(prefix + "Month").value;
+      let d = document.getElementById(prefix + "Day").value;
 
+      // Year must be 4 digits
+      if (y.length !== 4) return null;
+
+      // Accept 1 or 2 digits; internally normalize
+      if (m.length === 1) m = "0" + m;
+      if (d.length === 1) d = "0" + d;
+
+      // Still require 2 digits after padding
+      if (m.length !== 2 || d.length !== 2) return null;
+
+      const year = parseInt(y, 10);
+      const month = parseInt(m, 10);
+      const day = parseInt(d, 10);
+
+      // Basic validation
+      if (
+        Number.isNaN(year) ||
+        Number.isNaN(month) || month < 1 || month > 12 ||
+        Number.isNaN(day)   || day < 1 || day > 31
+      ) {
+        return null;
+      }
+
+      return new Date(year, month - 1, day);
+    }
     function formatGA(days) {
       if (days === null || Number.isNaN(days) || days < 0 || days > 320) return null;
       const w = Math.floor(days / 7);
@@ -347,6 +359,16 @@
     document.querySelectorAll("input").forEach(input => {
       input.addEventListener("input", updateOutputs);
     });
+  document.querySelectorAll('input[type="number"]', 'us').forEach(input => {
+  input.addEventListener('focus', function() {
+    this.select();
+  });
+  
+  // Also select again on click (for browsers that don't select on focus)
+  input.addEventListener('click', function() {
+    this.select();
+  });
+});
   </script>
 </body>
 </html>

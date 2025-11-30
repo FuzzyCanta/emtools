@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Convertisseur Levophed Avancé</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      max-width: fit-content;
+      width: 100%;
+      Justify-items: center;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #2c3e50;
+    }
+
+    .control-group {
+      margin-bottom: 25px;
+      justify-items: center;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+      color: #34495e;
+    }
+
+    .input-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    input[type="number"] {
+      width: 90px;
+      padding: 6px 10px;
+      font-size: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .conc-btn, .unit-btn {
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: 1px solid #357ABD;
+      background: #eef5ff;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .conc-btn.selected, .unit-btn.selected {
+      background: #357ABD;
+      color: white;
+    }
+
+    .toggle-row {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #mgmlDisplay {
+      font-size: 0.95rem;
+      color: #2c3e50;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    .result {
+      background: #f9fafd;
+      border: 1px solid #cdd9ed;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.05);
+      width: 100%;
+    }
+
+    .result p {
+      font-size: 1.1rem;
+      margin: 8px 0;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #e1e7f0;
+      padding-bottom: 6px;
+    }
+
+    .result p:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <h1>Convertisseur Levo</h1>
+
+  <!-- WEIGHT -->
+  <div class="control-group">
+    <label>Poids du patient (kg):</label>
+    <div class="input-row">
+      <input type="range" id="weight" min="0" max="250" value="70">
+      <input type="number" id="weightNum" min="0" max="250" value="70">
+    </div>
+  </div>
+
+  <!-- CONCENTRATION -->
+  <div class="control-group">
+    <label>Concentration (mg / 250 mL):</label>
+
+    <div id="concentrationButtons" style="display:flex; gap:10px; flex-wrap:wrap;">
+      <button class="conc-btn" data-val="4">4</button>
+      <button class="conc-btn" data-val="8">8</button>
+      <button class="conc-btn" data-val="16">16</button>
+      <button class="conc-btn" data-val="32">32</button>
+      <button class="conc-btn" data-val="64">64</button>
+    </div>
+
+    <div class="toggle-row">
+      <input type="checkbox" id="customToggle">
+      <label for="customToggle">Concentration personnalisée</label>
+    </div>
+
+    <div style="margin-top:12px;">
+      <input type="number" id="concentrationNum" min="0" max="999" value="4" disabled>
+    </div>
+
+    <div id="mgmlDisplay"></div>
+  </div>
+
+  <!-- UNIT BUTTONS -->
+  <div class="control-group">
+    <label>Unité de départ :</label>
+
+    <div id="unitButtons" style="display:flex; gap:10px; flex-wrap:wrap;">
+      <button class="unit-btn" data-unit="mcg_per_min">mcg/min</button>
+      <button class="unit-btn" data-unit="mcg_per_kg_min">mcg/kg/min</button>
+      <button class="unit-btn" data-unit="ml_per_hr">mL/h</button>
+    </div>
+  </div>
+
+  <!-- VALUE INPUT -->
+  <div class="control-group">
+    <label>Valeur :</label>
+
+    <div class="input-row">
+      <input type="range" id="inputVal" min="0" max="200" step="0.1" value="1">
+      <input type="number" id="inputValNum" min="0" max="200" step="0.1" value="1">
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="result">
+    <p><span>mcg/min :</span> <span id="res_mcg_min">-</span></p>
+    <p><span>mcg/kg/min :</span> <span id="res_mcg_kg_min">-</span></p>
+    <p><span>mL/h :</span> <span id="res_ml_hr">-</span></p>
+  </div>
+</div>
+
+
+<script>
+/* ELEMENT REFERENCES */
+const weightSlider = document.getElementById('weight');
+const weightNum = document.getElementById('weightNum');
+
+const concButtons = document.querySelectorAll('.conc-btn');
+const customToggle = document.getElementById('customToggle');
+const concentrationNum = document.getElementById('concentrationNum');
+
+const mgmlDisplay = document.getElementById('mgmlDisplay');
+
+const unitButtons = document.querySelectorAll('.unit-btn');
+let currentUnit = "mcg_per_min";
+
+const inputValSlider = document.getElementById('inputVal');
+const inputValNum = document.getElementById('inputValNum');
+
+const resMcgMin = document.getElementById('res_mcg_min');
+const resMcgKgMin = document.getElementById('res_mcg_kg_min');
+const resMlHr = document.getElementById('res_ml_hr');
+
+
+/* SYNC RANGE + NUMBER */
+function sync(rangeEl, numEl) {
+  rangeEl.addEventListener('input', () => {
+    numEl.value = rangeEl.value;
+    updateConversions();
+  });
+
+  numEl.addEventListener('input', () => {
+    rangeEl.value = numEl.value;
+    updateConversions();
+  });
+}
+
+sync(weightSlider, weightNum);
+sync(inputValSlider, inputValNum);
+
+
+/* CONCENTRATION BUTTONS */
+function setConcentration(val) {
+  concentrationNum.value = val;
+
+  concButtons.forEach(b => b.classList.remove('selected'));
+  const btn = document.querySelector(`.conc-btn[data-val="${val}"]`);
+  if (btn) btn.classList.add('selected');
+
+  updateConversions();
+}
+
+concButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (!customToggle.checked) setConcentration(btn.dataset.val);
+  });
+});
+
+
+/* CUSTOM CONCENTRATION MODE */
+customToggle.addEventListener('change', () => {
+  if (customToggle.checked) {
+    concentrationNum.disabled = false;
+    concButtons.forEach(b => b.classList.remove('selected'));
+  } else {
+    concentrationNum.disabled = true;
+    const allowed = [4,8,16,32,64];
+    let v = parseInt(concentrationNum.value);
+    if (!allowed.includes(v)) setConcentration(4);
+  }
+  updateConversions();
+});
+
+concentrationNum.addEventListener('input', () => {
+  if (!customToggle.checked) {
+    const allowed = [4,8,16,32,64];
+    const v = parseInt(concentrationNum.value);
+    if (!allowed.includes(v)) return;
+    setConcentration(v);
+  }
+  updateConversions();
+});
+
+
+/* UNIT BUTTONS */
+unitButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentUnit = btn.dataset.unit;
+
+    unitButtons.forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+
+    updateConversions();
+  });
+});
+
+// Default selection
+document.querySelector('.unit-btn[data-unit="mcg_per_min"]').classList.add('selected');
+
+
+/* MAIN CONVERSION FUNCTION */
+function updateConversions() {
+  const weight = parseFloat(weightNum.value);
+  const concMg = parseFloat(concentrationNum.value);
+  const unit = currentUnit;
+  const inputVal = parseFloat(inputValNum.value);
+
+  const mcgPerMl = (concMg * 1000) / 250;
+  mgmlDisplay.textContent = `→ ${mcgPerMl.toFixed(1)} mcg/mL`;
+
+  let mcg_min, mcg_kg_min, ml_hr;
+
+  if (unit === "mcg_per_min") {
+    mcg_min = inputVal;
+    mcg_kg_min = mcg_min / weight;
+    ml_hr = (mcg_min / mcgPerMl) * 60;
+
+  } else if (unit === "mcg_per_kg_min") {
+    mcg_kg_min = inputVal;
+    mcg_min = mcg_kg_min * weight;
+    ml_hr = (mcg_min / mcgPerMl) * 60;
+
+  } else if (unit === "ml_per_hr") {
+    ml_hr = inputVal;
+    mcg_min = (ml_hr / 60) * mcgPerMl;
+    mcg_kg_min = mcg_min / weight;
+  }
+
+  resMcgMin.textContent = mcg_min.toFixed(2);
+  resMcgKgMin.textContent = mcg_kg_min.toFixed(4);
+  resMlHr.textContent = ml_hr.toFixed(2);
+}
+
+updateConversions();
+</script>
+
+</body>
+</html>

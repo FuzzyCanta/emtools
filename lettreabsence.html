@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Language" content="fr-CA">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Attestation médicale – Impression</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background:#f5f7fb;
+      color:#111827;
+      padding:24px;
+    }
+
+    /* =======================
+       LAYOUT ÉCRAN
+       ======================= */
+    .wrap{
+      max-width: 1100px;
+      margin:0;
+      display:grid;
+      grid-template-columns: 520px 1fr;
+      gap:16px;
+      align-items:start;
+    }
+
+    @media (max-width: 1050px){
+      .wrap{
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =======================
+       ZONE CONTRÔLES
+       ======================= */
+    .controls{
+      background:#ffffff;
+      border:1px solid #d0d4e0;
+      border-radius:12px;
+      padding:16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+
+    h1{ margin:0 0 8px 0; font-size:18px; }
+    h2{ margin:0 0 12px 0; font-size:16px; color:#6b7280; }
+
+    label{
+      display:block;
+      font-size:13px;
+      margin:10px 0 6px;
+      color:#6b7280;
+    }
+
+    input, select, textarea, button{
+      width:100%;
+      padding:10px;
+      border:1px solid #d0d4e0;
+      border-radius:10px;
+      font-size:14px;
+      box-sizing:border-box;
+      background:#fff;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+
+    .inline{
+      display:flex;
+      gap:10px;
+      align-items:end;
+    }
+
+    .inline button{
+      width:auto;
+      white-space:nowrap;
+      cursor:pointer;
+    }
+
+    .btn{
+      background:#2563eb;
+      color:#fff;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      margin-top:12px;
+    }
+
+    /* =======================
+       FEUILLE (APERÇU + IMPRESSION)
+       ======================= */
+    .sheet{
+      width: 8.5in;
+      min-height: 11in;
+      background:#fff;
+      padding: 0.75in;
+      border:1px solid #d0d4e0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+
+    /* Sur petits écrans, la feuille prend la largeur dispo */
+    @media (max-width: 1050px){
+      .sheet{
+        width: 100%;
+        min-height: auto;
+      }
+    }
+
+    .header{ margin-bottom:20px; }
+    .institution{ 
+      font-weight:700; 
+      font-size:15px;
+      margin-top: 100px; 
+    }
+    .address{
+      font-size:13px;
+      color:#374151;
+      margin-top:4px;
+      margin-bottom:100px;
+      line-height:1.35;
+    }
+
+    .title{
+      margin-top:20px;
+      font-weight:700;
+      font-size:16px;
+    }
+    .subtitle{
+      font-size:13px;
+      color:#6b7280;
+      margin-bottom:28px;
+    }
+
+    .bodyText{
+      font-size:14px;
+      line-height:1.45;
+      white-space:pre-wrap;
+    }
+
+    .sigLine{
+      margin-top:200px;
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+    }
+
+    .line{
+      border-bottom:1px solid #111827;
+      width:3.2in;
+      height:16px;
+    }
+
+    .small{
+      font-size:12px;
+      color:#6b7280;
+      margin-top:6px;
+    }
+
+    /* =======================
+       IMPRESSION
+       ======================= */
+    @page{
+      size: letter;
+      margin: 0;
+    }
+
+    @media print{
+      body{
+        background:#fff;
+        padding:0;
+      }
+      .wrap{
+        grid-template-columns: 1fr;
+        gap:0;
+      }
+      .controls{
+        display:none !important;
+      }
+      .sheet{
+        border:none;
+        box-shadow:none;
+        width: 8.5in;
+        min-height: 11in;
+        padding: 0.75in;
+        margin:0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="wrap">
+  <!-- CONTRÔLES -->
+  <div class="controls">
+    <h1>Attestation médicale</h1>
+    <h2>Paramètres</h2>
+
+    <label>Raison</label>
+    <select id="reason"></select>
+
+    <div class="inline">
+      <div style="flex:1">
+        <label>Ajouter une raison</label>
+        <input id="newReason" type="text">
+      </div>
+      <button id="addReason" type="button">Ajouter</button>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Date de consultation à l’urgence</label>
+        <input id="seenDate" type="date">
+      </div>
+      <div></div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Début de l’absence (optionnel)</label>
+        <input id="startDate" type="date">
+      </div>
+      <div>
+        <label>Fin de l’absence (optionnel)</label>
+        <input id="endDate" type="date">
+      </div>
+    </div>
+
+    <label>Commentaires (optionnel)</label>
+    <textarea id="comments" rows="3"></textarea>
+
+    <button class="btn" id="print" type="button">Imprimer</button>
+  </div>
+
+  <!-- FEUILLE -->
+  <div class="sheet">
+    <div class="header">
+      <div class="institution">Hôpital du Sacré-Cœur de Montréal</div>
+      <div class="address">
+        Département d’urgence<br>
+        5400, boulevard Gouin Ouest<br>
+        Montréal (Québec) H4J 1C5<br>
+        Téléphone : (514) 338-2222, poste 2008<br>
+        <!-- Télécopieur : (514) 338-2299 -->
+      </div>
+    </div>
+
+    <div class="title">ATTESTATION MÉDICALE</div>
+    <div class="subtitle">Justification d’absence</div>
+
+    <div class="bodyText" id="letter"></div>
+
+    <div class="sigLine">
+      <div>
+        <div class="line"></div>
+        <div class="small">Signature</div>
+      </div>
+      <div class="small" id="dateRight"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const reasons = [
+    "Raison médicale",
+    "Accident de la route",
+    "Suivi d'arrêt de travail",
+    "Suivi de grossesse",
+    "Autre"
+  ];
+
+  const el = id => document.getElementById(id);
+
+  // Date ISO LOCALE (évite le bug "hier" causé par UTC/toISOString)
+  function todayISO(){
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, "0");
+    const d = String(now.getDate()).padStart(2, "0");
+    return `${y}-${m}-${d}`;
+  }
+
+  // Format FR robuste: parse YYYY-MM-DD sans décalage de fuseau
+  function formatFR(iso){
+    if(!iso) return "___";
+    const [y,m,d] = iso.split("-").map(Number);
+    const dt = new Date(y, m - 1, d);
+    return new Intl.DateTimeFormat("fr-CA",{day:"numeric",month:"long",year:"numeric"}).format(dt);
+  }
+
+  function buildAbsenceSentence(){
+    const s = el("startDate").value;
+    const e = el("endDate").value;
+
+    if (!s && !e) return "";
+    if (s && !e) return `Une absence est justifiée le ${formatFR(s)}.\n\n`;
+    if (!s && e) return `Une absence est justifiée le ${formatFR(e)}.\n\n`;
+    if (s === e) return `Une absence est justifiée le ${formatFR(s)}.\n\n`;
+    return `Une absence est justifiée du ${formatFR(s)} au ${formatFR(e)} inclusivement.\n\n`;
+  }
+
+  function buildText(){
+    let t = "";
+    t += "À qui de droit,\n\n";
+    t += `Par la présente, j’atteste que la personne concernée a été vue au département d’urgence le ${formatFR(el("seenDate").value)}.\n\n`;
+    t += `Motif de consultation: ${el("reason").value}.\n\n`;
+    t += buildAbsenceSentence();
+
+    const c = el("comments").value.trim();
+    if (c){
+      t += "Commentaires: " + c + "\n\n";
+    }
+    return t;
+  }
+
+  function refresh(){
+    el("letter").textContent = buildText();
+    el("dateRight").textContent = "Date: " + formatFR(todayISO());
+  }
+
+  // Init menu raisons
+  reasons.forEach(r=>{
+    const o = document.createElement("option");
+    o.textContent = r;
+    el("reason").appendChild(o);
+  });
+
+  // Date de consultation = aujourd’hui (LOCAL) par défaut
+  el("seenDate").value = todayISO();
+  refresh();
+
+  ["input","change"].forEach(evt=>{
+    ["reason","seenDate","startDate","endDate","comments"].forEach(id=>{
+      el(id).addEventListener(evt, refresh);
+    });
+  });
+
+  el("addReason").onclick = ()=>{
+    const v = (el("newReason").value || "").trim();
+    if(!v) return;
+    const o = document.createElement("option");
+    o.textContent = v;
+    el("reason").appendChild(o);
+    el("reason").value = o.textContent;
+    el("newReason").value = "";
+    refresh();
+  };
+
+  el("print").onclick = ()=>window.print();
+</script>
+
+</body>
+</html>

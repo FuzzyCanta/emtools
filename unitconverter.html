@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Imperial ↔ SI Medical Unit Converter</title>
+  <style>
+    :root { --bg:#f5f7fb; --card:#fff; --border:#d7dbe6; --text:#1f2430; }
+    body { margin:0; font-family: Arial, sans-serif; background:var(--bg); color:var(--text); }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 18px; }
+    h1 { font-size: 20px; margin: 0 0 12px; }
+    .grid { display:grid; gap:12px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px; }
+    .card h2 { font-size: 16px; margin:0 0 10px; }
+    .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:8px 8px; }
+    label { font-size: 13px; min-width: 92px; }
+    input, select {
+      padding:8px 10px; border:1px solid var(--border); border-radius:10px; font-size:14px; background:#fff;
+      width: 110px;
+    }
+    input.small { width: 78px; }
+    .out { font-size:14px; padding:8px 10px; border:1px dashed var(--border); border-radius:10px; background:#fbfcff; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .hint { font-size: 12px; opacity: 0.8; margin-top: 6px; }
+    button {
+      padding:8px 10px; border:1px solid var(--border); border-radius:10px; background:#fff; cursor:pointer;
+    }
+    button:hover { background:#f0f3fb; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Imperial ↔ SI unit converter (height, temperature, BMI, IBW, BSA)</h1>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Height</h2>
+
+        <div class="row">
+          <label for="ft">Imperial</label>
+          <input id="ft" class="small" type="number" min="0" step="1" placeholder="ft" />
+          <input id="inch" class="small" type="number" min="0" step="0.1" placeholder="in" />
+          <span class="out mono" id="heightSI">—</span>
+        </div>
+
+        <div class="row">
+          <label for="cm">SI</label>
+          <input id="cm" type="number" min="0" step="0.1" placeholder="cm" />
+          <span class="out mono" id="heightImp">—</span>
+        </div>
+
+        <div class="hint">Edits in either line update the other (last edited wins).</div>
+      </div>
+
+    <div class="card">
+        <h2>Weight</h2>
+
+        <div class="row">
+          <label for="lb">Imperial</label>
+          <input id="lb" type="number" min="0" step="0.1" placeholder="lb" />
+          <span class="out mono" id="kgOut">—</span>
+        </div>
+
+        <div class="row">
+          <label for="kg">SI</label>
+          <input id="kg" type="number" min="0" step="0.1" placeholder="kg" />
+          <span class="out mono" id="lbOut">—</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>BMI (kg/m²)</h2>
+
+        <div class="row">
+          <label>Uses</label>
+          <span class="out">Weight (kg) + Height (cm)</span>
+        </div>
+
+        <div class="row">
+          <label>BMI</label>
+          <span class="out mono" id="bmiOut">—</span>
+        </div>
+
+        <div class="hint">Enter height/weight anywhere above; BMI updates automatically.</div>
+      </div>
+
+      <div class="card">
+        <h2>IBW (Devine)</h2>
+
+        <div class="row">
+          <label for="sex">Sex</label>
+          <select id="sex">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label>IBW</label>
+          <span class="out mono" id="ibwOut">—</span>
+        </div>
+
+        <div class="hint">Formula: Male 50 kg + 2.3 kg per inch over 5 ft; Female 45.5 kg + 2.3 kg per inch over 5 ft.</div>
+      </div>
+
+      <div class="card">
+        <h2>Body Surface Area (Mosteller)</h2>
+
+        <div class="row">
+          <label>Uses</label>
+          <span class="out">BSA = √(height(cm) × weight(kg) / 3600)</span>
+        </div>
+
+        <div class="row">
+          <label>BSA</label>
+          <span class="out mono" id="bsaOut">—</span>
+        </div>
+      </div>
+        <div class="card">
+            <h2>Temperature</h2>
+            <div class="row">
+                <label for="tempF">Fahrenheit</label>
+                <input id="tempF" type="number" step="0.1" placeholder="°F" />
+                <span class="out mono" id="tempCOut">—</span>
+            </div>
+
+            <div class="row">
+                <label for="tempC">Celsius</label>
+                <input id="tempC" type="number" step="0.1" placeholder="°C" />
+                <span class="out mono" id="tempFOut">—</span>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:12px;">
+      <button id="clearBtn" type="button">Clear all</button>
+    </div>
+  </div>
+
+<script>
+  // ---------- Helpers ----------
+  function n(v) {
+    // Parse number safely
+    const x = Number(v);
+    return Number.isFinite(x) ? x : null;
+  }
+  function round(x, d) {
+    // Round to d decimals
+    const p = Math.pow(10, d);
+    return Math.round(x * p) / p;
+  }
+
+  // ---------- Elements ----------
+  const el = {
+    ft: document.getElementById("ft"),
+    inch: document.getElementById("inch"),
+    cm: document.getElementById("cm"),
+    heightSI: document.getElementById("heightSI"),
+    heightImp: document.getElementById("heightImp"),
+
+    tempF: document.getElementById("tempF"),
+    tempC: document.getElementById("tempC"),
+    tempCOut: document.getElementById("tempCOut"),
+    tempFOut: document.getElementById("tempFOut"),
+
+    lb: document.getElementById("lb"),
+    kg: document.getElementById("kg"),
+    kgOut: document.getElementById("kgOut"),
+    lbOut: document.getElementById("lbOut"),
+
+    bmiOut: document.getElementById("bmiOut"),
+    sex: document.getElementById("sex"),
+    ibwOut: document.getElementById("ibwOut"),
+
+    bsaOut: document.getElementById("bsaOut"),
+    clearBtn: document.getElementById("clearBtn"),
+  };
+
+  // Track what the user edited last so we don't "fight" between paired fields
+  let lastEdited = null;
+
+  // ---------- Conversions ----------
+  function inchesTotalFromFtIn(ft, inch) {
+    // Convert ft/in to total inches
+    return ft * 12 + inch;
+  }
+  function cmFromInches(inches) {
+    // 1 inch = 2.54 cm
+    return inches * 2.54;
+  }
+  function inchesFromCm(cm) {
+    return cm / 2.54;
+  }
+  function kgFromLb(lb) {
+    // 1 lb = 0.45359237 kg
+    return lb * 0.45359237;
+  }
+  function lbFromKg(kg) {
+    return kg / 0.45359237;
+  }
+  function cFromF(f) {
+    return (f - 32) * 5 / 9;
+  }
+  function fFromC(c) {
+    return (c * 9 / 5) + 32;
+  }
+
+  // ---------- Compute outputs (BMI, IBW, BSA) ----------
+  function currentHeightCm() {
+    // Prefer SI input if last edited SI; otherwise derive from ft/in if present
+    const cmVal = n(el.cm.value);
+    const ftVal = n(el.ft.value);
+    const inVal = n(el.inch.value);
+
+    if (lastEdited === "cm" && cmVal !== null) return cmVal;
+
+    if (ftVal !== null || inVal !== null) {
+      const ft = ftVal ?? 0;
+      const inch = inVal ?? 0;
+      const inches = inchesTotalFromFtIn(ft, inch);
+      if (inches > 0) return cmFromInches(inches);
+    }
+
+    return cmVal !== null ? cmVal : null;
+  }
+
+  function currentWeightKg() {
+    // Prefer SI input if last edited SI; otherwise derive from lb if present
+    const kgVal = n(el.kg.value);
+    const lbVal = n(el.lb.value);
+
+    if (lastEdited === "kg" && kgVal !== null) return kgVal;
+    if (lbVal !== null) return kgFromLb(lbVal);
+    return kgVal !== null ? kgVal : null;
+  }
+
+  function updateBMI_IBW_BSA() {
+    // BMI
+    const hCm = currentHeightCm();
+    const wKg = currentWeightKg();
+    if (hCm !== null && wKg !== null && hCm > 0) {
+      const hM = hCm / 100;
+      const bmi = wKg / (hM * hM);
+      el.bmiOut.textContent = `${round(bmi, 1)} kg/m²`;
+    } else {
+      el.bmiOut.textContent = "—";
+    }
+
+    // IBW (Devine) based on height in inches
+    if (hCm !== null && hCm > 0) {
+      const inches = inchesFromCm(hCm);
+      const over5ft = Math.max(0, inches - 60); // inches over 5 ft
+      const base = (el.sex.value === "M") ? 50 : 45.5;
+      const ibw = base + 2.3 * over5ft;
+      el.ibwOut.textContent = `${round(ibw, 1)} kg`;
+    } else {
+      el.ibwOut.textContent = "—";
+    }
+
+    // BSA (Mosteller)
+    if (hCm !== null && wKg !== null && hCm > 0 && wKg > 0) {
+      const bsa = Math.sqrt((hCm * wKg) / 3600);
+      el.bsaOut.textContent = `${round(bsa, 2)} m²`;
+    } else {
+      el.bsaOut.textContent = "—";
+    }
+  }
+
+  // ---------- Height sync ----------
+  function updateHeightFromImperial() {
+    const ftVal = n(el.ft.value) ?? 0;
+    const inVal = n(el.inch.value) ?? 0;
+
+    const inches = inchesTotalFromFtIn(ftVal, inVal);
+    if (inches > 0) {
+      const cm = cmFromInches(inches);
+      el.heightSI.textContent = `${round(cm, 1)} cm`;
+      if (lastEdited === "ftin") el.cm.value = String(round(cm, 1));
+      el.heightImp.textContent = `${Math.floor(inches / 12)} ft ${round(inches % 12, 1)} in`;
+    } else {
+      el.heightSI.textContent = "—";
+      el.heightImp.textContent = "—";
+      if (lastEdited === "ftin") el.cm.value = "";
+    }
+  }
+
+  function updateHeightFromSI() {
+    const cmVal = n(el.cm.value);
+    if (cmVal !== null && cmVal > 0) {
+      const inches = inchesFromCm(cmVal);
+      const ft = Math.floor(inches / 12);
+      const inch = inches - ft * 12;
+
+      el.heightSI.textContent = `${round(cmVal, 1)} cm`;
+      el.heightImp.textContent = `${ft} ft ${round(inch, 1)} in`;
+
+      if (lastEdited === "cm") {
+        el.ft.value = String(ft);
+        el.inch.value = String(round(inch, 1));
+      }
+    } else {
+      el.heightSI.textContent = "—";
+      el.heightImp.textContent = "—";
+      if (lastEdited === "cm") { el.ft.value = ""; el.inch.value = ""; }
+    }
+  }
+
+  // ---------- Temperature sync ----------
+  function updateTempFromF() {
+    const f = n(el.tempF.value);
+    if (f !== null) {
+      const c = cFromF(f);
+      el.tempCOut.textContent = `${round(c, 1)} °C`;
+      el.tempFOut.textContent = `${round(f, 1)} °F`;
+      if (lastEdited === "tempF") el.tempC.value = String(round(c, 1));
+    } else {
+      el.tempCOut.textContent = "—";
+      el.tempFOut.textContent = "—";
+      if (lastEdited === "tempF") el.tempC.value = "";
+    }
+  }
+  function updateTempFromC() {
+    const c = n(el.tempC.value);
+    if (c !== null) {
+      const f = fFromC(c);
+      el.tempFOut.textContent = `${round(f, 1)} °F`;
+      el.tempCOut.textContent = `${round(c, 1)} °C`;
+      if (lastEdited === "tempC") el.tempF.value = String(round(f, 1));
+    } else {
+      el.tempCOut.textContent = "—";
+      el.tempFOut.textContent = "—";
+      if (lastEdited === "tempC") el.tempF.value = "";
+    }
+  }
+
+  // ---------- Weight sync ----------
+  function updateWeightFromLb() {
+    const lb = n(el.lb.value);
+    if (lb !== null && lb >= 0) {
+      const kg = kgFromLb(lb);
+      el.kgOut.textContent = `${round(kg, 2)} kg`;
+      el.lbOut.textContent = `${round(lb, 1)} lb`;
+      if (lastEdited === "lb") el.kg.value = String(round(kg, 2));
+    } else {
+      el.kgOut.textContent = "—";
+      el.lbOut.textContent = "—";
+      if (lastEdited === "lb") el.kg.value = "";
+    }
+  }
+  function updateWeightFromKg() {
+    const kg = n(el.kg.value);
+    if (kg !== null && kg >= 0) {
+      const lb = lbFromKg(kg);
+      el.lbOut.textContent = `${round(lb, 1)} lb`;
+      el.kgOut.textContent = `${round(kg, 2)} kg`;
+      if (lastEdited === "kg") el.lb.value = String(round(lb, 1));
+    } else {
+      el.kgOut.textContent = "—";
+      el.lbOut.textContent = "—";
+      if (lastEdited === "kg") el.lb.value = "";
+    }
+  }
+
+  // ---------- Master refresh ----------
+  function refreshAll() {
+    // Height
+    if (lastEdited === "cm") updateHeightFromSI();
+    else updateHeightFromImperial();
+
+    // Temperature
+    if (lastEdited === "tempC") updateTempFromC();
+    else updateTempFromF();
+
+    // Weight
+    if (lastEdited === "kg") updateWeightFromKg();
+    else updateWeightFromLb();
+
+    // Derived metrics
+    updateBMI_IBW_BSA();
+  }
+
+  // ---------- Events (auto-update) ----------
+  // Height
+  el.ft.addEventListener("input", () => { lastEdited = "ftin"; refreshAll(); });
+  el.inch.addEventListener("input", () => { lastEdited = "ftin"; refreshAll(); });
+  el.cm.addEventListener("input", () => { lastEdited = "cm"; refreshAll(); });
+
+  // Temperature
+  el.tempF.addEventListener("input", () => { lastEdited = "tempF"; refreshAll(); });
+  el.tempC.addEventListener("input", () => { lastEdited = "tempC"; refreshAll(); });
+
+  // Weight
+  el.lb.addEventListener("input", () => { lastEdited = "lb"; refreshAll(); });
+  el.kg.addEventListener("input", () => { lastEdited = "kg"; refreshAll(); });
+
+  // Sex (IBW)
+  el.sex.addEventListener("change", () => { refreshAll(); });
+
+  // Clear
+  el.clearBtn.addEventListener("click", () => {
+    // Reset inputs
+    el.ft.value = ""; el.inch.value = ""; el.cm.value = "";
+    el.tempF.value = ""; el.tempC.value = "";
+    el.lb.value = ""; el.kg.value = "";
+    lastEdited = null;
+    refreshAll();
+  });
+
+  // Initial paint
+  refreshAll();
+</script>
+</body>
+</html>

@@ -129,62 +129,86 @@
       <tr>
         <th>Calculation</th>
         <th>Value</th>
-        <th>Units / Notes</th>
+        <th>Units</th>
+        <th>Normal</th> 
+        <th>Notes</th>
       </tr>
       <tr>
         <td>Anion gap (AG)</td>
         <td><span id="anionGap">--</span></td>
-        <td>mmol/L (Na⁺ − (Cl⁻ + HCO₃⁻))</td>
+        <td>mmol/L</td>
+        <td>4-12mmol</td>
+        <td>Na⁺ − (Cl⁻ + HCO₃⁻)</td>
       </tr>
       <tr>
         <td>Corrected AG for albumin</td>
         <td><span id="corrAnionGap">--</span></td>
-        <td>mmol/L (AG + 0.25 × (40 − albumin[g/L]))</td>
+        <td>mmol/L</td>
+        <td>--</td>
+        <td>AG + 0.25 × (40 − albumin[g/L])</td>
       </tr>
       <tr>
         <td>Corrected Na⁺ for glucose</td>
         <td><span id="corrNa">--</span></td>
-        <td>mmol/L (approx: +0.288 × (glucose − 5.6))</td>
+        <td>mmol/L</td>
+        <td>--</td>
+        <td>approx: +0.288 × (glucose − 5.6)</td>
       </tr>
       <tr>
         <td>Calculated osmolality</td>
         <td><span id="calcOsm">--</span></td>
-        <td>mOsm/kg (2 × Na⁺ + glucose + urea)</td>
+        <td>mOsm/kg</td>
+        <td>275-295 mOsm/kg</td>
+        <td>2 × Na⁺ + glucose + urea</td>
       </tr>
       <tr>
         <td>Osmolar gap</td>
         <td><span id="osmGap">--</span></td>
-        <td>mOsm/kg (measured − calculated)</td>
+        <td>mOsm/kg</td>
+        <td>< 10 mOsm/kg</td>
+        <td>measured − calculated</td>
       </tr>
       <tr>
         <td>Delta AG</td>
         <td><span id="deltaAg">--</span></td>
-        <td>mmol/L (AG − 12)</td>
+        <td>mmol/L</td>
+        <td>--</td>
+        <td>AG − 12</td>
       </tr>
       <tr>
         <td>Delta HCO₃⁻</td>
         <td><span id="deltaHco3">--</span></td>
-        <td>mmol/L (24 − HCO₃⁻)</td>
+        <td>mmol/L</td>
+        <td>--</td>
+        <td>24 − HCO₃⁻</td>
       </tr>
       <tr>
         <td>Delta–delta ratio</td>
         <td><span id="deltaDeltaRatio">--</span></td>
-        <td>(ΔAG / ΔHCO₃⁻)</td>
+        <td>--</td>
+        <td>--</td>
+        <td>ΔAG / ΔHCO₃⁻</td>
       </tr>
       <tr>
         <td>Strong ion difference (simplified)</td>
         <td><span id="sid">--</span></td>
-        <td>mmol/L ((Na⁺ + K⁺) − Cl⁻ − lactate)</td>
+        <td>mmol/L</td>
+        <td>~36 mmol/L</td>
+        <td>(Na⁺ + K⁺) − Cl⁻ − lactate</td>
       </tr>
       <tr>
         <td>Base excess (approx.)</td>
         <td><span id="baseExcess">--</span></td>
-        <td>mmol/L (0.9287 × [HCO₃⁻ − 24.4 + 14.83 × (pH − 7.40)])</td>
+        <td>mmol/L</td>
+        <td>-2 to +2 mmol</td>
+        <td>0.9287 × [HCO₃⁻ − 24.4 + 14.83 × (pH − 7.40)]</td>
       </tr>
       <tr>
         <td>Expected pCO₂ (compensation)</td>
         <td><span id="expectedPco2">--</span></td>
-        <td>mmHg (Winter’s / metabolic alkalosis rule)</td>
+        <td>mmHg</td>
+        <td>--</td>
+        <td>Winter’s / metabolic alkalosis rule</td>
       </tr>
     </table>
     <div class="interpretation" id="pco2Interpretation"></div>

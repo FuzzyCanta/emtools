@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>links.json Editor</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:16px;background:#f7f7f8;color:#111}
+    .wrap{max-width:1800px;margin:0 auto}
+    h1{font-size:18px;margin:0 0 12px 0}
+    .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+    .bar > *{margin:0}
+    button,input[type="file"]{font:inherit}
+    button{padding:8px 10px;border:1px solid #ccc;border-radius:8px;background:#fff;cursor:pointer}
+    button:hover{background:#f0f0f2}
+    button:disabled{opacity:.5;cursor:not-allowed}
+    .note{font-size:12px;color:#444;margin:8px 0 0 0}
+    .panel{background:#fff;border:1px solid #ddd;border-radius:10px;padding:12px}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{border-top:1px solid #eee;padding:6px 6px;vertical-align:top}
+    th{background:#fafafa;font-size:12px;text-align:left;position:sticky;top:0;z-index:1}
+    td input, td textarea, td select{width:100%;box-sizing:border-box;font:inherit;border:1px solid #ddd;border-radius:6px;padding:6px;background:#fff}
+    td textarea{min-height:34px;resize:vertical}
+    .rowActions{white-space:nowrap}
+    .danger{border-color:#e3b4b4}
+    .danger:hover{background:#ffecec}
+    .small{font-size:12px;color:#555}
+    .status{font-size:12px;color:#333;margin-left:auto}
+    .kpi{display:flex;gap:12px;flex-wrap:wrap}
+    .kpi div{font-size:12px;color:#444}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
+    .miniBtn{padding:6px 8px;border-radius:8px}
+    .miniBtn + .miniBtn{margin-left:6px}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Simple JSON editor (links.json)</h1>
+
+  <div class="panel">
+    <div class="bar">
+      <input id="fileInput" type="file" accept="application/json,.json" />
+      <button id="btnNew" type="button">New empty</button>
+      <button id="btnAdd" type="button" disabled>Add item</button>
+      <button id="btnSave" type="button" disabled>Download JSON</button>
+      <button id="btnCopy" type="button" disabled>Copy JSON</button>
+      <button id="btnLoadUrl" type="button" title="Optional: load links.json if hosted on a server (e.g., GitHub Pages)">Load from URL</button>
+      <span class="status" id="status">No data loaded.</span>
+    </div>
+
+    <div class="kpi small">
+      <div>Items: <span id="kItems">0</span></div>
+      <div>Columns: <span id="kCols">0</span></div>
+      <div class="mono" id="kFilename"></div>
+    </div>
+
+    <p class="note">
+      Tips: Tags are edited as comma-separated text and stored as a JSON array. Add/remove columns by updating <span class="mono">DEFAULT_COLUMNS</span>.
+      Use ↑ / ↓ in the Actions column to reorder rows.
+    </p>
+
+    <div id="tableHost" style="overflow:auto;"></div>
+  </div>
+
+  <div class="panel" style="margin-top:12px;">
+    <div class="small">Raw JSON preview (read-only)</div>
+    <textarea id="raw" readonly style="width:100%;min-height:160px;margin-top:6px;border:1px solid #ddd;border-radius:10px;padding:10px;box-sizing:border-box;background:#fff" class="mono"></textarea>
+  </div>
+</div>
+
+<script>
+  // ------------------------------
+  // Configuration: easy to extend
+  // ------------------------------
+  const DEFAULT_COLUMNS = [
+    { key: 'title', label: 'Title', type: 'text' },
+    { key: 'href', label: 'Link', type: 'text' },
+    { key: 'category', label: 'Category', type: 'text' },
+    { key: 'tags', label: 'Tags (comma separated)', type: 'tags' },
+    { key: 'targetBlank', label: 'New tab?', type: 'bool' },
+  ];
+
+  function newItem(){
+    return {
+      title: '',
+      href: '',
+      category: '',
+      tags: [],
+      targetBlank: true,
+    };
+  }
+
+  // ------------------------------
+  // State
+  // ------------------------------
+  let data = null;       // array of objects
+  let filename = 'links.json';
+
+  // ------------------------------
+  // DOM
+  // ------------------------------
+  const fileInput = document.getElementById('fileInput');
+  const btnNew = document.getElementById('btnNew');
+  const btnAdd = document.getElementById('btnAdd');
+  const btnSave = document.getElementById('btnSave');
+  const btnCopy = document.getElementById('btnCopy');
+  const btnLoadUrl = document.getElementById('btnLoadUrl');
+  const tableHost = document.getElementById('tableHost');
+  const statusEl = document.getElementById('status');
+  const rawEl = document.getElementById('raw');
+  const kItems = document.getElementById('kItems');
+  const kCols = document.getElementById('kCols');
+  const kFilename = document.getElementById('kFilename');
+
+  // ------------------------------
+  // Utilities
+  // ------------------------------
+  function setEnabled(isEnabled){
+    btnAdd.disabled = !isEnabled;
+    btnSave.disabled = !isEnabled;
+    btnCopy.disabled = !isEnabled;
+  }
+
+  function setStatus(msg){
+    statusEl.textContent = msg;
+  }
+
+  function safeJsonParse(text){
+    const cleaned = (text && text.charCodeAt(0) === 0xFEFF) ? text.slice(1) : text;
+    const parsed = JSON.parse(cleaned);
+
+    if (Array.isArray(parsed)) return parsed;
+    if (parsed && typeof parsed === 'object'){
+      const candidates = [parsed.links, parsed.LINKS, parsed.DOC_LINKS];
+      const arr = candidates.find(v => Array.isArray(v));
+      if (arr) return arr;
+    }
+
+    throw new Error('JSON must be an array of objects (or an object containing links/LINKS/DOC_LINKS as an array).');
+  }
+
+  function normalizeItem(item){
+    const out = { ...item };
+    if (!('title' in out)) out.title = '';
+    if (!('href' in out)) out.href = '';
+    if (!('category' in out)) out.category = '';
+    if (!('tags' in out)) out.tags = [];
+    if (!Array.isArray(out.tags)){
+      out.tags = String(out.tags || '').split(',').map(s=>s.trim()).filter(Boolean);
+    }
+    if (!('targetBlank' in out)) out.targetBlank = true;
+    out.targetBlank = Boolean(out.targetBlank);
+    return out;
+  }
+
+  function refreshKpis(){
+    kItems.textContent = data ? data.length : 0;
+    kCols.textContent = DEFAULT_COLUMNS.length;
+    kFilename.textContent = data ? `File: ${filename}` : '';
+  }
+
+  function toJsonString(){
+    return JSON.stringify(data, null, 2);
+  }
+
+  function refreshRaw(){
+    rawEl.value = data ? toJsonString() : '';
+  }
+
+  function download(filename, text){
+    const blob = new Blob([text], { type: 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  function copyToClipboard(text){
+    navigator.clipboard.writeText(text).then(
+      () => setStatus('Copied JSON to clipboard.'),
+      () => setStatus('Copy failed (browser blocked clipboard).')
+    );
+  }
+
+  function moveRow(fromIdx, toIdx){
+    if (!data) return;
+    if (toIdx < 0 || toIdx >= data.length) return;
+    const item = data.splice(fromIdx, 1)[0];
+    data.splice(toIdx, 0, item);
+    setStatus(`Moved row ${fromIdx + 1} to position ${toIdx + 1}.`);
+    render();
+  }
+
+  // ------------------------------
+  // Render table
+  // ------------------------------
+  function render(){
+    if (!data){
+      tableHost.innerHTML = '';
+      refreshKpis();
+      refreshRaw();
+      setEnabled(false);
+      return;
+    }
+
+    setEnabled(true);
+    refreshKpis();
+
+    const table = document.createElement('table');
+    const thead = document.createElement('thead');
+    const headRow = document.createElement('tr');
+
+    const thActions = document.createElement('th');
+    thActions.textContent = 'Actions';
+    headRow.appendChild(thActions);
+
+    DEFAULT_COLUMNS.forEach(col => {
+      const th = document.createElement('th');
+      th.textContent = col.label;
+      headRow.appendChild(th);
+    });
+
+    thead.appendChild(headRow);
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+
+    data.forEach((item, idx) => {
+      const tr = document.createElement('tr');
+
+      const tdA = document.createElement('td');
+      tdA.className = 'rowActions';
+
+      const btnUp = document.createElement('button');
+      btnUp.type = 'button';
+      btnUp.className = 'miniBtn';
+      btnUp.textContent = '↑';
+      btnUp.disabled = (idx === 0);
+      btnUp.title = 'Move up';
+      btnUp.onclick = () => moveRow(idx, idx - 1);
+
+      const btnDown = document.createElement('button');
+      btnDown.type = 'button';
+      btnDown.className = 'miniBtn';
+      btnDown.textContent = '↓';
+      btnDown.disabled = (idx === data.length - 1);
+      btnDown.title = 'Move down';
+      btnDown.onclick = () => moveRow(idx, idx + 1);
+
+      const btnDel = document.createElement('button');
+      btnDel.type = 'button';
+      btnDel.className = 'miniBtn danger';
+      btnDel.textContent = 'Delete';
+      btnDel.onclick = () => {
+        data.splice(idx, 1);
+        setStatus(`Deleted row ${idx + 1}.`);
+        render();
+      };
+
+      tdA.appendChild(btnUp);
+      tdA.appendChild(btnDown);
+      tdA.appendChild(btnDel);
+      tr.appendChild(tdA);
+
+      DEFAULT_COLUMNS.forEach(col => {
+        const td = document.createElement('td');
+
+        if (col.type === 'bool'){
+          const sel = document.createElement('select');
+          const optTrue = document.createElement('option');
+          optTrue.value = 'true';
+          optTrue.textContent = 'true';
+          const optFalse = document.createElement('option');
+          optFalse.value = 'false';
+          optFalse.textContent = 'false';
+          sel.appendChild(optTrue);
+          sel.appendChild(optFalse);
+
+          sel.value = item[col.key] ? 'true' : 'false';
+          sel.onchange = () => {
+            item[col.key] = (sel.value === 'true');
+            refreshRaw();
+          };
+          td.appendChild(sel);
+        }
+        else if (col.type === 'tags'){
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.value = Array.isArray(item[col.key]) ? item[col.key].join(', ') : '';
+          input.oninput = () => {
+            const arr = input.value
+              .split(',')
+              .map(s => s.trim())
+              .filter(Boolean);
+            item[col.key] = arr;
+            refreshRaw();
+          };
+          td.appendChild(input);
+        }
+        else {
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.value = (item[col.key] ?? '').toString();
+          input.oninput = () => {
+            item[col.key] = input.value;
+            refreshRaw();
+          };
+          if (['title','href'].includes(col.key) && !input.value.trim()) td.classList.add('danger');
+          input.onblur = () => {
+            td.classList.toggle('danger', (['title','href'].includes(col.key) && !input.value.trim()));
+          };
+          td.appendChild(input);
+        }
+
+        tr.appendChild(td);
+      });
+
+      tbody.appendChild(tr);
+    });
+
+    table.appendChild(tbody);
+    tableHost.innerHTML = '';
+    tableHost.appendChild(table);
+    refreshRaw();
+  }
+
+  // ------------------------------
+  // Loaders
+  // ------------------------------
+  async function loadFromFile(file){
+    try{
+      const text = await file.text();
+      const parsed = safeJsonParse(text);
+      data = parsed.map(normalizeItem);
+      filename = file.name || 'links.json';
+      setStatus(`Loaded ${data.length} items from ${filename}.`);
+      render();
+    } catch(e){
+      data = null;
+      setEnabled(false);
+      tableHost.innerHTML = '';
+      refreshKpis();
+      refreshRaw();
+      setStatus(`Failed to load file: ${e.message}`);
+    }
+  }
+
+  async function loadFromUrl(){
+    const url = prompt('Enter URL to a JSON file (e.g., https://<user>.github.io/<repo>/links.json):');
+    if (!url) return;
+    try{
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const parsed = await res.json();
+      const arr = Array.isArray(parsed) ? parsed : (parsed && (parsed.links || parsed.LINKS || parsed.DOC_LINKS));
+      if (!Array.isArray(arr)) throw new Error('JSON must be an array of objects (or contain links/LINKS/DOC_LINKS array).');
+      data = arr.map(normalizeItem);
+      filename = (url.split('/').pop() || 'links.json');
+      setStatus(`Loaded ${data.length} items from URL.`);
+      render();
+    } catch(e){
+      setStatus(`Failed to load URL: ${e.message}`);
+    }
+  }
+
+  // ------------------------------
+  // Events
+  // ------------------------------
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files && fileInput.files[0]) loadFromFile(fileInput.files[0]);
+  });
+
+  btnNew.addEventListener('click', () => {
+    data = [];
+    filename = 'links.json';
+    setStatus('Started new empty JSON list.');
+    render();
+  });
+
+  btnAdd.addEventListener('click', () => {
+    if (!data) return;
+    data.push(newItem());
+    setStatus(`Added item ${data.length}.`);
+    render();
+    tableHost.scrollTop = tableHost.scrollHeight;
+  });
+
+  btnSave.addEventListener('click', () => {
+    if (!data) return;
+    download(filename, toJsonString());
+    setStatus(`Downloaded ${filename}.`);
+  });
+
+  btnCopy.addEventListener('click', () => {
+    if (!data) return;
+    copyToClipboard(toJsonString());
+  });
+
+  btnLoadUrl.addEventListener('click', loadFromUrl);
+
+  render();
+</script>
+</body>
+</html>

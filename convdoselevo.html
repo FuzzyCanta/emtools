@@ -110,7 +110,7 @@
 
 <body>
 <div class="container">
-  <h1>Convertisseur Levo</h1>
+  <h1>Convertisseur rapide</h1>
 
   <!-- WEIGHT -->
   <div class="control-group">
@@ -123,26 +123,12 @@
 
   <!-- CONCENTRATION -->
   <div class="control-group">
-    <label>Concentration (mg / 250 mL):</label>
+    <label>Concentration: (<span id="mgmlDisplay"></span>)</label>
 
-    <div id="concentrationButtons" style="display:flex; gap:10px; flex-wrap:wrap;">
-      <button class="conc-btn" data-val="4">4</button>
-      <button class="conc-btn" data-val="8">8</button>
-      <button class="conc-btn" data-val="16">16</button>
-      <button class="conc-btn" data-val="32">32</button>
-      <button class="conc-btn" data-val="64">64</button>
+    <div id="input-row">
+      <input type="number" id="concDose" min="0" max="999" value="4"> mg
+      <input type="number" id="concVol" min="0" max="999" value="250"> mL
     </div>
-
-    <div class="toggle-row">
-      <input type="checkbox" id="customToggle">
-      <label for="customToggle">Concentration personnalisée</label>
-    </div>
-
-    <div style="margin-top:12px;">
-      <input type="number" id="concentrationNum" min="0" max="999" value="4" disabled>
-    </div>
-
-    <div id="mgmlDisplay"></div>
   </div>
 
   <!-- UNIT BUTTONS -->
@@ -150,6 +136,7 @@
     <label>Unité de départ :</label>
 
     <div id="unitButtons" style="display:flex; gap:10px; flex-wrap:wrap;">
+      <button class="unit-btn" data-unit="mg_per_min">mg/min</button>
       <button class="unit-btn" data-unit="mcg_per_min">mcg/min</button>
       <button class="unit-btn" data-unit="mcg_per_kg_min">mcg/kg/min</button>
       <button class="unit-btn" data-unit="ml_per_hr">mL/h</button>
@@ -168,22 +155,19 @@
 
   <!-- RESULTS -->
   <div class="result">
+    <p><span>mg/min :</span> <span id="res_mg_min">-</span></p>
     <p><span>mcg/min :</span> <span id="res_mcg_min">-</span></p>
     <p><span>mcg/kg/min :</span> <span id="res_mcg_kg_min">-</span></p>
     <p><span>mL/h :</span> <span id="res_ml_hr">-</span></p>
   </div>
 </div>
 
-
 <script>
 /* ELEMENT REFERENCES */
 const weightSlider = document.getElementById('weight');
 const weightNum = document.getElementById('weightNum');
-
-const concButtons = document.querySelectorAll('.conc-btn');
-const customToggle = document.getElementById('customToggle');
-const concentrationNum = document.getElementById('concentrationNum');
-
+const concDose = document.getElementById('concDose');
+const concVol = document.getElementById('concVol');
 const mgmlDisplay = document.getElementById('mgmlDisplay');
 
 const unitButtons = document.querySelectorAll('.unit-btn');
@@ -192,10 +176,10 @@ let currentUnit = "mcg_per_min";
 const inputValSlider = document.getElementById('inputVal');
 const inputValNum = document.getElementById('inputValNum');
 
+const resMgMin = document.getElementById('res_mg_min');
 const resMcgMin = document.getElementById('res_mcg_min');
 const resMcgKgMin = document.getElementById('res_mcg_kg_min');
 const resMlHr = document.getElementById('res_ml_hr');
-
 
 /* SYNC RANGE + NUMBER */
 function sync(rangeEl, numEl) {
@@ -214,48 +198,26 @@ sync(weightSlider, weightNum);
 sync(inputValSlider, inputValNum);
 
 
-/* CONCENTRATION BUTTONS */
-function setConcentration(val) {
-  concentrationNum.value = val;
+concVol.addEventListener('input', updateMgmlDisplay);
+concVol.addEventListener('input', updateConversions);
+concDose.addEventListener('input', updateMgmlDisplay);
+concDose.addEventListener('input', updateConversions);
 
-  concButtons.forEach(b => b.classList.remove('selected'));
-  const btn = document.querySelector(`.conc-btn[data-val="${val}"]`);
-  if (btn) btn.classList.add('selected');
-
-  updateConversions();
+function updateMgmlDisplay() {
+  const concDoseMg = parseFloat(concDose.value);
+  const concMl = parseFloat(concVol.value);
+  const mcgPerMl = (concDoseMg / concMl) * 1000;
+  const mgPerMl = concDoseMg / concMl;
+  if (mcgPerMl > 100) {
+    mgmlDisplay.textContent = `${mgPerMl.toFixed(1)} mg/mL`;
+    return;
+  }
+  else {
+    mgmlDisplay.textContent = `${mcgPerMl.toFixed(1)} mcg/mL`;
+    return;
+  }
 }
-
-concButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    if (!customToggle.checked) setConcentration(btn.dataset.val);
-  });
-});
-
-
-/* CUSTOM CONCENTRATION MODE */
-customToggle.addEventListener('change', () => {
-  if (customToggle.checked) {
-    concentrationNum.disabled = false;
-    concButtons.forEach(b => b.classList.remove('selected'));
-  } else {
-    concentrationNum.disabled = true;
-    const allowed = [4,8,16,32,64];
-    let v = parseInt(concentrationNum.value);
-    if (!allowed.includes(v)) setConcentration(4);
-  }
-  updateConversions();
-});
-
-concentrationNum.addEventListener('input', () => {
-  if (!customToggle.checked) {
-    const allowed = [4,8,16,32,64];
-    const v = parseInt(concentrationNum.value);
-    if (!allowed.includes(v)) return;
-    setConcentration(v);
-  }
-  updateConversions();
-});
-
+updateMgmlDisplay();
 
 /* UNIT BUTTONS */
 unitButtons.forEach(btn => {
@@ -276,12 +238,9 @@ document.querySelector('.unit-btn[data-unit="mcg_per_min"]').classList.add('sele
 /* MAIN CONVERSION FUNCTION */
 function updateConversions() {
   const weight = parseFloat(weightNum.value);
-  const concMg = parseFloat(concentrationNum.value);
   const unit = currentUnit;
   const inputVal = parseFloat(inputValNum.value);
-
-  const mcgPerMl = (concMg * 1000) / 250;
-  mgmlDisplay.textContent = `→ ${mcgPerMl.toFixed(1)} mcg/mL`;
+  const mcgPerMl = parseFloat(concDose.value * 1000) / parseFloat(concVol.value);
 
   let mcg_min, mcg_kg_min, ml_hr;
 
@@ -295,14 +254,20 @@ function updateConversions() {
     mcg_min = mcg_kg_min * weight;
     ml_hr = (mcg_min / mcgPerMl) * 60;
 
+  } else if (unit === "mg_per_min") {
+    mcg_min = inputVal * 1000;
+    mcg_kg_min = mcg_min / weight;
+    ml_hr = (mcg_min / mcgPerMl) * 60;
+
   } else if (unit === "ml_per_hr") {
     ml_hr = inputVal;
     mcg_min = (ml_hr / 60) * mcgPerMl;
     mcg_kg_min = mcg_min / weight;
   }
 
+  resMgMin.textContent = (mcg_min / 1000).toFixed(2);
   resMcgMin.textContent = mcg_min.toFixed(2);
-  resMcgKgMin.textContent = mcg_kg_min.toFixed(4);
+  resMcgKgMin.textContent = mcg_kg_min.toFixed(3);
   resMlHr.textContent = ml_hr.toFixed(2);
 }
 

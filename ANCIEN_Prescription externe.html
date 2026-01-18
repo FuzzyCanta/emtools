@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Language" content="fr-CA">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Prescripteur – Overlay SVG</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background:#f5f7fb;
+      color:#111827;
+      padding:24px;
+    }
+
+    /* =======================
+       LAYOUT ÉCRAN
+       ======================= */
+    .wrap{
+      max-width: 2200px;
+      margin:0;
+      display:grid;
+      grid-template-columns: 50% 1fr;
+      gap:16px;
+      align-items:start;
+    }
+    @media (max-width: 1100px){
+      .wrap{ grid-template-columns: 1fr; }
+    }
+
+    /* =======================
+       CONTRÔLES
+       ======================= */
+    .controls{
+      background:#ffffff;
+      border:1px solid #d0d4e0;
+      border-radius:12px;
+      padding:16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+    h1{ margin:0 0 8px 0; font-size:18px; }
+    h2{ margin:16px 0 10px 0; font-size:15px; color:#374151; }
+    .muted{ font-size:12px; color:#6b7280; line-height:1.35; }
+
+    label{
+      display:block;
+      font-size:13px;
+      margin:10px 0 6px;
+      color:#6b7280;
+    }
+
+    input, select, textarea, button{
+      width:100%;
+      padding:10px;
+      border:1px solid #d0d4e0;
+      border-radius:10px;
+      font-size:14px;
+      box-sizing:border-box;
+      background:#fff;
+    }
+
+    textarea{ resize: vertical; }
+
+    .row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+
+    .inline{
+      display:flex;
+      gap:10px;
+      align-items:end;
+    }
+
+    .inline button{
+      width:auto;
+      white-space:nowrap;
+      cursor:pointer;
+    }
+
+    .btn{
+      background:#2563eb;
+      color:#fff;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      margin-top:12px;
+    }
+    .btnSecondary{
+      background:#fff;
+      color:#111827;
+      border:1px solid #d0d4e0;
+      cursor:pointer;
+      font-weight:600;
+      margin-top:12px;
+    }
+
+    .checklist{
+      border:1px solid #e5e7eb;
+      border-radius:10px;
+      padding:10px;
+      background:#fff;
+      max-height: 180px;
+      overflow:auto;
+    }
+    .checkItem{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding:6px 2px;
+      font-size:14px;
+    }
+    .checkItem input{ width:auto; padding:0; border:none; }
+
+    .hr{
+      height:1px; background:#e5e7eb; margin:14px 0;
+    }
+
+    /* Petit tableau de prescription (contrôles) */
+    .rxGridHead, .rxRow{
+      display:grid;
+      grid-template-columns: 1.3fr 0.8fr 0.9fr 0.6fr 0.7fr 0.9fr 0.7fr 44px;
+      gap:8px;
+      align-items:end;
+    }
+    .rxGridHead{
+      margin-top:10px;
+      font-size:12px;
+      color:#6b7280;
+    }
+    .rxGridHead div{ padding:0 4px; }
+    .rxRow{
+      margin-top:8px;
+      padding:10px;
+      border:1px solid #e5e7eb;
+      border-radius:10px;
+      background:#fff;
+    }
+    .rxRow input, .rxRow select{
+      padding:9px;
+      border-radius:10px;
+      font-size:13px;
+    }
+    .rxRow button{
+      width:44px;
+      padding:9px 0;
+      border-radius:10px;
+      cursor:pointer;
+      border:1px solid #d0d4e0;
+      background:#fff;
+    }
+    .commentaire{
+      grid-column: span 6;
+    }
+    /* =======================
+       FEUILLE (APERÇU + IMPRESSION)
+       ======================= */
+    .sheet{
+      width: 8.5in;
+      height: 11in;
+      background:#fff;
+      border:1px solid #d0d4e0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+      position:relative;
+      overflow:hidden;
+
+      /* Variables de position (tu me donneras les marges/limites exactes) */
+      --diag-left: 60px;  --diag-top: 253px;  --diag-width: 685px; --diag-height: 30px;
+      --reco-left: 60px;  --reco-top: 350px;  --reco-width: 685px; --reco-height: 230px;
+      --rx-left:   60px;  --rx-top:   616px;  --rx-width:   685px; --rx-height:   236px;
+
+      --stamp-left: 60px;
+      --stamp-top:  924px;
+    }
+
+    @media (max-width: 1100px){
+      .sheet{
+        width: 100%;
+        height: auto;
+        aspect-ratio: 8.5 / 11;
+      }
+    }
+
+    /* SVG fond */
+    .bg{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit: fill;          /* SVG déjà letter => correspondance stable */
+      object-position: top left;
+      user-select:none;
+      pointer-events:none;
+    }
+
+    /* Zones overlay (texte final sur la feuille) */
+    .overlayBox{
+      position:absolute;
+      padding:0;
+      margin:0;
+      background: transparent;
+      color:#000;
+      font-size: 11pt;
+      line-height: 1.25;
+      overflow:hidden;
+      white-space: pre-wrap;
+    }
+
+    /* On formate en puces */
+    .overlayBox ul{
+      margin:0;
+      padding-left: 18px; /* indentation bullet */
+    }
+    .overlayBox li{
+      margin: 2px 0;
+    }
+
+    /* Date/heure sur feuille */
+    .stamp{
+      position:absolute;
+      left: var(--stamp-left);
+      top: var(--stamp-top);
+      font-size:10pt;
+      white-space:nowrap;
+      color:#000;
+    }
+
+    /* Positions des sections */
+    #outDiag{ left: var(--diag-left); top: var(--diag-top); width: var(--diag-width); height: var(--diag-height); }
+    #outReco{ left: var(--reco-left); top: var(--reco-top); width: var(--reco-width); height: var(--reco-height); }
+    #outRx  { left: var(--rx-left);   top: var(--rx-top);   width: var(--rx-width);   height: var(--rx-height); }
+
+    /* =======================
+       IMPRESSION
+       ======================= */
+    @page{ size: letter; margin: 0; }
+
+    @media print{
+      body{ background:#fff; padding:0; }
+      .wrap{ grid-template-columns: 1fr; gap:0; }
+      .controls{ display:none !important; }
+      .sheet{
+        border:none;
+        box-shadow:none;
+        width: 8.5in;
+        height: 11in;
+        margin:0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <!-- =======================
+       CONTRÔLES
+       ======================= -->
+  <div class="controls">
+    <h1>Prescripteur</h1>
+    <div class="hr"></div>
+
+    <!-- ========= Diagnostic ========= -->
+    <h2>Diagnostic</h2>
+
+    <div class="inline" style="margin-top:10px;">
+      <div style="flex:1">
+        <input id="diagCustom" type="text" placeholder="Ex: Entorse cheville droite">
+      </div>
+      <button id="diagAddCustom" type="button">Ajouter</button>
+      <button id="diagClear" type="button" class="btnSecondary">Vider</button>
+    </div>
+
+    <div class="hr"></div>
+
+    <!-- ========= Recommandations ========= -->
+    <h2>Recommandations à l’usager</h2>
+    <div class="checklist" id="recoChecklist"></div>
+
+    <div class="inline" style="margin-top:10px;">
+      <button id="recoAddChecked" type="button" class="btnSecondary">Ajouter en puce</button>
+      <button id="recoClear" type="button" class="btnSecondary">Vider</button>
+    </div>
+
+    <div class="inline" style="margin-top:10px;">
+      <div style="flex:1">
+        <input id="recoCustom" type="text" placeholder="Ex: Revenir si aggravation">
+      </div>
+      <button id="recoAddCustom" type="button">Ajouter</button>
+    </div>
+
+    <div class="hr"></div>
+
+    <!-- ========= Prescription ========= -->
+    <h2>Prescription</h2>
+    <div class="rxGridHead">
+      <div>Médicament</div>
+      <div>Dose</div>
+      <div>Voie</div>
+      <div>Rép.</div>
+      <div>PRN</div>
+      <div>Durée / Qté</div>
+      <div>Renouv.</div>
+      <div></div>
+    </div>
+
+    <div id="rxRows"></div>
+
+    <div class="inline" style="margin-top:10px;">
+      <button id="rxAddRow" type="button" class="btnSecondary">+ Ajouter une ligne</button>
+      <button id="rxClear" type="button" class="btnSecondary">Vider</button>
+    </div>
+
+    <button class="btn" id="print" type="button">Imprimer</button>
+  </div>
+
+  <!-- =======================
+       FEUILLE
+       ======================= -->
+  <div class="sheet" id="sheet">
+    <img class="bg" src="Prescription_externe_svg.svg" alt="Gabarit prescription (SVG)">
+
+    <div class="stamp" id="stamp" style="font-weight:bold;"></div>
+
+    <div class="overlayBox" id="outDiag"></div>
+    <div class="overlayBox" id="outReco"></div>
+    <div class="overlayBox" id="outRx"></div>
+  </div>
+
+</div>
+
+<script>
+  // =========================================================
+  // UTILITAIRES
+  // =========================================================
+  const el = (id) => document.getElementById(id);
+
+  // Pad 2 chiffres
+  function pad2(n){ return String(n).padStart(2, "0"); }
+
+  // Date/heure locale en AAAA/MM/JJ HH:MM (24h)
+  function nowStamp(){
+    const d = new Date();
+    const yyyy = d.getFullYear();
+    const mm = pad2(d.getMonth() + 1);
+    const dd = pad2(d.getDate());
+    const HH = pad2(d.getHours());
+    const MM = pad2(d.getMinutes());
+    return `${yyyy}/${mm}/${dd} -- ${HH}:${MM}`;
+  }
+
+  // Échappe minimal HTML (sécurité et rendu stable)
+  function esc(s){
+    return String(s)
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#039;");
+  }
+
+  // Rend une liste de puces dans un conteneur
+  function renderBullets(containerId, items){
+    const c = el(containerId);
+    if(!items.length){
+      c.innerHTML = "";
+      return;
+    }
+    const lis = items.map(t => `<li>${esc(t)}</li>`).join("");
+    c.innerHTML = `<ul>${lis}</ul>`;
+  }
+
+  // =========================================================
+  // DONNÉES: options prédéfinies (modifiable)
+  // =========================================================
+  const recoOptions = [
+    "Diminution de l'état général",
+    "Incapacité de boire ou manger",
+    "Vomissements persistants",
+    "Fièvre persistant > 48h après le début du traitement",
+    "Apparition de fièvre de novo",
+    "Signes d'infection (rougeur/gonflement/chaleur/écoulement)",
+    "Difficulté à bouger la partie blessée",
+    "Douleur non contrôlée par les analgésiques prescrits",
+    "Nouveaux symptômes neuro (picottements/faiblesse/perte de sensibilité)",
+    "Douleur thoracique soudaine ou essoufflement",
+    "Saignement important ou qui ne s’arrête pas",
+    "Réaction sévère au médicament (ex: éruption cutanée, difficulté à respirer)",
+    "Gonflement du visage, des lèvres ou de la langue",
+  ];
+
+  // Menus prescription (modifiable)
+  const medOptions = [
+    "",
+    "Acétaminophène",
+    "Amoxicilline",
+    "Amoxicilline-Clavulanate",
+    "Azithromycine",
+    "Céfadroxil",
+    "Céfuroxime",
+    "Céphalexine",
+    "Ciprofloxacine",
+    "Clarithromycine",
+    "Doxycycline",
+    "Hydromorphone",
+    "Ibuprofène",
+    "Lax-a-day",
+    "Morphine",
+    "Naproxène",
+    "Autre (custom)"
+  ];
+
+  const routeOptions = [
+    "PO",
+    "IV",
+    "IM",
+    "SC",
+    "SL",
+    "Topique",
+    "Autre"
+  ];
+
+  const repOptions = [
+    "DIE",
+    "BID",
+    "TID",
+    "QID",
+    "Q3H",
+    "Q4H",
+    "Q6H",
+    "Q8H",
+    "Q12h",
+    "Autre"
+  ];
+
+  // =========================================================
+  // ÉTAT (listes en puces)
+  // =========================================================
+  const state = {
+    diag: [],
+    reco: [],
+    rx: [] // sera recalculé à partir des lignes de formulaire
+  };
+
+  // =========================================================
+  // INIT CHECKLISTS
+  // =========================================================
+  function buildChecklist(containerId, options, prefix){
+    const box = el(containerId);
+    box.innerHTML = "";
+    options.forEach((txt, i) => {
+      const id = `${prefix}_${i}`;
+      const row = document.createElement("div");
+      row.className = "checkItem";
+      row.innerHTML = `
+        <input type="checkbox" id="${id}">
+        <label for="${id}" style="margin:0;color:#111827;font-size:14px;">${esc(txt)}</label>
+      `;
+      box.appendChild(row);
+    });
+  }
+
+  // Récupère les items cochés d'une checklist
+  function getCheckedFromChecklist(containerId){
+    const box = el(containerId);
+    const items = [];
+    box.querySelectorAll("input[type=checkbox]").forEach((cb) => {
+      if(cb.checked){
+        const lab = box.querySelector(`label[for="${cb.id}"]`);
+        if(lab) items.push(lab.textContent.trim());
+        cb.checked = false; // on décoche après ajout
+      }
+    });
+    return items;
+  }
+
+  // =========================================================
+  // PRESCRIPTION: lignes dynamiques
+  // =========================================================
+  function makeOptionList(arr){
+    return arr.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join("");
+  }
+
+  // Crée une ligne de prescription (UI)
+  function addRxRow(prefill){
+    // prefill est optionnel (objet)
+    const row = document.createElement("div");
+    row.className = "rxRow";
+
+    row.innerHTML = `
+      <select class="rxMed">${makeOptionList(medOptions)}</select>
+      <input class="rxDose" type="text" placeholder="Ex: 500 mg">
+      <select class="rxRoute">${makeOptionList(routeOptions)}</select>
+      <select class="rxFreq">${makeOptionList(repOptions)}</select>
+      <select class="rxPrn">
+        <option value=""> </option>
+        <option value="PRN">PRN</option>
+      </select>
+      <input class="rxDur" type="number">
+      <input class="rxRefill" type="number" placeholder="Ex: 0">
+      <span></span>
+      <input class="commentaire" type="text" placeholder="Indications spéciales">
+      <button type="button" class="rxDel" title="Supprimer">✕</button>
+    `;
+
+    // Pré-remplissage si fourni
+    if(prefill){
+      row.querySelector(".rxMed").value = prefill.med || "";
+      row.querySelector(".rxDose").value = prefill.dose || "";
+      row.querySelector(".rxRoute").value = prefill.route || "";
+      row.querySelector(".rxFreq").value = prefill.freq || "";
+      row.querySelector(".rxPrn").value = prefill.prn || "";
+      row.querySelector(".rxDur").value = prefill.dur || "";
+      row.querySelector(".rxRefill").value = prefill.refill || "";
+      row.querySelector(".commentaire").value = prefill.commentaire || "";
+    }
+
+    // Suppression
+    row.querySelector(".rxDel").addEventListener("click", () => {
+      row.remove();
+      refreshAll(); // met à jour l'aperçu
+    });
+
+    // Toute modification rafraîchit l'aperçu
+    row.querySelectorAll("input,select").forEach((ctrl) => {
+      ctrl.addEventListener("input", refreshAll);
+      ctrl.addEventListener("change", refreshAll);
+    });
+
+    el("rxRows").appendChild(row);
+    refreshAll();
+  }
+
+  // Construit les puces Rx à partir des lignes
+  function buildRxBullets(){
+    const rows = Array.from(el("rxRows").querySelectorAll(".rxRow"));
+    const bullets = [];
+
+    rows.forEach((r) => {
+      const med = r.querySelector(".rxMed").value.trim();
+      const dose = r.querySelector(".rxDose").value.trim();
+      const route = r.querySelector(".rxRoute").value.trim();
+      const freq = r.querySelector(".rxFreq").value.trim();
+      const prnSel = r.querySelector(".rxPrn").value.trim();
+      const dur = r.querySelector(".rxDur").value.trim();
+      const refill = r.querySelector(".rxRefill").value.trim();
+      const commentaire = r.querySelector(".commentaire").value.trim();
+
+      // Ligne vide => ignore
+      if(!med && !dose && !route && !freq && !dur && !refill && !commentaire) return;
+
+      // Si “Autre (custom)”, on prend le champ dose comme endroit rapide de custom si besoin,
+      // mais tu peux changer cette logique facilement.
+      // (Si tu veux un champ "nom custom médicament", je l’ajoute.)
+      let line = `${med}`;
+
+      if(dose)  line += ` ${dose}`;
+      if(route) line += ` ${route}`;
+      if(freq)  line += ` ${freq}`;
+      if(prnSel) line += ` ${prnSel}`;
+      if(dur)   line += ` x ${dur} jours`;
+      if(refill !== "") line += ` Renouv: ${refill}`;
+      if(commentaire) line += ` Indication spécifique: ${commentaire}`;
+
+      bullets.push(line);
+    });
+
+    return bullets;
+  }
+
+  // =========================================================
+  // RAFRAÎCHISSEMENT APERÇU
+  // =========================================================
+  function refreshDateTime(){
+    const stamp = nowStamp();
+    el("stamp").textContent = stamp;
+  }
+
+  function refreshAll(){
+    refreshDateTime();
+
+    // Rx (recalculé)
+    state.rx = buildRxBullets();
+
+    // Rendu dans les zones overlay
+    renderBullets("outDiag", state.diag);
+    renderBullets("outReco", state.reco);
+    renderBullets("outRx", state.rx);
+  }
+
+  // =========================================================
+  // ACTIONS UI: Diagnostic
+  // =========================================================
+
+  el("diagAddCustom").addEventListener("click", () => {
+    const v = (el("diagCustom").value || "").trim();
+    if(!v) return;
+    state.diag.push(v);
+    el("diagCustom").value = "";
+    refreshAll();
+  });
+
+  el("diagClear").addEventListener("click", () => {
+    state.diag = [];
+    refreshAll();
+  });
+
+  // =========================================================
+  // ACTIONS UI: Reco
+  // =========================================================
+  el("recoAddChecked").addEventListener("click", () => {
+    const items = getCheckedFromChecklist("recoChecklist");
+    if(items.length){
+      state.reco.push(...items);
+      refreshAll();
+    }
+  });
+
+  el("recoAddCustom").addEventListener("click", () => {
+    const v = (el("recoCustom").value || "").trim();
+    if(!v) return;
+    state.reco.push(v);
+    el("recoCustom").value = "";
+    refreshAll();
+  });
+
+  el("recoClear").addEventListener("click", () => {
+    state.reco = [];
+    refreshAll();
+  });
+
+  // =========================================================
+  // ACTIONS UI: Prescription
+  // =========================================================
+  el("rxAddRow").addEventListener("click", () => {
+    addRxRow();
+  });
+
+  el("rxClear").addEventListener("click", () => {
+    el("rxRows").innerHTML = "";
+    addRxRow(); // garde au moins 1 ligne
+    refreshAll();
+  });
+
+  // =========================================================
+  // Impression
+  // =========================================================
+  el("print").addEventListener("click", () => window.print());
+
+  // =========================================================
+  // INIT
+  // =========================================================
+  buildChecklist("recoChecklist", recoOptions, "recoopt");
+
+  addRxRow({
+    med: "",
+    dose: "",
+    route: "",
+    freq: "",
+    prn: "",
+    dur: "",
+    refill: ""
+  });
+
+  refreshAll();
+  setInterval(refreshDateTime, 10_000); // maintien heure à jour
+</script>
+
+</body>
+</html>

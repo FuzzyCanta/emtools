@@ -54,6 +54,18 @@
     "targetBlank": true
   },
   {
+    "title": "Ma Grossesse - FR",
+    "href": "MaGrossesse_PDF.pdf",
+    "category": "Formulaires généraux",
+    "tags": [
+      "Obstetrique",
+      "Suivi",
+      "Inscription",
+      "Guichet"
+    ],
+    "targetBlank": true
+  },
+  {
     "title": "CNESST - Ensemble de la documentation",
     "href": "https://www.cnesst.gouv.qc.ca/fr/demarches-formulaires/professionnels-intervenants-sante/formulaires-professionnels-sante-traitants",
     "category": "CNESST",

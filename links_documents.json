@@ -232,5 +232,98 @@
       "Medicaments"
     ],
     "targetBlank": true
+  },
+  {
+    "title": "Diabète - Ajustement Rx fonction rénale",
+    "href": "https://www.coffreaoutilsdiabete.ca/pdf/Tableau-fr-FRv11.pdf",
+    "category": "Diabète",
+    "tags": [
+      "Clinicien",
+      "Medicaments",
+      "Renale",
+      "Ajustement"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "HTA - Journal de pression artérielle à domicile (FR)",
+    "href": "https://hypertension.ca/wp-content/uploads/2018/07/HTC_HomeBPLog_FRE.pdf",
+    "category": "Hypertension",
+    "tags": [
+      "Journal",
+      "Pression",
+      "Domicile",
+      "Patient"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "HTA - Home blood pressure monitoring log (EN)",
+    "href": "https://hypertension.ca/wp-content/uploads/2017/11/HTC_BloodPressureLog_ENG_PREVIEW-1.pdf",
+    "category": "Hypertension",
+    "tags": [
+      "Journal",
+      "Pression",
+      "Domicile",
+      "Patient",
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Prendre soins de sa plaie",
+    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/NIM-DSI-FicheInfoUsager-PlaiePost-8900032__1_.pdf",
+    "category": "Plaies",
+    "tags": [
+      "Soins",
+      "Plaie",
+      "Patient"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Soingner une gastroenterite à la maison",
+    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/NIM-DSI-FicheInfoUsager-Gastroenterite-8900031.pdf",
+    "category": "Gastroenterite",
+    "tags": [
+      "Soins",
+      "Gastroenterite",
+      "Patient"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Prendre soins de sa sonde urinaire",
+    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/CIUSSS-407_1_Prendre_soin_d_une_sonde_final-Protege.pdf",
+    "category": "Urologie",
+    "tags": [
+      "Soins",
+      "Sonde",
+      "Patient"
+    ],
+    "targetBlank": true
   }
+  // ,
+  // {
+  //   "title": "",
+  //   "href": "",
+  //   "category": "",
+  //   "tags": [
+  //     "",
+  //     "",
+  //     ""
+  //   ],
+  //   "targetBlank": true
+  // }
+  // ,
+  // {
+  //   "title": "",
+  //   "href": "",
+  //   "category": "",
+  //   "tags": [
+  //     "",
+  //     "",
+  //     ""
+  //   ],
+  //   "targetBlank": true
+  // }
 ]

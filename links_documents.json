@@ -198,5 +198,27 @@
       "Patient"
     ],
     "targetBlank": true
+  },
+  {
+    "title": "Diabète T2 - Référer un patient",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/12/Demande-consult.-DbT2-DQ__dynamique.pdf",
+    "category": "Diabète",
+    "tags": [
+      "Reference",
+      "Clinicien",
+      "Guichet"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Diabète T1 - Référer un patient",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/12/Demande-de-consult-DbT1-DQ_dynamique.pdf",
+    "category": "Diabète",
+    "tags": [
+      "Reference",
+      "Clinicien",
+      "Guichet"
+    ],
+    "targetBlank": true
   }
 ]

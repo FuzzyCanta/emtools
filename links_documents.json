@@ -220,5 +220,17 @@
       "Guichet"
     ],
     "targetBlank": true
+  },
+  {
+    "title": "Diabète - Liste des médicaments",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/05/114015-DQ25-TableauMedicaments-MAJ-FR-MR.pdf",
+    "category": "Diabète",
+    "tags": [
+      "Tableau",
+      "Ressources",
+      "Clinicien",
+      "Medicaments"
+    ],
+    "targetBlank": true
   }
 ]

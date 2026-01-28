@@ -155,5 +155,37 @@
       "Criminel"
     ],
     "targetBlank": true
+  },
+  {
+    "title": "Dépliant TCCL",
+    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/INESSS_Depliant_TCCL_INESSS.pdf",
+    "category": "INESSS",
+    "tags": [
+      "TCCL",
+      "Trauma",
+      "Patient"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Algorithme TCCL",
+    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/Algo_decisionnel_TCCL_Adulte_2021.pdf",
+    "category": "INESSS",
+    "tags": [
+      "TCCL",
+      "Trauma",
+      "Clinicien"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Étiquettes HSCM",
+    "href": "Étiquettes_HSCM.pdf",
+    "category": "Admin",
+    "tags": [
+      "etiquettes",
+      "Sacre-Coeur"
+    ],
+    "targetBlank": true
   }
 ]

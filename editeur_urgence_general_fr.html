@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Éditeur de note – Urgence (général)</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+    .menu {
+      width: 50%;
+      background-color: #f5f5f5;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+    .editor {
+      width: 50%;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+    }
+    #textEditor {
+      flex-grow: 1;
+      width: 100%;
+      background-color: #fff;
+      padding: 10px;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      box-sizing: border-box;
+      outline: none;
+      overflow-y: auto;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    #textEditor:focus {
+      border-color: #4a90e2;
+      box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+    }
+    .section { margin-bottom: 16px; }
+    .subsection { margin-left: 20px; margin-top: 6px; }
+    .item-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-left: 60px;
+    }
+    .item {
+      cursor: pointer;
+      color: #004080;
+      padding: 2px 6px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .item:hover {
+      text-decoration: underline;
+      border-color: #004080;
+      background-color: #eef5ff;
+    }
+    .item.selected {
+      background-color: #cce6ff;
+      border-color: #3399ff;
+      font-weight: bold;
+    }
+    .button {
+      margin-right: 8px;
+      cursor: pointer;
+      background: #eee;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 0.9em;
+    }
+    .hidden { display: none; }
+    .widget-form {
+      background-color: #eef4ff;
+      border: 1px solid #aaccee;
+      border-radius: 8px;
+      padding: 10px;
+      margin-left: 60px;
+      width: fit-content;
+    }
+    h2 { margin-top: 0; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="menu" id="menu"><h2>Menu</h2></div>
+  <div class="editor">
+    <h2>Éditeur de notes</h2>
+    <div id="textEditor" contenteditable="true"></div>
+  </div>
+</div>
+
+<script>
+const menuData = {
+  "Administration / Identité": {
+    "delimiter": " ; ",
+    "subsections": {
+      "Identité": [
+        "Nom",
+        "Prénom",
+        "Âge",
+        "Sexe",
+        "Numéro dossier",
+        "Médecin traitant",
+        "Pharmacie",
+        "Contact proche"
+      ],
+      "Consentement / directives": [
+        "Consentement obtenu",
+        "Refus",
+        "Mandataire",
+        "Niveau de soins",
+        "Directives anticipées"
+      ],
+      "Contexte": [
+        "Ambulance",
+        "Policiers",
+        "Transfert inter-établissement",
+        "Retour de suivi",
+        "Consultation téléphonique préalable"
+      ]
+    }
+  },
+  "Triage": {
+    "delimiter": " ; ",
+    "subsections": {
+      "Motif de consultation": [
+        "Douleur thoracique",
+        "Dyspnée",
+        "Douleur abdominale",
+        "Céphalée",
+        "Syncope",
+        "Palpitations",
+        "Fièvre",
+        "Toux",
+        "Trauma",
+        "Chute",
+        "Confusion",
+        "Déficit neurologique",
+        "Douleur lombaire",
+        "Dysurie",
+        "Rash",
+        "Douleur membre",
+        "Vomissements",
+        "Diarrhée",
+        "Saignement",
+        "Convulsions",
+        "Anxiété/panique",
+        "Intoxication",
+        "Réaction allergique"
+      ],
+      "Acuïté / stabilité": [
+        "Stable",
+        "Instable",
+        "Isolement",
+        "Précautions gouttelettes",
+        "Précautions contact",
+        "Douleur sévère",
+        "Altération de l'état mental"
+      ],
+      "Paramètres initiaux": [
+        "Signes vitaux au triage",
+        "Douleur (0–10)",
+        "Glycémie capillaire",
+        "SatO₂ à l'air ambiant",
+        "O₂ en cours"
+      ]
+    }
+  },
+  "Histoire de la maladie actuelle": {
+    "delimiter": " ; ",
+    "subsections": {
+      "Début / évolution": [
+        "Début soudain",
+        "Début progressif",
+        "Évolution stable",
+        "Aggravation",
+        "Amélioration",
+        "Intermittent",
+        "Constant",
+        "Premier épisode",
+        "Épisodes similaires antérieurs"
+      ],
+      "PQRST (douleur)": [
+        "P: provoqué/soulagé",
+        "Q: qualité",
+        "R: irradiation",
+        "S: sévérité",
+        "T: temps/durée"
+      ],
+      "Symptômes associés": [
+        "Nausées",
+        "Vomissements",
+        "Diarrhée",
+        "Constipation",
+        "Hématémèse",
+        "Méléna",
+        "Hématochézie",
+        "Dyspnée",
+        "Orthopnée",
+        "Douleur pleurétique",
+        "Toux",
+        "Expectorations",
+        "Hémoptysie",
+        "Fièvre",
+        "Frissons",
+        "Sueurs",
+        "Palpitations",
+        "Syncope",
+        "Vertiges",
+        "Déficit focal",
+        "Troubles visuels",
+        "Dysarthrie",
+        "Dysphagie",
+        "Douleur cervicale",
+        "Raideur nucale",
+        "Dysurie",
+        "Pollakiurie",
+        "Hématurie",
+        "Pertes vaginales",
+        "Saignement vaginal",
+        "Douleur testiculaire",
+        "Rash",
+        "Prurit"
+      ],
+      "Facteurs de risque / contexte": [
+        "Voyage récent",
+        "Immobilisation",
+        "Chirurgie récente",
+        "Cancer",
+        "Grossesse/post-partum",
+        "Hormones (ACO/THS)",
+        "Tabagisme",
+        "IVDU",
+        "Contact infectieux",
+        "Exposition (travail/animaux)",
+        "Traumatisme",
+        "Médication récente/antibiotiques",
+        "Allergène possible",
+        "Intoxication possible"
+      ],
+      "Traitements avant arrivée": [
+        "Aucun",
+        "Acétaminophène",
+        "Ibuprofène/AINS",
+        "Opioïdes",
+        "Inhalateurs",
+        "Nitro",
+        "ASA",
+        "Antibiotique",
+        "Antihistaminique",
+        "Epi auto-injecteur",
+        "Liquides PO",
+        "ORAL rehydratation"
+      ]
+    }
+  },
+  "Antécédents et facteurs": {
+    "delimiter": " ; ",
+    "subsections": {
+      "ATCD médicaux": [
+        "HTA",
+        "Diabète",
+        "Dyslipidémie",
+        "MCAS",
+        "IC",
+        "FA",
+        "AVC/AIT",
+        "MPOC/asthme",
+        "IRC",
+        "Cirrhose",
+        "Cancer",
+        "Épilepsie",
+        "Trouble psychiatrique",
+        "Maladie thromboembolique",
+        "Immunosuppression",
+        "VIH",
+        "Grossesse"
+      ],
+      "ATCD chirurgicaux": [
+        "Appendicectomie",
+        "Cholécystectomie",
+        "Hystérectomie",
+        "Pontage/angioplastie",
+        "Chirurgie orthopédique",
+        "Autre chirurgie"
+      ],
+      "Médication": [
+        "Liste à jour",
+        "Conformité",
+        "Anticoagulant",
+        "Antiagrégant",
+        "Insuline",
+        "Stéroïdes",
+        "Immunosuppresseur",
+        "Opioïdes",
+        "BZD",
+        "ISRS/IRSN"
+      ],
+      "Allergies": [
+        "Aucune connue",
+        "Médicamenteuse",
+        "Alimentaire",
+        "Latex",
+        "Réaction anaphylactique antérieure"
+      ],
+      "Habitudes / social": [
+        "Tabac",
+        "Alcool",
+        "Cannabis",
+        "Autres substances",
+        "Situation de logement",
+        "Soutien social",
+        "Travail/arrêt de travail"
+      ],
+      "Gynéco-obstétrique (si pertinent)": [
+        "DDR",
+        "Grossesse possible",
+        "Contraception",
+        "Grossesse en cours",
+        "Post-partum",
+        "Complications obstétricales"
+      ]
+    }
+  },
+  "Revue des systèmes": {
+    "delimiter": " ; ",
+    "subsections": {
+      "Général": [
+        "Perte de poids",
+        "Fatigue",
+        "Anorexie",
+        "Sueurs nocturnes"
+      ],
+      "Cardio-respiratoire": [
+        "Douleur thoracique",
+        "Dyspnée",
+        "Palpitations",
+        "Œdème",
+        "Toux"
+      ],
+      "Gastro-intestinal": [
+        "Douleur",
+        "N/V",
+        "Diarrhée",
+        "Constipation",
+        "Saignement digestif"
+      ],
+      "Neuro": [
+        "Céphalée",
+        "Vertiges",
+        "Syncope",
+        "Déficit focal",
+        "Convulsions",
+        "Confusion"
+      ],
+      "Génito-urinaire": [
+        "Dysurie",
+        "Flanc",
+        "Hématurie",
+        "Pertes",
+        "Saignement"
+      ],
+      "MSK / peau": [
+        "Douleur articulaire",
+        "Trauma",
+        "Rash",
+        "Prurit",
+        "Plaie"
+      ]
+    }
+  },
+  "Examen physique": {
+    "delimiter": " ; ",
+    "subsections": {
+      "Général": [
+        "Alerte",
+        "Somnolent",
+        "Détresse respiratoire",
+        "Détresse hémodynamique",
+        "Toxique",
+        "Non toxique",
+        "Hydratation adéquate",
+        "Déshydraté"
+      ],
+      "Tête / cou": [
+        "NC/AT",
+        "Pupilles isocores",
+        "Anisocorie",
+        "Rigidité nucale",
+        "JVP augmentée",
+        "Adénopathies",
+        "Pharynx érythémateux",
+        "Otite"
+      ],
+      "Cardiaque": [
+        "Rythme régulier",
+        "Rythme irrégulier",
+        "Bruits normaux",
+        "Souffle",
+        "Frottement",
+        "Œdèmes",
+        "TRC < 2s"
+      ],
+      "Respiratoire": [
+        "MV bien transmis",
+        "Sibilances",
+        "Crépitants",
+        "Stridor",
+        "Utilisation muscles accessoires",
+        "Pas de détresse"
+      ],
+      "Abdomen": [
+        "Souple",
+        "Défense",
+        "Rigidité",
+        "Sensibilité localisée",
+        "McBurney",
+        "Murphy",
+        "CVA douleur",
+        "Distension",
+        "Hernie",
+        "Signe de péritonite"
+      ],
+      "Neuro": [
+        "GCS 15",
+        "Orientation x3",
+        "Déficit moteur",
+        "Déficit sensitif",
+        "Ataxie",
+        "Nystagmus",
+        "Coordination intacte",
+        "Marche stable"
+      ],
+      "MSK / peau": [
+        "Pas de déformation",
+        "Douleur à la palpation",
+        "Amplitude diminuée",
+        "Chaleur/érythème",
+        "Œdème",
+        "Plaie",
+        "Ecchymose",
+        "Urticaire"
+      ]
+    }
+  },
+  "Investigations": {
+    "delimiter": " ; ",
+    "subsections": {
+      "ECG": [
+        "ECG fait",
+        "ECG non indiqué",
+        "ECG normal",
+        "ST+",
+        "ST-",
+        "T inversées",
+        "Bloc de branche",
+        "FA/flutter",
+        "QTc prolongé"
+      ],
+      "Laboratoire": [
+        "NFS",
+        "Électrolytes",
+        "Créatinine/urée",
+        "Glycémie",
+        "Gaz sanguin",
+        "Troponine",
+        "BNP",
+        "D-dimère",
+        "Lactate",
+        "CRP",
+        "INR/aPTT",
+        "BHCG",
+        "Tests hépatiques",
+        "Lipase",
+        "CK"
+      ],
+      "Urine": [
+        "BU",
+        "Culture urine",
+        "Grossesse urinaire"
+      ],
+      "Imagerie": [
+        "Rx",
+        "TDM",
+        "IRM",
+        "Échographie",
+        "Angio-TDM",
+        "Doppler veineux"
+      ],
+      "POCUS": [
+        "Cardiaque",
+        "Poumon",
+        "FAST",
+        "Aorte",
+        "Vésicule biliaire",
+        "Hydronéphrose",
+        "DVT",
+        "Guidage procédure"
+      ],
+      "Microbiologie": [
+        "Hémocultures",
+        "Panel viral",
+        "Test strepto",
+        "Test influenza/RSV",
+        "Test COVID"
+      ]
+    }
+  },
+  "Traitement / Interventions": {
+    "delimiter": " ; ",
+    "subsections": {
+      "Mesures immédiates": [
+        "Monitorage",
+        "O₂",
+        "Voie IV",
+        "Liquides IV",
+        "Glycémie cap",
+        "Antalgie",
+        "Antiemétique",
+        "Bronchodilatateurs",
+        "Antibiothérapie",
+        "Anticoagulation",
+        "Thrombolyse (selon indication)"
+      ],
+      "Médication donnée ED": [
+        "Acétaminophène",
+        "AINS",
+        "Morphine",
+        "Hydromorphone",
+        "Fentanyl",
+        "Ondansétron",
+        "Métoclopramide",
+        "Diphenhydramine",
+        "Epinéphrine IM",
+        "Salbutamol",
+        "Ipratropium",
+        "Prednisone",
+        "Ceftriaxone",
+        "Azithromycine",
+        "Pip-tazo",
+        "Vancomycine"
+      ],
+      "Procédures": [
+        "Suture",
+        "Réduction",
+        "Immobilisation",
+        "Drainage abcès",
+        "Ponction lombaire",
+        "Cardioversion",
+        "Sédation procédurale",
+        "Intubation",
+        "Cathéter urinaire",
+        "Paracentèse",
+        "Thoracentèse"
+      ]
+    }
+  },
+  "Évaluation et plan": {
+    "delimiter": " ; ",
+    "subsections": {
+      "Impression clinique": [
+        "Diagnostic principal",
+        "Diagnostics différentiels",
+        "Étiologie probable",
+        "Gravité",
+        "Risque immédiat écarté"
+      ],
+      "Plan": [
+        "Observation",
+        "Réévaluation",
+        "Bilan complémentaire",
+        "Consultation spécialiste",
+        "Traitement symptomatique",
+        "Traitement étiologique"
+      ],
+      "Disposition": [
+        "Congé",
+        "Observation courte durée",
+        "Admission",
+        "Transfert",
+        "Retour à domicile avec suivi",
+        "Suivi GMF",
+        "Suivi clinique externe"
+      ],
+      "Consignes de retour": [
+        "Retour si aggravation",
+        "Retour si douleur thoracique",
+        "Retour si dyspnée",
+        "Retour si fièvre persistante",
+        "Retour si incapacité PO",
+        "Retour si syncope",
+        "Retour si déficit neuro"
+      ]
+    }
+  }
+}
+
+const widgetConfig = {
+  "Triage": {
+    "Paramètres initiaux": {
+      "title": "Paramètres",
+      "separator": " | ",
+      "fields": [
+        {
+          "label": "TA",
+          "type": "text",
+          "placeholder": "120/80",
+          "id": "ta"
+        },
+        {
+          "label": "FC",
+          "type": "number",
+          "unit": "bpm",
+          "id": "fc"
+        },
+        {
+          "label": "FR",
+          "type": "number",
+          "unit": "/min",
+          "id": "fr"
+        },
+        {
+          "label": "SatO₂",
+          "type": "number",
+          "unit": "%",
+          "id": "sao2"
+        },
+        {
+          "label": "T°",
+          "type": "number",
+          "unit": "°C",
+          "id": "t"
+        },
+        {
+          "label": "Douleur",
+          "type": "number",
+          "unit": "/10",
+          "id": "douleur"
+        },
+        {
+          "label": "Glycémie cap",
+          "type": "number",
+          "unit": "mmol/L",
+          "id": "glic"
+        },
+        {
+          "label": "O₂",
+          "type": "text",
+          "placeholder": "AA / 2 L NP",
+          "id": "o2"
+        }
+      ]
+    }
+  },
+  "Investigations": {
+    "ECG": {
+      "title": "ECG",
+      "separator": " ; ",
+      "fields": [
+        {
+          "label": "Date/heure",
+          "type": "text",
+          "placeholder": "YYYY-MM-DD HH:MM",
+          "id": "dt"
+        },
+        {
+          "label": "Rythme",
+          "type": "select",
+          "id": "rythme",
+          "options": [
+            "Sinusal",
+            "FA",
+            "Flutter",
+            "TSV",
+            "TV",
+            "Bradycardie",
+            "Stimulateur",
+            "Autre"
+          ]
+        },
+        {
+          "label": "FC",
+          "type": "number",
+          "unit": "bpm",
+          "id": "fc"
+        },
+        {
+          "label": "PR",
+          "type": "number",
+          "unit": "ms",
+          "id": "pr"
+        },
+        {
+          "label": "QRS",
+          "type": "number",
+          "unit": "ms",
+          "id": "qrs"
+        },
+        {
+          "label": "QTc",
+          "type": "number",
+          "unit": "ms",
+          "id": "qtc"
+        },
+        {
+          "label": "Axe",
+          "type": "text",
+          "placeholder": "normal/gauche/droite",
+          "id": "axe"
+        },
+        {
+          "label": "ST/T",
+          "type": "text",
+          "placeholder": "ex: ST- lat, T inv ant",
+          "id": "stt"
+        },
+        {
+          "label": "Impression",
+          "type": "text",
+          "placeholder": "ex: pas d'ischémie aiguë",
+          "id": "imp"
+        }
+      ]
+    },
+    "Laboratoire": {
+      "title": "Laboratoire",
+      "separator": " | ",
+      "fields": [
+        {
+          "label": "Hb",
+          "type": "number",
+          "unit": "g/L",
+          "id": "hb"
+        },
+        {
+          "label": "Leuco",
+          "type": "number",
+          "unit": "10^9/L",
+          "id": "wbc"
+        },
+        {
+          "label": "Plt",
+          "type": "number",
+          "unit": "10^9/L",
+          "id": "plt"
+        },
+        {
+          "label": "Na",
+          "type": "number",
+          "unit": "mmol/L",
+          "id": "na"
+        },
+        {
+          "label": "K",
+          "type": "number",
+          "unit": "mmol/L",
+          "id": "k"
+        },
+        {
+          "label": "Cl",
+          "type": "number",
+          "unit": "mmol/L",
+          "id": "cl"
+        },
+        {
+          "label": "HCO₃",
+          "type": "number",
+          "unit": "mmol/L",
+          "id": "hco3"
+        },
+        {
+          "label": "Urée",
+          "type": "number",
+          "unit": "mmol/L",
+          "id": "uree"
+        },
+        {
+          "label": "Créat",
+          "type": "number",
+          "unit": "µmol/L",
+          "id": "creat"
+        },
+        {
+          "label": "Glucose",
+          "type": "number",
+          "unit": "mmol/L",
+          "id": "glu"
+        },
+        {
+          "label": "Troponine",
+          "type": "number",
+          "unit": "ng/L",
+          "id": "trop"
+        },
+        {
+          "label": "Lactate",
+          "type": "number",
+          "unit": "mmol/L",
+          "id": "lac"
+        },
+        {
+          "label": "INR",
+          "type": "number",
+          "id": "inr"
+        },
+        {
+          "label": "CRP",
+          "type": "number",
+          "unit": "mg/L",
+          "id": "crp"
+        }
+      ]
+    },
+    "Urine": {
+      "title": "Urine",
+      "separator": " | ",
+      "fields": [
+        {
+          "label": "Leuco",
+          "type": "select",
+          "id": "leu",
+          "options": [
+            "Nég",
+            "Trace",
+            "+",
+            "++",
+            "+++"
+          ]
+        },
+        {
+          "label": "Nitrites",
+          "type": "select",
+          "id": "nit",
+          "options": [
+            "Nég",
+            "Pos"
+          ]
+        },
+        {
+          "label": "Sang",
+          "type": "select",
+          "id": "sang",
+          "options": [
+            "Nég",
+            "Trace",
+            "+",
+            "++",
+            "+++"
+          ]
+        },
+        {
+          "label": "Protéines",
+          "type": "select",
+          "id": "prot",
+          "options": [
+            "Nég",
+            "Trace",
+            "+",
+            "++",
+            "+++"
+          ]
+        },
+        {
+          "label": "Cétones",
+          "type": "select",
+          "id": "cet",
+          "options": [
+            "Nég",
+            "Trace",
+            "+",
+            "++",
+            "+++"
+          ]
+        },
+        {
+          "label": "βHCG",
+          "type": "select",
+          "id": "bhcg",
+          "options": [
+            "Nég",
+            "Pos",
+            "N/A"
+          ]
+        },
+        {
+          "label": "Commentaires",
+          "type": "text",
+          "placeholder": "ex: culture envoyée",
+          "id": "com"
+        }
+      ]
+    },
+    "Imagerie": {
+      "title": "Imagerie",
+      "separator": " ; ",
+      "fields": [
+        {
+          "label": "Type",
+          "type": "select",
+          "id": "type",
+          "options": [
+            "Rx",
+            "TDM",
+            "Angio-TDM",
+            "IRM",
+            "Échographie",
+            "Doppler",
+            "Autre"
+          ]
+        },
+        {
+          "label": "Région",
+          "type": "text",
+          "placeholder": "ex: thorax, abdo-pelvien",
+          "id": "region"
+        },
+        {
+          "label": "Résultat",
+          "type": "text",
+          "placeholder": "ex: pas d'infiltrat",
+          "id": "res"
+        },
+        {
+          "label": "Impression",
+          "type": "text",
+          "placeholder": "ex: pas de PE",
+          "id": "imp"
+        }
+      ]
+    },
+    "POCUS": {
+      "title": "POCUS",
+      "separator": " ; ",
+      "fields": [
+        {
+          "label": "Examen",
+          "type": "select",
+          "id": "exam",
+          "options": [
+            "Cardiaque",
+            "Poumon",
+            "FAST",
+            "Aorte",
+            "Vésicule",
+            "Rein/hydronéphrose",
+            "DVT",
+            "Guidage procédure",
+            "Autre"
+          ]
+        },
+        {
+          "label": "Indication",
+          "type": "text",
+          "placeholder": "ex: dyspnée, choc",
+          "id": "ind"
+        },
+        {
+          "label": "Constats",
+          "type": "text",
+          "placeholder": "ex: B-lines bilat, pas d'épanchement",
+          "id": "find"
+        },
+        {
+          "label": "Conclusion",
+          "type": "text",
+          "placeholder": "ex: compatible IC",
+          "id": "conc"
+        }
+      ]
+    }
+  },
+  "Traitement / Interventions": {
+    "Mesures immédiates": {
+      "title": "Mesures",
+      "separator": " | ",
+      "fields": [
+        {
+          "label": "O₂",
+          "type": "text",
+          "placeholder": "AA / 2 L NP / masque",
+          "id": "o2"
+        },
+        {
+          "label": "IV",
+          "type": "select",
+          "id": "iv",
+          "options": [
+            "Aucune",
+            "1 voie",
+            "2 voies"
+          ]
+        },
+        {
+          "label": "Bolus",
+          "type": "text",
+          "placeholder": "ex: NaCl 0.9% 1 L",
+          "id": "bolus"
+        },
+        {
+          "label": "Antalgie",
+          "type": "text",
+          "placeholder": "ex: morphine 2 mg IV x2",
+          "id": "analg"
+        },
+        {
+          "label": "Antiemétique",
+          "type": "text",
+          "placeholder": "ex: ondansétron 4 mg IV",
+          "id": "antiem"
+        },
+        {
+          "label": "Autre",
+          "type": "text",
+          "placeholder": "",
+          "id": "autre"
+        }
+      ]
+    }
+  },
+  "Évaluation et plan": {
+    "Disposition": {
+      "title": "Disposition",
+      "separator": " | ",
+      "fields": [
+        {
+          "label": "Destination",
+          "type": "select",
+          "id": "dest",
+          "options": [
+            "Congé",
+            "Obs CDU",
+            "Admission",
+            "Transfert"
+          ]
+        },
+        {
+          "label": "Service",
+          "type": "text",
+          "placeholder": "ex: Médecine interne",
+          "id": "svc"
+        },
+        {
+          "label": "Suivi",
+          "type": "text",
+          "placeholder": "ex: GMF 48–72 h",
+          "id": "suivi"
+        },
+        {
+          "label": "Ordonnances",
+          "type": "text",
+          "placeholder": "ex: amox-clav 5 j",
+          "id": "rx"
+        }
+      ]
+    }
+  }
+};
+
+function buildMenu() {
+  const menu = document.getElementById("menu");
+  Object.entries(menuData).forEach(([section, config]) => {
+    const sectionDiv = document.createElement("div");
+    sectionDiv.className = "section";
+    const sectionHeader = document.createElement("div");
+    sectionHeader.style.display = "flex";
+    sectionHeader.style.alignItems = "center";
+    sectionHeader.style.gap = "4px";
+    const sectionBtn = document.createElement("button");
+    sectionBtn.className = "button";
+    sectionBtn.textContent = "+";
+    const sectionLabel = document.createElement("strong");
+    sectionLabel.textContent = section;
+    sectionLabel.style.cursor = "pointer";
+    const subsectionContainer = document.createElement("div");
+    subsectionContainer.className = "subsection-container hidden";
+    sectionBtn.addEventListener("click", () => insertSection(section));
+    sectionLabel.addEventListener("click", () => {
+      subsectionContainer.classList.toggle("hidden");
+      subsectionContainer.querySelectorAll('.item-container').forEach(item => item.classList.remove('hidden'));
+    });
+    sectionHeader.appendChild(sectionBtn);
+    sectionHeader.appendChild(sectionLabel);
+    sectionDiv.appendChild(sectionHeader);
+    sectionDiv.appendChild(subsectionContainer);
+    Object.entries(config.subsections).forEach(([sub, items]) => {
+      const subDiv = document.createElement("div");
+      subDiv.className = "subsection";
+      const subHeader = document.createElement("div");
+      subHeader.style.display = "flex";
+      subHeader.style.alignItems = "center";
+      subHeader.style.gap = "4px";
+      const subBtn = document.createElement("button");
+      subBtn.className = "button";
+      subBtn.textContent = "+";
+      const subLabel = document.createElement("span");
+      subLabel.innerHTML = `<em>${sub}</em>`;
+      subLabel.style.cursor = "pointer";
+      const itemContainer = document.createElement("div");
+      itemContainer.className = "item-container hidden";
+      subBtn.addEventListener("click", () => insertSubsection(section, sub));
+      subLabel.addEventListener("click", () => itemContainer.classList.toggle("hidden"));
+      items.forEach(item => {
+        const wrapper = document.createElement("div");
+        wrapper.style.display = "flex";
+        wrapper.style.alignItems = "center";
+        wrapper.style.gap = "4px";
+        const itemEl = document.createElement("div");
+        itemEl.className = "item";
+        itemEl.textContent = item;
+        itemEl.addEventListener("click", (e) => {
+          const useComment = e.ctrlKey || e.metaKey;
+          let itemToInsert = item;
+          if (useComment) {
+            const comment = prompt("Enter a comment for: " + item);
+            if (!comment || !comment.trim()) return;
+            itemToInsert = `${item} (${comment.trim()})`;
+          }
+          insertSubsection(section, sub);
+          const subPara = document.getElementById(`sub-${section}-${sub}`);
+          const current = subPara.textContent.split(":")[1]?.trim() || "";
+          const items = current ? current.split(config.delimiter).map(s => s.trim()) : [];
+          const match = items.find(i => i.startsWith(item));
+          if (match) {
+            const updated = items.filter(i => !i.startsWith(item));
+            if (updated.length) {
+              subPara.innerHTML = `<strong>${sub}:</strong> ${updated.join(config.delimiter)}`;
+            } else {
+              subPara.remove();
+            }
+            itemEl.classList.remove("selected");
+          } else {
+            insertStructured(section, sub, itemToInsert, config.delimiter);
+            itemEl.classList.add("selected");
+          }
+        });
+        wrapper.appendChild(itemEl);
+        itemContainer.appendChild(wrapper);
+      });
+      subHeader.appendChild(subBtn);
+      subHeader.appendChild(subLabel);
+      subDiv.appendChild(subHeader);
+      subDiv.appendChild(itemContainer);
+      if (widgetConfig[section] && widgetConfig[section][sub]) {
+        const widget = document.createElement("div");
+        widget.className = "widget-form";
+        widgetConfig[section][sub].fields.forEach(field => {
+          const row = document.createElement("div");
+          row.style.display = "flex";
+          row.style.alignItems = "center";
+          row.style.gap = "6px";
+          const label = document.createElement("label");
+          label.textContent = field.label + ":";
+          let input;
+          if (field.type === "select") {
+            input = document.createElement("select");
+            field.options.forEach(opt => {
+              const option = document.createElement("option");
+              option.value = opt;
+              option.textContent = opt;
+              input.appendChild(option);
+            });
+          } else {
+            input = document.createElement("input");
+            input.type = field.type || "text";
+          }
+          input.id = `w-${section}-${sub}-${field.id}`;
+          if (field.placeholder) input.placeholder = field.placeholder;
+          if (field.unit) input.style.width = "80px";
+          row.appendChild(label);
+          row.appendChild(input);
+          input.addEventListener("input", () => {
+            insertSubsection(section, sub);
+            const subPara = document.getElementById(`sub-${section}-${sub}`);
+            const values = widgetConfig[section][sub].fields.map(f => {
+              const inp = document.getElementById(`w-${section}-${sub}-${f.id}`);
+              if (!inp) return null;
+              if (f.type === "checkbox") return inp.checked ? `${f.label}: Yes` : null;
+              if (f.type === "select") return inp.value ? `${f.label}: ${inp.value}` : null;
+              const val = inp.value;
+              return val ? `${f.label}: ${val}${f.unit || ''}` : null;
+            }).filter(Boolean);
+            const formatted = values.join(widgetConfig[section][sub].separator || " | ");
+            const lines = subPara.innerHTML.split("<br>").filter(line => !line.startsWith(`${widgetConfig[section][sub].title}:`));
+            if (formatted) lines.push(`${widgetConfig[section][sub].title}: ${formatted}`);
+            subPara.innerHTML = lines.join("<br>");
+          });
+          if (field.unit) {
+            const unit = document.createElement("span");
+            unit.textContent = field.unit;
+            row.appendChild(unit);
+          }
+          widget.appendChild(row);
+        });
+        subDiv.appendChild(widget);
+      }
+      subsectionContainer.appendChild(subDiv);
+    });
+    menu.appendChild(sectionDiv);
+  });
+}
+function insertSection(section) {
+  const editor = document.getElementById("textEditor");
+  const sectionId = `section-${section}`;
+  if (!document.getElementById(sectionId)) {
+    const allSections = Object.keys(menuData);
+    const index = allSections.indexOf(section);
+    const sectionDiv = document.createElement("div");
+    sectionDiv.id = sectionId;
+    sectionDiv.innerHTML = `<p><strong>${section}</strong></p>`;
+    let inserted = false;
+    for (let i = index + 1; i < allSections.length; i++) {
+      const next = document.getElementById(`section-${allSections[i]}`);
+      if (next) {
+        editor.insertBefore(sectionDiv, next);
+        inserted = true;
+        break;
+      }
+    }
+    if (!inserted) editor.appendChild(sectionDiv);
+  }
+}
+
+function insertSubsection(section, subsection) {
+  insertSection(section);
+  const sectionDiv = document.getElementById(`section-${section}`);
+  const subId = `sub-${section}-${subsection}`;
+  if (!document.getElementById(subId)) {
+    const subPara = document.createElement("p");
+    subPara.id = subId;
+    subPara.innerHTML = `<strong>${subsection}:</strong> `;
+    const allSubsections = Object.keys(menuData[section].subsections);
+    const index = allSubsections.indexOf(subsection);
+    let inserted = false;
+    for (let i = index + 1; i < allSubsections.length; i++) {
+      const next = document.getElementById(`sub-${section}-${allSubsections[i]}`);
+      if (next) {
+        sectionDiv.insertBefore(subPara, next);
+        inserted = true;
+        break;
+      }
+    }
+    if (!inserted) sectionDiv.appendChild(subPara);
+  }
+}
+
+function insertStructured(section, subsection, item, delimiter) {
+  insertSubsection(section, subsection);
+  const subPara = document.getElementById(`sub-${section}-${subsection}`);
+  const current = subPara.textContent.split(":")[1]?.trim() || "";
+  const items = current ? current.split(delimiter).map(s => s.trim()) : [];
+  if (!items.includes(item)) {
+    items.push(item);
+    subPara.innerHTML = `<strong>${subsection}:</strong> ${items.join(delimiter)}`;
+  }
+  const clean = item.replace(/\s*\(.+\)$/, "").trim();
+  document.querySelectorAll(".item").forEach(el => {
+    if (el.textContent.trim() === clean) {
+      el.classList.add("selected");
+    }
+  });
+}
+window.addEventListener("load", buildMenu);
+</script>
+</body>
+</html>

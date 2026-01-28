@@ -265,7 +265,7 @@
       "Journal",
       "Pression",
       "Domicile",
-      "Patient",
+      "Patient"
     ],
     "targetBlank": true
   },
@@ -301,29 +301,16 @@
       "Patient"
     ],
     "targetBlank": true
+  },
+  {
+    "title": "Fiches aux usagers",
+    "href": "https://www.ciusssnordmtl.ca/usagers-et-visiteurs/fiches-aux-usagers",
+    "category": "Usagers",
+    "tags": [
+      "Fiches",
+      "Usagers",
+      "Information"
+    ],
+    "targetBlank": true
   }
-  // ,
-  // {
-  //   "title": "",
-  //   "href": "",
-  //   "category": "",
-  //   "tags": [
-  //     "",
-  //     "",
-  //     ""
-  //   ],
-  //   "targetBlank": true
-  // }
-  // ,
-  // {
-  //   "title": "",
-  //   "href": "",
-  //   "category": "",
-  //   "tags": [
-  //     "",
-  //     "",
-  //     ""
-  //   ],
-  //   "targetBlank": true
-  // }
 ]

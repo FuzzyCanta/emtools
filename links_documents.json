@@ -187,5 +187,16 @@
       "Sacre-Coeur"
     ],
     "targetBlank": true
+  }, 
+  {
+    "title": "Diabète - Médicament à arrêter",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2023/01/Jours-de-maladie-FR-RECTO-VERSO-2019-2.pdf",
+    "category": "Diabète",
+    "tags": [
+      "Déshydratation",
+      "Medication",
+      "Patient"
+    ],
+    "targetBlank": true
   }
 ]

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
   <title>My Medical Calculators</title>
@@ -10,34 +11,39 @@
       padding: 0;
       background: #f5f5f5;
     }
+
     ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
-    }       
+    }
+
     header {
       background: #004080;
       color: white;
       padding: 16px 24px;
     }
+
     header h1 {
       margin: 0;
       font-size: 1.8rem;
       text-align: center;
     }
+
     header p {
       margin: 4px 0 0;
       font-size: 0.95rem;
       opacity: 0.9;
       text-align: center;
     }
+
     main {
       display: block;
       justify-content: center;
       width: 100%;
       max-width: 1200px;
       margin: 24px auto;
-      padding: 0 16px 40px;
+      padding: 0 0 40px;
     }
 
     /* Center wrapper */
@@ -63,11 +69,13 @@
       height: 46px;
       border-radius: 8px;
       padding: 16px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
       border: 1px solid #ddd;
       text-align: center;
-      text-decoration: none;    /* removes link underline */
-      color: inherit;           /* text inherits normal color */
+      text-decoration: none;
+      /* removes link underline */
+      color: inherit;
+      /* text inherits normal color */
       transition: transform 0.1s ease, box-shadow 0.2s ease;
       cursor: pointer;
     }
@@ -75,7 +83,7 @@
     /* Hover effect for entire card */
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     }
 
     /* Card text */
@@ -85,6 +93,7 @@
       text-align: center;
       color: #004080;
     }
+
     .card p {
       margin: 0;
       font-size: 0.9rem;
@@ -94,7 +103,8 @@
 
     a,
     a:visited {
-      color: #0066cc;   /* same color for normal and visited */
+      color: #0066cc;
+      /* same color for normal and visited */
       text-decoration: none;
     }
 
@@ -108,30 +118,30 @@
       color: #777;
       padding-bottom: 16px;
     }
-  
+
 
     /* ---------------------------
       Searchable links table
     ----------------------------*/
-    .tableWrap{
+    .tableWrap {
       width: 90%;
       margin: 0 auto;
       background: #fff;
       border: 1px solid #ddd;
       border-radius: 10px;
       padding: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     }
 
-    .toolbar{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      justify-content:space-between;
-      margin-bottom:10px;
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
     }
 
-    .toolbar input{
+    .toolbar input {
       width: 100%;
       padding: 10px 12px;
       border: 1px solid #d0d4e0;
@@ -139,45 +149,46 @@
       font-size: 14px;
     }
 
-    .count{
+    .count {
       white-space: nowrap;
       font-size: 12px;
       color: #555;
     }
 
-    .linkTable{
-      width:100%;
+    .linkTable {
+      width: 100%;
       border-collapse: collapse;
       font-size: 14px;
     }
 
-    .linkTable th, .linkTable td{
+    .linkTable th,
+    .linkTable td {
       padding: 10px 8px;
       border-top: 1px solid #eee;
-      text-align:left;
+      text-align: left;
       vertical-align: top;
     }
 
-    .linkTable th{
+    .linkTable th {
       font-size: 12px;
-      color:#555;
-      background:#fafafa;
+      color: #555;
+      background: #fafafa;
       border-top: none;
     }
 
-    .badge{
-      display:inline-block;
+    .badge {
+      display: inline-block;
       padding: 2px 8px;
       border: 1px solid #e2e8f0;
       border-radius: 999px;
       font-size: 12px;
       margin: 2px 6px 2px 0;
       background: #fff;
-      color:#334155;
+      color: #334155;
     }
 
-    .openBtn{
-      display:inline-block;
+    .openBtn {
+      display: inline-block;
       padding: 6px 10px;
       border-radius: 10px;
       border: 1px solid #d0d4e0;
@@ -186,7 +197,7 @@
       color: #004080;
     }
 
-    .openBtn:hover{
+    .openBtn:hover {
       background: #f4f7ff;
     }
   </style>
@@ -194,13 +205,13 @@
 
 <body>
   <header>
-    <h1>My Medical Calculators & Tools</h1>
-    <p>Quick access index for custom ED calculators and documents.</p>
+    <h1>EMTools</h1>
+    <p>Index d'accès rapide aux calculateurs et documents personnalisés pour l'urgence.</p>
   </header>
 
   <main>
-    <h2 style="text-align: center;">Calculators</h2>
-      
+    <h2 style="text-align: center;">Calculateurs</h2>
+
     <div class="grid">
 
       <!-- Card 1 -->
@@ -246,7 +257,7 @@
 
     </div>
     <h2 style="text-align: center;">Prescripteur</h2>
-      
+
     <div class="grid">
       <!-- Card 1 -->
 
@@ -258,8 +269,8 @@
       <a href="lettreabsence.html" class="card">
         <h2>Justification d'absence</h2>
         <p>HSCM</p>
-      </a>  
-      
+      </a>
+
       <!-- Card X -->
       <!-- <a href="[Nom du fichier HTML]" class="card">
         <h2>[Nom désiré de la carte]</h2>
@@ -270,25 +281,29 @@
     <!-- SECTION LIENS RAPIDES -->
 
     <h2 style="text-align: center;">Liens rapides</h2>
-      
+
     <div class="grid">
       <!-- Card 1 -->
-      <a href="https://www.ciusssnordmtl.ca/zone-des-professionnels/referer-un-usager/guichet-dacces-en-sante-physique-gasp/medecins-urgentologues" class="card" style="height: 46px;" target="_blank">
+      <a href="https://www.ciusssnordmtl.ca/zone-des-professionnels/referer-un-usager/guichet-dacces-en-sante-physique-gasp/medecins-urgentologues"
+        class="card" style="height: 46px;" target="_blank">
         <h2>GASP - Général</h2>
         <p>Référence générale/spécialité</p>
       </a>
 
-      <a href="https://www.ciusssnordmtl.ca/zone-des-professionnels/medecins/accueil-clinique/accueil-clinique-de-lhopital-du-sacre-coeur-de-montreal/pour-medecins-de-lurgence" class="card" style="height: 46px;" target="_blank">
+      <a href="https://www.ciusssnordmtl.ca/zone-des-professionnels/medecins/accueil-clinique/accueil-clinique-de-lhopital-du-sacre-coeur-de-montreal/pour-medecins-de-lurgence"
+        class="card" style="height: 46px;" target="_blank">
         <h2>Accueil clinique</h2>
         <p>HSCM</p>
       </a>
 
-      <a href="https://www.ciusssnordmtl.ca/zone-des-professionnels/medecins/guide-dantibiotherapie-empirique" class="card" style="height: 46px;" target="_blank">
+      <a href="https://www.ciusssnordmtl.ca/zone-des-professionnels/medecins/guide-dantibiotherapie-empirique"
+        class="card" style="height: 46px;" target="_blank">
         <h2>Guide antibio</h2>
         <p>HSCM</p>
       </a>
 
-      <a href="http://www.orthohmr.ca/medecine-sportive/algorithmes-decisionnels/" class="card" style="height: 46px;" target="_blank">
+      <a href="http://www.orthohmr.ca/medecine-sportive/algorithmes-decisionnels/" class="card" style="height: 46px;"
+        target="_blank">
         <h2>Ortho HMR</h2>
         <p>Guide référence Ortho</p>
       </a>
@@ -300,21 +315,21 @@
       </a> -->
 
     </div>
-    
-    <h2 style="margin-top:32px; text-align:center;">Documents / Links</h2>
+
+    <h2 style="margin-top:32px; text-align:center;">Documents / Liens</h2>
 
     <div class="tableWrap">
       <div class="toolbar">
-        <input id="linkSearch" type="text" placeholder="Search title, category, tags..." />
+        <input id="linkSearch" type="text" placeholder="Chercher par titre, catégories, tags..." />
         <span class="count" id="linkCount"></span>
       </div>
 
       <table class="linkTable">
         <thead>
           <tr>
-            <th>Open</th>
-            <th>Title</th>
-            <th>Category</th>
+            <th></th>
+            <th>Titre</th>
+            <th>Catégorie</th>
             <th>Tags</th>
           </tr>
         </thead>
@@ -322,87 +337,86 @@
       </table>
     </div>
   </main>
-  
+
   <footer>
-    &copy; <span id="year"></span> My EMTools
+    &copy; <span id="year"></span> EMTools
   </footer>
 
   <script>
-  // Footer year
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+    // Footer year
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ---------------------------
-  // Data: add/edit links here
-  // ---------------------------
-  let LINKS = [];
+    // ---------------------------
+    let LINKS = [];
 
-  fetch("links_documents.json")
-    .then(r => {
-      if (!r.ok) throw new Error("Failed to load links.json");
-      return r.json();
-    })
-    .then(data => {
-      if (!Array.isArray(data)) {
-        throw new Error("links.json must be an array");
-      }
-      LINKS = data;
-      render();
-    })
-    .catch(err => {
-      console.error(err);
-      alert("Could not load links.json");
-    });
+    fetch("links_documents.json")
+      .then(r => {
+        if (!r.ok) throw new Error("Failed to load links.json");
+        return r.json();
+      })
+      .then(data => {
+        if (!Array.isArray(data)) {
+          throw new Error("links.json must be an array");
+        }
+        LINKS = data;
+        render();
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Could not load links.json");
+      });
 
-  // ---------------------------
-  // Rendering + filtering
-  // ---------------------------
-  const tbody = document.getElementById("linkTbody");
-  const searchInput = document.getElementById("linkSearch");
-  const countEl = document.getElementById("linkCount");
+    // ---------------------------
+    // Rendering + filtering
+    // ---------------------------
+    const tbody = document.getElementById("linkTbody");
+    const searchInput = document.getElementById("linkSearch");
+    const countEl = document.getElementById("linkCount");
 
-  function escapeHtml(s){
-    return String(s)
-      .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
-      .replaceAll('"',"&quot;").replaceAll("'","&#039;");
-  }
+    function escapeHtml(s) {
+      return String(s)
+        .replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+    }
 
-  function rowMatches(link, q){
-    if (!q) return true;
-    const hay = [
-      link.href,
-      link.title,
-      link.category,
-      (link.tags || []).join(" ")
-    ].join(" ").toLowerCase();
-    return hay.includes(q);
-  }
+    function rowMatches(link, q) {
+      if (!q) return true;
+      const hay = [
+        link.href,
+        link.title,
+        link.category,
+        (link.tags || []).join(" ")
+      ].join(" ").toLowerCase();
+      return hay.includes(q);
+    }
 
-  function render(){
-    const q = (searchInput.value || "").trim().toLowerCase();
-    const filtered = LINKS.filter(l => rowMatches(l, q));
+    function render() {
+      const q = (searchInput.value || "").trim().toLowerCase();
+      const filtered = LINKS.filter(l => rowMatches(l, q));
 
-    if (!tbody) return;
+      if (!tbody) return;
 
-    tbody.innerHTML = filtered.map(l => {
-      const tagsHtml = (l.tags || []).map(t => `<span class="badge">${escapeHtml(t)}</span>`).join("");
-      const targetAttr = l.targetBlank ? ` target="_blank" rel="noopener noreferrer"` : "";
-      return `
+      tbody.innerHTML = filtered.map(l => {
+        const tagsHtml = (l.tags || []).map(t => `<span class="badge">${escapeHtml(t)}</span>`).join("");
+        const targetAttr = l.targetBlank ? ` target="_blank" rel="noopener noreferrer"` : "";
+        return `
         <tr>
-          <td><a class="openBtn" href="${escapeHtml(l.href)}"${targetAttr}>Open</a></td>
+          <td><a class="openBtn" href="${escapeHtml(l.href)}"${targetAttr}>Ouvrir</a></td>
           <td>${escapeHtml(l.title)}</td>
           <td>${escapeHtml(l.category || "")}</td>
           <td>${tagsHtml}</td>
         </tr>
       `;
-    }).join("");
+      }).join("");
 
-    if (countEl) countEl.textContent = `${filtered.length} / ${LINKS.length}`;
-  }
+      if (countEl) countEl.textContent = `${filtered.length} / ${LINKS.length}`;
+    }
 
-  if (searchInput) {
-    searchInput.addEventListener("input", render);
-  }
-</script>
+    if (searchInput) {
+      searchInput.addEventListener("input", render);
+    }
+  </script>
 </body>
+
 </html>

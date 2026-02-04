@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-  <title>Acid–Base & Osmolar Calculator</title>
+  <title>Calculateur troubles acido-basiques</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -71,10 +71,10 @@
 </head>
 <body>
 <div class="container">
-  <h1>Acid–Base & Osmolar Calculator</h1>
-  <p>Units are SI by default. Calculations update automatically when you change inputs.</p>
+  <h1 style="text-align: center;">Calculateur troubles acido-basiques</h1>
+  <p style="text-align: center;">Insérer les valeurs disponibles</p>
 
-  <h2>Inputs</h2>
+  <h2>Biochimie</h2>
   <div class="inputs-grid">
     <!-- Electrolytes / chemistry -->
     <div class="input-group">
@@ -90,41 +90,45 @@
       <input id="cl" type="number" step="0.1" oninput="calculateAll()">
     </div>
     <div class="input-group">
-      <label for="hco3">HCO₃⁻ (mmol/L)</label>
-      <input id="hco3" type="number" step="0.1" oninput="calculateAll()">
-    </div>
-    <div class="input-group">
-      <label for="albumin">Albumin (g/L)</label>
-      <input id="albumin" type="number" step="1" oninput="calculateAll()">
+      <label for="urea">Urea (mmol/L)</label>
+      <input id="urea" type="number" step="0.1" oninput="calculateAll()">
     </div>
     <div class="input-group">
       <label for="glucose">Glucose (mmol/L)</label>
       <input id="glucose" type="number" step="0.1" oninput="calculateAll()">
     </div>
     <div class="input-group">
-      <label for="urea">Urea (mmol/L)</label>
-      <input id="urea" type="number" step="0.1" oninput="calculateAll()">
+      <label for="albumin">Albumin (g/L)</label>
+      <input id="albumin" type="number" step="1" oninput="calculateAll()">
     </div>
     <div class="input-group">
       <label for="osmMeasured">Measured osmolality (mOsm/kg)</label>
       <input id="osmMeasured" type="number" step="1" oninput="calculateAll()">
     </div>
-    <div class="input-group">
-      <label for="lactate">Lactate (mmol/L, optional)</label>
-      <input id="lactate" type="number" step="0.1" oninput="calculateAll()">
+    <div></div>
     </div>
-    <div class="input-group">
-      <label for="pco2">pCO₂ (mmHg, optional)</label>
-      <input id="pco2" type="number" step="0.1" oninput="calculateAll()">
-    </div>
-    <div class="input-group">
-      <label for="ph">pH (arterial)</label>
-      <input id="ph" type="number" step="0.001" oninput="calculateAll()">
-    </div>
+    <h2>Gaz du sang</h2>
+    <div class="inputs-grid">
+      <div class="input-group">
+        <label for="ph">pH (arterial)</label>
+        <input id="ph" type="number" step="0.001" oninput="calculateAll()">
+      </div>
+      <div class="input-group">
+        <label for="pco2">pCO₂ (mmHg, optional)</label>
+        <input id="pco2" type="number" step="0.1" oninput="calculateAll()">
+      </div>
+      <div class="input-group">
+        <label for="hco3">HCO₃⁻ (mmol/L)</label>
+        <input id="hco3" type="number" step="0.1" oninput="calculateAll()">
+      </div>
+      <div class="input-group">
+        <label for="lactate">Lactate (mmol/L, optional)</label>
+        <input id="lactate" type="number" step="0.1" oninput="calculateAll()">
+      </div>
   </div>
 
   <div class="results">
-    <h2>Results</h2>
+    <h2>Résultats</h2>
     <table class="results-table">
       <tr>
         <th>Calculation</th>
@@ -146,6 +150,34 @@
         <td>mmol/L</td>
         <td>--</td>
         <td>AG + 0.25 × (40 − albumin[g/L])</td>
+      </tr>
+      <tr>
+        <td>Strong ion difference (simplified)</td>
+        <td><span id="sid">--</span></td>
+        <td>mmol/L</td>
+        <td>~36 mmol/L</td>
+        <td>(Na⁺ + K⁺) − Cl⁻ − lactate</td>
+      </tr>
+      <tr>
+        <td>Base excess (approx.)</td>
+        <td><span id="baseExcess">--</span></td>
+        <td>mmol/L</td>
+        <td>-2 to +2 mmol</td>
+        <td>0.9287 × [HCO₃⁻ − 24.4 + 14.83 × (pH − 7.40)]</td>
+      </tr>
+      <tr>
+        <td>Expected pCO₂ (compensation)</td>
+        <td><span id="expectedPco2">--</span></td>
+        <td>mmHg</td>
+        <td>--</td>
+        <td>Winter’s / metabolic alkalosis rule</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600;">Gap osmolaire</td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
       </tr>
       <tr>
         <td>Corrected Na⁺ for glucose</td>
@@ -188,27 +220,6 @@
         <td>--</td>
         <td>--</td>
         <td>ΔAG / ΔHCO₃⁻</td>
-      </tr>
-      <tr>
-        <td>Strong ion difference (simplified)</td>
-        <td><span id="sid">--</span></td>
-        <td>mmol/L</td>
-        <td>~36 mmol/L</td>
-        <td>(Na⁺ + K⁺) − Cl⁻ − lactate</td>
-      </tr>
-      <tr>
-        <td>Base excess (approx.)</td>
-        <td><span id="baseExcess">--</span></td>
-        <td>mmol/L</td>
-        <td>-2 to +2 mmol</td>
-        <td>0.9287 × [HCO₃⁻ − 24.4 + 14.83 × (pH − 7.40)]</td>
-      </tr>
-      <tr>
-        <td>Expected pCO₂ (compensation)</td>
-        <td><span id="expectedPco2">--</span></td>
-        <td>mmHg</td>
-        <td>--</td>
-        <td>Winter’s / metabolic alkalosis rule</td>
       </tr>
     </table>
     <div class="interpretation" id="pco2Interpretation"></div>

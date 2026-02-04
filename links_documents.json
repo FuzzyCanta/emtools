@@ -303,13 +303,39 @@
     "targetBlank": true
   },
   {
-    "title": "Fiches aux usagers",
+    "title": "Liste - Fiches aux usagers (CIUSSS NIM)",
     "href": "https://www.ciusssnordmtl.ca/usagers-et-visiteurs/fiches-aux-usagers",
     "category": "Usagers",
     "tags": [
       "Fiches",
       "Usagers",
       "Information"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Mastite - Soins à domicile",
+    "href": "https://cdn.ciussscentreouest.ca/documents/hgj/pfrc/Breastfeeding_clinic/mastite_info_pour_patients_2022_final.pdf",
+    "category": "Post-partum",
+    "tags": [
+      "Fiches",
+      "Usagers",
+      "Information",
+      "Grossesse",
+      "Allaitement"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Mastitis - Home care",
+    "href": "https://cdn.ciussscentreouest.ca/documents/hgj/pfrc/Breastfeeding_clinic/mastitis_handout_2022_final.pdf",
+    "category": "Post-partum",
+    "tags": [
+      "Fiches",
+      "Usagers",
+      "Information",
+      "Grossesse",
+      "Allaitement"
     ],
     "targetBlank": true
   }

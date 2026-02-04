@@ -1,0 +1,82 @@
+{
+  "calculations": 
+  [
+    {
+      "Calculation": "Anion gap (AG)",
+      "Value": "--",
+      "Units": "mmol/L",
+      "Normal": "4-12mmol",
+      "Notes": "Na⁺ − (Cl⁻ + HCO₃⁻)"
+    },
+    {
+      "Calculation": "Corrected AG for albumin",
+      "Value": "--",
+      "Units": "mmol/L",
+      "Normal": "--",
+      "Notes": "AG + 0.25 × (40 − albumin[g/L])"
+    },
+    {
+      "Calculation": "Corrected Na⁺ for glucose",
+      "Value": "--",
+      "Units": "mmol/L",
+      "Normal": "--",
+      "Notes": "approx: +0.288 × (glucose − 5.6)"
+    },
+    {
+      "Calculation": "Calculated osmolality",
+      "Value": "--",
+      "Units": "mOsm/kg",
+      "Normal": "275-295 mOsm/kg",
+      "Notes": "2 × Na⁺ + glucose + urea"
+    },
+    {
+      "Calculation": "Osmolar gap",
+      "Value": "--",
+      "Units": "mOsm/kg",
+      "Normal": "< 10 mOsm/kg",
+      "Notes": "measured − calculated"
+    },
+    {
+      "Calculation": "Delta AG",
+      "Value": "--",
+      "Units": "mmol/L",
+      "Normal": "--",
+      "Notes": "AG − 12"
+    },
+    {
+      "Calculation": "Delta HCO₃⁻",
+      "Value": "--",
+      "Units": "mmol/L",
+      "Normal": "--",
+      "Notes": "24 − HCO₃⁻"
+    },
+    {
+      "Calculation": "Delta–delta ratio",
+      "Value": "--",
+      "Units": "--",
+      "Normal": "--",
+      "Notes": "ΔAG / ΔHCO₃⁻"
+    },
+    {
+      "Calculation": "Strong ion difference (simplified)",
+      "Value": "--",
+      "Units": "mmol/L",
+      "Normal": "~36 mmol/L",
+      "Notes": "(Na⁺ + K⁺) − Cl⁻ − lactate"
+    },
+    {
+      "Calculation": "Base excess (approx.)",
+      "Value": "--",
+      "Units": "mmol/L",
+      "Normal": "-2 to +2 mmol",
+      "Notes": "0.9287 × [HCO₃⁻ − 24.4 + 14.83 × (pH − 7.40)]"
+    },
+    {
+      "Calculation": "Expected pCO₂ (compensation)",
+      "Value": "--",
+      "Units": "mmHg",
+      "Normal": "--",
+      "Notes": "Winter’s / metabolic alkalosis rule"
+    }
+  ]
+}

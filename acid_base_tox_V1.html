@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Generic Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f5f5f5;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1,
+    h2 {
+      margin: 0 0 10px 0;
+    }
+
+    #subtitle {
+      margin: 0 0 18px 0;
+      color: #444;
+    }
+
+    details {
+      margin: 10px 0 14px 0;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      padding: 6px 0;
+    }
+
+    .inputs-grid {
+      display: grid;
+      gap: 10px 16px;
+      margin: 8px 0 4px 0;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.9rem;
+    }
+
+    .input-group label {
+      margin-bottom: 4px;
+    }
+
+    .input-group input,
+    .input-group select {
+      padding: 4px 6px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 0.9rem;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-top: 18px;
+    }
+
+    .checkbox-row label {
+      margin: 0;
+    }
+
+    .results {
+      border-top: 1px solid #ddd;
+      padding-top: 15px;
+      margin-top: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    th,
+    td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #ececec;
+    }
+
+    .note {
+      font-size: 0.8rem;
+      color: #555;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+
+    <h2>Valeurs mesurées</h2>
+    <div id="inputSections"></div>
+
+    <div class="results">
+      <h2>Valeurs calculées</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Calcul</th>
+            <th style="text-align: center;">Valeur</th>
+            <th style="text-align: center;">Unité</th>
+            <th style="text-align: center;">Normal</th>
+            <th style="text-align: right;"">Notes</th>
+          </tr>
+        </thead>
+        <tbody id="outputs"></tbody>
+      </table>
+      <div class="note" id="footer"></div>
+    </div>
+  </div>
+
+  <script type="module">
+    const $ = (q, root = document) => root.querySelector(q);
+
+    // Fetch external config (must be served over http://, not file://)
+    const cfg = await fetch("./acid_base_tox_config.json").then(r => {
+      if (!r.ok) throw new Error("Cannot load config JSON");
+      return r.json();
+    });
+
+    const toNum = (v) => {
+      const n = Number(v);
+      return Number.isFinite(n) ? n : null;
+    };
+
+    const fmtNum = (x, digits = 1) =>
+      (x == null || !Number.isFinite(x)) ? "—" : x.toFixed(digits);
+
+    const compile = (expr) => new Function("ctx", `with(ctx){ return (${expr}); }`);
+
+    $("#title").textContent = cfg.meta?.title ?? "";
+    $("#subtitle").textContent = cfg.meta?.subtitle ?? "";
+    $("#footer").textContent = cfg.meta?.footer ?? "";
+
+    const calcFns = new Map((cfg.calculations || []).map(c => [c.id, compile(c.expr)]));
+
+    const showIfFns = new Map();
+    (cfg.inputSections || []).forEach((sec, si) => {
+      if (sec.showIf) showIfFns.set(`sec:${si}`, compile(sec.showIf));
+      (sec.inputs || []).forEach((inp, ii) => {
+        if (inp.showIf) showIfFns.set(`inp:${si}:${ii}`, compile(inp.showIf));
+      });
+    });
+
+    function renderInput(i, si, ii) {
+      const id = i.id;
+      const type = i.type || "number";
+      const unitText = i.unit ? ` (${i.unit})` : "";
+
+      if (type === "checkbox") {
+        return `
+        <div class="input-group" data-inp="${si}:${ii}">
+          <div class="checkbox-row">
+            <input id="${id}" type="checkbox">
+            <label for="${id}">${i.label ?? id}${unitText}</label>
+          </div>
+        </div>
+      `;
+      }
+
+      if (type === "select") {
+        const opts = (i.options || []).map(o => `<option value="${o.value}">${o.label ?? o.value}</option>`).join("");
+        return `
+        <div class="input-group" data-inp="${si}:${ii}">
+          <label for="${id}">${i.label ?? id}${unitText}</label>
+          <select id="${id}">
+            ${opts}
+          </select>
+        </div>
+      `;
+      }
+
+      const step = (i.step != null) ? `step="${i.step}"` : "";
+      const inputMode = type === "number" ? 'inputmode="decimal"' : "";
+      const htmlType = (type === "text") ? "text" : "number";
+
+      return `
+      <div class="input-group" data-inp="${si}:${ii}">
+        <label for="${id}">${i.label ?? id}${unitText}</label>
+        <input id="${id}" type="${htmlType}" ${step} ${inputMode}>
+      </div>
+    `;
+    }
+
+    function renderInputs() {
+      $("#inputSections").innerHTML = (cfg.inputSections || []).map((sec, si) => {
+        const cols = Number(sec.columns) > 0 ? Number(sec.columns) : 0;
+        const gridStyle = cols ? `style="grid-template-columns: repeat(${cols}, minmax(180px, 1fr));"` : "";
+        const openAttr = sec.collapsed ? "" : "open";
+        return `
+        <details ${openAttr} data-sec="${si}">
+          <summary>${sec.title ?? ""}</summary>
+          <div class="inputs-grid" ${gridStyle}>
+            ${(sec.inputs || []).map((i, ii) => renderInput(i, si, ii)).join("")}
+          </div>
+        </details>
+      `;
+      }).join("");
+    }
+
+    function renderOutputs() {
+      $("#outputs").innerHTML = (cfg.calculations || []).map(c => { 
+        if (c.type === "header") {
+          return `<tr class="output-header" style="font-weight: bold; background-color: #f1f1f1;"><td colspan="5">${c.label ?? c.id}</td></tr>`;
+        }
+        return `
+      <tr>
+        <td style="width: 30%;">${c.label ?? c.id}</td>
+        <td style="width: 10%; text-align: center;"><span id="out_${c.id}">—</span></td>
+        <td style="width: 10%; text-align: center;">${c.unit ?? ""}</td>
+        <td style="width: 20%; text-align: center;">${c.normal ?? ""}</td>
+        <td style="width: 30%;text-align: right;">${c.notes ?? ""}</td>
+      </tr>
+    `;}).join("");
+    }
+
+    function applyDefaults() {
+      (cfg.inputSections || []).forEach(sec => {
+        (sec.inputs || []).forEach(i => {
+          const el = $("#" + i.id);
+          if (!el) return;
+
+          if (i.type === "checkbox") el.checked = (i.default != null) ? !!i.default : false;
+          else if (i.type === "select" && i.default != null) el.value = String(i.default);
+          else if (i.default != null) el.value = String(i.default);
+        });
+      });
+    }
+
+    function loadInputs(ctx) {
+      (cfg.inputSections || []).forEach(sec => {
+        (sec.inputs || []).forEach(i => {
+          const el = $("#" + i.id);
+          if (!el) return;
+
+          if (i.type === "checkbox") ctx[i.id] = !!el.checked;
+          else if (i.type === "select") ctx[i.id] = el.value;
+          else if (i.type === "text") ctx[i.id] = (el.value ?? "");
+          else ctx[i.id] = toNum(el.value);
+        });
+      });
+    }
+
+    function applyVisibility(ctx) {
+      (cfg.inputSections || []).forEach((sec, si) => {
+        const det = document.querySelector(`details[data-sec="${si}"]`);
+        if (!det) return;
+
+        if (!sec.showIf) det.style.display = "";
+        else {
+          let show = true;
+          try { show = !!showIfFns.get(`sec:${si}`)(ctx); } catch { show = true; }
+          det.style.display = show ? "" : "none";
+        }
+
+        (sec.inputs || []).forEach((i, ii) => {
+          const wrap = det.querySelector(`[data-inp="${si}:${ii}"]`);
+          if (!wrap) return;
+
+          if (!i.showIf) wrap.style.display = "";
+          else {
+            let show = true;
+            try { show = !!showIfFns.get(`inp:${si}:${ii}`)(ctx); } catch { show = true; }
+            wrap.style.display = show ? "" : "none";
+          }
+        });
+      });
+    }
+
+    function formatOutput(c, v) {
+      if (v == null) return "—";
+      if (c.format === "boolean") {
+        if (typeof v !== "boolean") return "—";
+        return v ? (c.trueLabel ?? "True") : (c.falseLabel ?? "False");
+      }
+      if (typeof v === "string") return v;
+      return fmtNum(v, c.digits ?? 1);
+    }
+
+    function recalc() {
+      const ctx = Object.create(null);
+      Object.assign(ctx, cfg.constants || {});
+      loadInputs(ctx);
+      applyVisibility(ctx);
+
+      for (const c of (cfg.calculations || [])) {
+        const ok = (c.requires || []).every(k => ctx[k] != null);
+        let val = null;
+        if (ok) { try { val = calcFns.get(c.id)(ctx); } catch { val = null; } }
+        ctx[c.id] = val;
+        const out = $("#out_" + c.id);
+        if (out) out.textContent = formatOutput(c, val);
+      }
+    }
+
+    function bindEvents() {
+      (cfg.inputSections || []).forEach(sec => {
+        (sec.inputs || []).forEach(i => {
+          const el = $("#" + i.id);
+          if (!el) return;
+          const evt = (i.type === "select" || i.type === "checkbox") ? "change" : "input";
+          el.addEventListener(evt, recalc);
+        });
+      });
+    }
+
+    renderInputs();
+    renderOutputs();
+    applyDefaults();
+    bindEvents();
+    recalc();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,281 @@
+{
+  "meta": {
+    "title": "Calculateur biochimie & gaz du sang",
+    "subtitle": "Acidose métabolique, compensation respiratoire, gap osmolaire, delta–delta",
+    "footer": [
+      "Formules utilisés: AG: Na⁺ − (Cl⁻ + HCO₃⁻) ---- AG corr: AG + 0.25 × (40 − albumin[g/L]) ---- SID: (Na⁺ + K⁺) − Cl⁻ − lactate ---- Base excess: 0.9287 × [HCO₃⁻ − 24.4 + 14.83 × (pH − 7.40)] ---- Winter’s rule: expected pCO₂ = 1.5 × HCO₃⁻ + 8 ± 2 ---- Corr. Na⁺ for glucose: Na⁺ + (0.016 * ((glucose*18) - 100)) if glucose > 5.5 mmol/L ---- Calculated osmolality: 2 × Na⁺ + glucose + urea ---- Osmolal gap: measured − calculated ---- Delta AG: AG − 12 ---- Delta HCO₃⁻: 24 − HCO₃⁻ ---- Delta–delta ratio: ΔAG / ΔHCO₃⁻"
+    ]
+  },
+  "constants": {
+    "threshold": 10
+  },
+  "inputSections": [
+    {
+      "title": "Biochimie",
+      "columns": 4,
+      "collapsed": false,
+      "inputs": [
+        {
+          "id": "na",
+          "label": "Na⁺",
+          "unit": "mmol/L",
+          "step": 0.1
+        },
+        {
+          "id": "k",
+          "label": "K⁺",
+          "unit": "mmol/L",
+          "step": 0.1
+        },
+        {
+          "id": "cl",
+          "label": "Cl⁻",
+          "unit": "mmol/L",
+          "step": 0.1
+        },
+        {
+          "id": "urea",
+          "label": "Urée",
+          "unit": "mmol/L",
+          "step": 0.1
+        },
+        {
+          "id": "glucose",
+          "label": "Glucose",
+          "unit": "mmol/L",
+          "step": 0.1
+        },
+        {
+          "id": "albumin",
+          "label": "Albumin",
+          "unit": "g/L",
+          "step": 1
+        },
+        {
+          "id": "osmMeasured",
+          "label": "Osm mesurée",
+          "unit": "mOsm/kg",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "title": "Toxicologie",
+      "columns": 4,
+      "collapsed": true,
+      "inputs": [
+        {
+          "id": "roh",
+          "label": "Éthanolémie",
+          "unit": "mmol/L",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "title": "Gaz du sang",
+      "columns": 4,
+      "collapsed": false,
+      "inputs": [
+        {
+          "id": "ph",
+          "label": "pH",
+          "unit": "",
+          "step": 0.01
+        },
+        {
+          "id": "pco2",
+          "label": "pCO₂",
+          "unit": "mmHg",
+          "step": 0.1
+        },
+        {
+          "id": "hco3",
+          "label": "HCO₃⁻",
+          "unit": "mmol/L",
+          "step": 0.1
+        },
+        {
+          "id": "lactate",
+          "label": "Lactate",
+          "unit": "mmol/L",
+          "step": 0.1
+        }
+      ]
+    }
+  ],
+  "calculations": [
+    {
+      "type": "header",
+      "label": "Acidose métabolique"
+    },
+    {
+      "id": "anionGap",
+      "label": "Anion gap",
+      "expr": "(na == null || na == 0 || cl == null || cl == 0 || hco3 == null || hco3 == 0 ? null : na - (cl + hco3))",
+      "digits": 1,
+      "unit": "mmol/L",
+      "normal": "4–12 mmol/L",
+      "notes": "> 12 = AG élevé",
+      "requires": [
+        "na",
+        "cl",
+        "hco3"
+      ]
+    },
+    {
+      "id": "corrAnionGap",
+      "label": "Corr. AG for alb",
+      "expr": "anionGap + 0.25 * (albuminRef - albumin)",
+      "digits": 1,
+      "unit": "mmol/L",
+      "normal": null,
+      "notes": "",
+      "requires": [
+        "anionGap",
+        "albumin"
+      ]
+    },
+    {
+      "id": "sid",
+      "label": "Strong ion diff.",
+      "expr": "(na == null || na == 0 || cl == null || cl == 0 ? null : (na + (k ?? 0)) - cl - (lactate ?? 0))",
+      "digits": 1,
+      "unit": "mmol/L",
+      "normal": "~36 mmol/L",
+      "notes": "Acidose < 36 > Alcalose",
+      "requires": [
+        "na",
+        "cl"
+      ]
+    },
+    {
+      "id": "baseExcess",
+      "label": "Base excess",
+      "expr": "(ph == null || ph == 0 ? null : 0.9287 * (hco3 - 24.4 + 14.83 * (ph - 7.40)))",
+      "digits": 1,
+      "unit": "mmol/L",
+      "normal": "-2 to +2 mmol/L",
+      "notes": "Acidose < -2 || +2 > Alcalose",
+      "requires": [
+        "hco3",
+        "ph"
+      ]
+    },
+    {
+      "type": "header",
+      "label": "Compensation respiratoire"
+    },
+    {
+      "id": "expectedPco2Display",
+      "label": "Expected pCO₂",
+      "expr": "(hco3 == null || hco3 == 0 ? null : ph < 7.35 ? (1.5 * hco3 + 8) + ' ±2' : null)",
+      "digits": 0,
+      "unit": "mmHg",
+      "normal": "—",
+      "notes": "±5 selon sources récentes",
+      "requires": [
+        "hco3"
+      ]
+    },
+    {
+      "type": "header",
+      "label": "Gap osmolaire / toxicologie"
+    },
+    {
+      "id": "corrNa",
+      "label": "Corr. Na⁺ for glu",
+      "expr": "na == null || na == 0 ? null : (glucose > 5.5 ? (na + 0.016 * ((glucose*18) - 100)) : null)",
+      "digits": 0,
+      "unit": "mmol/L",
+      "normal": "—",
+      "notes": "",
+      "requires": [
+        "na",
+        "glucose"
+      ]
+    },
+    {
+      "id": "calcOsm",
+      "label": "Calc. Osm",
+      "expr": "na == null || na == 0 || glucose == null || glucose == 0 || urea == null || urea == 0 ? null : 2 * na + glucose + urea",
+      "digits": 0,
+      "unit": "mOsm/kg",
+      "normal": "275–295 mOsm/kg",
+      "notes": "",
+      "requires": [
+        "na",
+        "glucose",
+        "urea"
+      ]
+    },
+    {
+      "id": "osmGap",
+      "label": "Osm gap",
+      "expr": "osmMeasured - calcOsm",
+      "digits": 0,
+      "unit": "mOsm/kg",
+      "normal": "< 10 mOsm/kg",
+      "notes": "",
+      "requires": [
+        "osmMeasured",
+        "calcOsm"
+      ]
+    },
+    {
+      "id": "rohosmGap",
+      "label": "Osm gap (corr. for ROH)",
+      "expr": "(roh == null || roh == 0 ? null : osmMeasured - calcOsm - (roh * 1.25))",
+      "digits": 0,
+      "unit": "mOsm/kg",
+      "normal": null,
+      "notes": "(EtOH mesuré x 1.25)",
+      "requires": [
+        "osmMeasured",
+        "calcOsm",
+        "roh"
+      ]
+    },
+    {
+      "type": "header",
+      "label": "Calcul du delta–delta"
+    },
+    {
+      "id": "deltaAg",
+      "label": "Delta AG",
+      "expr": "anionGap - 12",
+      "digits": 1,
+      "unit": "mmol/L",
+      "normal": "—",
+      "notes": "",
+      "requires": [
+        "anionGap"
+      ]
+    },
+    {
+      "id": "deltaHco3",
+      "label": "Delta HCO₃⁻",
+      "expr": "(hco3 == null || hco3 == 0 ? null : 24 - hco3)",
+      "digits": 1,
+      "unit": "mmol/L",
+      "normal": "—",
+      "notes": "",
+      "requires": [
+        "hco3"
+      ]
+    },
+    {
+      "id": "deltaDeltaRatio",
+      "label": "Delta–delta ratio",
+      "expr": "deltaHco3 !== 0 ? (deltaAg / deltaHco3) : null",
+      "digits": 2,
+      "unit": "—",
+      "normal": "—",
+      "notes": "",
+      "requires": [
+        "deltaAg",
+        "deltaHco3"
+      ]
+    }
+  ]
+}

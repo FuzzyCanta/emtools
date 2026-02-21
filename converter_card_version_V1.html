@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Card Engine (JSON on Server)</title>
+  <style>
+    :root {
+      --bg: #f5f5f5;
+      --container: #ffffff;
+      --border: #d7dbe6;
+      --text: #1f2430;
+      --muted: #6b7280;
+      --shadow: 0 2px 6px rgba(0, 0, 0, .10);
+      --radius: 10px;
+
+      --baseW: 320px;
+      /* base card width */
+      --baseH: 160px;
+      /* base card min-height */
+      --gap: 12px;
+
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 18px auto;
+      background: var(--container);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      margin: 0 0 12px 0;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .status {
+      margin: 0 0 12px 0;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      min-height: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(var(--baseW), 1fr));
+      gap: var(--gap);
+      align-items: start;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px;
+      min-height: var(--baseH);
+      overflow: hidden;
+    }
+
+    .cardHeader {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .cardTitle {
+      font-size: 14px;
+      font-weight: 750;
+      margin: 0;
+    }
+
+    .cardSub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+      line-height: 1.2;
+    }
+
+    .badge {
+      font-size: 11px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 2px 8px;
+      background: #fff;
+    }
+
+    .rows {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: end;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 120px;
+      flex: 1;
+    }
+
+    label {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    input,
+    select {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 13px;
+      background: #fff;
+      width: 100%;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .14);
+    }
+
+    .outBox {
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      background: #fbfcff;
+      padding: 8px 10px;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .outLabel {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .outVal {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: pre-wrap;
+    }
+
+    .err {
+      color: #b91c1c;
+      font-size: 11px;
+      white-space: pre-wrap;
+      margin-top: 8px;
+      display: none;
+    }
+
+    /* Variable size multipliers */
+    .w1 {
+      grid-column: span 1;
+    }
+
+    .w2 {
+      grid-column: span 2;
+    }
+
+    .w3 {
+      grid-column: span 3;
+    }
+
+    .h1 {
+      min-height: calc(var(--baseH) * 1);
+    }
+
+    .h2 {
+      min-height: calc(var(--baseH) * 2);
+    }
+
+    .h3 {
+      min-height: calc(var(--baseH) * 3);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="pageTitle">Calculator</h1>
+    <div id="status" class="status"></div>
+    <div id="grid" class="grid"></div>
+  </div>
+
+  <script>
+    /*
+      Server JSON workflow (no file picker, no embedded card definitions):
+      - Put cards.json in the same folder as this HTML (or change CONFIG_URL below).
+      - Update cards.json on your server any time; reload the page to apply.
+    
+      JSON schema:
+      {
+        "meta": { "title": "..." },
+        "store": { ...optional initial shared store... },
+        "cards": [ { id, title, subtitle, size:{w,h}, inputs:[...], outputs:[...] } ]
+      }
+    
+      Expression context:
+        i = inputs of current card (i.key)
+        s = shared store (cross-card)
+        f = helper functions
+        Math = Math
+    */
+
+    /* ========= Config ========= */
+    const CONFIG_URL = "converter_card_version_JSON.json";     // change if needed (e.g., "./configs/acidbase.json")
+    const FETCH_NO_STORE = true;           // true: bypass cache while developing
+
+    /* ========= Helpers (available as f.*) ========= */
+    const f = {
+      n: (v) => { const x = Number(v); return Number.isFinite(x) ? x : null; },
+      round: (x, d = 2) => { if (x == null || !Number.isFinite(x)) return null; const p = 10 ** d; return Math.round(x * p) / p; },
+      clamp: (x, lo, hi) => { if (x == null || !Number.isFinite(x)) return null; return Math.min(hi, Math.max(lo, x)); },
+      iff: (cond, a, b) => (cond ? a : b),
+      div: (a, b) => { if (a == null || b == null || !Number.isFinite(a) || !Number.isFinite(b) || b === 0) return null; return a / b; },
+      fmtSmart: (x) => {
+        if (x == null || !Number.isFinite(x)) return "—";
+        const ax = Math.abs(x);
+        if (ax === 0) return "0";
+        if (ax < 0.01) return x.toFixed(4);
+        if (ax < 0.1) return x.toFixed(3);
+        if (ax < 1) return x.toFixed(2);
+        if (ax < 10) return x.toFixed(2);
+        if (ax < 100) return x.toFixed(1);
+        return x.toFixed(0);
+      },
+      fmt: (x, digits = null) => {
+        if (x == null || !Number.isFinite(x)) return "—";
+        if (digits == null) return String(x);
+        return Number(x).toFixed(digits);
+      }
+    };
+
+    /* ========= Shared store ========= */
+    let store = {};
+    let currentConfig = null;
+
+    /* ========= Evaluator =========
+       Note: This evaluates JS expressions from your JSON. Treat JSON as trusted.
+    */
+    function evalExpr(expr, i, s) {
+      if (!expr || typeof expr !== "string") return null;
+      const fn = new Function("i", "s", "f", "Math", `"use strict"; return (${expr});`);
+      return fn(i, s, f, Math);
+    }
+
+    /* ========= DOM helpers ========= */
+    function el(tag, attrs = {}, children = []) {
+      const node = document.createElement(tag);
+      for (const [k, v] of Object.entries(attrs)) {
+        if (k === "class") node.className = v;
+        else if (k === "text") node.textContent = v;
+        else node.setAttribute(k, v);
+      }
+      for (const ch of children) node.appendChild(ch);
+      return node;
+    }
+
+    function formatOutput(value, outDef) {
+      const fmtMode = outDef?.format || "smart"; // smart|fixed|raw
+      if (value == null || (typeof value === "number" && !Number.isFinite(value))) return "—";
+      if (typeof value === "boolean") return value ? "true" : "false";
+      if (typeof value === "string") return value;
+      if (typeof value === "number") {
+        if (fmtMode === "fixed") {
+          const d = (outDef.digits == null) ? 2 : Number(outDef.digits);
+          return Number.isFinite(d) ? value.toFixed(d) : String(value);
+        }
+        if (fmtMode === "raw") return String(value);
+        return f.fmtSmart(value);
+      }
+      try { return JSON.stringify(value); } catch (e) { return String(value); }
+    }
+
+    function computeCard(cardDef, i, cardEl) {
+      const errEl = cardEl.querySelector("[data-err='1']");
+      errEl.style.display = "none";
+      errEl.textContent = "";
+
+      const outputs = Array.isArray(cardDef.outputs) ? cardDef.outputs : [];
+      outputs.forEach(outDef => {
+        const box = cardEl.querySelector(`.outBox[data-out-key="${CSS.escape(outDef.key || "")}"]`);
+        const valNode = box?.querySelector(".outVal");
+        if (!valNode) return;
+
+        try {
+          const v = evalExpr(outDef.expr, i, store);
+          if (outDef.writeToStore) {
+            store[String(outDef.writeToStore)] = v;
+          }
+          const txt = formatOutput(v, outDef);
+          valNode.textContent = outDef.unit ? `${txt} ${outDef.unit}` : txt;
+        } catch (e) {
+          valNode.textContent = "—";
+          errEl.style.display = "block";
+          errEl.textContent = `Error in "${cardDef.title || cardDef.id || "card"}" -> output "${outDef.key || outDef.label}":\n${e?.message || e}`;
+        }
+      });
+    }
+
+    function buildCard(cardDef) {
+      const w = Math.max(1, Math.min(3, Number(cardDef?.size?.w ?? 1)));
+      const h = Math.max(1, Math.min(3, Number(cardDef?.size?.h ?? 1)));
+
+      const card = el("div", { class: `card w${w} h${h}` });
+      const headerLeft = el("div");
+      headerLeft.appendChild(el("div", { class: "cardTitle", text: cardDef.title || "Untitled" }));
+      if (cardDef.subtitle) headerLeft.appendChild(el("div", { class: "cardSub", text: cardDef.subtitle }));
+
+      const headerRight = el("div");
+      headerRight.appendChild(el("span", { class: "badge", text: `${w}×W  ${h}×H` }));
+
+      const rows = el("div", { class: "rows" });
+      const i = {};
+
+      const inputs = Array.isArray(cardDef.inputs) ? cardDef.inputs : [];
+      if (inputs.length) {
+        const inputRow = el("div", { class: "row" });
+        inputs.forEach(inp => {
+          const key = inp.key;
+          const type = inp.type || "number";
+          const field = el("div", { class: "field" });
+          field.appendChild(el("label", { text: inp.label || key }));
+
+          let inputEl;
+          if (type === "select") {
+            inputEl = el("select");
+            (inp.options || []).forEach(opt => {
+              inputEl.appendChild(el("option", { value: String(opt.value), text: opt.label ?? String(opt.value) }));
+            });
+            if (inp.default != null) inputEl.value = String(inp.default);
+            i[key] = inputEl.value;
+            inputEl.addEventListener("change", () => { i[key] = inputEl.value; computeCard(cardDef, i, card); });
+          } else {
+            inputEl = el("input", {
+              type,
+              step: inp.step ?? (type === "number" ? "any" : undefined),
+              value: inp.default ?? "",
+              placeholder: inp.placeholder ?? ""
+            });
+            if (inp.min != null) inputEl.min = String(inp.min);
+            if (inp.max != null) inputEl.max = String(inp.max);
+
+            i[key] = (type === "number") ? f.n(inputEl.value) : inputEl.value;
+            inputEl.addEventListener("input", () => {
+              i[key] = (type === "number") ? f.n(inputEl.value) : inputEl.value;
+              computeCard(cardDef, i, card);
+            });
+          }
+
+          field.appendChild(inputEl);
+          if (inp.unit) field.appendChild(el("div", { class: "cardSub", text: inp.unit }));
+          inputRow.appendChild(field);
+        });
+        rows.appendChild(inputRow);
+      }
+
+      const outs = Array.isArray(cardDef.outputs) ? cardDef.outputs : [];
+      outs.forEach(out => {
+        const box = el("div", { class: "outBox" });
+        box.dataset.outKey = out.key || "";
+        box.appendChild(el("div", { class: "outLabel", text: out.label || out.key || "Output" }));
+        box.appendChild(el("div", { class: "outVal", text: "—" }));
+        rows.appendChild(box);
+      });
+
+      const err = el("div", { class: "err" });
+      err.dataset.err = "1";
+
+      card.appendChild(el("div", { class: "cardHeader" }, [headerLeft, headerRight]));
+      card.appendChild(rows);
+      card.appendChild(err);
+
+      computeCard(cardDef, i, card);
+      return card;
+    }
+
+    function render(config) {
+      currentConfig = config;
+      store = (config && typeof config.store === "object") ? structuredClone(config.store) : {};
+
+      const title = config?.meta?.title || "Calculator";
+      document.getElementById("pageTitle").textContent = title;
+
+      const grid = document.getElementById("grid");
+      grid.innerHTML = "";
+      const cards = Array.isArray(config?.cards) ? config.cards : [];
+      cards.forEach(c => grid.appendChild(buildCard(c)));
+
+      document.getElementById("status").textContent = `Loaded ${cards.length} card(s) from ${CONFIG_URL}`;
+    }
+
+    /* ========= Load JSON from server ========= */
+    async function loadConfig() {
+      const status = document.getElementById("status");
+      status.textContent = `Loading ${CONFIG_URL}...`;
+
+      try {
+        const resp = await fetch(CONFIG_URL, { cache: FETCH_NO_STORE ? "no-store" : "default" });
+        if (!resp.ok) throw new Error(`HTTP ${resp.status} ${resp.statusText}`);
+        const obj = await resp.json();
+        render(obj);
+      } catch (e) {
+        status.textContent = `Failed to load ${CONFIG_URL}`;
+        const grid = document.getElementById("grid");
+        grid.innerHTML = "";
+        grid.appendChild(el("div", { class: "card" }, [
+          el("div", { class: "cardTitle", text: "Configuration load error" }),
+          el("div", { class: "cardSub", text: "Check that cards.json is served from the same folder (or update CONFIG_URL)." }),
+          el("div", { class: "err", text: String(e?.message || e), style: "display:block;margin-top:10px;" })
+        ]));
+      }
+    }
+
+    loadConfig();
+  </script>
+</body>
+
+</html>

@@ -117,14 +117,14 @@
       <div class="card">
         <h2>Height</h2>
 
-        <div class="row">
+        <div class="grid" style="grid-template-columns: auto auto;">
           <label for="ft">Imperial</label>
-          <input id="ft" class="small" type="number" min="0" step="1" placeholder="ft" />
+          <input id="ft" class="small" type="number" min="0" step="1" placeholder="ft" width="50%"/>
           <input id="inch" class="small" type="number" min="0" step="0.1" placeholder="in" />
           <span class="out mono" id="heightSI">—</span>
         </div>
 
-        <div class="row">
+        <div class="grid" style="grid-template-columns: auto auto;">
           <label for="cm">SI</label>
           <input id="cm" type="number" min="0" step="0.1" placeholder="cm" />
           <span class="out mono" id="heightImp">—</span>

@@ -3,7 +3,7 @@
     "title": "Calculateur biochimie & gaz du sang",
     "subtitle": "Acidose métabolique, compensation respiratoire, gap osmolaire, delta–delta",
     "footer": [
-      "Formules utilisés: AG: Na⁺ − (Cl⁻ + HCO₃⁻) ---- AG corr: AG + 0.25 × (40 − albumin[g/L]) ---- SID: (Na⁺ + K⁺) − Cl⁻ − lactate ---- Base excess: 0.9287 × [HCO₃⁻ − 24.4 + 14.83 × (pH − 7.40)] ---- Winter’s rule: expected pCO₂ = 1.5 × HCO₃⁻ + 8 ± 2 ---- Corr. Na⁺ for glucose: Na⁺ + (0.016 * ((glucose*18) - 100)) if glucose > 5.5 mmol/L ---- Calculated osmolality: 2 × Na⁺ + glucose + urea ---- Osmolal gap: measured − calculated ---- Delta AG: AG − 12 ---- Delta HCO₃⁻: 24 − HCO₃⁻ ---- Delta–delta ratio: ΔAG / ΔHCO₃⁻"
+      "Formules utilisés: AG: Na⁺ − (Cl⁻ + HCO₃⁻) ---- AG corr: AG + 0.25 × (40 − albumin[g/L]) ---- SID: (Na⁺ + K⁺) − Cl⁻ − lactate ---- Base excess: 0.9287 × [HCO₃⁻ − 24.4 + 14.83 × (pH − 7.40)] ---- Winter’s rule: expected pCO₂ = 1.5 × HCO₃⁻ + 8 ± 2 ---- Corr. Na⁺ for glucose: Na⁺ + (0.016 * ((glucose*18) - 100)) if glucose > 5.5 mmol/L ---- Calculated osmolality: 2 × Na⁺ + glucose + urea ---- Osmolal gap: measured − calculated ---- Delta AG: AG − 12 ---- Delta HCO₃⁻: 24 − HCO₃⁻ ---- Delta–delta ratio: ΔAG / ΔHCO₃⁻ >> Interprétation: < 0.4 [NAGMA], 0.4–0.8 [Mixed], > 1 [HAGMA], > 0.8 [Double AG (Acide/Alkalose)]"
     ]
   },
   "constants": {
@@ -126,7 +126,7 @@
     {
       "id": "corrAnionGap",
       "label": "Corr. AG for alb",
-      "expr": "anionGap + 0.25 * (albuminRef - albumin)",
+      "expr": "anionGap + 0.25 * (40 - albumin)",
       "digits": 1,
       "unit": "mmol/L",
       "normal": null,
@@ -143,7 +143,7 @@
       "digits": 1,
       "unit": "mmol/L",
       "normal": "~36 mmol/L",
-      "notes": "Acidose < 36 > Alcalose",
+      "notes": "Acidose < 36-40 > Alcalose",
       "requires": [
         "na",
         "cl"

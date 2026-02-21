@@ -1,0 +1,103 @@
+{
+  "meta": { "title": "Acid–Base Calculator" },
+  "store": {},
+  "cards": [
+    {
+      "id": "ab_core",
+      "title": "Acid–Base (core)",
+      "subtitle": "Basic interpretation + Winter's formula",
+      "size": { "w": 2, "h": 1 },
+      "inputs": [
+        { "key": "pH",   "label": "pH",      "type": "number", "step": 0.01, "default": 7.28, "unit": "1 " },
+        { "key": "pCO2", "label": "pCO₂",    "type": "number", "step": 0.1,  "default": 28, "unit": "mmHg" },
+        { "key": "HCO3", "label": "HCO₃⁻",   "type": "number", "step": 0.1,  "default": 13, "unit": "mmol/L" }
+      ],
+      "outputs": [
+        {
+          "key": "primary",
+          "label": "Primary process (rule-based)",
+          "expr": "i.pH==null||i.pCO2==null||i.HCO3==null ? '—' : (i.pH<7.35 ? (i.HCO3<22 ? 'Metabolic acidosis' : (i.pCO2>45 ? 'Respiratory acidosis' : 'Acidemia (mixed/unclear)')) : (i.pH>7.45 ? (i.HCO3>26 ? 'Metabolic alkalosis' : (i.pCO2<35 ? 'Respiratory alkalosis' : 'Alkalemia (mixed/unclear)')) : 'Near-normal pH (consider mixed)'))",
+          "format": "raw"
+        },
+        {
+          "key": "winter",
+          "label": "Expected pCO₂ (Winter) if metabolic acidosis",
+          "expr": "i.HCO3!=null ? (1.5*i.HCO3 + 8) : null",
+          "format": "fixed",
+          "digits": 1,
+          "unit": "mmHg"
+        },
+        {
+          "key": "winterRange",
+          "label": "Winter expected range (±2)",
+          "expr": "i.HCO3==null ? '—' : (function(){const exp=1.5*i.HCO3+8; return (Math.round((exp-2)*10)/10)+' to '+(Math.round((exp+2)*10)/10);})()",
+          "format": "raw",
+          "unit": "mmHg"
+        },
+        {
+          "key": "winterCompare",
+          "label": "Compensation check (metabolic acidosis only)",
+          "expr": "i.HCO3==null||i.pCO2==null ? '—' : (function(){const exp=1.5*i.HCO3+8; if(i.pCO2>=exp-2 && i.pCO2<=exp+2) return 'Appropriate respiratory compensation'; if(i.pCO2>exp+2) return 'Concurrent respiratory acidosis'; return 'Concurrent respiratory alkalosis';})()",
+          "format": "raw"
+        }
+      ]
+    },
+    {
+      "id": "anion_gap",
+      "title": "Anion gap",
+      "subtitle": "AG = Na − (Cl + HCO₃)",
+      "size": { "w": 1, "h": 1 },
+      "inputs": [
+        { "key": "Na",   "label": "Na⁺",   "type": "number", "step": 0.1, "default": 140, "unit": "mmol/L" },
+        { "key": "Cl",   "label": "Cl⁻",   "type": "number", "step": 0.1, "default": 105, "unit": "mmol/L" },
+        { "key": "HCO3", "label": "HCO₃⁻", "type": "number", "step": 0.1, "default": 13,  "unit": "mmol/L" },
+        { "key": "Alb",  "label": "Albumin", "type": "number", "step": 0.1, "default": 40, "unit": "g/L" }
+      ],
+      "outputs": [
+        {
+          "key": "AG",
+          "label": "Anion gap",
+          "expr": "i.Na!=null && i.Cl!=null && i.HCO3!=null ? (i.Na - (i.Cl + i.HCO3)) : null",
+          "format": "fixed",
+          "digits": 1,
+          "unit": "mmol/L",
+          "writeToStore": "AG"
+        },
+        {
+          "key": "AGcorr",
+          "label": "Corrected AG (albumin-adjusted)",
+          "expr": "(i.Na!=null && i.Cl!=null && i.HCO3!=null && i.Alb!=null) ? ((i.Na - (i.Cl + i.HCO3)) + 0.25*(40 - i.Alb)) : null",
+          "format": "fixed",
+          "digits": 1,
+          "unit": "mmol/L"
+        }
+      ]
+    },
+    {
+      "id": "delta_gap",
+      "title": "Delta gap",
+      "subtitle": "Uses shared store AG (from Anion gap card)",
+      "size": { "w": 1, "h": 1 },
+      "inputs": [
+        { "key": "HCO3", "label": "HCO₃⁻", "type": "number", "step": 0.1, "default": 13, "unit": "mmol/L" },
+        { "key": "AGref", "label": "AG reference", "type": "number", "step": 0.1, "default": 12, "unit": "mmol/L" },
+        { "key": "HCO3ref", "label": "HCO₃ reference", "type": "number", "step": 0.1, "default": 24, "unit": "mmol/L" }
+      ],
+      "outputs": [
+        {
+          "key": "delta",
+          "label": "Delta ratio: (AG-AGref)/(HCO₃ref-HCO₃)",
+          "expr": "(s.AG!=null && i.HCO3!=null && i.AGref!=null && i.HCO3ref!=null) ? ((s.AG - i.AGref) / (i.HCO3ref - i.HCO3)) : null",
+          "format": "fixed",
+          "digits": 2
+        },
+        {
+          "key": "deltaHint",
+          "label": "Rule-of-thumb interpretation",
+          "expr": "(s.AG==null || i.HCO3==null || i.AGref==null || i.HCO3ref==null) ? '—' : (function(){const r=(s.AG - i.AGref)/(i.HCO3ref - i.HCO3); if(!Number.isFinite(r)) return '—'; if(r<0.4) return 'Consider pure normal AG acidosis'; if(r<0.8) return 'Mixed: high AG + normal AG acidosis'; if(r<=2.0) return 'Consistent with high AG acidosis'; return 'Consider concurrent metabolic alkalosis or chronic resp acidosis';})()",
+          "format": "raw"
+        }
+      ]
+    }
+  ]
+}

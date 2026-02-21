@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+
   <title>Convertisseur Levophed Avancé</title>
   <style>
     body {
@@ -16,7 +22,7 @@
       background: white;
       padding: 30px 40px;
       border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       max-width: fit-content;
       width: 100%;
       Justify-items: center;
@@ -55,8 +61,9 @@
       text-align: center;
     }
 
-    .conc-btn, .unit-btn {
-      padding: 6px 14px;
+    .conc-btn,
+    .unit-btn {
+      padding: 6px 6px;
       border-radius: 6px;
       border: 1px solid #357ABD;
       background: #eef5ff;
@@ -65,7 +72,8 @@
       font-size: 0.9rem;
     }
 
-    .conc-btn.selected, .unit-btn.selected {
+    .conc-btn.selected,
+    .unit-btn.selected {
       background: #357ABD;
       color: white;
     }
@@ -89,7 +97,7 @@
       border: 1px solid #cdd9ed;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: inset 0 1px 4px rgba(0,0,0,0.05);
+      box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
       /* width: 97%; */
     }
 
@@ -109,170 +117,174 @@
 </head>
 
 <body>
-<div class="container">
-  <h1>Convertisseur rapide</h1>
+  <div class="container">
+    <h1>Convertisseur rapide</h1>
 
-  <!-- WEIGHT -->
-  <div class="control-group">
-    <label>Poids du patient (kg):</label>
-    <div class="input-row">
-      <input type="range" id="weight" min="0" max="250" value="70">
-      <input type="number" id="weightNum" min="0" max="250" value="70">
+    <!-- WEIGHT -->
+    <div class="control-group">
+      <label>Poids du patient (kg):</label>
+      <div class="input-row">
+        <input type="range" id="weight" min="0" max="250" value="70">
+        <input type="number" id="weightNum" min="0" max="250" value="70">
+      </div>
+    </div>
+
+    <!-- CONCENTRATION -->
+    <div class="control-group">
+      <label>Concentration: (<span id="mgmlDisplay"></span>)</label>
+
+      <div id="input-row">
+        <input type="number" id="concDose" min="0" max="999" value="4"> mg
+        <input type="number" id="concVol" min="0" max="999" value="250"> mL
+      </div>
+    </div>
+
+    <!-- UNIT BUTTONS -->
+    <div class="control-group">
+      <label>Unité de départ :</label>
+
+      <div id="unitButtons"
+        style="display:grid; gap:10px; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));">
+        <button class="unit-btn" data-unit="mg_per_min">mg/min</button>
+        <button class="unit-btn" data-unit="mcg_per_min">mcg/min</button>
+        <button class="unit-btn" data-unit="mg_per_h">mg/h</button>
+        <button class="unit-btn" data-unit="mcg_per_h">mcg/h</button>
+        <button class="unit-btn" data-unit="mcg_per_kg_min">mcg/kg/min</button>
+        <button class="unit-btn" data-unit="ml_per_hr">mL/h</button>
+      </div>
+    </div>
+
+    <!-- VALUE INPUT -->
+    <div class="control-group">
+      <label>Valeur :</label>
+
+      <div class="input-row">
+        <input type="range" id="inputVal" min="0" max="200" step="1" value="1">
+        <input type="number" id="inputValNum" min="0" max="200" step="0.1" value="1">
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="result">
+      <p><span>mg/min :</span> <span id="res_mg_min">-</span></p>
+      <p><span>mcg/min :</span> <span id="res_mcg_min">-</span></p>
+      <p><span>mcg/kg/min :</span> <span id="res_mcg_kg_min">-</span></p>
+      <p><span>mL/h :</span> <span id="res_ml_hr">-</span></p>
     </div>
   </div>
 
-  <!-- CONCENTRATION -->
-  <div class="control-group">
-    <label>Concentration: (<span id="mgmlDisplay"></span>)</label>
+  <script>
+    /* ELEMENT REFERENCES */
+    const weightSlider = document.getElementById('weight');
+    const weightNum = document.getElementById('weightNum');
+    const concDose = document.getElementById('concDose');
+    const concVol = document.getElementById('concVol');
+    const mgmlDisplay = document.getElementById('mgmlDisplay');
 
-    <div id="input-row">
-      <input type="number" id="concDose" min="0" max="999" value="4"> mg
-      <input type="number" id="concVol" min="0" max="999" value="250"> mL
-    </div>
-  </div>
+    const unitButtons = document.querySelectorAll('.unit-btn');
+    let currentUnit = "mcg_per_min";
 
-  <!-- UNIT BUTTONS -->
-  <div class="control-group">
-    <label>Unité de départ :</label>
+    const inputValSlider = document.getElementById('inputVal');
+    const inputValNum = document.getElementById('inputValNum');
 
-    <div id="unitButtons" style="display:flex; gap:10px; flex-wrap:wrap;">
-      <button class="unit-btn" data-unit="mg_per_min">mg/min</button>
-      <button class="unit-btn" data-unit="mcg_per_min">mcg/min</button>
-      <button class="unit-btn" data-unit="mcg_per_kg_min">mcg/kg/min</button>
-      <button class="unit-btn" data-unit="ml_per_hr">mL/h</button>
-    </div>
-  </div>
+    const resMgMin = document.getElementById('res_mg_min');
+    const resMcgMin = document.getElementById('res_mcg_min');
+    const resMcgKgMin = document.getElementById('res_mcg_kg_min');
+    const resMlHr = document.getElementById('res_ml_hr');
 
-  <!-- VALUE INPUT -->
-  <div class="control-group">
-    <label>Valeur :</label>
+    /* SYNC RANGE + NUMBER */
+    function sync(rangeEl, numEl) {
+      rangeEl.addEventListener('input', () => {
+        numEl.value = rangeEl.value;
+        updateConversions();
+      });
 
-    <div class="input-row">
-      <input type="range" id="inputVal" min="0" max="200" step="1" value="1">
-      <input type="number" id="inputValNum" min="0" max="200" step="0.1" value="1">
-    </div>
-  </div>
+      numEl.addEventListener('input', () => {
+        rangeEl.value = numEl.value;
+        updateConversions();
+      });
+    }
 
-  <!-- RESULTS -->
-  <div class="result">
-    <p><span>mg/min :</span> <span id="res_mg_min">-</span></p>
-    <p><span>mcg/min :</span> <span id="res_mcg_min">-</span></p>
-    <p><span>mcg/kg/min :</span> <span id="res_mcg_kg_min">-</span></p>
-    <p><span>mL/h :</span> <span id="res_ml_hr">-</span></p>
-  </div>
-</div>
+    sync(weightSlider, weightNum);
+    sync(inputValSlider, inputValNum);
 
-<script>
-/* ELEMENT REFERENCES */
-const weightSlider = document.getElementById('weight');
-const weightNum = document.getElementById('weightNum');
-const concDose = document.getElementById('concDose');
-const concVol = document.getElementById('concVol');
-const mgmlDisplay = document.getElementById('mgmlDisplay');
 
-const unitButtons = document.querySelectorAll('.unit-btn');
-let currentUnit = "mcg_per_min";
+    concVol.addEventListener('input', updateMgmlDisplay);
+    concVol.addEventListener('input', updateConversions);
+    concDose.addEventListener('input', updateMgmlDisplay);
+    concDose.addEventListener('input', updateConversions);
 
-const inputValSlider = document.getElementById('inputVal');
-const inputValNum = document.getElementById('inputValNum');
+    function updateMgmlDisplay() {
+      const concDoseMg = parseFloat(concDose.value);
+      const concMl = parseFloat(concVol.value);
+      const mcgPerMl = (concDoseMg / concMl) * 1000;
+      const mgPerMl = concDoseMg / concMl;
+      if (mcgPerMl > 100) {
+        mgmlDisplay.textContent = `${mgPerMl.toFixed(1)} mg/mL`;
+        return;
+      }
+      else {
+        mgmlDisplay.textContent = `${mcgPerMl.toFixed(1)} mcg/mL`;
+        return;
+      }
+    }
+    updateMgmlDisplay();
 
-const resMgMin = document.getElementById('res_mg_min');
-const resMcgMin = document.getElementById('res_mcg_min');
-const resMcgKgMin = document.getElementById('res_mcg_kg_min');
-const resMlHr = document.getElementById('res_ml_hr');
+    /* UNIT BUTTONS */
+    unitButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentUnit = btn.dataset.unit;
 
-/* SYNC RANGE + NUMBER */
-function sync(rangeEl, numEl) {
-  rangeEl.addEventListener('input', () => {
-    numEl.value = rangeEl.value;
+        unitButtons.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        updateConversions();
+      });
+    });
+
+    // Default selection
+    document.querySelector('.unit-btn[data-unit="mcg_per_min"]').classList.add('selected');
+
+
+    /* MAIN CONVERSION FUNCTION */
+    function updateConversions() {
+      const weight = parseFloat(weightNum.value);
+      const unit = currentUnit;
+      const inputVal = parseFloat(inputValNum.value);
+      const mcgPerMl = parseFloat(concDose.value * 1000) / parseFloat(concVol.value);
+
+      let mcg_min, mcg_kg_min, ml_hr;
+
+      if (unit === "mcg_per_min") {
+        mcg_min = inputVal;
+        mcg_kg_min = mcg_min / weight;
+        ml_hr = (mcg_min / mcgPerMl) * 60;
+
+      } else if (unit === "mcg_per_kg_min") {
+        mcg_kg_min = inputVal;
+        mcg_min = mcg_kg_min * weight;
+        ml_hr = (mcg_min / mcgPerMl) * 60;
+
+      } else if (unit === "mg_per_min") {
+        mcg_min = inputVal * 1000;
+        mcg_kg_min = mcg_min / weight;
+        ml_hr = (mcg_min / mcgPerMl) * 60;
+
+      } else if (unit === "ml_per_hr") {
+        ml_hr = inputVal;
+        mcg_min = (ml_hr / 60) * mcgPerMl;
+        mcg_kg_min = mcg_min / weight;
+      }
+
+      resMgMin.textContent = (mcg_min / 1000).toFixed(2);
+      resMcgMin.textContent = mcg_min.toFixed(2);
+      resMcgKgMin.textContent = mcg_kg_min.toFixed(3);
+      resMlHr.textContent = ml_hr.toFixed(2);
+    }
+
     updateConversions();
-  });
-
-  numEl.addEventListener('input', () => {
-    rangeEl.value = numEl.value;
-    updateConversions();
-  });
-}
-
-sync(weightSlider, weightNum);
-sync(inputValSlider, inputValNum);
-
-
-concVol.addEventListener('input', updateMgmlDisplay);
-concVol.addEventListener('input', updateConversions);
-concDose.addEventListener('input', updateMgmlDisplay);
-concDose.addEventListener('input', updateConversions);
-
-function updateMgmlDisplay() {
-  const concDoseMg = parseFloat(concDose.value);
-  const concMl = parseFloat(concVol.value);
-  const mcgPerMl = (concDoseMg / concMl) * 1000;
-  const mgPerMl = concDoseMg / concMl;
-  if (mcgPerMl > 100) {
-    mgmlDisplay.textContent = `${mgPerMl.toFixed(1)} mg/mL`;
-    return;
-  }
-  else {
-    mgmlDisplay.textContent = `${mcgPerMl.toFixed(1)} mcg/mL`;
-    return;
-  }
-}
-updateMgmlDisplay();
-
-/* UNIT BUTTONS */
-unitButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    currentUnit = btn.dataset.unit;
-
-    unitButtons.forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-
-    updateConversions();
-  });
-});
-
-// Default selection
-document.querySelector('.unit-btn[data-unit="mcg_per_min"]').classList.add('selected');
-
-
-/* MAIN CONVERSION FUNCTION */
-function updateConversions() {
-  const weight = parseFloat(weightNum.value);
-  const unit = currentUnit;
-  const inputVal = parseFloat(inputValNum.value);
-  const mcgPerMl = parseFloat(concDose.value * 1000) / parseFloat(concVol.value);
-
-  let mcg_min, mcg_kg_min, ml_hr;
-
-  if (unit === "mcg_per_min") {
-    mcg_min = inputVal;
-    mcg_kg_min = mcg_min / weight;
-    ml_hr = (mcg_min / mcgPerMl) * 60;
-
-  } else if (unit === "mcg_per_kg_min") {
-    mcg_kg_min = inputVal;
-    mcg_min = mcg_kg_min * weight;
-    ml_hr = (mcg_min / mcgPerMl) * 60;
-
-  } else if (unit === "mg_per_min") {
-    mcg_min = inputVal * 1000;
-    mcg_kg_min = mcg_min / weight;
-    ml_hr = (mcg_min / mcgPerMl) * 60;
-
-  } else if (unit === "ml_per_hr") {
-    ml_hr = inputVal;
-    mcg_min = (ml_hr / 60) * mcgPerMl;
-    mcg_kg_min = mcg_min / weight;
-  }
-
-  resMgMin.textContent = (mcg_min / 1000).toFixed(2);
-  resMcgMin.textContent = mcg_min.toFixed(2);
-  resMcgKgMin.textContent = mcg_kg_min.toFixed(3);
-  resMlHr.textContent = ml_hr.toFixed(2);
-}
-
-updateConversions();
-</script>
+  </script>
 
 </body>
+
 </html>

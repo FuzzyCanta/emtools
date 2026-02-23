@@ -338,5 +338,18 @@
       "Allaitement"
     ],
     "targetBlank": true
+  },
+  {
+    "title": "Protocole NAC - CAPQ",
+    "href": "Protocole NAC.pdf",
+    "category": "Toxicologie",
+    "tags": [
+      "Protocole",
+      "NAC",
+      "CAPQ",
+      "Acetaminophene",
+      "APAP"
+    ],
+    "targetBlank": true
   }
 ]

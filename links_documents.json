@@ -351,5 +351,38 @@
       "APAP"
     ],
     "targetBlank": true
+  },
+  {
+    "title": "Déclaration MADO",
+    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/64631465d0d5c09085256ecf006b4afd/$FILE/AS-770_DT9070%20(2024-06)%20D.pdf",
+    "category": "Santé publique",
+    "tags": [
+      "MADO",
+      "Déclaration",
+      "Santé publique"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Évaluation initiale du pt intoxiqué",
+    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/831818955b7114c885257a15004c134c/$FILE/AH-262-1_DT9228%20(2012-05).pdf",
+    "category": "Toxicologie",
+    "tags": [
+      "Évaluation",
+      "Intoxication",
+      "Patient"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Prescription - Patient intoxiqué",
+    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/831818955b7114c885257a15004c134c/$FILE/AH-262-4_DT9228%20(2012-05).pdf",
+    "category": "Toxicologie",
+    "tags": [
+      "Prescription",
+      "Intoxication",
+      "Patient"
+    ],
+    "targetBlank": true
   }
 ]

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Timeline Date/Time Interval Calculator</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #fff;
+      --ink: #1f2a37;
+      --muted: #6b7280;
+      --border: #d0d4e0;
+      --accent: #2563eb;
+      --soft: #eef4ff;
+      --danger: #b91c1c;
+    }
+
+    body {
+      margin: 0;
+      padding: 18px;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 14px;
+    }
+
+    .card {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .grid2 {
+      display: flex;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    @media (max-width:820px) {
+      .grid2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      align-items: end;
+      flex-wrap: wrap;
+    }
+
+    .row>* {
+      flex: 1;
+    }
+
+    .field {
+      position: relative;
+      max-width: fit-content;
+    }
+
+    input,
+    select,
+    button {
+      font-size: 14px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px 34px 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    /* clear button used ONLY for text inputs (labels) and anchor */
+    .clearBtn {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      border: 1px solid rgba(107, 114, 128, .35);
+      background: #fff;
+      cursor: pointer;
+      color: var(--muted);
+      padding: 0;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .clearBtn:hover {
+      border-color: rgba(107, 114, 128, .7);
+      color: var(--ink);
+    }
+
+    .btn {
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 8px 10px;
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .btn.secondary {
+      background: #fff;
+      border-color: var(--border);
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .mini {
+      width: auto;
+      white-space: nowrap;
+    }
+
+    .out {
+      background: var(--soft);
+      border: 1px solid rgba(37, 99, 235, .20);
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .danger {
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .table th,
+    .table td {
+      border-bottom: 1px solid rgba(107, 114, 128, .18);
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .table th {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      background: rgba(107, 114, 128, .06);
+    }
+
+    .kvs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    @media (max-width:820px) {
+      .kvs {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .kv {
+      border: 1px solid rgba(107, 114, 128, .16);
+      border-radius: 8px;
+      padding: 8px;
+      background: #fff;
+    }
+
+    .kv span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .kv b {
+      font-weight: 700;
+    }
+
+    /* datetime inputs should NOT reserve space for a clear button */
+    .dtNoClear {
+      padding-right: 10px;
+    }
+
+    .subcard {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(107, 114, 128, .35);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h2>Timeline (multiple dates)</h2>
+      <div class="grid2">
+        <div>
+          <label>Anchor date/time</label>
+          <div>
+            <input type="datetime-local" id="anchorDT" class="dtNoClear" style="max-width: fit-content" />
+            <div class="row" style="padding-top: 10px">
+              <button class="btn secondary mini" id="addRowBtn" type="button" style="max-width: fit-content">+ Add
+                date/time</button>
+              <button class="btn secondary mini" id="clearRowsBtn" type="button"
+                style="max-width: fit-content">Clear</button>
+            </div>
+          </div>
+          <div class="subcard">
+            <div class="row">
+              <div>
+                <select id="relOp">
+                  <option value="add">Add</option>
+                  <option value="sub">Subtract</option>
+                </select>
+              </div>
+              <div>
+                <input type="number" id="relAmt" min="0" step="1" value="1" />
+              </div>
+              <div>
+                <select id="relUnit">
+                  <option value="minutes">Minutes</option>
+                  <option value="hours">Hours</option>
+                  <option value="days">Days</option>
+                  <option value="months">Months</option>
+                  <option value="years">Years</option>
+                </select>
+              </div>
+              <div style="flex:0 0 auto;">
+                <button class="btn secondary mini" id="addRelativeBtn" type="button">+ Add from anchor</button>
+              </div>
+            </div>
+            <!-- <div class="muted" style="margin-top:6px;">This creates a new timeline row with the computed date/time (you can edit it afterward).</div> -->
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:10px; overflow:auto;">
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="min-width:60px;">Label</th>
+              <th style="min-width:fit-content;">Date/time</th>
+              <th style="min-width:150px;">Since previous</th>
+              <th style="min-width:150px;">Since anchor</th>
+              <th style="max-width: fit-content;"></th>
+            </tr>
+          </thead>
+          <tbody id="timelineBody"></tbody>
+        </table>
+      </div>
+
+      <div class="out" id="timelineOut" style="margin-top:10px;">
+        <div class="muted">Enter an anchor date/time, then add events.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Parse datetime-local (YYYY-MM-DDTHH:MM) safely into a local Date
+    function parseDT(value) {
+      if (!value) return null;
+      // Expected: 2026-02-23T14:30
+      const m = value.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/);
+      if (!m) return null;
+      const y = Number(m[1]), mo = Number(m[2]), d = Number(m[3]), hh = Number(m[4]), mm = Number(m[5]);
+      if (![y, mo, d, hh, mm].every(Number.isFinite)) return null;
+      const dt = new Date(y, mo - 1, d, hh, mm, 0, 0);
+      if (isNaN(dt)) return null;
+      // Validate that JS didn't roll the date/time
+      if (dt.getFullYear() !== y || dt.getMonth() !== (mo - 1) || dt.getDate() !== d || dt.getHours() !== hh || dt.getMinutes() !== mm) return null;
+      return { y, m: mo, d, hh, mm, local: dt, raw: value };
+    }
+
+    function pad2(n) { return String(n).padStart(2, "0"); }
+    function formatDT(obj) {
+      const y = obj.local.getFullYear();
+      const mo = pad2(obj.local.getMonth() + 1);
+      const d = pad2(obj.local.getDate());
+      const hh = pad2(obj.local.getHours());
+      const mm = pad2(obj.local.getMinutes());
+      return `${y}-${mo}-${d} ${hh}:${mm}`;
+    }
+    function toInputDT(dateObj) {
+      const y = dateObj.getFullYear();
+      const mo = pad2(dateObj.getMonth() + 1);
+      const d = pad2(dateObj.getDate());
+      const hh = pad2(dateObj.getHours());
+      const mm = pad2(dateObj.getMinutes());
+      return `${y}-${mo}-${d}T${hh}:${mm}`;
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+    }
+
+    // Convert a time delta (ms) into w/d/h/m with sign
+    function toWDHM(diffMs) {
+      const sign = diffMs < 0 ? -1 : 1;
+      let totalMin = Math.round(Math.abs(diffMs) / 60000);
+      const w = Math.floor(totalMin / (7 * 24 * 60));
+      totalMin -= w * 7 * 24 * 60;
+      const d = Math.floor(totalMin / (24 * 60));
+      totalMin -= d * 24 * 60;
+      const h = Math.floor(totalMin / 60);
+      const m = totalMin - h * 60;
+      return { sign, w, d, h, m };
+    }
+
+    // Calendar-ish Y/M/D/H/M difference, assuming start <= end
+    function diffYMDHM(startLocal, endLocal) {
+      let y = endLocal.getFullYear() - startLocal.getFullYear();
+      let mo = endLocal.getMonth() - startLocal.getMonth();
+      let d = endLocal.getDate() - startLocal.getDate();
+      let hh = endLocal.getHours() - startLocal.getHours();
+      let mm = endLocal.getMinutes() - startLocal.getMinutes();
+
+      if (mm < 0) { hh--; mm += 60; }
+      if (hh < 0) { d--; hh += 24; }
+      if (d < 0) {
+        mo--;
+        const daysInPrevMonth = new Date(endLocal.getFullYear(), endLocal.getMonth(), 0).getDate();
+        d += daysInPrevMonth;
+      }
+      if (mo < 0) { y--; mo += 12; }
+      return { y, mo, d, hh, mm };
+    }
+
+    function renderSpanText(startDT, endDT) {
+      const diffMs = endDT.local.getTime() - startDT.local.getTime();
+      const wdhm = toWDHM(diffMs);
+
+      const signPrefix = wdhm.sign < 0 ? "-" : "";
+      const absStart = wdhm.sign < 0 ? endDT.local : startDT.local;
+      const absEnd = wdhm.sign < 0 ? startDT.local : endDT.local;
+      const cal = diffYMDHM(absStart, absEnd);
+
+      return `${signPrefix}${wdhm.w}w+${wdhm.d}d ${wdhm.h}h ${wdhm.m}m ( ${signPrefix}${cal.y}y ${cal.mo}m ${cal.d}d ${cal.hh}h ${cal.mm}m )`;
+    }
+
+    // Add/subtract from a date with unit support (minutes/hours/days/months/years)
+    function daysInMonth(y, monthIndex0) {
+      return new Date(y, monthIndex0 + 1, 0).getDate();
+    }
+    function addMonthsClamped(dateObj, deltaMonths) {
+      const y = dateObj.getFullYear();
+      const m0 = dateObj.getMonth();
+      const d = dateObj.getDate();
+      const hh = dateObj.getHours();
+      const mm = dateObj.getMinutes();
+      const ss = dateObj.getSeconds();
+      const ms = dateObj.getMilliseconds();
+
+      const target = m0 + deltaMonths;
+      const newY = y + Math.floor(target / 12);
+      const newM = ((target % 12) + 12) % 12;
+
+      const maxD = daysInMonth(newY, newM);
+      const newD = Math.min(d, maxD);
+
+      return new Date(newY, newM, newD, hh, mm, ss, ms);
+    }
+    function addYearsClamped(dateObj, deltaYears) {
+      return addMonthsClamped(dateObj, deltaYears * 12);
+    }
+    function addOffset(dateObj, op, amount, unit) {
+      const sign = (op === "sub") ? -1 : 1;
+      const amt = sign * amount;
+
+      if (unit === "minutes") return new Date(dateObj.getTime() + amt * 60000);
+      if (unit === "hours") return new Date(dateObj.getTime() + amt * 3600000);
+      if (unit === "days") return new Date(dateObj.getTime() + amt * 86400000);
+      if (unit === "months") return addMonthsClamped(dateObj, amt);
+      if (unit === "years") return addYearsClamped(dateObj, amt);
+      return new Date(dateObj.getTime());
+    }
+
+    /* Timeline rows */
+    let rowId = 0;
+    function makeRow(labelValue = "", dtValue = "") {
+      rowId++;
+      const id = rowId;
+      const tr = document.createElement("tr");
+      tr.dataset.rowId = String(id);
+      tr.innerHTML = `
+        <td>
+          <div class="field">
+            <input type="text" style="max-width:100px;" id="lbl-${id}" placeholder="Event #" value="${escapeHtml(labelValue)}" />
+            <button class="clearBtn" type="button" data-clear="lbl-${id}" aria-label="Clear label">×</button>
+          </div>
+        </td>
+        <td>
+          <input type="datetime-local" style="max-width: fit-content;" id="dt-${id}" class="dtNoClear" value="${dtValue}" />
+        </td>
+        <td id="prev-${id}" class="muted">—</td>
+        <td id="anch-${id}" class="muted">—</td>
+        <td><button type="button" style="max-width: fit-content;" class="btn secondary mini" id="del-${id}">Remove</button></td>
+      `;
+      tr.querySelector(`#lbl-${id}`).addEventListener("input", update);
+      tr.querySelector(`#dt-${id}`).addEventListener("input", update);
+      tr.querySelector(`#del-${id}`).addEventListener("click", () => { tr.remove(); update(); });
+      return tr;
+    }
+
+    function getEvents() {
+      const rows = Array.from(document.querySelectorAll("#timelineBody tr"));
+      const all = rows.map(tr => {
+        const id = tr.dataset.rowId;
+        const raw = document.getElementById(`dt-${id}`)?.value || "";
+        const dt = parseDT(raw);
+        return { id, raw, dt };
+      });
+      const datedSorted = all.filter(e => e.dt).sort((a, b) => a.dt.local.getTime() - b.dt.local.getTime());
+      return { all, datedSorted };
+    }
+
+    function update() {
+      const out = document.getElementById("timelineOut");
+      const anchor = parseDT(document.getElementById("anchorDT").value);
+      const { all, datedSorted } = getEvents();
+
+      // reset cells
+      for (const e of all) {
+        const p = document.getElementById(`prev-${e.id}`);
+        const a = document.getElementById(`anch-${e.id}`);
+        if (p) { p.textContent = "—"; p.className = "muted"; }
+        if (a) { a.textContent = "—"; a.className = "muted"; }
+        if (e.raw && !e.dt && a) {
+          a.textContent = "Invalid date/time";
+          a.className = "danger";
+        }
+      }
+
+      if (!anchor) {
+        out.innerHTML = `<div class="danger">Enter an anchor date/time to compute intervals.</div>`;
+        return;
+      }
+      if (datedSorted.length === 0) {
+        out.innerHTML = `<div class="muted">Add events (date/time) to compute intervals.</div>`;
+        return;
+      }
+
+      let prev = null;
+      for (const e of datedSorted) {
+        const prevCell = document.getElementById(`prev-${e.id}`);
+        const anchCell = document.getElementById(`anch-${e.id}`);
+
+        const diffFromAnchor = e.dt.local.getTime() - anchor.local.getTime();
+        if (diffFromAnchor < 0) {
+          anchCell.textContent = "Before anchor";
+          anchCell.className = "danger";
+        } else {
+          anchCell.textContent = renderSpanText(anchor, e.dt);
+          anchCell.className = "";
+        }
+
+        if (!prev) {
+          prevCell.textContent = "—";
+          prevCell.className = "muted";
+        } else {
+          prevCell.textContent = renderSpanText(prev.dt, e.dt);
+          prevCell.className = "";
+        }
+        prev = e;
+      }
+
+      const validAfterAnchor = datedSorted.filter(e => (e.dt.local.getTime() - anchor.local.getTime()) >= 0);
+      if (validAfterAnchor.length === 0) {
+        out.innerHTML = `<div class="danger">All event date/times are before the anchor date/time.</div>`;
+        return;
+      }
+
+      const latest = validAfterAnchor[validAfterAnchor.length - 1].dt;
+      const totalMs = latest.local.getTime() - anchor.local.getTime();
+      const wdhm = toWDHM(totalMs);
+      const cal = diffYMDHM(anchor.local, latest.local);
+      const totalMinutes = Math.round(totalMs / 60000);
+
+      out.innerHTML = `
+        <div><b>Total interval (anchor → latest event)</b></div>
+        <div class="kvs" style="margin-top:6px;">
+          <div class="kv"><span>Anchor</span><b>${formatDT(anchor)}</b></div>
+          <div class="kv"><span>Latest event</span><b>${formatDT(latest)}</b></div>
+          <div class="kv"><span>Total minutes</span><b>${totalMinutes}</b></div>
+          <div class="kv"><span>Weeks + days + time</span><b>${wdhm.w}w + ${wdhm.d}d ${wdhm.h}h ${wdhm.m}m</b></div>
+          <div class="kv"><span>Years / months / days / time</span><b>${cal.y}y ${cal.mo}m ${cal.d}d ${cal.hh}h ${cal.mm}m</b></div>
+        </div>
+      `;
+    }
+
+    // Clear buttons (only those that exist: anchor + labels)
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-clear]");
+      if (!btn) return;
+      const id = btn.getAttribute("data-clear");
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.value = "";
+      el.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+
+    function addRelativeRowFromAnchor() {
+      const body = document.getElementById("timelineBody");
+      const anchor = parseDT(document.getElementById("anchorDT").value);
+      const op = document.getElementById("relOp").value;
+      const unit = document.getElementById("relUnit").value;
+      const amtRaw = document.getElementById("relAmt").value;
+      const amt = Number(amtRaw);
+
+      if (!anchor) {
+        // Surface error in output panel (no modal)
+        document.getElementById("timelineOut").innerHTML = `<div class="danger">Enter an anchor date/time before adding a relative row.</div>`;
+        return;
+      }
+      if (!Number.isFinite(amt) || amt < 0) {
+        document.getElementById("timelineOut").innerHTML = `<div class="danger">Enter a valid non-negative amount.</div>`;
+        return;
+      }
+
+      const computed = addOffset(anchor.local, op, amt, unit);
+      const prettyUnit = unit.replace("minutes", "min").replace("hours", "h").replace("days", "d").replace("months", "mo").replace("years", "y");
+      const label = `Anchor ${op === "sub" ? "-" : "+"} ${amt} ${prettyUnit}`;
+      body.appendChild(makeRow(label, toInputDT(computed)));
+      update();
+    }
+
+    // Init
+    (function init() {
+      const body = document.getElementById("timelineBody");
+      body.appendChild(makeRow("Event 1", ""));
+      body.appendChild(makeRow("Event 2", ""));
+
+      document.getElementById("anchorDT").addEventListener("input", update);
+      document.getElementById("addRowBtn").addEventListener("click", () => { body.appendChild(makeRow("", "")); update(); });
+      document.getElementById("addRelativeBtn").addEventListener("click", addRelativeRowFromAnchor);
+      document.getElementById("clearRowsBtn").addEventListener("click", () => { body.innerHTML = ""; update(); });
+
+      update();
+    })();
+  </script>
+</body>
+
+</html>

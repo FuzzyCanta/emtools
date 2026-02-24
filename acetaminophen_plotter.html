@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Acetaminophen Level Plotter (20h / t½)</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #fff;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #d7dde7;
+      --accent: #2563eb;
+      --danger: #b91c1c;
+      --soft: #eef4ff;
+      --shadow: 0 1px 10px rgba(0, 0, 0, .06);
+      --radius: 12px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      padding: 12px;
+    }
+
+    .wrap {
+      max-width: 100%;
+      margin: 0 auto;
+      display: grid;
+      gap: 10px;
+    }
+
+    h1 {
+      font-size: 16px;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .sub {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.25;
+      margin-top: 4px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    @media(max-width: 980px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 12px;
+    }
+
+    .canvas_container {
+      width: 1115px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 12px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin: 10px 0 4px;
+    }
+
+    input,
+    button,
+    select {
+      font: inherit
+    }
+
+    input[type="datetime-local"],
+    input[type="number"],
+    select {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      background: #fff;
+      font-size: 13px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .row3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+
+    .btnrow {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    button {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 10px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    button.danger {
+      border-color: var(--danger);
+      background: var(--danger);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    button:disabled {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: #fff;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .pill strong {
+      color: var(--text);
+      font-family: var(--mono);
+      font-weight: 700;
+    }
+
+    .mono {
+      font-family: var(--mono);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .small {
+      font-size: 12px;
+    }
+
+    .out {
+      background: var(--soft);
+      border: 1px solid rgba(37, 99, 235, .20);
+      border-radius: 12px;
+      padding: 10px;
+    }
+
+    canvas {
+      width: 1100px;
+      height: 520px;
+      display: block;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    th,
+    td {
+      border-top: 1px solid var(--border);
+      padding: 7px 6px;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    td button {
+      padding: 5px 8px;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+
+    .kvs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    @media(max-width: 700px) {
+      .kvs {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .kv {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px dashed rgba(107, 114, 128, .25);
+      padding-bottom: 4px;
+    }
+
+    .kv b {
+      font-family: var(--mono);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Acetaminophen level plotter (20 h protocol)</h1>
+      <div class="sub">
+        Reference line uses a half-life of <span class="mono">4 h</span> anchored at <span class="mono">1000
+          µmol/L</span> at <span class="mono">4 h</span>
+        (≈ <span class="mono">31.25 µmol/L</span> at <span class="mono">24 h</span>).
+        Add measured levels (date/time + concentration) to plot points and compute implied half-life between
+        measurements.
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Controls -->
+      <div class="card">
+        <label>Ingestion date/time</label>
+        <input id="ingestDT" type="datetime-local" />
+
+        <div class="row">
+          <div>
+            <label>Protocol duration (h)</label>
+            <input id="durationH" type="number" min="8" max="48" step="1" value="24" />
+          </div>
+          <div>
+            <label>Plot max time (h)</label>
+            <input id="xMaxH" type="number" min="8" max="72" step="1" value="28" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Reference half-life (h)</label>
+            <input id="refHalfLifeH" type="number" min="1" max="24" step="0.1" value="4" />
+          </div>
+          <div>
+            <label>Reference level @ 4 h (µmol/L)</label>
+            <input id="refC4" type="number" min="1" max="5000" step="1" value="1000" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Log scale (Y)</label>
+            <select id="yScale">
+              <option value="log" selected>Log10</option>
+              <option value="linear">Linear</option>
+            </select>
+          </div>
+          <div>
+            <label>Y max (µmol/L)</label>
+            <input id="yMax" type="number" min="50" max="10000" step="10" value="2000" />
+          </div>
+        </div>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:12px 0;">
+
+        <div class="row">
+          <div>
+            <label>Measured level date/time</label>
+            <input id="ptDT" type="datetime-local" />
+          </div>
+          <div>
+            <label>Measured level (µmol/L)</label>
+            <input id="ptConc" type="number" min="0" max="100000" step="1" placeholder="e.g., 650" />
+          </div>
+        </div>
+
+        <div class="btnrow">
+          <button class="primary" id="addPtBtn" type="button">Add point</button>
+          <button id="auto4hBtn" type="button" title="Sets measured date/time to ingestion + 4h">Set to +4 h</button>
+          <button class="danger" id="clearBtn" type="button">Clear</button>
+        </div>
+
+        <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill"><span class="muted">Reference @ 24 h</span> <strong id="refC24">—</strong></div>
+          <div class="pill"><span class="muted">Overall implied t½</span> <strong id="overallTHalf">—</strong></div>
+        </div>
+
+        <div class="out" style="margin-top:10px;">
+          <div class="small muted">Implied half-life between two levels assumes first is higher than second and times
+            are increasing.</div>
+          <div class="kvs" style="margin-top:6px;">
+            <div class="kv"><span>Model: C(t) after 4 h</span><b id="modelEq">—</b></div>
+            <div class="kv"><span>Anchor points</span><b id="anchorPts">—</b></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plot + table -->
+      <div class="canvas_container">
+        <canvas id="plot" width="1100" height="520" aria-label="Acetaminophen plot"></canvas>
+
+        <table>
+          <thead>
+            <tr>
+              <th style="width:210px;">Date/time</th>
+              <th style="width:90px;">t since ingestion</th>
+              <th style="width:110px;">Level (µmol/L)</th>
+              <th style="width:120px;">Expected (ref)</th>
+              <th style="width:120px;">Δ (meas − ref)</th>
+              <th style="width:120px;">Implied t½ vs prev</th>
+              <th style="width:70px;"></th>
+            </tr>
+          </thead>
+          <tbody id="ptBody"></tbody>
+        </table>
+
+        <div class="small muted" style="margin-top:8px;">
+          Notes: This is a visualization/calculation aid only. Always follow local protocols and clinical judgment.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* =========================
+       Helpers (dates, math)
+       ========================= */
+
+    // Parse datetime-local safely: "YYYY-MM-DDTHH:mm"
+    function parseDTLocal(v) {
+      if (!v) return null;
+      const m = v.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/);
+      if (!m) return null;
+      const y = Number(m[1]), mo = Number(m[2]), d = Number(m[3]), hh = Number(m[4]), mm = Number(m[5]);
+      const dt = new Date(y, mo - 1, d, hh, mm, 0, 0); // local time
+      if (isNaN(dt)) return null;
+      return dt;
+    }
+
+    function fmtDT(dt) {
+      if (!dt) return "—";
+      const y = dt.getFullYear();
+      const m = String(dt.getMonth() + 1).padStart(2, "0");
+      const d = String(dt.getDate()).padStart(2, "0");
+      const hh = String(dt.getHours()).padStart(2, "0");
+      const mm = String(dt.getMinutes()).padStart(2, "0");
+      return `${y}-${m}-${d} ${hh}:${mm}`;
+    }
+
+    function toDTLocalValue(dt) {
+      const y = dt.getFullYear();
+      const m = String(dt.getMonth() + 1).padStart(2, "0");
+      const d = String(dt.getDate()).padStart(2, "0");
+      const hh = String(dt.getHours()).padStart(2, "0");
+      const mm = String(dt.getMinutes()).padStart(2, "0");
+      return `${y}-${m}-${d}T${hh}:${mm}`;
+    }
+
+    function hoursBetween(a, b) {
+      return (b.getTime() - a.getTime()) / 3600000;
+    }
+
+    function roundSmart(x) {
+      if (x === null || x === undefined || !Number.isFinite(x)) return "—";
+      const ax = Math.abs(x);
+      if (ax === 0) return "0";
+      if (ax < 0.1) return x.toFixed(3);
+      if (ax < 1) return x.toFixed(2);
+      if (ax < 10) return x.toFixed(2);
+      if (ax < 100) return x.toFixed(1);
+      return x.toFixed(0);
+    }
+
+    function ln(x) { return Math.log(x); }
+    function log10(x) { return Math.log10(x); }
+
+    /* Exponential decay anchored at 4h:
+       C(t) = C4 * 2^(-(t-4)/tHalf), for t >= 4.
+    */
+    function refConcAtHour(tHours, C4, tHalf) {
+      if (tHours === null || !Number.isFinite(tHours)) return null;
+      if (tHours < 4) return null;
+      return C4 * Math.pow(2, -((tHours - 4) / tHalf));
+    }
+
+    /* Implied half-life between two points:
+       C2 = C1 * 2^(-dt/tHalf) => tHalf = dt * ln(2) / ln(C1/C2)
+    */
+    function impliedHalfLifeHours(dtHours, C1, C2) {
+      if (!Number.isFinite(dtHours) || dtHours <= 0) return null;
+      if (!Number.isFinite(C1) || !Number.isFinite(C2)) return null;
+      if (C1 <= 0 || C2 <= 0) return null;
+      if (C2 >= C1) return null; // decay assumption
+      const denom = ln(C1 / C2);
+      if (denom <= 0) return null;
+      return dtHours * ln(2) / denom;
+    }
+
+    /* =========================
+       State (persisted)
+       ========================= */
+    const LS_KEY = "apap_plotter_v1";
+
+    let state = {
+      ingest: "",
+      durationH: 24,
+      xMaxH: 28,
+      refHalfLifeH: 4,
+      refC4: 1000,
+      yScale: "log",
+      yMax: 2000,
+      points: [] // {dt:"YYYY-MM-DDTHH:mm", c:number}
+    };
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(LS_KEY);
+        if (!raw) return;
+        const obj = JSON.parse(raw);
+        if (obj && typeof obj === "object") {
+          state = Object.assign(state, obj);
+          if (!Array.isArray(state.points)) state.points = [];
+        }
+      } catch (e) { }
+    }
+
+    function saveState() {
+      try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) { }
+    }
+
+    /* =========================
+       DOM refs
+       ========================= */
+    const el = id => document.getElementById(id);
+
+    const ingestDT = el("ingestDT");
+    const durationH = el("durationH");
+    const xMaxH = el("xMaxH");
+    const refHalfLifeH = el("refHalfLifeH");
+    const refC4 = el("refC4");
+    const yScale = el("yScale");
+    const yMax = el("yMax");
+
+    const ptDT = el("ptDT");
+    const ptConc = el("ptConc");
+    const addPtBtn = el("addPtBtn");
+    const auto4hBtn = el("auto4hBtn");
+    const clearBtn = el("clearBtn");
+
+    const refC24 = el("refC24");
+    const overallTHalf = el("overallTHalf");
+    const modelEq = el("modelEq");
+    const anchorPts = el("anchorPts");
+
+    const ptBody = el("ptBody");
+    const canvas = el("plot");
+    const ctx = canvas.getContext("2d");
+
+    /* =========================
+       Plot drawing
+       ========================= */
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function drawAxes(cfg) {
+      const { padL, padR, padT, padB } = cfg;
+      const w = canvas.width, h = canvas.height;
+
+      ctx.save();
+      ctx.lineWidth = 1;
+
+      // Background
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, w, h);
+
+      // Axes
+      ctx.strokeStyle = "#1f2937";
+      ctx.beginPath();
+      ctx.moveTo(padL, padT);
+      ctx.lineTo(padL, h - padB);
+      ctx.lineTo(w - padR, h - padB);
+      ctx.stroke();
+
+      // Labels
+      ctx.fillStyle = "#111827";
+      ctx.font = "12px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial";
+      ctx.fillText("Time since ingestion (h)", Math.floor((w - padL - padR) / 2) + padL - 70, h - 10);
+
+      ctx.save();
+      ctx.translate(14, Math.floor((h - padT - padB) / 2) + padT + 60);
+      ctx.rotate(-Math.PI / 2);
+      ctx.fillText("Acetaminophen (µmol/L)", 0, 0);
+      ctx.restore();
+
+      ctx.restore();
+    }
+
+    function xToPx(x, cfg) {
+      const { padL, padR, xMax } = cfg;
+      const w = canvas.width;
+      return padL + (x / xMax) * (w - padL - padR);
+    }
+
+    function yToPx(y, cfg) {
+      const { padT, padB, yMax, scale } = cfg;
+      const h = canvas.height;
+      const plotH = h - padT - padB;
+
+      if (scale === "linear") {
+        const yy = Math.max(0, Math.min(yMax, y));
+        return padT + (1 - (yy / yMax)) * plotH;
+      }
+
+      // log scale
+      const yMin = 1; // clamp for plotting
+      const yy = Math.max(yMin, Math.min(yMax, y));
+      const a = log10(yMin);
+      const b = log10(yMax);
+      const t = (log10(yy) - a) / (b - a);
+      return padT + (1 - t) * plotH;
+    }
+
+    function drawGrid(cfg) {
+      const { padL, padR, padT, padB, xMax, yMax, scale } = cfg;
+      const w = canvas.width, h = canvas.height;
+
+      ctx.save();
+      ctx.strokeStyle = "rgba(107,114,128,.20)";
+      ctx.fillStyle = "#6b7280";
+      ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace";
+      ctx.lineWidth = 1;
+
+      // X ticks every 2h
+      const step = (xMax <= 24) ? 2 : 4;
+      for (let x = 0; x <= xMax; x += step) {
+        const px = xToPx(x, cfg);
+        ctx.beginPath();
+        ctx.moveTo(px, padT);
+        ctx.lineTo(px, h - padB);
+        ctx.stroke();
+
+        // label
+        ctx.fillText(String(x), px - 4, h - padB + 14);
+      }
+
+      // Y ticks
+      if (scale === "linear") {
+        const yStep = (yMax <= 1000) ? 100 : (yMax <= 3000 ? 250 : 500);
+        for (let y = 0; y <= yMax; y += yStep) {
+          const py = yToPx(y, cfg);
+          ctx.beginPath();
+          ctx.moveTo(padL, py);
+          ctx.lineTo(w - padR, py);
+          ctx.stroke();
+          ctx.fillText(String(y), 6, py + 4);
+        }
+      } else {
+        const ticks = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000].filter(v => v <= yMax);
+        for (const y of ticks) {
+          const py = yToPx(y, cfg);
+          ctx.beginPath();
+          ctx.moveTo(padL, py);
+          ctx.lineTo(w - padR, py);
+          ctx.stroke();
+          ctx.fillText(String(y), 6, py + 4);
+        }
+      }
+
+      ctx.restore();
+    }
+
+    function drawLine(points, cfg, strokeStyle, dash) {
+      if (!points.length) return;
+      ctx.save();
+      ctx.strokeStyle = strokeStyle || "#111827";
+      ctx.lineWidth = 2;
+      if (dash && dash.length) ctx.setLineDash(dash);
+      ctx.beginPath();
+      points.forEach((p, i) => {
+        const px = xToPx(p.x, cfg);
+        const py = yToPx(p.y, cfg);
+        if (i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      });
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawPoint(x, y, cfg, fillStyle) {
+      const px = xToPx(x, cfg);
+      const py = yToPx(y, cfg);
+      ctx.save();
+      ctx.fillStyle = fillStyle || "#111827";
+      ctx.beginPath();
+      ctx.arc(px, py, 4.5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function drawVLine(x, cfg, strokeStyle, dash) {
+      const { padT, padB } = cfg;
+      const h = canvas.height;
+      const px = xToPx(x, cfg);
+      ctx.save();
+      ctx.strokeStyle = strokeStyle || "rgba(185,28,28,.70)";
+      ctx.lineWidth = 2;
+      if (dash && dash.length) ctx.setLineDash(dash);
+      ctx.beginPath();
+      ctx.moveTo(px, padT);
+      ctx.lineTo(px, h - padB);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    /* =========================
+       Render
+       ========================= */
+    function normalizePoints() {
+      // keep only valid, sort by datetime
+      const pts = state.points
+        .map(p => ({ dt: p.dt, c: Number(p.c) }))
+        .filter(p => parseDTLocal(p.dt) && Number.isFinite(p.c) && p.c >= 0);
+
+      pts.sort((a, b) => parseDTLocal(a.dt) - parseDTLocal(b.dt));
+      state.points = pts;
+    }
+
+    function computeOverallHalfLife(ingest) {
+      const pts = state.points.map(p => ({ dt: parseDTLocal(p.dt), c: p.c })).filter(p => p.dt && p.c > 0);
+      if (pts.length < 2) return null;
+
+      // Use first and last points after ingestion, requiring decay
+      const after = pts.filter(p => hoursBetween(ingest, p.dt) >= 0);
+      if (after.length < 2) return null;
+      const first = after[0];
+      const last = after[after.length - 1];
+
+      const dtH = hoursBetween(first.dt, last.dt);
+      return impliedHalfLifeHours(dtH, first.c, last.c);
+    }
+
+    function renderTableAndStats() {
+      const ingest = parseDTLocal(state.ingest);
+      ptBody.innerHTML = "";
+
+      const C4 = Number(state.refC4);
+      const tHalf = Number(state.refHalfLifeH);
+      const C24 = refConcAtHour(24, C4, tHalf);
+      refC24.textContent = (C24 === null) ? "—" : `${roundSmart(C24)} µmol/L`;
+
+      modelEq.textContent = `C(t) = ${roundSmart(C4)} × 2^(-(t-4)/${roundSmart(tHalf)})`;
+      anchorPts.textContent = `4 h: ${roundSmart(C4)}; 24 h: ${C24 ? roundSmart(C24) : "—"}`;
+
+      const overall = ingest ? computeOverallHalfLife(ingest) : null;
+      overallTHalf.textContent = overall ? `${roundSmart(overall)} h` : "—";
+
+      if (!ingest) {
+        return;
+      }
+
+      // Build rows with half-life vs previous
+      const rows = state.points.map((p, idx) => {
+        const dt = parseDTLocal(p.dt);
+        const t = hoursBetween(ingest, dt);
+        const expected = refConcAtHour(t, C4, tHalf);
+        const delta = (expected === null) ? null : (p.c - expected);
+
+        let tHalfPrev = null;
+        if (idx > 0) {
+          const prev = state.points[idx - 1];
+          const dtPrev = parseDTLocal(prev.dt);
+          const dtH = hoursBetween(dtPrev, dt);
+          tHalfPrev = impliedHalfLifeHours(dtH, Number(prev.c), Number(p.c));
+        }
+
+        return { idx, dt, t, c: p.c, expected, delta, tHalfPrev };
+      });
+
+      rows.forEach(r => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+      <td class="mono">${fmtDT(r.dt)}</td>
+      <td class="mono">${Number.isFinite(r.t) ? roundSmart(r.t) + " h" : "—"}</td>
+      <td class="mono">${roundSmart(r.c)}</td>
+      <td class="mono">${r.expected === null ? "—" : roundSmart(r.expected)}</td>
+      <td class="mono">${r.delta === null ? "—" : roundSmart(r.delta)}</td>
+      <td class="mono">${r.tHalfPrev === null ? "—" : roundSmart(r.tHalfPrev) + " h"}</td>
+      <td><button type="button" data-del="${r.idx}">Remove</button></td>
+    `;
+        ptBody.appendChild(tr);
+      });
+
+      // Remove handlers
+      ptBody.querySelectorAll("[data-del]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const idx = Number(btn.getAttribute("data-del"));
+          if (Number.isFinite(idx)) {
+            state.points.splice(idx, 1);
+            normalizePoints();
+            saveState();
+            renderAll();
+          }
+        });
+      });
+    }
+
+    function renderPlot() {
+      clearCanvas();
+
+      const ingest = parseDTLocal(state.ingest);
+      const cfg = {
+        padL: 70, padR: 20, padT: 20, padB: 44,
+        xMax: Number(state.xMaxH) || 28,
+        yMax: Math.max(50, Number(state.yMax) || 2000),
+        scale: state.yScale || "log"
+      };
+
+      drawAxes(cfg);
+      drawGrid(cfg);
+
+      // vertical marker at 4h and protocol end
+      drawVLine(4, cfg, "rgba(37,99,235,.55)", [6, 6]);
+      drawVLine(Number(state.durationH) || 24, cfg, "rgba(107,114,128,.55)", [4, 6]);
+
+      // Reference line points from 4h to xMax
+      const C4 = Number(state.refC4);
+      const tHalf = Number(state.refHalfLifeH);
+
+      const refPts = [];
+      const step = 0.25; // 15 min resolution
+      for (let x = 4; x <= cfg.xMax + 1e-9; x += step) {
+        const y = refConcAtHour(x, C4, tHalf);
+        if (y !== null) refPts.push({ x, y });
+      }
+      drawLine(refPts, cfg, "rgba(37,99,235,.95)", []);
+
+      // Protocol dots every 4h from 4 to duration
+      const dur = Number(state.durationH) || 24;
+      const protDots = [];
+      for (let x = 4; x <= Math.min(dur, cfg.xMax) + 1e-9; x += 4) {
+        const y = refConcAtHour(x, C4, tHalf);
+        if (y !== null) protDots.push({ x, y });
+      }
+      protDots.forEach(p => drawPoint(p.x, p.y, cfg, "rgba(37,99,235,.95)"));
+
+      // Points
+      if (ingest) {
+        const pts = state.points.map(p => {
+          const dt = parseDTLocal(p.dt);
+          const t = hoursBetween(ingest, dt);
+          return { t, c: Number(p.c) };
+        }).filter(p => Number.isFinite(p.t) && Number.isFinite(p.c) && p.t >= 0);
+
+        pts.forEach(p => drawPoint(p.t, p.c, cfg, "rgba(17,24,39,.95)"));
+      }
+
+      // Legend
+      ctx.save();
+      ctx.font = "12px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial";
+      ctx.fillStyle = "#111827";
+      ctx.fillText("Reference half-life line", 88, 22);
+      ctx.fillStyle = "rgba(37,99,235,.95)";
+      ctx.fillRect(70, 13, 10, 10);
+      ctx.fillStyle = "#111827";
+      ctx.fillText("Measured levels", 260, 22);
+      ctx.fillStyle = "rgba(17,24,39,.95)";
+      ctx.beginPath(); ctx.arc(246, 18, 5, 0, Math.PI * 2); ctx.fill();
+      ctx.restore();
+    }
+
+    function renderAll() {
+      normalizePoints();
+      renderTableAndStats();
+      renderPlot();
+    }
+
+    /* =========================
+       UI wiring
+       ========================= */
+    function setInputsFromState() {
+      ingestDT.value = state.ingest || "";
+      durationH.value = String(state.durationH ?? 24);
+      xMaxH.value = String(state.xMaxH ?? 28);
+      refHalfLifeH.value = String(state.refHalfLifeH ?? 4);
+      refC4.value = String(state.refC4 ?? 1000);
+      yScale.value = state.yScale || "log";
+      yMax.value = String(state.yMax ?? 2000);
+    }
+
+    function syncStateFromInputs() {
+      state.ingest = ingestDT.value || "";
+      state.durationH = Number(durationH.value || 24);
+      state.xMaxH = Number(xMaxH.value || 28);
+      state.refHalfLifeH = Number(refHalfLifeH.value || 4);
+      state.refC4 = Number(refC4.value || 1000);
+      state.yScale = yScale.value || "log";
+      state.yMax = Number(yMax.value || 2000);
+    }
+
+    function addPoint() {
+      const dt = ptDT.value;
+      const c = Number(ptConc.value);
+      if (!dt || !Number.isFinite(c)) return;
+
+      state.points.push({ dt, c });
+      normalizePoints();
+      saveState();
+      renderAll();
+
+      // keep dt, clear conc
+      ptConc.value = "";
+      ptConc.focus();
+    }
+
+    function setMeasuredToPlus4h() {
+      const ingest = parseDTLocal(ingestDT.value);
+      if (!ingest) return;
+      const dt = new Date(ingest.getTime() + 4 * 3600000);
+      ptDT.value = toDTLocalValue(dt);
+    }
+
+    function clearAll() {
+      if (!confirm("Clear ingestion time and all measured points?")) return;
+      state.points = [];
+      state.ingest = "";
+      saveState();
+      setInputsFromState();
+      renderAll();
+    }
+
+    function defaultIngestionNow() {
+      // prefill to "now" rounded down to nearest 5 minutes
+      const now = new Date();
+      now.setSeconds(0, 0);
+      const mm = now.getMinutes();
+      now.setMinutes(mm - (mm % 5));
+      ingestDT.value = toDTLocalValue(now);
+      state.ingest = ingestDT.value;
+      saveState();
+    }
+
+    function attachListeners() {
+      // Auto-select number inputs on focus
+      document.querySelectorAll("input[type='number']").forEach(inp => {
+        inp.addEventListener("focus", () => inp.select());
+        inp.addEventListener("click", () => inp.select());
+      });
+
+      // Inputs affecting plot
+      [ingestDT, durationH, xMaxH, refHalfLifeH, refC4, yScale, yMax].forEach(inp => {
+        inp.addEventListener("input", () => {
+          syncStateFromInputs();
+          saveState();
+          renderAll();
+        });
+        inp.addEventListener("change", () => {
+          syncStateFromInputs();
+          saveState();
+          renderAll();
+        });
+      });
+
+      addPtBtn.addEventListener("click", addPoint);
+      ptConc.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") addPoint();
+      });
+      auto4hBtn.addEventListener("click", setMeasuredToPlus4h);
+      clearBtn.addEventListener("click", clearAll);
+    }
+
+    /* =========================
+       Init
+       ========================= */
+    (function init() {
+      loadState();
+      setInputsFromState();
+
+      // If no ingestion time set, default to now for convenience
+      if (!state.ingest) {
+        defaultIngestionNow();
+        syncStateFromInputs();
+        saveState();
+      }
+
+      attachListeners();
+      renderAll();
+    })();
+  </script>
+</body>
+
+</html>

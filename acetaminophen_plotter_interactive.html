@@ -743,6 +743,7 @@
             normalizePoints();
             saveState();
             renderAll();
+            
           }
         });
       });
@@ -792,6 +793,9 @@
       // Vertical marker lines (x=4 and x=duration) as 2-point line datasets
       const yMinForLine = (cfg.scale === "log") ? 1 : 0;
       const v4 = [{ x: 4, y: yMinForLine }, { x: 4, y: cfg.yMax }];
+      const v9 = [{ x: 9, y: yMinForLine }, { x: 9, y: cfg.yMax }];
+      const v19 = [{ x: 19, y: yMinForLine }, { x: 19, y: cfg.yMax }];
+      const v21 = [{ x: 21, y: yMinForLine }, { x: 21, y: cfg.yMax }];
       const vDur = [{ x: cfg.durationH, y: yMinForLine }, { x: cfg.durationH, y: cfg.yMax }];
 
       // Lazy init chart
@@ -878,12 +882,12 @@
           pointRadius: 0,
           borderWidth: 2
         },
-        {
-          label: "Protocol q4h",
-          type: "scatter",
-          data: protDots,
-          pointRadius: 3
-        },
+        // {
+        //   label: "Protocol q4h",
+        //   type: "scatter",
+        //   data: protDots,
+        //   pointRadius: 3
+        // },
         {
           label: "Measured levels",
           type: "scatter",
@@ -900,14 +904,42 @@
           borderDash: [6, 6]
         },
         {
-          label: "Protocol end marker",
+          label: "9 h marker",
           type: "line",
-          data: vDur,
+          data: v9,
           showLine: true,
           pointRadius: 0,
           borderWidth: 2,
-          borderDash: [4, 6]
+          borderDash: [6, 6]
+        },
+        {
+          label: "19 h marker",
+          type: "line",
+          data: v19,
+          showLine: true,
+          pointRadius: 0,
+          borderWidth: 2,
+          borderDash: [6, 6]
+        },
+        {
+          label: "21 h marker",
+          type: "line",
+          data: v21,
+          showLine: true,
+          pointRadius: 0,
+          borderWidth: 2,
+          borderDash: [6, 6]
         }
+        // ,
+        // {
+        //   label: "Protocol end marker",
+        //   type: "line",
+        //   data: vDur,
+        //   showLine: true,
+        //   pointRadius: 0,
+        //   borderWidth: 2,
+        //   borderDash: [4, 6]
+        // }
       ];
 
       chart.update();

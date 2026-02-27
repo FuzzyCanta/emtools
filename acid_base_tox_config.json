@@ -126,7 +126,7 @@
     {
       "id": "corrAnionGap",
       "label": "Corr. AG for alb",
-      "expr": "anionGap + 0.25 * (40 - albumin)",
+      "expr": "(albumin == null || albumin == 0 ? null : anionGap + 0.25 * (40 - albumin))",
       "digits": 1,
       "unit": "mmol/L",
       "normal": null,
@@ -169,7 +169,7 @@
     {
       "id": "expectedPco2Display",
       "label": "Expected pCO₂",
-      "expr": "(hco3 == null || hco3 == 0 ? null : ph < 7.35 ? (1.5 * hco3 + 8) + ' ±2' : null)",
+      "expr": "(hco3 == null || hco3 == 0 ? null : (1.5 * hco3 + 8) + ' ±2')",
       "digits": 0,
       "unit": "mmHg",
       "normal": "—",

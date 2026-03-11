@@ -99,13 +99,14 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
-      /* width: 97%; */
+      width: 97%;
     }
 
     .result p {
       font-size: 1.1rem;
       margin: 8px 0;
-      display: flex;
+      display: grid;
+      grid: 1fr / 1fr 1fr 1fr 1fr;
       justify-content: space-between;
       border-bottom: 1px solid #e1e7f0;
       padding-bottom: 6px;
@@ -167,10 +168,12 @@
 
     <!-- RESULTS -->
     <div class="result">
-      <p><span>mg/min :</span> <span id="res_mg_min">-</span></p>
-      <p><span>mcg/min :</span> <span id="res_mcg_min">-</span></p>
-      <p><span>mcg/kg/min :</span> <span id="res_mcg_kg_min">-</span></p>
-      <p><span>mL/h :</span> <span id="res_ml_hr">-</span></p>
+      <p><label>mg/min :</label><span id="res_mg_min">-</span>
+      <span>mcg/min :</span> <span id="res_mcg_min">-</span></p>
+      <p><span>mg/h :</span> <span id="res_mg_hr">-</span>
+      <span>mcg/h :</span> <span id="res_mcg_hr">-</span></p>
+      <p><span>mcg/kg/min :</span> <span id="res_mcg_kg_min">-</span>
+      <span>mL/h :</span> <span id="res_ml_hr">-</span></p>
     </div>
   </div>
 
@@ -190,6 +193,8 @@
 
     const resMgMin = document.getElementById('res_mg_min');
     const resMcgMin = document.getElementById('res_mcg_min');
+    const resMgHr = document.getElementById('res_mg_hr');
+    const resMcgHr = document.getElementById('res_mcg_hr');
     const resMcgKgMin = document.getElementById('res_mcg_kg_min');
     const resMlHr = document.getElementById('res_ml_hr');
 
@@ -275,12 +280,23 @@
         ml_hr = inputVal;
         mcg_min = (ml_hr / 60) * mcgPerMl;
         mcg_kg_min = mcg_min / weight;
+        
+      } else if (unit === "mg_per_h") {
+          ml_hr = inputVal / ((concDose.value / concVol.value) * 60);
+          mcg_min = (ml_hr / 60) * mcgPerMl;
+          mcg_kg_min = mcg_min / weight;
+      } else if (unit === "mcg_per_h") {
+          ml_hr = inputVal / ((concDose.value * 1000 / concVol.value) * 60);
+          mcg_min = (ml_hr / 60) * mcgPerMl;
+          mcg_kg_min = mcg_min / weight;
       }
 
       resMgMin.textContent = (mcg_min / 1000).toFixed(2);
       resMcgMin.textContent = mcg_min.toFixed(2);
       resMcgKgMin.textContent = mcg_kg_min.toFixed(3);
       resMlHr.textContent = ml_hr.toFixed(2);
+      resMgHr.textContent = (mcg_min / 1000 * 60).toFixed(2);
+      resMcgHr.textContent = (mcg_min * 60).toFixed(2);
     }
 
     updateConversions();

@@ -49,6 +49,8 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 12px;
+      width: 293px;
+      height: 158px;
     }
 
     .card h2 {
@@ -80,7 +82,7 @@
     }
 
     input.small {
-      width: 78px;
+      width: 40px;
     }
 
     .out {
@@ -124,15 +126,15 @@
         <h2>Height</h2>
 
         <div class="flex">
-          <label for="ft">Imperial</label>
-          <input id="ft" class="small" type="number" min="0" step="1" placeholder="ft" width="50%"/>
-          <input id="inch" class="small" type="number" min="0" step="0.1" placeholder="in" />
+          <label for="ft"><b>Imperial</b></label><br>
+          <input id="ft" class="small" type="number" min="0" step="1" placeholder="ft"/>
+          <input id="inch" class="small" type="number" min="0" step="1" placeholder="in" />
           <span class="out mono" id="heightSI">—</span>
         </div>
 
-        <div class="grid" style="grid-template-columns: auto auto;">
-          <label for="cm">SI</label>
-          <input id="cm" type="number" min="0" step="0.1" placeholder="cm" />
+        <div class="flex" style="grid-template-columns: auto auto;">
+          <label for="cm"><b>SI</b></label><br>
+          <input id="cm" style="max-width: fit-content;" type="number" min="0" step="1" placeholder="cm" />
           <span class="out mono" id="heightImp">—</span>
         </div>
 
@@ -142,31 +144,46 @@
       <div class="card">
         <h2>Weight</h2>
 
-        <div class="row">
-          <label for="lb">Imperial</label>
+        <div class="flex">
+          <label for="lb"><b>Imperial</b></label><br>
           <input id="lb" type="number" min="0" step="0.1" placeholder="lb" />
           <span class="out mono" id="kgOut">—</span>
         </div>
 
-        <div class="row">
-          <label for="kg">SI</label>
+        <div class="flex">
+          <label for="kg"><b>SI</b></label><br>
           <input id="kg" type="number" min="0" step="0.1" placeholder="kg" />
           <span class="out mono" id="lbOut">—</span>
         </div>
       </div>
 
       <div class="card">
+        <h2>Temperature</h2>
+        <div class="flex">
+          <label for="tempF"><b>Fahrenheit</b></label><br>
+          <input id="tempF" type="number" step="0.1" placeholder="°F" />
+          <span class="out mono" id="tempCOut">—</span>
+        </div>
+
+        <div class="flex">
+          <label for="tempC"><b>Celsius</b></label><br>
+          <input id="tempC" type="number" step="0.1" placeholder="°C" />
+          <span class="out mono" id="tempFOut">—</span>
+        </div>
+      </div>
+
+      <div class="card">
         <h2>BMI (kg/m²)</h2>
 
-        <div class="row">
+        <div class="flex">
           <label>Uses</label>
           <span class="out">Weight (kg) + Height (cm)</span>
         </div>
-
-        <div class="row">
-          <label>BMI</label>
+        <br>
+        <div class="flex">
+          <label><b>BMI</b></label>
           <span class="out mono" id="bmiOut">—</span>
-        </div>
+        </div><br>
 
         <div class="hint">Enter height/weight anywhere above; BMI updates automatically.</div>
       </div>
@@ -202,20 +219,6 @@
         <div class="row">
           <label>BSA</label>
           <span class="out mono" id="bsaOut">—</span>
-        </div>
-      </div>
-      <div class="card">
-        <h2>Temperature</h2>
-        <div class="row">
-          <label for="tempF">Fahrenheit</label>
-          <input id="tempF" type="number" step="0.1" placeholder="°F" />
-          <span class="out mono" id="tempCOut">—</span>
-        </div>
-
-        <div class="row">
-          <label for="tempC">Celsius</label>
-          <input id="tempC" type="number" step="0.1" placeholder="°C" />
-          <span class="out mono" id="tempFOut">—</span>
         </div>
       </div>
     </div>

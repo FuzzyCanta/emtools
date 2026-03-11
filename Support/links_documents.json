@@ -1,15 +1,5 @@
 [
-  {
-    "title": "Justification d'absence",
-    "href": "lettreabsence.html",
-    "category": "Formulaires généraux",
-    "tags": [
-      "Attestation",
-      "Absence"
-    ],
-    "targetBlank": true
-  },
-  {
+   {
     "title": "Communication MDF",
     "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/a9b0958ceee59c7685256e2a0052d887/dc7d1a1c58372f9a85256ed2006c76e9/$FILE/AH-245_DT9098(2021-09)%20D%20.pdf",
     "category": "Formulaires généraux",
@@ -31,7 +21,7 @@
   },
   {
     "title": "GAMF FR",
-    "href": "Inscription_medecin_famille_Quebec.pdf",
+    "href": "Support/Inscription_medecin_famille_Quebec.pdf",
     "category": "Formulaires généraux",
     "tags": [
       "RAMQ",
@@ -43,7 +33,7 @@
   },
   {
     "title": "GAMF EN",
-    "href": "Inscription_medecin_famille_Quebec_en.pdf",
+    "href": "Support/Inscription_medecin_famille_Quebec_en.pdf",
     "category": "Formulaires généraux",
     "tags": [
       "RAMQ",
@@ -55,7 +45,7 @@
   },
   {
     "title": "Ma Grossesse - FR",
-    "href": "MaGrossesse_PDF.pdf",
+    "href": "Support/MaGrossesse_PDF.pdf",
     "category": "Formulaires généraux",
     "tags": [
       "Obstetrique",
@@ -180,7 +170,7 @@
   },
   {
     "title": "Étiquettes HSCM",
-    "href": "Étiquettes_HSCM.pdf",
+    "href": "Support/Étiquettes_HSCM.pdf",
     "category": "Admin",
     "tags": [
       "etiquettes",
@@ -341,7 +331,7 @@
   },
   {
     "title": "Protocole NAC - CAPQ",
-    "href": "Protocole NAC.pdf",
+    "href": "Support/Protocole NAC.pdf",
     "category": "Toxicologie",
     "tags": [
       "Protocole",

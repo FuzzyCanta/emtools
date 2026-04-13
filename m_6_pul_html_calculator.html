@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M6 PUL Calculator</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #d1d5db;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --warn: #b45309;
+      --warn-soft: #fef3c7;
+      --danger: #b91c1c;
+      --danger-soft: #fee2e2;
+      --ok: #166534;
+      --ok-soft: #dcfce7;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    h1, h2, h3 { margin: 0 0 12px 0; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 20px; }
+    h3 { font-size: 16px; }
+    p { margin: 8px 0; line-height: 1.45; }
+    .muted { color: var(--muted); }
+    .small { font-size: 13px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .grid, .grid-3 { grid-template-columns: 1fr; }
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 15px;
+      background: #fff;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 14px;
+    }
+
+    button {
+      border: 0;
+      background: var(--accent);
+      color: #fff;
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: #4b5563;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .pill-ok { background: var(--ok-soft); color: var(--ok); }
+    .pill-warn { background: var(--warn-soft); color: var(--warn); }
+    .pill-danger { background: var(--danger-soft); color: var(--danger); }
+
+    .result-box {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fafafa;
+    }
+
+    .result-number {
+      font-size: 28px;
+      font-weight: 800;
+      margin-top: 4px;
+    }
+
+    .note {
+      border-left: 4px solid var(--accent);
+      background: var(--accent-soft);
+      padding: 12px 14px;
+      border-radius: 10px;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: #fcfcfd;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    code {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      word-break: break-word;
+    }
+
+    .warning {
+      border-left: 4px solid var(--warn);
+      background: var(--warn-soft);
+      padding: 12px 14px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>M6 PUL Calculator</h1>
+      <p class="muted">Pregnancy of unknown location risk calculator with configurable coefficients.</p>
+      <div class="warning small">
+        This page implements the <strong>multinomial logistic structure</strong> of the M6 calculator. The workflow facts used here are supported by the accessible literature: the updated M6 model uses <strong>0-hour β-hCG</strong>, <strong>48-hour β-hCG ratio</strong>, and optionally <strong>initial progesterone</strong>; progesterone <strong>≤ 2 nmol/L</strong> is the first-step low-risk rule in the two-step protocol; and a <strong>5% EP/PPUL</strong> threshold is commonly used to define high risk. The exact published coefficient tables were not fully accessible in the sources I could inspect, so the coefficients are editable. Replace them with your verified coefficient set before clinical use.</div>
+    </div>
+
+    <div class="card">
+      <h2>Patient inputs</h2>
+      <div class="grid">
+        <div>
+          <label for="modelType">Model type</label>
+          <select id="modelType">
+            <option value="M6P">M6P (with progesterone)</option>
+            <option value="M6NP">M6NP (without progesterone)</option>
+          </select>
+        </div>
+        <div>
+          <label for="riskThreshold">High-risk threshold for EP/PPUL (%)</label>
+          <input id="riskThreshold" type="number" step="0.1" value="5" />
+        </div>
+        <div>
+          <label for="hcg0">Initial β-hCG (IU/L)</label>
+          <input id="hcg0" type="number" step="0.01" placeholder="e.g. 850" />
+        </div>
+        <div>
+          <label for="hcg48">48-hour β-hCG (IU/L)</label>
+          <input id="hcg48" type="number" step="0.01" placeholder="e.g. 1120" />
+        </div>
+        <div>
+          <label for="prog">Initial progesterone (nmol/L)</label>
+          <input id="prog" type="number" step="0.01" placeholder="e.g. 18" />
+        </div>
+        <div>
+          <label for="progStep1">Apply two-step rule: progesterone ≤ 2 nmol/L = low-risk FPUL</label>
+          <select id="progStep1">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <button id="calcBtn">Calculate</button>
+        <button id="resetBtn" class="secondary">Reset</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Coefficients</h2>
+      <p class="small muted">The calculator uses two linear predictors: one for EP/PPUL and one for IUP. FPUL is the reference category. You can set separate coefficient sets for M6P and M6NP. The defaults below are placeholders so the page runs immediately; they are not a substitute for verified publication coefficients.</p>
+
+      <details open>
+        <summary>M6P coefficients (with progesterone)</summary>
+        <div class="grid-3" style="margin-top:12px;">
+          <div>
+            <label for="m6p_ep_intercept">EP intercept</label>
+            <input id="m6p_ep_intercept" type="number" step="0.0001" value="-3.448" />
+          </div>
+          <div>
+            <label for="m6p_ep_loghcg0">EP × ln(hCG0)</label>
+            <input id="m6p_ep_loghcg0" type="number" step="0.0001" value="0.168" />
+          </div>
+          <div>
+            <label for="m6p_ep_logratio">EP × ln(hCG ratio)</label>
+            <input id="m6p_ep_logratio" type="number" step="0.0001" value="-2.052" />
+          </div>
+          <div>
+            <label for="m6p_ep_logratio2">EP × [ln(hCG ratio)]²</label>
+            <input id="m6p_ep_logratio2" type="number" step="0.0001" value="0" />
+          </div>
+          <div>
+            <label for="m6p_ep_logprog">EP × ln(progesterone)</label>
+            <input id="m6p_ep_logprog" type="number" step="0.0001" value="-0.359" />
+          </div>
+          <div></div>
+
+          <div>
+            <label for="m6p_iup_intercept">IUP intercept</label>
+            <input id="m6p_iup_intercept" type="number" step="0.0001" value="-6.354" />
+          </div>
+          <div>
+            <label for="m6p_iup_loghcg0">IUP × ln(hCG0)</label>
+            <input id="m6p_iup_loghcg0" type="number" step="0.0001" value="0.248" />
+          </div>
+          <div>
+            <label for="m6p_iup_logratio">IUP × ln(hCG ratio)</label>
+            <input id="m6p_iup_logratio" type="number" step="0.0001" value="3.087" />
+          </div>
+          <div>
+            <label for="m6p_iup_logratio2">IUP × [ln(hCG ratio)]²</label>
+            <input id="m6p_iup_logratio2" type="number" step="0.0001" value="0" />
+          </div>
+          <div>
+            <label for="m6p_iup_logprog">IUP × ln(progesterone)</label>
+            <input id="m6p_iup_logprog" type="number" step="0.0001" value="0.599" />
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>M6NP coefficients (without progesterone)</summary>
+        <div class="grid-3" style="margin-top:12px;">
+          <div>
+            <label for="m6np_ep_intercept">EP intercept</label>
+            <input id="m6np_ep_intercept" type="number" step="0.0001" value="0" />
+          </div>
+          <div>
+            <label for="m6np_ep_loghcg0">EP × ln(hCG0)</label>
+            <input id="m6np_ep_loghcg0" type="number" step="0.0001" value="0" />
+          </div>
+          <div>
+            <label for="m6np_ep_logratio">EP × ln(hCG ratio)</label>
+            <input id="m6np_ep_logratio" type="number" step="0.0001" value="0" />
+          </div>
+          <div>
+            <label for="m6np_ep_logratio2">EP × [ln(hCG ratio)]²</label>
+            <input id="m6np_ep_logratio2" type="number" step="0.0001" value="0" />
+          </div>
+          <div></div>
+          <div></div>
+
+          <div>
+            <label for="m6np_iup_intercept">IUP intercept</label>
+            <input id="m6np_iup_intercept" type="number" step="0.0001" value="0" />
+          </div>
+          <div>
+            <label for="m6np_iup_loghcg0">IUP × ln(hCG0)</label>
+            <input id="m6np_iup_loghcg0" type="number" step="0.0001" value="0" />
+          </div>
+          <div>
+            <label for="m6np_iup_logratio">IUP × ln(hCG ratio)</label>
+            <input id="m6np_iup_logratio" type="number" step="0.0001" value="0" />
+          </div>
+          <div>
+            <label for="m6np_iup_logratio2">IUP × [ln(hCG ratio)]²</label>
+            <input id="m6np_iup_logratio2" type="number" step="0.0001" value="0" />
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <div class="card">
+      <h2>Results</h2>
+      <div class="grid-3">
+        <div class="result-box">
+          <div class="muted small">EP/PPUL probability</div>
+          <div id="epResult" class="result-number">—</div>
+        </div>
+        <div class="result-box">
+          <div class="muted small">IUP probability</div>
+          <div id="iupResult" class="result-number">—</div>
+        </div>
+        <div class="result-box">
+          <div class="muted small">FPUL probability</div>
+          <div id="fpulResult" class="result-number">—</div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px;" class="result-box">
+        <div class="muted small">Derived values</div>
+        <p id="derivedVals" class="mono">—</p>
+        <p id="lpVals" class="mono">—</p>
+        <div id="riskBadge"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Model equations used in this page</h2>
+      <div class="note small">
+        <div><strong>hCG ratio</strong> = hCG at 48 h / initial hCG</div>
+        <div><strong>x1</strong> = ln(hCG0)</div>
+        <div><strong>x2</strong> = ln(hCG ratio)</div>
+        <div><strong>x3</strong> = ln(progesterone)</div>
+        <div><strong>x2²</strong> = [ln(hCG ratio)]²</div>
+        <br />
+        <div><strong>LP(EP)</strong> = intercept + b1·x1 + b2·x2 + b3·x2² + b4·x3</div>
+        <div><strong>LP(IUP)</strong> = intercept + c1·x1 + c2·x2 + c3·x2² + c4·x3</div>
+        <br />
+        <div><strong>P(EP)</strong> = exp(LP(EP)) / [1 + exp(LP(EP)) + exp(LP(IUP))]</div>
+        <div><strong>P(IUP)</strong> = exp(LP(IUP)) / [1 + exp(LP(EP)) + exp(LP(IUP))]</div>
+        <div><strong>P(FPUL)</strong> = 1 / [1 + exp(LP(EP)) + exp(LP(IUP))]</div>
+      </div>
+    </div>
+
+    <div class="card small muted">
+      <h2>Evidence notes</h2>
+      <p>The 2024 updated M6 paper confirms that the updated M6P and M6NP models use the same predictor variables as the original versions, specifically <strong>log(β-hCG at 0 h)</strong> and <strong>log(β-hCG ratio)</strong>, with M6P also incorporating progesterone. It also describes the two-step protocol where progesterone ≤ 2 nmol/L can classify a case as low risk without waiting for the second hCG, and it reports the 5% EP/PPUL threshold used clinically. The accessible thesis snippet also indicates that <strong>M6NP includes a squared log(hCG ratio)</strong> term. Exact coefficient tables were not available in the accessible text I could review, so the page keeps coefficients editable for verification against your source document.</p>
+    </div>
+  </div>
+
+  <script>
+    // Helper to get a numeric input value safely.
+    function num(id) {
+      return parseFloat(document.getElementById(id).value);
+    }
+
+    // Helper to set displayed text.
+    function setText(id, value) {
+      document.getElementById(id).textContent = value;
+    }
+
+    // Convert probability 0-1 to formatted percent string.
+    function pct(x) {
+      return (x * 100).toFixed(1) + '%';
+    }
+
+    // Stable softmax-style calculation for multinomial probabilities.
+    function multinomialProb(lpEp, lpIup) {
+      const maxLP = Math.max(0, lpEp, lpIup);
+      const a = Math.exp(lpEp - maxLP);
+      const b = Math.exp(lpIup - maxLP);
+      const c = Math.exp(0 - maxLP);
+      const denom = a + b + c;
+      return {
+        ep: a / denom,
+        iup: b / denom,
+        fpul: c / denom
+      };
+    }
+
+    // Main calculation function.
+    function calculate() {
+      const modelType = document.getElementById('modelType').value;
+      const useStep1 = document.getElementById('progStep1').value === 'yes';
+      const threshold = num('riskThreshold') / 100;
+      const hcg0 = num('hcg0');
+      const hcg48 = num('hcg48');
+      const prog = num('prog');
+
+      if (!(hcg0 > 0) || !(hcg48 > 0)) {
+        alert('Enter positive values for initial and 48-hour β-hCG.');
+        return;
+      }
+
+      if (modelType === 'M6P' && !(prog > 0)) {
+        alert('For M6P, enter a positive progesterone value.');
+        return;
+      }
+
+      // Two-step protocol first-step rule.
+      if (useStep1 && modelType === 'M6P' && prog > 0 && prog <= 2) {
+        setText('epResult', '0.0%');
+        setText('iupResult', '0.0%');
+        setText('fpulResult', '100.0%');
+        setText('derivedVals', 'Two-step rule applied: progesterone ≤ 2 nmol/L, triaged as low-risk / likely FPUL.');
+        setText('lpVals', 'Model linear predictors not applied because the two-step protocol stops before the second-step model.');
+        document.getElementById('riskBadge').innerHTML = '<span class="pill pill-ok">Low risk by step 1</span>';
+        return;
+      }
+
+      const ratio = hcg48 / hcg0;
+      if (!(ratio > 0)) {
+        alert('Computed hCG ratio must be positive.');
+        return;
+      }
+
+      const x1 = Math.log(hcg0);
+      const x2 = Math.log(ratio);
+      const x2sq = x2 * x2;
+      const x3 = modelType === 'M6P' ? Math.log(prog) : 0;
+
+      let lpEp = 0;
+      let lpIup = 0;
+
+      if (modelType === 'M6P') {
+        lpEp =
+          num('m6p_ep_intercept') +
+          num('m6p_ep_loghcg0') * x1 +
+          num('m6p_ep_logratio') * x2 +
+          num('m6p_ep_logratio2') * x2sq +
+          num('m6p_ep_logprog') * x3;
+
+        lpIup =
+          num('m6p_iup_intercept') +
+          num('m6p_iup_loghcg0') * x1 +
+          num('m6p_iup_logratio') * x2 +
+          num('m6p_iup_logratio2') * x2sq +
+          num('m6p_iup_logprog') * x3;
+      } else {
+        lpEp =
+          num('m6np_ep_intercept') +
+          num('m6np_ep_loghcg0') * x1 +
+          num('m6np_ep_logratio') * x2 +
+          num('m6np_ep_logratio2') * x2sq;
+
+        lpIup =
+          num('m6np_iup_intercept') +
+          num('m6np_iup_loghcg0') * x1 +
+          num('m6np_iup_logratio') * x2 +
+          num('m6np_iup_logratio2') * x2sq;
+      }
+
+      const probs = multinomialProb(lpEp, lpIup);
+      setText('epResult', pct(probs.ep));
+      setText('iupResult', pct(probs.iup));
+      setText('fpulResult', pct(probs.fpul));
+
+      const progText = modelType === 'M6P' ? `, ln(prog)=${x3.toFixed(4)}` : '';
+      setText('derivedVals', `hCG ratio=${ratio.toFixed(4)}, ln(hCG0)=${x1.toFixed(4)}, ln(ratio)=${x2.toFixed(4)}, [ln(ratio)]²=${x2sq.toFixed(4)}${progText}`);
+      setText('lpVals', `LP(EP)=${lpEp.toFixed(4)} | LP(IUP)=${lpIup.toFixed(4)}`);
+
+      if (probs.ep >= threshold) {
+        document.getElementById('riskBadge').innerHTML = '<span class="pill pill-danger">High risk of EP/PPUL</span>';
+      } else if (probs.fpul >= probs.iup) {
+        document.getElementById('riskBadge').innerHTML = '<span class="pill pill-ok">Low risk, FPUL more likely than IUP</span>';
+      } else {
+        document.getElementById('riskBadge').innerHTML = '<span class="pill pill-warn">Low EP risk, IUP more likely than FPUL</span>';
+      }
+    }
+
+    // Reset inputs to a blank patient form while keeping coefficients.
+    function resetForm() {
+      document.getElementById('modelType').value = 'M6P';
+      document.getElementById('riskThreshold').value = '5';
+      document.getElementById('hcg0').value = '';
+      document.getElementById('hcg48').value = '';
+      document.getElementById('prog').value = '';
+      document.getElementById('progStep1').value = 'yes';
+      setText('epResult', '—');
+      setText('iupResult', '—');
+      setText('fpulResult', '—');
+      setText('derivedVals', '—');
+      setText('lpVals', '—');
+      document.getElementById('riskBadge').innerHTML = '';
+    }
+
+    document.getElementById('calcBtn').addEventListener('click', calculate);
+    document.getElementById('resetBtn').addEventListener('click', resetForm);
+  </script>
+</body>
+</html>

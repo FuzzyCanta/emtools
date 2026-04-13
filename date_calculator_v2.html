@@ -577,8 +577,6 @@
     // Init
     (function init() {
       const body = document.getElementById("timelineBody");
-      body.appendChild(makeRow("Event 1", ""));
-      body.appendChild(makeRow("Event 2", ""));
 
       document.getElementById("anchorDT").addEventListener("input", update);
       document.getElementById("addRowBtn").addEventListener("click", () => { body.appendChild(makeRow("", "")); update(); });

@@ -389,7 +389,7 @@
   {
     "title": "Formulaire de signalement - Demande d’évaluation du risque de rage d’un animal domestique mordeur",
     "href": "https://publications.msss.gouv.qc.ca/msss/fichiers/2024/24-277-01W.pdf",
-    "category": "Aide à la décision",
+    "category": "Signalement",
     "tags": [
       "Rage",
       "Rabies",
@@ -406,6 +406,19 @@
       "Tetanos",
       "Vaccination",
       "Algorithme"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Formulaire de signalement - Morsure de chien",
+    "href": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/agriculture-pecheries-alimentation/sante-animale/obligations/encadrement-chiens/FO_Formulaire_signalement_morsures_chien_md_MAPAQ.pdf",
+    "category": "Signalement",
+    "tags": [
+      "Morsure de chien",
+      "Signalement",
+      "Bite",
+      "Santé publique",
+      "Public health"
     ],
     "targetBlank": true
   }

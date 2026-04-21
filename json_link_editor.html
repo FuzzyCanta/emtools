@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>links.json Editor</title>
+  <title>EMTools links_documents.json Editor</title>
   <style>
     body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:16px;background:#f7f7f8;color:#111}
     .wrap{max-width:1800px;margin:0 auto}
@@ -35,7 +35,7 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>Simple JSON editor (links.json)</h1>
+  <h1>EMTools links_documents.json editor</h1>
 
   <div class="panel">
     <div class="bar">
@@ -44,18 +44,21 @@
       <button id="btnAdd" type="button" disabled>Add item</button>
       <button id="btnSave" type="button" disabled>Download JSON</button>
       <button id="btnCopy" type="button" disabled>Copy JSON</button>
-      <button id="btnLoadUrl" type="button" title="Optional: load links.json if hosted on a server (e.g., GitHub Pages)">Load from URL</button>
+      <button id="btnLoadLocal" type="button" title="Works when this editor is opened through a local web server">Load local JSON</button>
+      <button id="btnLoadUrl" type="button" title="Optional: load links_documents.json if hosted on a server">Load from URL</button>
       <span class="status" id="status">No data loaded.</span>
     </div>
 
     <div class="kpi small">
       <div>Items: <span id="kItems">0</span></div>
       <div>Columns: <span id="kCols">0</span></div>
+      <div>Sections: <span id="kSections">0</span></div>
+      <div>Categories: <span id="kCategories">0</span></div>
       <div class="mono" id="kFilename"></div>
     </div>
 
     <p class="note">
-      Tips: Tags are edited as comma-separated text and stored as a JSON array. Add/remove columns by updating <span class="mono">DEFAULT_COLUMNS</span>.
+      Tips: Tags are edited as comma-separated text and stored as a JSON array. Leave Category empty to show a card directly in its master section.
       Use ↑ / ↓ in the Actions column to reorder rows.
     </p>
 
@@ -73,17 +76,27 @@
   // Configuration: easy to extend
   // ------------------------------
   const DEFAULT_COLUMNS = [
-    { key: 'title', label: 'Title', type: 'text' },
+    { key: 'sectionOrder', label: 'Section order', type: 'number' },
+    { key: 'section', label: 'Section key', type: 'text' },
+    { key: 'sectionTitle', label: 'Master card', type: 'text' },
+    { key: 'sectionDescription', label: 'Master description', type: 'textarea' },
+    { key: 'category', label: 'Subcard category', type: 'text' },
+    { key: 'title', label: 'Card title', type: 'text' },
+    { key: 'description', label: 'Card description', type: 'textarea' },
     { key: 'href', label: 'Link', type: 'text' },
-    { key: 'category', label: 'Category', type: 'text' },
-    { key: 'tags', label: 'Tags (comma separated)', type: 'tags' },
+    { key: 'tags', label: 'Search tags', type: 'tags' },
     { key: 'targetBlank', label: 'New tab?', type: 'bool' },
   ];
 
   function newItem(){
     return {
       title: '',
+      description: '',
       href: '',
+      section: 'documents',
+      sectionTitle: 'Documents / Liens',
+      sectionDescription: 'Documents, formulaires et liens classes par categorie.',
+      sectionOrder: 50,
       category: '',
       tags: [],
       targetBlank: true,
@@ -94,7 +107,7 @@
   // State
   // ------------------------------
   let data = null;       // array of objects
-  let filename = 'links.json';
+  let filename = 'links_documents.json';
 
   // ------------------------------
   // DOM
@@ -104,12 +117,15 @@
   const btnAdd = document.getElementById('btnAdd');
   const btnSave = document.getElementById('btnSave');
   const btnCopy = document.getElementById('btnCopy');
+  const btnLoadLocal = document.getElementById('btnLoadLocal');
   const btnLoadUrl = document.getElementById('btnLoadUrl');
   const tableHost = document.getElementById('tableHost');
   const statusEl = document.getElementById('status');
   const rawEl = document.getElementById('raw');
   const kItems = document.getElementById('kItems');
   const kCols = document.getElementById('kCols');
+  const kSections = document.getElementById('kSections');
+  const kCategories = document.getElementById('kCategories');
   const kFilename = document.getElementById('kFilename');
 
   // ------------------------------
@@ -142,7 +158,12 @@
   function normalizeItem(item){
     const out = { ...item };
     if (!('title' in out)) out.title = '';
+    if (!('description' in out)) out.description = '';
     if (!('href' in out)) out.href = '';
+    if (!('section' in out)) out.section = 'documents';
+    if (!('sectionTitle' in out)) out.sectionTitle = out.section === 'documents' ? 'Documents / Liens' : out.section;
+    if (!('sectionDescription' in out)) out.sectionDescription = out.section === 'documents' ? 'Documents, formulaires et liens classes par categorie.' : '';
+    if (!('sectionOrder' in out)) out.sectionOrder = out.section === 'documents' ? 50 : 100;
     if (!('category' in out)) out.category = '';
     if (!('tags' in out)) out.tags = [];
     if (!Array.isArray(out.tags)){
@@ -150,12 +171,17 @@
     }
     if (!('targetBlank' in out)) out.targetBlank = true;
     out.targetBlank = Boolean(out.targetBlank);
+    out.sectionOrder = Number(out.sectionOrder) || 0;
     return out;
   }
 
   function refreshKpis(){
     kItems.textContent = data ? data.length : 0;
     kCols.textContent = DEFAULT_COLUMNS.length;
+    const sections = data ? new Set(data.map(item => item.section || 'documents')) : new Set();
+    const categories = data ? new Set(data.map(item => item.category || '').filter(Boolean)) : new Set();
+    kSections.textContent = sections.size;
+    kCategories.textContent = categories.size;
     kFilename.textContent = data ? `File: ${filename}` : '';
   }
 
@@ -301,6 +327,25 @@
           };
           td.appendChild(input);
         }
+        else if (col.type === 'textarea') {
+          const textarea = document.createElement('textarea');
+          textarea.value = (item[col.key] ?? '').toString();
+          textarea.oninput = () => {
+            item[col.key] = textarea.value;
+            refreshRaw();
+          };
+          td.appendChild(textarea);
+        }
+        else if (col.type === 'number') {
+          const input = document.createElement('input');
+          input.type = 'number';
+          input.value = (item[col.key] ?? '').toString();
+          input.oninput = () => {
+            item[col.key] = Number(input.value) || 0;
+            refreshRaw();
+          };
+          td.appendChild(input);
+        }
         else {
           const input = document.createElement('input');
           input.type = 'text';
@@ -336,7 +381,7 @@
       const text = await file.text();
       const parsed = safeJsonParse(text);
       data = parsed.map(normalizeItem);
-      filename = file.name || 'links.json';
+      filename = file.name || 'links_documents.json';
       setStatus(`Loaded ${data.length} items from ${filename}.`);
       render();
     } catch(e){
@@ -349,8 +394,7 @@
     }
   }
 
-  async function loadFromUrl(){
-    const url = prompt('Enter URL to a JSON file (e.g., https://<user>.github.io/<repo>/links.json):');
+  async function loadJsonUrl(url){
     if (!url) return;
     try{
       const res = await fetch(url, { cache: 'no-store' });
@@ -359,12 +403,17 @@
       const arr = Array.isArray(parsed) ? parsed : (parsed && (parsed.links || parsed.LINKS || parsed.DOC_LINKS));
       if (!Array.isArray(arr)) throw new Error('JSON must be an array of objects (or contain links/LINKS/DOC_LINKS array).');
       data = arr.map(normalizeItem);
-      filename = (url.split('/').pop() || 'links.json');
+      filename = (url.split('/').pop() || 'links_documents.json');
       setStatus(`Loaded ${data.length} items from URL.`);
       render();
     } catch(e){
       setStatus(`Failed to load URL: ${e.message}`);
     }
+  }
+
+  async function loadFromUrl(){
+    const url = prompt('Enter URL to a JSON file (e.g., Support/links_documents.json or https://<user>.github.io/<repo>/Support/links_documents.json):');
+    loadJsonUrl(url);
   }
 
   // ------------------------------
@@ -376,7 +425,7 @@
 
   btnNew.addEventListener('click', () => {
     data = [];
-    filename = 'links.json';
+    filename = 'links_documents.json';
     setStatus('Started new empty JSON list.');
     render();
   });
@@ -399,6 +448,8 @@
     if (!data) return;
     copyToClipboard(toJsonString());
   });
+
+  btnLoadLocal.addEventListener('click', () => loadJsonUrl('Support/links_documents.json'));
 
   btnLoadUrl.addEventListener('click', loadFromUrl);
 

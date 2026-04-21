@@ -1,4 +1,269 @@
 [
+  {
+    "title": "Pregnancy Calculator",
+    "href": "PDDC.html",
+    "section": "calculateurs",
+    "sectionTitle": "Calculateurs",
+    "sectionDescription": "Outils de calcul clinique et conversions.",
+    "sectionOrder": 10,
+    "category": "",
+    "tags": [
+      "EDD",
+      "US",
+      "LMP",
+      "Grossesse"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Acid-Base Calculator",
+    "href": "acid_base_tox_V1.html",
+    "section": "calculateurs",
+    "sectionTitle": "Calculateurs",
+    "sectionDescription": "Outils de calcul clinique et conversions.",
+    "sectionOrder": 10,
+    "category": "",
+    "tags": [
+      "Acid-base",
+      "Compensation",
+      "Toxicologie"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Rx dose converter",
+    "href": "convdose.html",
+    "section": "calculateurs",
+    "sectionTitle": "Calculateurs",
+    "sectionDescription": "Outils de calcul clinique et conversions.",
+    "sectionOrder": 10,
+    "category": "",
+    "tags": [
+      "Dose",
+      "Rx",
+      "Conversion"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Unit converter",
+    "href": "unitconverter.html",
+    "section": "calculateurs",
+    "sectionTitle": "Calculateurs",
+    "sectionDescription": "Outils de calcul clinique et conversions.",
+    "sectionOrder": 10,
+    "category": "",
+    "tags": [
+      "Height",
+      "Temperature",
+      "BMI",
+      "IBW"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Date calculator",
+    "href": "date_calculator_v2.html",
+    "section": "calculateurs",
+    "sectionTitle": "Calculateurs",
+    "sectionDescription": "Outils de calcul clinique et conversions.",
+    "sectionOrder": 10,
+    "category": "",
+    "tags": [
+      "Dates",
+      "Jours"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Prescripteur externe",
+    "href": "Prescription_externe.html",
+    "section": "prescripteur",
+    "sectionTitle": "Prescripteur",
+    "sectionDescription": "Documents cliniques personnalisables.",
+    "sectionOrder": 20,
+    "category": "",
+    "tags": [
+      "Prescription",
+      "Externe",
+      "HSCM"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Justification d'absence",
+    "href": "lettreabsence.html",
+    "section": "prescripteur",
+    "sectionTitle": "Prescripteur",
+    "sectionDescription": "Documents cliniques personnalisables.",
+    "sectionOrder": 20,
+    "category": "",
+    "tags": [
+      "Absence",
+      "Lettre",
+      "HSCM"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "GASP - General",
+    "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/referer-un-usager/guichet-dacces-en-sante-physique-gasp/medecins-urgentologues",
+    "section": "liens-institutionnels",
+    "sectionTitle": "Liens institutionnels",
+    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
+    "sectionOrder": 30,
+    "category": "Reference",
+    "tags": [
+      "GASP",
+      "Specialite",
+      "Reference"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Accueil clinique",
+    "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/medecins/accueil-clinique/accueil-clinique-de-lhopital-du-sacre-coeur-de-montreal/pour-medecins-de-lurgence",
+    "section": "liens-institutionnels",
+    "sectionTitle": "Liens institutionnels",
+    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
+    "sectionOrder": 30,
+    "category": "HSCM",
+    "tags": [
+      "Accueil clinique",
+      "HSCM"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Guide antibio",
+    "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/medecins/guide-dantibiotherapie-empirique",
+    "section": "liens-institutionnels",
+    "sectionTitle": "Liens institutionnels",
+    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
+    "sectionOrder": 30,
+    "category": "HSCM",
+    "tags": [
+      "Antibiotherapie",
+      "HSCM"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Ortho HMR",
+    "href": "http://www.orthohmr.ca/medecine-sportive/algorithmes-decisionnels/",
+    "section": "liens-institutionnels",
+    "sectionTitle": "Liens institutionnels",
+    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
+    "sectionOrder": 30,
+    "category": "Orthopedie",
+    "tags": [
+      "Ortho",
+      "HMR",
+      "Reference"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Guide antidotes - CAPQ",
+    "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antidotes",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Toxicologie",
+    "tags": [
+      "Antidotes",
+      "CAPQ"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Guide expo - CNESST",
+    "href": "https://reptox.cnesst.gouv.qc.ca/Pages/recherche-produit.aspx",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Toxicologie",
+    "tags": [
+      "Exposition",
+      "CNESST"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Ressource CAPQ",
+    "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antipoison/ressources-et-partenaires",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Toxicologie",
+    "tags": [
+      "CAPQ",
+      "Antipoison"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Acetaminophen plotter",
+    "href": "acetaminophen_plotter.html",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Toxicologie",
+    "tags": [
+      "NAC",
+      "Acetaminophene",
+      "APAP"
+    ],
+    "targetBlank": false
+  },
+  {
+    "title": "Syndrome tox",
+    "href": "https://chemm.hhs.gov/chemmist.htm",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Toxicologie",
+    "tags": [
+      "Toxidrome",
+      "CHEMM"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Guide GMU CANUTEC",
+    "href": "https://wwwapps.tc.gc.ca/Saf-Sec-Sur/3/erg-gmu-web/",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Toxicologie",
+    "tags": [
+      "CANUTEC",
+      "GMU",
+      "Matiere dangereuse"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Rx - Pre/Post-Partum",
+    "href": "https://www.ncbi.nlm.nih.gov/books/NBK501922/",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Obstetrique",
+    "tags": [
+      "LactMed",
+      "Grossesse",
+      "Allaitement"
+    ],
+    "targetBlank": true
+  },
    {
     "title": "Communication MDF",
     "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/a9b0958ceee59c7685256e2a0052d887/dc7d1a1c58372f9a85256ed2006c76e9/$FILE/AH-245_DT9098(2021-09)%20D%20.pdf",

@@ -60,6 +60,119 @@
       justify-content: center;
     }
 
+    /* Master card category picker */
+    .menu-shell {
+      width: min(100% - 32px, 1000px);
+      margin: 0 auto 32px;
+    }
+
+    .master-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .master-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px 12px;
+      align-items: center;
+      min-height: 96px;
+      padding: 16px;
+      background: white;
+      border: 1px solid #d7dce5;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .master-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .master-card[aria-selected="true"] {
+      border-color: #004080;
+      box-shadow: 0 0 0 3px rgba(0, 64, 128, 0.12);
+    }
+
+    .master-card.hidden,
+    .card.hidden {
+      display: none;
+    }
+
+    .master-card::after {
+      content: ">";
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border: 1px solid #c7d2e6;
+      border-radius: 50%;
+      color: #004080;
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .master-card[aria-selected="true"]::after {
+      background: #004080;
+      border-color: #004080;
+      color: white;
+    }
+
+    .master-card h2 {
+      margin: 0;
+      color: #004080;
+      font-size: 1.15rem;
+    }
+
+    .master-card p {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    .category-panel {
+      display: none;
+      background: white;
+      border: 1px solid #d7dce5;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .category-panel.active {
+      display: block;
+      animation: panelFadeIn 0.18s ease-out;
+    }
+
+    @keyframes panelFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .category-panel .tableWrap {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
     /* Grid layout */
     .grid {
       display: grid;
@@ -108,6 +221,24 @@
       text-align: center;
     }
 
+    @media (max-width: 640px) {
+      main {
+        margin-top: 16px;
+      }
+
+      .menu-shell {
+        width: min(100% - 24px, 1000px);
+      }
+
+      .master-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-panel {
+        padding: 16px;
+      }
+    }
+
     a,
     a:visited {
       color: #0066cc;
@@ -128,7 +259,7 @@
 
 
     /* ---------------------------
-      Searchable links table
+      Searchable document/link cards
     ----------------------------*/
     .tableWrap {
       width: 90%;
@@ -156,31 +287,32 @@
       font-size: 14px;
     }
 
+    .toolbarActions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      white-space: nowrap;
+    }
+
     .count {
       white-space: nowrap;
       font-size: 12px;
       color: #555;
     }
 
-    .linkTable {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
-
-    .linkTable th,
-    .linkTable td {
-      padding: 10px 8px;
-      border-top: 1px solid #eee;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    .linkTable th {
+    .toolbarBtn {
+      padding: 7px 10px;
+      border: 1px solid #d0d4e0;
+      border-radius: 8px;
+      background: #fff;
+      color: #004080;
+      cursor: pointer;
+      font: inherit;
       font-size: 12px;
-      color: #555;
-      background: #fafafa;
-      border-top: none;
+    }
+
+    .toolbarBtn:hover {
+      background: #f4f7ff;
     }
 
     .badge {
@@ -207,153 +339,140 @@
     .openBtn:hover {
       background: #f4f7ff;
     }
+
+    .documentGroups {
+      display: grid;
+      gap: 14px;
+    }
+
+    .docSubcard {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .docSubcard summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      cursor: pointer;
+      color: #004080;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    .docSubcard summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .docSubcard summary::after {
+      content: "+";
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      border: 1px solid #c7d2e6;
+      border-radius: 50%;
+      flex: 0 0 auto;
+      font-weight: 400;
+    }
+
+    .docSubcard[open] summary::after {
+      content: "-";
+    }
+
+    .docSubcardCount {
+      color: #555;
+      font-size: 0.82rem;
+      font-weight: 400;
+      margin-left: auto;
+    }
+
+    .documentGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 240px);
+      gap: 12px;
+      justify-content: start;
+      padding: 0 14px 14px;
+    }
+
+    .directDocumentGrid {
+      padding-top: 0;
+    }
+
+    .documentCard {
+      display: flex;
+      box-sizing: border-box;
+      flex-direction: column;
+      gap: 10px;
+      width: 240px;
+      height: 118px;
+      padding: 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: #fbfdff;
+      color: inherit;
+      text-decoration: none;
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
+    }
+
+    .documentCard:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+      text-decoration: none;
+    }
+
+    .documentCard h3 {
+      margin: 0;
+      color: #004080;
+      font-size: 1rem;
+      line-height: 1.25;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .documentCardDescription {
+      margin: 0;
+      color: #444;
+      font-size: 0.88rem;
+      line-height: 1.3;
+      margin-top: auto;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
   </style>
 </head>
 
 <body>
   <header>
     <h1>EMTools</h1>
-    <p>Index d'accès rapide aux calculateurs et documents personnalisés pour l'urgence.</p>
+    <p>Index d'acc&egrave;s rapide aux calculateurs et documents personnalis&eacute;s pour l'urgence.</p>
   </header>
 
   <main>
-    <h2 style="text-align: center;">Calculateurs</h2>
+    <h2 style="text-align: center;">Menu principal</h2>
 
-    <div class="grid">
-      <!-- nouvelle carte, utiliser !card snippet-->
-
-      <a href="PDDC.html" class="card" target="_blank">
-        <h2>Pregnancy Calculator</h2>
-        <p>EDD/US/LMP</p>
-      </a>
-
-      <a href="acid_base_tox_V1.html" class="card" target="_blank">
-        <h2>Acid-Base Calculator</h2>
-        <p>With compensation</p>
-      </a>
-
-      <a href="convdose.html" class="card" target="_blank">
-        <h2>Rx dose converter</h2>
-        <p>General calculator</p>
-      </a>
-
-      <a href="unitconverter.html" class="card" target="_blank">
-        <h2>Unit converter</h2>
-        <p>Height/temp/BMI/IBW</p>
-      </a>
-
-      <a href="date_calculator_v2.html" class="card" target="_blank">
-        <h2>Date calculator</h2>
-        <p>Days between dates</p>
-      </a>
-
-      <a href="Prescription_externe.html" class="card" target="_blank">
-        <h2>Prescripteur externe</h2>
-        <p>HSCM</p>
-      </a>
-    </div>
-
-    <h2 style="text-align: center;">Prescripteur</h2>
-
-    <div class="grid">
-
-      <a href="Prescription_externe.html" class="card" target="_blank">
-        <h2>Prescripteur externe</h2>
-        <p>HSCM</p>
-      </a>
-
-      <a href="lettreabsence.html" class="card" target="_blank">
-        <h2>Justification d'absence</h2>
-        <p>HSCM</p>
-      </a>
-    </div>
-
-    <!-- SECTION LIENS RAPIDES -->
-
-    <h2 style="text-align: center;">Liens rapides</h2>
-
-    <div class="grid">
-      <a href="https://www.ciusssnordmtl.ca/zone-des-professionnels/referer-un-usager/guichet-dacces-en-sante-physique-gasp/medecins-urgentologues"
-        class="card" style="height: 46px;" target="_blank">
-        <h2>GASP - Général</h2>
-        <p>Référence générale/spécialité</p>
-      </a>
-
-      <a href="https://www.ciusssnordmtl.ca/zone-des-professionnels/medecins/accueil-clinique/accueil-clinique-de-lhopital-du-sacre-coeur-de-montreal/pour-medecins-de-lurgence"
-        class="card" style="height: 46px;" target="_blank">
-        <h2>Accueil clinique</h2>
-        <p>HSCM</p>
-      </a>
-
-      <a href="https://www.ciusssnordmtl.ca/zone-des-professionnels/medecins/guide-dantibiotherapie-empirique"
-        class="card" style="height: 46px;" target="_blank">
-        <h2>Guide antibio</h2>
-        <p>HSCM</p>
-      </a>
-
-      <a href="http://www.orthohmr.ca/medecine-sportive/algorithmes-decisionnels/" class="card" style="height: 46px;"
-        target="_blank">
-        <h2>Ortho HMR</h2>
-        <p>Guide référence Ortho</p>
-      </a>
-    </div>
-
-    <!--Section ressources par sujet-->
-
-    <h2 style="text-align: center;">Ressources cliniques</h2>
-    <div class="grid">
-      <a href="https://www.ciusss-capitalenationale.gouv.qc.ca/antidotes" class="card" style="height: 46px;"
-        target="_blank">
-        <h2>Guide antidotes - CAPQ</h2>
-        <p>Toxico</p>
-      </a>
-      <a href="https://reptox.cnesst.gouv.qc.ca/Pages/recherche-produit.aspx" class="card" style="height: 46px;"
-        target="_blank">
-        <h2>Guide expo - CNESST</h2>
-        <p>Toxico</p>
-      </a>
-      <a href="https://www.ciusss-capitalenationale.gouv.qc.ca/antipoison/ressources-et-partenaires" class="card"
-        style="height: 46px;" target="_blank">
-        <h2>Ressource CAPQ</h2>
-        <p>Toxico</p>
-      </a>
-      <a href="acetaminophen_plotter.html" class="card">
-        <h2>Acetaminophen plotter</h2>
-        <p>Protocol NAC interactif</p>
-      </a>
-      <a href="https://chemm.hhs.gov/chemmist.htm" class="card" style="height: 46px;" target="_blank">
-        <h2>Syndrome tox</h2>
-        <p>Toxico</p>
-      </a>
-      <a href="https://wwwapps.tc.gc.ca/Saf-Sec-Sur/3/erg-gmu-web/ " class="card" style="height: 46px;" target="_blank">
-        <h2>Guide GMU CANUTEC</h2>
-        <p>Toxico</p>
-      </a>
-      <a href="https://www.ncbi.nlm.nih.gov/books/NBK501922/" class="card" style="height: 46px;" target="_blank">
-        <h2>Rx - Pré/Post-Partum</h2>
-        <p>Obstétrique</p>
-      </a>
-    </div>
-
-    <h2 style="margin-top:32px; text-align:center;">Documents / Liens</h2>
-
-    <div class="tableWrap">
+    <div class="menu-shell">
       <div class="toolbar">
-        <input id="linkSearch" type="text" placeholder="Chercher par titre, catégories, tags..." />
-        <span class="count" id="linkCount"></span>
+        <input id="linkSearch" type="text" placeholder="Chercher dans les outils, documents, categories, tags..." />
+        <div class="toolbarActions">
+          <button class="toolbarBtn" id="clearSearch" type="button">Effacer</button>
+          <button class="toolbarBtn" id="expandDocs" type="button">Tout ouvrir</button>
+          <button class="toolbarBtn" id="collapseDocs" type="button">Tout fermer</button>
+          <span class="count" id="linkCount"></span>
+        </div>
       </div>
 
-      <table class="linkTable">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Titre</th>
-            <th>Catégorie</th>
-            <th>Tags</th>
-          </tr>
-        </thead>
-        <tbody id="linkTbody"></tbody>
-      </table>
+      <div class="master-grid" id="masterGrid" role="tablist" aria-label="Menu principal"></div>
+
+      <div id="panelContainer"></div>
     </div>
   </main>
 
@@ -367,31 +486,50 @@
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
     // ---------------------------
+    // JSON-driven menu rendering
+    // ---------------------------
+    const masterGrid = document.getElementById("masterGrid");
+    const panelContainer = document.getElementById("panelContainer");
+    const searchInput = document.getElementById("linkSearch");
+    const countEl = document.getElementById("linkCount");
+    const clearSearchBtn = document.getElementById("clearSearch");
+    const expandDocsBtn = document.getElementById("expandDocs");
+    const collapseDocsBtn = document.getElementById("collapseDocs");
+
     let LINKS = [];
+    let selectedSection = "";
 
     fetch("Support/links_documents.json")
       .then(r => {
-        if (!r.ok) throw new Error("Failed to load links.json");
+        if (!r.ok) throw new Error("Failed to load links_documents.json");
         return r.json();
       })
       .then(data => {
         if (!Array.isArray(data)) {
-          throw new Error("links.json must be an array");
+          throw new Error("links_documents.json must be an array");
         }
-        LINKS = data;
+        LINKS = data.map(normalizeLink);
+        selectedSection = getSections(LINKS)[0]?.section || "";
         render();
       })
       .catch(err => {
         console.error(err);
-        alert("Could not load links.json");
+        alert("Could not load links_documents.json");
       });
 
-    // ---------------------------
-    // Rendering + filtering
-    // ---------------------------
-    const tbody = document.getElementById("linkTbody");
-    const searchInput = document.getElementById("linkSearch");
-    const countEl = document.getElementById("linkCount");
+    function normalizeLink(link) {
+      const section = link.section || "documents";
+      return {
+        ...link,
+        section,
+        sectionTitle: link.sectionTitle || (section === "documents" ? "Documents / Liens" : section),
+        sectionDescription: link.sectionDescription || (section === "documents" ? "Documents, formulaires et liens classes par categorie." : ""),
+        sectionOrder: Number.isFinite(Number(link.sectionOrder)) ? Number(link.sectionOrder) : 50,
+        category: String(link.category || "").trim(),
+        description: String(link.description || "").trim(),
+        tags: Array.isArray(link.tags) ? link.tags : []
+      };
+    }
 
     function escapeHtml(s) {
       return String(s)
@@ -399,41 +537,276 @@
         .replaceAll('"', "&quot;").replaceAll("'", "&#039;");
     }
 
-    function rowMatches(link, q) {
-      if (!q) return true;
-      const hay = [
-        link.href,
-        link.title,
-        link.category,
-        (link.tags || []).join(" ")
+    function searchableText(item) {
+      return [
+        item.title,
+        item.href,
+        item.section,
+        item.sectionTitle,
+        item.sectionDescription,
+        item.description,
+        item.category,
+        item.tags.join(" ")
       ].join(" ").toLowerCase();
-      return hay.includes(q);
+    }
+
+    function textMatches(text, q) {
+      return !q || String(text || "").toLowerCase().includes(q);
+    }
+
+    function itemMatches(item, q) {
+      return !q || searchableText(item).includes(q);
+    }
+
+    function sectionMatches(section, q) {
+      return !q || [section.title, section.description, section.section].join(" ").toLowerCase().includes(q);
+    }
+
+    function getSections(items) {
+      const map = new Map();
+
+      items.forEach(item => {
+        if (!map.has(item.section)) {
+          map.set(item.section, {
+            section: item.section,
+            title: item.sectionTitle,
+            description: item.sectionDescription,
+            order: item.sectionOrder,
+            total: 0
+          });
+        }
+
+        const meta = map.get(item.section);
+        meta.total += 1;
+        meta.order = Math.min(meta.order, item.sectionOrder);
+      });
+
+      return Array.from(map.values()).sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
+    }
+
+    function groupByCategory(items) {
+      return items.reduce((groups, item) => {
+        if (!item.category) return groups;
+        if (!groups[item.category]) groups[item.category] = [];
+        groups[item.category].push(item);
+        return groups;
+      }, {});
+    }
+
+    function selectMenuPanel(section) {
+      selectedSection = section;
+
+      document.querySelectorAll(".master-card[data-section]").forEach(card => {
+        const isSelected = card.dataset.section === section;
+        card.setAttribute("aria-selected", isSelected ? "true" : "false");
+      });
+
+      document.querySelectorAll(".category-panel[data-section]").forEach(panel => {
+        panel.classList.toggle("active", panel.dataset.section === section);
+      });
+
+      setSubcardsOpen(false);
+    }
+
+    function setSubcardsOpen(isOpen) {
+      const activePanel = document.querySelector(".category-panel.active");
+      if (!activePanel) return;
+
+      activePanel.querySelectorAll(".docSubcard").forEach(subcard => {
+        if (isOpen) {
+          subcard.setAttribute("open", "");
+        } else {
+          subcard.removeAttribute("open");
+        }
+      });
+    }
+
+    function renderMasterCards(sections, visibleItems, q) {
+      if (!masterGrid) return;
+
+      if (!sections.length) {
+        masterGrid.innerHTML = "";
+        return;
+      }
+
+      masterGrid.innerHTML = sections.map(section => {
+        const sectionItems = visibleItems.filter(item => item.section === section.section);
+        const isSelected = !q && section.section === selectedSection;
+        const count = q && sectionMatches(section, q) ? section.total : sectionItems.length;
+        const countLabel = count === 1 ? "1 lien" : `${count} liens`;
+
+        return `
+          <button class="master-card" type="button" role="tab" aria-selected="${isSelected ? "true" : "false"}"
+            data-section="${escapeHtml(section.section)}">
+            <h2>${escapeHtml(section.title)}</h2>
+            <p>${escapeHtml(section.description)} ${countLabel}</p>
+          </button>
+        `;
+      }).join("");
+
+      if (!q) {
+        masterGrid.querySelectorAll(".master-card[data-section]").forEach(card => {
+          card.addEventListener("click", () => selectMenuPanel(card.dataset.section));
+        });
+      }
+    }
+
+    function renderPanels(sections, visibleItems, q) {
+      if (!panelContainer) return;
+
+      if (q) {
+        renderSearchPanel(visibleItems);
+        return;
+      }
+
+      if (!sections.length) {
+        panelContainer.innerHTML = `<section class="category-panel active" role="tabpanel"><p class="count">Aucun lien trouve.</p></section>`;
+        return;
+      }
+
+      panelContainer.innerHTML = sections.map(section => {
+        const sectionItems = sectionMatches(section, q)
+          ? LINKS.filter(item => item.section === section.section)
+          : visibleItems.filter(item => item.section === section.section);
+        const uncategorizedItems = sectionItems.filter(item => !item.category);
+        const categorizedItems = sectionItems.filter(item => item.category);
+        const grouped = groupByCategory(categorizedItems);
+        const categories = Object.keys(grouped).sort((a, b) => a.localeCompare(b));
+        const isActive = section.section === selectedSection;
+        const uncategorizedHtml = uncategorizedItems.length
+          ? `<div class="documentGrid directDocumentGrid">${uncategorizedItems.map(item => renderLinkCard(item)).join("")}</div>`
+          : "";
+
+        const groupsHtml = categories.map(category => {
+          const linksHtml = grouped[category].map(item => renderLinkCard(item)).join("");
+          const countLabel = grouped[category].length === 1 ? "1 item" : `${grouped[category].length} items`;
+
+          return `
+            <details class="docSubcard"${q ? " open" : ""}>
+              <summary>
+                <span>${escapeHtml(category)}</span>
+                <span class="docSubcardCount">${countLabel}</span>
+              </summary>
+              <div class="documentGrid">
+                ${linksHtml}
+              </div>
+            </details>
+          `;
+        }).join("");
+
+        return `
+          <section class="category-panel${isActive ? " active" : ""}" data-section="${escapeHtml(section.section)}" role="tabpanel">
+            <div class="documentGroups">
+              ${uncategorizedHtml}
+              ${groupsHtml || (uncategorizedHtml ? "" : `<p class="count">Aucun lien trouve.</p>`)}
+            </div>
+          </section>
+        `;
+      }).join("");
+    }
+
+    function renderSearchPanel(items) {
+      if (!panelContainer) return;
+
+      if (!items.length) {
+        panelContainer.innerHTML = `<section class="category-panel active" role="tabpanel"><p class="count">Aucun lien trouve.</p></section>`;
+        return;
+      }
+
+      const groups = items.reduce((acc, item) => {
+        const groupName = item.category
+          ? `${item.sectionTitle} / ${item.category}`
+          : item.sectionTitle;
+        if (!acc[groupName]) acc[groupName] = [];
+        acc[groupName].push(item);
+        return acc;
+      }, {});
+
+      const groupsHtml = Object.keys(groups).sort((a, b) => a.localeCompare(b)).map(groupName => {
+        const linksHtml = groups[groupName].map(item => renderLinkCard(item)).join("");
+        const countLabel = groups[groupName].length === 1 ? "1 item" : `${groups[groupName].length} items`;
+
+        return `
+          <details class="docSubcard" open>
+            <summary>
+              <span>${escapeHtml(groupName)}</span>
+              <span class="docSubcardCount">${countLabel}</span>
+            </summary>
+            <div class="documentGrid">
+              ${linksHtml}
+            </div>
+          </details>
+        `;
+      }).join("");
+
+      panelContainer.innerHTML = `
+        <section class="category-panel active" data-section="search-results" role="tabpanel">
+          <div class="documentGroups">
+            ${groupsHtml}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderLinkCard(item) {
+      const targetAttr = item.targetBlank ? ` target="_blank" rel="noopener noreferrer"` : "";
+      const descriptionHtml = item.description
+        ? `<p class="documentCardDescription">${escapeHtml(item.description)}</p>`
+        : "";
+
+      return `
+        <a class="documentCard" href="${escapeHtml(item.href)}"${targetAttr}>
+          <h3>${escapeHtml(item.title)}</h3>
+          ${descriptionHtml}
+        </a>
+      `;
     }
 
     function render() {
       const q = (searchInput.value || "").trim().toLowerCase();
-      const filtered = LINKS.filter(l => rowMatches(l, q));
+      const allSections = getSections(LINKS);
+      const matchingItems = LINKS.filter(item => itemMatches(item, q));
+      const visibleSections = allSections.filter(section => {
+        return sectionMatches(section, q) || matchingItems.some(item => item.section === section.section);
+      });
+      const displayedItems = new Map();
 
-      if (!tbody) return;
+      visibleSections.forEach(section => {
+        const sectionItems = sectionMatches(section, q)
+          ? LINKS.filter(item => item.section === section.section)
+          : matchingItems.filter(item => item.section === section.section);
 
-      tbody.innerHTML = filtered.map(l => {
-        const tagsHtml = (l.tags || []).map(t => `<span class="badge">${escapeHtml(t)}</span>`).join("");
-        const targetAttr = l.targetBlank ? ` target="_blank" rel="noopener noreferrer"` : "";
-        return `
-        <tr>
-          <td><a class="openBtn" href="${escapeHtml(l.href)}"${targetAttr}>Ouvrir</a></td>
-          <td>${escapeHtml(l.title)}</td>
-          <td>${escapeHtml(l.category || "")}</td>
-          <td>${tagsHtml}</td>
-        </tr>
-      `;
-      }).join("");
+        sectionItems.forEach(item => displayedItems.set(`${item.section}|${item.category}|${item.title}|${item.href}`, item));
+      });
 
-      if (countEl) countEl.textContent = `${filtered.length} / ${LINKS.length}`;
+      if (visibleSections.length && !visibleSections.some(section => section.section === selectedSection)) {
+        selectedSection = visibleSections[0].section;
+      }
+
+      renderMasterCards(visibleSections, matchingItems, q);
+      renderPanels(visibleSections, Array.from(displayedItems.values()), q);
+
+      if (countEl) countEl.textContent = `${displayedItems.size} / ${LINKS.length}`;
     }
 
     if (searchInput) {
       searchInput.addEventListener("input", render);
+    }
+
+    if (clearSearchBtn && searchInput) {
+      clearSearchBtn.addEventListener("click", () => {
+        searchInput.value = "";
+        render();
+        searchInput.focus();
+      });
+    }
+
+    if (expandDocsBtn) {
+      expandDocsBtn.addEventListener("click", () => setSubcardsOpen(true));
+    }
+
+    if (collapseDocsBtn) {
+      collapseDocsBtn.addEventListener("click", () => setSubcardsOpen(false));
     }
   </script>
 </body>

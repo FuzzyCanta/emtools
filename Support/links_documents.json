@@ -13,7 +13,8 @@
       "LMP",
       "Grossesse"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Acid-Base Calculator",
@@ -28,7 +29,8 @@
       "Compensation",
       "Toxicologie"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Rx dose converter",
@@ -43,7 +45,8 @@
       "Rx",
       "Conversion"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Unit converter",
@@ -59,7 +62,8 @@
       "BMI",
       "IBW"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Date calculator",
@@ -73,7 +77,8 @@
       "Dates",
       "Jours"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Prescripteur externe",
@@ -88,7 +93,8 @@
       "Externe",
       "HSCM"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Justification d'absence",
@@ -103,7 +109,8 @@
       "Lettre",
       "HSCM"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "GASP - General",
@@ -118,7 +125,8 @@
       "Specialite",
       "Reference"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Accueil clinique",
@@ -132,7 +140,8 @@
       "Accueil clinique",
       "HSCM"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Guide antibio",
@@ -146,7 +155,8 @@
       "Antibiotherapie",
       "HSCM"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Ortho HMR",
@@ -161,7 +171,8 @@
       "HMR",
       "Reference"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Guide antidotes - CAPQ",
@@ -175,7 +186,8 @@
       "Antidotes",
       "CAPQ"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Guide expo - CNESST",
@@ -189,7 +201,8 @@
       "Exposition",
       "CNESST"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Ressource CAPQ",
@@ -203,7 +216,8 @@
       "CAPQ",
       "Antipoison"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Acetaminophen plotter",
@@ -218,7 +232,8 @@
       "Acetaminophene",
       "APAP"
     ],
-    "targetBlank": false
+    "targetBlank": false,
+    "description": ""
   },
   {
     "title": "Syndrome tox",
@@ -232,7 +247,8 @@
       "Toxidrome",
       "CHEMM"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Guide GMU CANUTEC",
@@ -247,7 +263,8 @@
       "GMU",
       "Matiere dangereuse"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Rx - Pre/Post-Partum",
@@ -262,9 +279,28 @@
       "Grossesse",
       "Allaitement"
     ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "INESSS - Accueil GUO",
+    "description": "Liste des guides d'usage optimaux INESSS",
+    "href": "https://www.inesss.qc.ca/formations-et-outils/outils-cliniques/outils-par-types/guides-dusage-optimal.html",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 50,
+    "category": "Généraux",
+    "tags": [
+      "INESSS",
+      "GUO",
+      "Guide",
+      "Optimal",
+      "Québec"
+    ],
     "targetBlank": true
   },
-   {
+  {
     "title": "Communication MDF",
     "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/a9b0958ceee59c7685256e2a0052d887/dc7d1a1c58372f9a85256ed2006c76e9/$FILE/AH-245_DT9098(2021-09)%20D%20.pdf",
     "category": "Formulaires généraux",
@@ -272,7 +308,12 @@
       "AH-240",
       "Sommaire"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Niveau de soins",
@@ -282,7 +323,12 @@
       "NIM",
       "RCR"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "GAMF FR",
@@ -294,7 +340,12 @@
       "Famille",
       "Guichet"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "GAMF EN",
@@ -306,7 +357,12 @@
       "Famille",
       "Guichet"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Ma Grossesse - FR",
@@ -318,7 +374,12 @@
       "Inscription",
       "Guichet"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "CNESST - Ensemble de la documentation",
@@ -328,7 +389,12 @@
       "CNESST",
       "Travail"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "CNESST - Attestation médicale (initiale)",
@@ -338,7 +404,12 @@
       "CNESST",
       "Travail"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "CNESST - Rapport médical (suivi)",
@@ -348,7 +419,12 @@
       "CNESST",
       "Travail"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Affiche - Explication pour le travailleur",
@@ -359,7 +435,12 @@
       "comment",
       "Travail"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Poster - What to do if you get hurt",
@@ -370,7 +451,12 @@
       "comment",
       "Travail"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "SAAQ - Ensemble de la documentation",
@@ -379,7 +465,12 @@
     "tags": [
       "SAAQ"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "SAAQ - Rapport médical initial",
@@ -388,7 +479,12 @@
     "tags": [
       "SAAQ"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "SAAQ - Déclaration d'inaptitude à conduire",
@@ -397,7 +493,12 @@
     "tags": [
       "SAAQ"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "IVAC - Attestation médicale (initiale)",
@@ -409,7 +510,12 @@
       "Indemnisation",
       "Criminel"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Dépliant TCCL",
@@ -420,7 +526,12 @@
       "Trauma",
       "Patient"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Algorithme TCCL",
@@ -431,7 +542,12 @@
       "Trauma",
       "Clinicien"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Étiquettes HSCM",
@@ -441,8 +557,13 @@
       "etiquettes",
       "Sacre-Coeur"
     ],
-    "targetBlank": true
-  }, 
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
   {
     "title": "Diabète - Médicament à arrêter",
     "href": "https://www.diabete.qc.ca/wp-content/uploads/2023/01/Jours-de-maladie-FR-RECTO-VERSO-2019-2.pdf",
@@ -452,7 +573,12 @@
       "Medication",
       "Patient"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Diabète T2 - Référer un patient",
@@ -463,7 +589,12 @@
       "Clinicien",
       "Guichet"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Diabète T1 - Référer un patient",
@@ -474,7 +605,12 @@
       "Clinicien",
       "Guichet"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Diabète - Liste des médicaments",
@@ -486,7 +622,12 @@
       "Clinicien",
       "Medicaments"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Diabète - Ajustement Rx fonction rénale",
@@ -498,7 +639,12 @@
       "Renale",
       "Ajustement"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "HTA - Journal de pression artérielle à domicile (FR)",
@@ -510,7 +656,12 @@
       "Domicile",
       "Patient"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "HTA - Home blood pressure monitoring log (EN)",
@@ -522,7 +673,12 @@
       "Domicile",
       "Patient"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Prendre soins de sa plaie",
@@ -533,7 +689,12 @@
       "Plaie",
       "Patient"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Soingner une gastroenterite à la maison",
@@ -544,7 +705,12 @@
       "Gastroenterite",
       "Patient"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Prendre soins de sa sonde urinaire",
@@ -555,7 +721,12 @@
       "Sonde",
       "Patient"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Liste - Fiches aux usagers (CIUSSS NIM)",
@@ -566,7 +737,12 @@
       "Usagers",
       "Information"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Mastite - Soins à domicile",
@@ -579,7 +755,12 @@
       "Grossesse",
       "Allaitement"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Mastitis - Home care",
@@ -592,7 +773,12 @@
       "Grossesse",
       "Allaitement"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Protocole NAC - CAPQ",
@@ -605,18 +791,29 @@
       "Acetaminophene",
       "APAP"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
-    "title": "Déclaration MADO",
+    "title": "Formulaire de signalement - MADO",
     "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/64631465d0d5c09085256ecf006b4afd/$FILE/AS-770_DT9070%20(2024-06)%20D.pdf",
     "category": "Santé publique",
     "tags": [
       "MADO",
       "Déclaration",
-      "Santé publique"
+      "Santé publique",
+      "Maladie à déclaration obligatoire"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Évaluation initiale du pt intoxiqué",
@@ -627,7 +824,12 @@
       "Intoxication",
       "Patient"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Prescription - Patient intoxiqué",
@@ -638,7 +840,12 @@
       "Intoxication",
       "Patient"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Aide à la décision - Rage",
@@ -649,7 +856,12 @@
       "Rabies",
       "Algorithme"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Formulaire de signalement - Demande d’évaluation du risque de rage d’un animal domestique mordeur",
@@ -661,7 +873,12 @@
       "Déclaration",
       "Signalement"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Aide à la décision - Tetanos",
@@ -672,7 +889,12 @@
       "Vaccination",
       "Algorithme"
     ],
-    "targetBlank": true
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
   },
   {
     "title": "Formulaire de signalement - Morsure de chien",
@@ -684,6 +906,30 @@
       "Bite",
       "Santé publique",
       "Public health"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Procédure de signalement - Maladie à déclaration obligatoire (MADO)",
+    "description": "",
+    "href": "https://www.quebec.ca/sante/professionnels/mado/declaration/demarche-pour-les-medecins",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Santé publique",
+    "tags": [
+      "MADO",
+      "Signalement",
+      "Santé publique",
+      "ITSS",
+      "Sexuellement",
+      "Infection"
     ],
     "targetBlank": true
   }

@@ -19,9 +19,9 @@
     table{width:100%;border-collapse:collapse;margin-top:8px}
     th,td{border-top:1px solid #eee;padding:6px 6px;vertical-align:top}
     th{background:#fafafa;font-size:12px;text-align:left;position:sticky;top:0;z-index:1}
-    td input, td textarea, td select{width:100%;box-sizing:border-box;font:inherit;border:1px solid #ddd;border-radius:6px;padding:6px;background:#fff}
-    td textarea{min-height:34px;resize:vertical}
-    .rowActions{white-space:nowrap}
+    td input,td textarea,td select{width:100%;box-sizing:border-box;font:inherit;border:1px solid #ddd;border-radius:6px;padding:6px;background:#fff}
+    td textarea{min-height:48px;resize:vertical}
+    .rowActions{white-space:normal;min-width:190px}
     .danger{border-color:#e3b4b4}
     .danger:hover{background:#ffecec}
     .small{font-size:12px;color:#555}
@@ -30,7 +30,14 @@
     .kpi div{font-size:12px;color:#444}
     .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
     .miniBtn{padding:6px 8px;border-radius:8px}
-    .miniBtn + .miniBtn{margin-left:6px}
+    .rowSecondary td{background:#fcfcfd}
+    .rowLabel{display:block;font-size:11px;font-weight:600;color:#555;margin-bottom:4px}
+    .actionGroup{display:flex;flex-wrap:wrap;gap:6px}
+    .actionGroup + .actionGroup{margin-top:6px}
+    @media (max-width: 1100px){
+      .wrap{max-width:none}
+      .rowActions{min-width:160px}
+    }
   </style>
 </head>
 <body>
@@ -58,8 +65,9 @@
     </div>
 
     <p class="note">
-      Tips: Tags are edited as comma-separated text and stored as a JSON array. Leave Category empty to show a card directly in its master section.
-      Use ↑ / ↓ in the Actions column to reorder rows.
+      Tips: Repeated fields use editable dropdowns built from the current list, so you can pick an existing value or type a new one.
+      Tags are edited as comma-separated text and stored as a JSON array. Leave Category empty to show a card directly in its master section.
+      Use up / down in the Actions column to reorder rows.
     </p>
 
     <div id="tableHost" style="overflow:auto;"></div>
@@ -72,21 +80,24 @@
 </div>
 
 <script>
-  // ------------------------------
-  // Configuration: easy to extend
-  // ------------------------------
-  const DEFAULT_COLUMNS = [
-    { key: 'sectionOrder', label: 'Section order', type: 'number' },
-    { key: 'section', label: 'Section key', type: 'text' },
-    { key: 'sectionTitle', label: 'Master card', type: 'text' },
-    { key: 'sectionDescription', label: 'Master description', type: 'textarea' },
-    { key: 'category', label: 'Subcard category', type: 'text' },
+  const TOP_COLUMNS = [
+    { key: 'section', label: 'Section key', type: 'text', editableChoices: true },
+    { key: 'sectionTitle', label: 'Master card', type: 'text', editableChoices: true },
+    { key: 'category', label: 'Subcard category', type: 'text', editableChoices: true },
     { key: 'title', label: 'Card title', type: 'text' },
-    { key: 'description', label: 'Card description', type: 'textarea' },
     { key: 'href', label: 'Link', type: 'text' },
+  ];
+
+  const BOTTOM_COLUMNS = [
+    { key: 'sectionOrder', label: 'Section order', type: 'number', editableChoices: true },
+    { key: 'sectionOpenOnSelect', label: 'Open categories on click?', type: 'bool' },
+    { key: 'sectionDescription', label: 'Master description', type: 'textarea' },
+    { key: 'description', label: 'Card description', type: 'textarea' },
     { key: 'tags', label: 'Search tags', type: 'tags' },
     { key: 'targetBlank', label: 'New tab?', type: 'bool' },
   ];
+
+  const ALL_COLUMNS = [...TOP_COLUMNS, ...BOTTOM_COLUMNS];
 
   function newItem(){
     return {
@@ -97,21 +108,30 @@
       sectionTitle: 'Documents / Liens',
       sectionDescription: 'Documents, formulaires et liens classes par categorie.',
       sectionOrder: 50,
+      sectionOpenOnSelect: false,
       category: '',
       tags: [],
       targetBlank: true,
     };
   }
 
-  // ------------------------------
-  // State
-  // ------------------------------
-  let data = null;       // array of objects
+  function contextualNewItem(seedItem){
+    if (!seedItem) return newItem();
+    return normalizeItem({
+      ...newItem(),
+      section: seedItem.section ?? 'documents',
+      sectionTitle: seedItem.sectionTitle ?? 'Documents / Liens',
+      sectionDescription: seedItem.sectionDescription ?? '',
+      sectionOrder: seedItem.sectionOrder ?? 50,
+      sectionOpenOnSelect: Boolean(seedItem.sectionOpenOnSelect),
+      category: seedItem.category ?? '',
+      targetBlank: seedItem.targetBlank ?? true,
+    });
+  }
+
+  let data = null;
   let filename = 'links_documents.json';
 
-  // ------------------------------
-  // DOM
-  // ------------------------------
   const fileInput = document.getElementById('fileInput');
   const btnNew = document.getElementById('btnNew');
   const btnAdd = document.getElementById('btnAdd');
@@ -128,9 +148,6 @@
   const kCategories = document.getElementById('kCategories');
   const kFilename = document.getElementById('kFilename');
 
-  // ------------------------------
-  // Utilities
-  // ------------------------------
   function setEnabled(isEnabled){
     btnAdd.disabled = !isEnabled;
     btnSave.disabled = !isEnabled;
@@ -164,11 +181,13 @@
     if (!('sectionTitle' in out)) out.sectionTitle = out.section === 'documents' ? 'Documents / Liens' : out.section;
     if (!('sectionDescription' in out)) out.sectionDescription = out.section === 'documents' ? 'Documents, formulaires et liens classes par categorie.' : '';
     if (!('sectionOrder' in out)) out.sectionOrder = out.section === 'documents' ? 50 : 100;
+    if (!('sectionOpenOnSelect' in out)) out.sectionOpenOnSelect = false;
     if (!('category' in out)) out.category = '';
     if (!('tags' in out)) out.tags = [];
     if (!Array.isArray(out.tags)){
-      out.tags = String(out.tags || '').split(',').map(s=>s.trim()).filter(Boolean);
+      out.tags = String(out.tags || '').split(',').map(s => s.trim()).filter(Boolean);
     }
+    out.sectionOpenOnSelect = Boolean(out.sectionOpenOnSelect);
     if (!('targetBlank' in out)) out.targetBlank = true;
     out.targetBlank = Boolean(out.targetBlank);
     out.sectionOrder = Number(out.sectionOrder) || 0;
@@ -177,7 +196,7 @@
 
   function refreshKpis(){
     kItems.textContent = data ? data.length : 0;
-    kCols.textContent = DEFAULT_COLUMNS.length;
+    kCols.textContent = ALL_COLUMNS.length;
     const sections = data ? new Set(data.map(item => item.section || 'documents')) : new Set();
     const categories = data ? new Set(data.map(item => item.category || '').filter(Boolean)) : new Set();
     kSections.textContent = sections.size;
@@ -221,9 +240,104 @@
     render();
   }
 
-  // ------------------------------
-  // Render table
-  // ------------------------------
+  function insertRow(atIdx, seedItem){
+    if (!data) return;
+    data.splice(atIdx, 0, contextualNewItem(seedItem));
+    setStatus(`Inserted item at position ${atIdx + 1}.`);
+    render();
+  }
+
+  function uniqueValues(key){
+    if (!data) return [];
+    const values = data
+      .map(item => item?.[key])
+      .filter(value => value !== undefined && value !== null && String(value).trim() !== '')
+      .map(value => Array.isArray(value) ? value.join(', ') : String(value));
+    return [...new Set(values)].sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+  }
+
+  function createDataList(listId, values){
+    const datalist = document.createElement('datalist');
+    datalist.id = listId;
+    values.forEach(value => {
+      const option = document.createElement('option');
+      option.value = value;
+      datalist.appendChild(option);
+    });
+    return datalist;
+  }
+
+  function bindValue(control, item, key, parser = value => value){
+    control.oninput = () => {
+      item[key] = parser(control.value);
+      refreshKpis();
+      refreshRaw();
+    };
+  }
+
+  function createFieldCell(item, col){
+    const td = document.createElement('td');
+
+    if (col.type === 'bool'){
+      const sel = document.createElement('select');
+      const optTrue = document.createElement('option');
+      optTrue.value = 'true';
+      optTrue.textContent = 'true';
+      const optFalse = document.createElement('option');
+      optFalse.value = 'false';
+      optFalse.textContent = 'false';
+      sel.appendChild(optTrue);
+      sel.appendChild(optFalse);
+      sel.value = item[col.key] ? 'true' : 'false';
+      sel.onchange = () => {
+        item[col.key] = (sel.value === 'true');
+        refreshRaw();
+      };
+      td.appendChild(sel);
+      return td;
+    }
+
+    if (col.type === 'tags'){
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.value = Array.isArray(item[col.key]) ? item[col.key].join(', ') : '';
+      input.oninput = () => {
+        item[col.key] = input.value.split(',').map(s => s.trim()).filter(Boolean);
+        refreshRaw();
+      };
+      td.appendChild(input);
+      return td;
+    }
+
+    if (col.type === 'textarea'){
+      const textarea = document.createElement('textarea');
+      textarea.value = (item[col.key] ?? '').toString();
+      bindValue(textarea, item, col.key);
+      td.appendChild(textarea);
+      return td;
+    }
+
+    const input = document.createElement('input');
+    input.type = col.type === 'number' ? 'number' : 'text';
+    input.value = (item[col.key] ?? '').toString();
+
+    if (col.editableChoices){
+      const listId = `list-${col.key}`;
+      input.setAttribute('list', listId);
+      td.appendChild(createDataList(listId, uniqueValues(col.key)));
+    }
+
+    bindValue(input, item, col.key, col.type === 'number' ? (value => Number(value) || 0) : (value => value));
+
+    if (['title', 'href'].includes(col.key) && !input.value.trim()) td.classList.add('danger');
+    input.onblur = () => {
+      td.classList.toggle('danger', (['title', 'href'].includes(col.key) && !input.value.trim()));
+    };
+
+    td.prepend(input);
+    return td;
+  }
+
   function render(){
     if (!data){
       tableHost.innerHTML = '';
@@ -244,7 +358,7 @@
     thActions.textContent = 'Actions';
     headRow.appendChild(thActions);
 
-    DEFAULT_COLUMNS.forEach(col => {
+    TOP_COLUMNS.forEach(col => {
       const th = document.createElement('th');
       th.textContent = col.label;
       headRow.appendChild(th);
@@ -256,15 +370,18 @@
     const tbody = document.createElement('tbody');
 
     data.forEach((item, idx) => {
-      const tr = document.createElement('tr');
+      const trTop = document.createElement('tr');
+      const trBottom = document.createElement('tr');
+      trBottom.className = 'rowSecondary';
 
-      const tdA = document.createElement('td');
-      tdA.className = 'rowActions';
+      const tdActions = document.createElement('td');
+      tdActions.className = 'rowActions';
+      tdActions.rowSpan = 2;
 
       const btnUp = document.createElement('button');
       btnUp.type = 'button';
       btnUp.className = 'miniBtn';
-      btnUp.textContent = '↑';
+      btnUp.textContent = 'Up';
       btnUp.disabled = (idx === 0);
       btnUp.title = 'Move up';
       btnUp.onclick = () => moveRow(idx, idx - 1);
@@ -272,10 +389,24 @@
       const btnDown = document.createElement('button');
       btnDown.type = 'button';
       btnDown.className = 'miniBtn';
-      btnDown.textContent = '↓';
+      btnDown.textContent = 'Down';
       btnDown.disabled = (idx === data.length - 1);
       btnDown.title = 'Move down';
       btnDown.onclick = () => moveRow(idx, idx + 1);
+
+      const btnBefore = document.createElement('button');
+      btnBefore.type = 'button';
+      btnBefore.className = 'miniBtn';
+      btnBefore.textContent = '+ Before';
+      btnBefore.title = 'Insert a new item before this row';
+      btnBefore.onclick = () => insertRow(idx, item);
+
+      const btnAfter = document.createElement('button');
+      btnAfter.type = 'button';
+      btnAfter.className = 'miniBtn';
+      btnAfter.textContent = '+ After';
+      btnAfter.title = 'Insert a new item after this row';
+      btnAfter.onclick = () => insertRow(idx + 1, item);
 
       const btnDel = document.createElement('button');
       btnDel.type = 'button';
@@ -287,84 +418,40 @@
         render();
       };
 
-      tdA.appendChild(btnUp);
-      tdA.appendChild(btnDown);
-      tdA.appendChild(btnDel);
-      tr.appendChild(tdA);
+      const group1 = document.createElement('div');
+      group1.className = 'actionGroup';
+      group1.appendChild(btnUp);
+      group1.appendChild(btnDown);
 
-      DEFAULT_COLUMNS.forEach(col => {
-        const td = document.createElement('td');
+      const group2 = document.createElement('div');
+      group2.className = 'actionGroup';
+      group2.appendChild(btnBefore);
+      group2.appendChild(btnAfter);
 
-        if (col.type === 'bool'){
-          const sel = document.createElement('select');
-          const optTrue = document.createElement('option');
-          optTrue.value = 'true';
-          optTrue.textContent = 'true';
-          const optFalse = document.createElement('option');
-          optFalse.value = 'false';
-          optFalse.textContent = 'false';
-          sel.appendChild(optTrue);
-          sel.appendChild(optFalse);
+      const group3 = document.createElement('div');
+      group3.className = 'actionGroup';
+      group3.appendChild(btnDel);
 
-          sel.value = item[col.key] ? 'true' : 'false';
-          sel.onchange = () => {
-            item[col.key] = (sel.value === 'true');
-            refreshRaw();
-          };
-          td.appendChild(sel);
-        }
-        else if (col.type === 'tags'){
-          const input = document.createElement('input');
-          input.type = 'text';
-          input.value = Array.isArray(item[col.key]) ? item[col.key].join(', ') : '';
-          input.oninput = () => {
-            const arr = input.value
-              .split(',')
-              .map(s => s.trim())
-              .filter(Boolean);
-            item[col.key] = arr;
-            refreshRaw();
-          };
-          td.appendChild(input);
-        }
-        else if (col.type === 'textarea') {
-          const textarea = document.createElement('textarea');
-          textarea.value = (item[col.key] ?? '').toString();
-          textarea.oninput = () => {
-            item[col.key] = textarea.value;
-            refreshRaw();
-          };
-          td.appendChild(textarea);
-        }
-        else if (col.type === 'number') {
-          const input = document.createElement('input');
-          input.type = 'number';
-          input.value = (item[col.key] ?? '').toString();
-          input.oninput = () => {
-            item[col.key] = Number(input.value) || 0;
-            refreshRaw();
-          };
-          td.appendChild(input);
-        }
-        else {
-          const input = document.createElement('input');
-          input.type = 'text';
-          input.value = (item[col.key] ?? '').toString();
-          input.oninput = () => {
-            item[col.key] = input.value;
-            refreshRaw();
-          };
-          if (['title','href'].includes(col.key) && !input.value.trim()) td.classList.add('danger');
-          input.onblur = () => {
-            td.classList.toggle('danger', (['title','href'].includes(col.key) && !input.value.trim()));
-          };
-          td.appendChild(input);
-        }
+      tdActions.appendChild(group1);
+      tdActions.appendChild(group2);
+      tdActions.appendChild(group3);
+      trTop.appendChild(tdActions);
 
-        tr.appendChild(td);
+      TOP_COLUMNS.forEach(col => {
+        trTop.appendChild(createFieldCell(item, col));
       });
 
-      tbody.appendChild(tr);
+      BOTTOM_COLUMNS.forEach(col => {
+        const td = createFieldCell(item, col);
+        const label = document.createElement('label');
+        label.className = 'rowLabel';
+        label.textContent = col.label;
+        td.prepend(label);
+        trBottom.appendChild(td);
+      });
+
+      tbody.appendChild(trTop);
+      tbody.appendChild(trBottom);
     });
 
     table.appendChild(tbody);
@@ -373,9 +460,6 @@
     refreshRaw();
   }
 
-  // ------------------------------
-  // Loaders
-  // ------------------------------
   async function loadFromFile(file){
     try{
       const text = await file.text();
@@ -416,9 +500,6 @@
     loadJsonUrl(url);
   }
 
-  // ------------------------------
-  // Events
-  // ------------------------------
   fileInput.addEventListener('change', () => {
     if (fileInput.files && fileInput.files[0]) loadFromFile(fileInput.files[0]);
   });
@@ -432,9 +513,7 @@
 
   btnAdd.addEventListener('click', () => {
     if (!data) return;
-    data.push(newItem());
-    setStatus(`Added item ${data.length}.`);
-    render();
+    insertRow(data.length, null);
     tableHost.scrollTop = tableHost.scrollHeight;
   });
 
@@ -450,10 +529,10 @@
   });
 
   btnLoadLocal.addEventListener('click', () => loadJsonUrl('Support/links_documents.json'));
-
   btnLoadUrl.addEventListener('click', loadFromUrl);
 
   render();
 </script>
 </body>
 </html>
+

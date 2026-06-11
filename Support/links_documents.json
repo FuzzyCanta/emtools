@@ -81,6 +81,23 @@
     "description": ""
   },
   {
+    "title": "Pediatric ED Rx calculator",
+    "href": "pediatric_rx_calculator.html",
+    "section": "calculateurs",
+    "sectionTitle": "Calculateurs",
+    "sectionDescription": "Outils de calcul clinique et conversions.",
+    "sectionOrder": 10,
+    "category": "",
+    "tags": [
+      "Pediatrie",
+      "Rx",
+      "Poids",
+      "Urgence"
+    ],
+    "targetBlank": true,
+    "description": "Posologies pediatriques frequentes a l'urgence selon le poids."
+  },
+  {
     "title": "Prescripteur externe",
     "href": "Prescription_externe.html",
     "section": "prescripteur",
@@ -290,13 +307,31 @@
     "sectionTitle": "Ressources cliniques",
     "sectionDescription": "Liens et outils classes par sujets cliniques.",
     "sectionOrder": 50,
-    "category": "Généraux",
+    "category": "",
     "tags": [
       "INESSS",
       "GUO",
       "Guide",
       "Optimal",
       "Québec"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "HSJ - Liste des FOPR",
+    "description": "FOPR HSJ",
+    "href": "https://msss365.sharepoint.com/:u:/r/teams/CHUSJ-TestdebibliothquepartagedansSharepoint/SitePages/Home.aspx?csf=1&web=1&e=jvHuE9",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 50,
+    "category": "",
+    "tags": [
+      "HSJ",
+      "Ped",
+      "Sainte-Justine",
+      "Ste-Justine",
+      "FOPR"
     ],
     "targetBlank": true
   },

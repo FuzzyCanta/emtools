@@ -526,6 +526,7 @@
         sectionTitle: link.sectionTitle || (section === "documents" ? "Documents / Liens" : section),
         sectionDescription: link.sectionDescription || (section === "documents" ? "Documents, formulaires et liens classes par categorie." : ""),
         sectionOrder: Number.isFinite(Number(link.sectionOrder)) ? Number(link.sectionOrder) : 50,
+        sectionOpenOnSelect: Boolean(link.sectionOpenOnSelect),
         category: String(link.category || "").trim(),
         description: String(link.description || "").trim(),
         tags: Array.isArray(link.tags) ? link.tags : []
@@ -573,6 +574,7 @@
             title: item.sectionTitle,
             description: item.sectionDescription,
             order: item.sectionOrder,
+            openOnSelect: item.sectionOpenOnSelect,
             total: 0
           });
         }
@@ -580,6 +582,7 @@
         const meta = map.get(item.section);
         meta.total += 1;
         meta.order = Math.min(meta.order, item.sectionOrder);
+        meta.openOnSelect = meta.openOnSelect || item.sectionOpenOnSelect;
       });
 
       return Array.from(map.values()).sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
@@ -596,6 +599,7 @@
 
     function selectMenuPanel(section) {
       selectedSection = section;
+      const sectionMeta = getSections(LINKS).find(item => item.section === section);
 
       document.querySelectorAll(".master-card[data-section]").forEach(card => {
         const isSelected = card.dataset.section === section;
@@ -606,7 +610,7 @@
         panel.classList.toggle("active", panel.dataset.section === section);
       });
 
-      setSubcardsOpen(false);
+      setSubcardsOpen(Boolean(sectionMeta && sectionMeta.openOnSelect));
     }
 
     function setSubcardsOpen(isOpen) {
@@ -786,6 +790,11 @@
 
       renderMasterCards(visibleSections, matchingItems, q);
       renderPanels(visibleSections, Array.from(displayedItems.values()), q);
+
+      if (!q) {
+        const selectedMeta = visibleSections.find(section => section.section === selectedSection);
+        setSubcardsOpen(Boolean(selectedMeta && selectedMeta.openOnSelect));
+      }
 
       if (countEl) countEl.textContent = `${displayedItems.size} / ${LINKS.length}`;
     }

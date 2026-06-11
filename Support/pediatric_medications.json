@@ -1,0 +1,130 @@
+[
+  {
+    "name": "Acetaminophen",
+    "indication": "Pain / fever",
+    "route": "PO/PR",
+    "notes": "Choose the formulation available locally.",
+    "doseOptions": [
+      {
+        "label": "15 mg/kg/dose",
+        "doseMgPerKg": 15,
+        "maxDoseMg": 650,
+        "frequency": "q4-6h PRN"
+      }
+    ],
+    "concentrationOptions": [
+      {
+        "label": "160 mg/5 mL",
+        "concentrationMgPerMl": 32
+      },
+      {
+        "label": "80 mg/mL drops",
+        "concentrationMgPerMl": 80
+      }
+    ]
+  },
+  {
+    "name": "Ibuprofen",
+    "indication": "Pain / fever",
+    "route": "PO",
+    "notes": "Choose the formulation available locally.",
+    "doseOptions": [
+      {
+        "label": "10 mg/kg/dose",
+        "doseMgPerKg": 10,
+        "maxDoseMg": 400,
+        "frequency": "q6-8h PRN"
+      }
+    ],
+    "concentrationOptions": [
+      {
+        "label": "100 mg/5 mL",
+        "concentrationMgPerMl": 20
+      },
+      {
+        "label": "50 mg/1.25 mL drops",
+        "concentrationMgPerMl": 40
+      }
+    ]
+  },
+  {
+    "name": "Amoxicillin",
+    "indication": "Common example",
+    "route": "PO",
+    "notes": "Example with more than one dose target and more than one concentration.",
+    "doseOptions": [
+      {
+        "label": "45 mg/kg/dose",
+        "doseMgPerKg": 45,
+        "maxDoseMg": 1000,
+        "frequency": "BID"
+      },
+      {
+        "label": "25 mg/kg/dose",
+        "doseMgPerKg": 25,
+        "maxDoseMg": 875,
+        "frequency": "TID"
+      }
+    ],
+    "concentrationOptions": [
+      {
+        "label": "400 mg/5 mL",
+        "concentrationMgPerMl": 80
+      },
+      {
+        "label": "250 mg/5 mL",
+        "concentrationMgPerMl": 50
+      }
+    ]
+  },
+  {
+    "name": "Cephalexin",
+    "indication": "Common example",
+    "route": "PO",
+    "notes": "Choose the liquid available locally.",
+    "doseOptions": [
+      {
+        "label": "25 mg/kg/dose",
+        "doseMgPerKg": 25,
+        "maxDoseMg": 500,
+        "frequency": "TID"
+      }
+    ],
+    "concentrationOptions": [
+      {
+        "label": "250 mg/5 mL",
+        "concentrationMgPerMl": 50
+      },
+      {
+        "label": "125 mg/5 mL",
+        "concentrationMgPerMl": 25
+      }
+    ]
+  },
+  {
+    "name": "Ondansetron",
+    "indication": "Common example",
+    "route": "PO/ODT",
+    "notes": "Dose and concentration can be switched independently.",
+    "doseOptions": [
+      {
+        "label": "0.15 mg/kg/dose",
+        "doseMgPerKg": 0.15,
+        "maxDoseMg": 8,
+        "frequency": "Once"
+      },
+      {
+        "label": "0.1 mg/kg/dose",
+        "doseMgPerKg": 0.1,
+        "maxDoseMg": 8,
+        "frequency": "Once"
+      }
+    ],
+    "concentrationOptions": [
+      {
+        "label": "4 mg/5 mL",
+        "concentrationMgPerMl": 0.8
+      }
+    ]
+  }
+]

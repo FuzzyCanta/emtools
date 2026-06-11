@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+  <link rel="icon" href="favicon.ico" />
+
+  <title>Pediatric Reference Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f7fb;
+      color: #111827;
+    }
+
+    header {
+      background: #004080;
+      color: white;
+      padding: 18px 24px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    header p {
+      margin: 6px auto 0;
+      max-width: 1000px;
+      font-size: 0.95rem;
+      opacity: 0.92;
+    }
+
+    main {
+      width: min(1450px, calc(100% - 24px));
+      margin: 20px auto 32px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .panel {
+      background: white;
+      border: 1px solid #d7dce5;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(180px, 1fr));
+      gap: 14px;
+      align-items: end;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font: inherit;
+      background: white;
+    }
+
+    .paired {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .inline-note {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: #64748b;
+      line-height: 1.35;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .stat-card {
+      border: 1px solid #dbe3ef;
+      border-radius: 10px;
+      background: #fbfdff;
+      padding: 12px;
+    }
+
+    .stat-card h2 {
+      margin: 0 0 6px;
+      color: #004080;
+      font-size: 0.98rem;
+    }
+
+    .stat-main {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .stat-sub {
+      margin-top: 4px;
+      font-size: 0.84rem;
+      color: #475569;
+      line-height: 1.4;
+    }
+
+    .alert {
+      margin-top: 14px;
+      display: none;
+      border-radius: 10px;
+      padding: 12px 14px;
+      background: #fff7ed;
+      border: 1px solid #fdba74;
+      color: #9a3412;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .alert.active {
+      display: block;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1220px;
+    }
+
+    th,
+    td {
+      border: 1px solid #e2e8f0;
+      padding: 8px 10px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #334155;
+      font-size: 0.84rem;
+      text-align: left;
+    }
+
+    td {
+      font-size: 0.92rem;
+    }
+
+    td select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 7px 8px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font: inherit;
+      background: white;
+    }
+
+    .output {
+      background: #fbfdff;
+      font-weight: 700;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    .muted {
+      color: #64748b;
+      font-weight: 400;
+    }
+
+    .footer-note {
+      font-size: 0.84rem;
+      color: #475569;
+      line-height: 1.45;
+    }
+
+    code {
+      font-family: Consolas, Monaco, monospace;
+      background: #f1f5f9;
+      padding: 1px 5px;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 1050px) {
+      .input-grid {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .input-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Pediatric Reference Table</h1>
+    <p>Personal weight-based medication reference loaded from JSON. Growth percentiles use local CDC LMS data for weight-for-age and stature-for-age. CDC charts apply to children aged 2 to 20 years.</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="input-grid">
+        <div class="field">
+          <label for="sexSelect">Sex</label>
+          <select id="sexSelect">
+            <option value="1">Boy</option>
+            <option value="2">Girl</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="ageYears">Age</label>
+          <div class="paired">
+            <input id="ageYears" type="number" min="0" max="20" step="1" value="5" placeholder="Years">
+            <input id="ageMonthsRemainder" type="number" min="0" max="11" step="1" value="0" placeholder="Months">
+          </div>
+          <div class="inline-note">CDC percentile calculations on this page are shown only for ages 24 to 240 months.</div>
+        </div>
+
+        <div class="field">
+          <label for="weightKg">Weight</label>
+          <div class="paired">
+            <input id="weightKg" type="number" min="0" max="200" step="0.1" value="20" placeholder="kg">
+            <input id="weightLb" type="number" min="0" max="440" step="0.1" value="44.1" placeholder="lb">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="heightCm">Height</label>
+          <div class="paired">
+            <input id="heightCm" type="number" min="0" max="230" step="0.1" value="110" placeholder="cm">
+            <input id="heightIn" type="number" min="0" max="90" step="0.1" value="43.3" placeholder="in">
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h2>Weight-for-age</h2>
+          <div class="stat-main" id="weightPercentile">-</div>
+          <div class="stat-sub" id="weightZScore">Awaiting data</div>
+        </div>
+
+        <div class="stat-card">
+          <h2>Stature-for-age</h2>
+          <div class="stat-main" id="heightPercentile">-</div>
+          <div class="stat-sub" id="heightZScore">Awaiting data</div>
+        </div>
+
+        <div class="stat-card">
+          <h2>Reference Age</h2>
+          <div class="stat-main" id="ageDisplay">60 months</div>
+          <div class="stat-sub" id="dataStatus">Loading growth and medication data...</div>
+        </div>
+      </div>
+
+      <div id="warningBox" class="alert"></div>
+    </section>
+
+    <section class="panel">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Medication</th>
+              <th>Indication</th>
+              <th>Dose Option</th>
+              <th>Selected<br>mg/kg/dose</th>
+              <th>Max<br>mg/dose</th>
+              <th>Route</th>
+              <th>Frequency</th>
+              <th>Concentration Option</th>
+              <th>Selected<br>mg/mL</th>
+              <th>Calculated<br>mg/dose</th>
+              <th>Calculated<br>mL/dose</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="medTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel footer-note">
+      Update medication content in <code>Support/pediatric_medications.json</code>. Growth reference data are loaded from <code>Support/cdc_wtage.json</code> and <code>Support/cdc_statage.json</code>, derived from CDC LMS files. Percentiles here are intended as a quick personal reference.
+    </section>
+  </main>
+
+  <script>
+    const sexSelect = document.getElementById("sexSelect");
+    const ageYearsInput = document.getElementById("ageYears");
+    const ageMonthsRemainderInput = document.getElementById("ageMonthsRemainder");
+    const weightKgInput = document.getElementById("weightKg");
+    const weightLbInput = document.getElementById("weightLb");
+    const heightCmInput = document.getElementById("heightCm");
+    const heightInInput = document.getElementById("heightIn");
+    const weightPercentileEl = document.getElementById("weightPercentile");
+    const heightPercentileEl = document.getElementById("heightPercentile");
+    const weightZScoreEl = document.getElementById("weightZScore");
+    const heightZScoreEl = document.getElementById("heightZScore");
+    const ageDisplayEl = document.getElementById("ageDisplay");
+    const dataStatusEl = document.getElementById("dataStatus");
+    const warningBox = document.getElementById("warningBox");
+    const medTableBody = document.getElementById("medTableBody");
+
+    const state = {
+      meds: [],
+      growth: {
+        wtage: [],
+        statage: []
+      }
+    };
+
+    let syncingWeight = false;
+    let syncingHeight = false;
+
+    function formatNumber(value, decimals = 1) {
+      return Number(value).toFixed(decimals).replace(/\.0$/, "");
+    }
+
+    function getAgeMonths() {
+      const years = Math.max(0, parseInt(ageYearsInput.value || "0", 10) || 0);
+      const months = Math.max(0, Math.min(11, parseInt(ageMonthsRemainderInput.value || "0", 10) || 0));
+      return years * 12 + months;
+    }
+
+    function getWeightKg() {
+      return Math.max(0, parseFloat(weightKgInput.value) || 0);
+    }
+
+    function getHeightCm() {
+      return Math.max(0, parseFloat(heightCmInput.value) || 0);
+    }
+
+    function normalCdf(z) {
+      const sign = z < 0 ? -1 : 1;
+      const x = Math.abs(z) / Math.sqrt(2);
+      const t = 1 / (1 + 0.3275911 * x);
+      const a1 = 0.254829592;
+      const a2 = -0.284496736;
+      const a3 = 1.421413741;
+      const a4 = -1.453152027;
+      const a5 = 1.061405429;
+      const erf = 1 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+      return 0.5 * (1 + sign * erf);
+    }
+
+    function percentileFromZ(z) {
+      return normalCdf(z) * 100;
+    }
+
+    function lmsZScore(value, lms) {
+      if (!lms || !value || value <= 0 || !lms.m || !lms.s) return null;
+      if (lms.l === 0) {
+        return Math.log(value / lms.m) / lms.s;
+      }
+      return (Math.pow(value / lms.m, lms.l) - 1) / (lms.l * lms.s);
+    }
+
+    function interpolateLms(rows, sex, ageMonths) {
+      const matches = rows.filter((row) => row.sex === sex);
+      if (!matches.length) return null;
+
+      if (ageMonths < matches[0].agemos || ageMonths > matches[matches.length - 1].agemos) {
+        return null;
+      }
+
+      let lower = matches[0];
+      let upper = matches[matches.length - 1];
+
+      for (let i = 0; i < matches.length; i += 1) {
+        const current = matches[i];
+        if (current.agemos === ageMonths) {
+          return current;
+        }
+        if (current.agemos < ageMonths) {
+          lower = current;
+        }
+        if (current.agemos > ageMonths) {
+          upper = current;
+          break;
+        }
+      }
+
+      if (lower.agemos === upper.agemos) {
+        return lower;
+      }
+
+      const ratio = (ageMonths - lower.agemos) / (upper.agemos - lower.agemos);
+      return {
+        sex,
+        agemos: ageMonths,
+        l: lower.l + (upper.l - lower.l) * ratio,
+        m: lower.m + (upper.m - lower.m) * ratio,
+        s: lower.s + (upper.s - lower.s) * ratio
+      };
+    }
+
+    function formatPercentile(percentile) {
+      if (percentile === null || !Number.isFinite(percentile)) return "-";
+      if (percentile < 1) return "<1st percentile";
+      if (percentile > 99) return ">99th percentile";
+      return `${formatNumber(percentile, 1)}th percentile`;
+    }
+
+    function updateWarnings(ageMonths) {
+      const warnings = [];
+
+      if (ageMonths < 24) {
+        warnings.push("CDC weight-for-age and stature-for-age charts on this page are only applied from 24 to 240 months. Under 24 months, CDC recommends infant charts / WHO standards instead.");
+      }
+
+      if (ageMonths > 240) {
+        warnings.push("CDC pediatric growth-chart reference on this page stops at 240 months (20 years).");
+      }
+
+      warningBox.classList.toggle("active", warnings.length > 0);
+      warningBox.textContent = warnings.join(" ");
+    }
+
+    function syncWeightFromKg() {
+      if (syncingWeight) return;
+      syncingWeight = true;
+      const kg = getWeightKg();
+      weightLbInput.value = kg ? formatNumber(kg * 2.20462, 1) : "";
+      syncingWeight = false;
+    }
+
+    function syncWeightFromLb() {
+      if (syncingWeight) return;
+      syncingWeight = true;
+      const lb = Math.max(0, parseFloat(weightLbInput.value) || 0);
+      weightKgInput.value = lb ? formatNumber(lb / 2.20462, 1) : "";
+      syncingWeight = false;
+    }
+
+    function syncHeightFromCm() {
+      if (syncingHeight) return;
+      syncingHeight = true;
+      const cm = getHeightCm();
+      heightInInput.value = cm ? formatNumber(cm / 2.54, 1) : "";
+      syncingHeight = false;
+    }
+
+    function syncHeightFromIn() {
+      if (syncingHeight) return;
+      syncingHeight = true;
+      const inches = Math.max(0, parseFloat(heightInInput.value) || 0);
+      heightCmInput.value = inches ? formatNumber(inches * 2.54, 1) : "";
+      syncingHeight = false;
+    }
+
+    function renderPercentiles() {
+      const sex = parseInt(sexSelect.value, 10);
+      const ageMonths = getAgeMonths();
+      const weightKg = getWeightKg();
+      const heightCm = getHeightCm();
+
+      ageDisplayEl.textContent = `${ageMonths} months`;
+      updateWarnings(ageMonths);
+
+      const weightLms = interpolateLms(state.growth.wtage, sex, ageMonths);
+      const heightLms = interpolateLms(state.growth.statage, sex, ageMonths);
+
+      const weightZ = weightLms ? lmsZScore(weightKg, weightLms) : null;
+      const heightZ = heightLms ? lmsZScore(heightCm, heightLms) : null;
+
+      const weightPct = weightZ === null ? null : percentileFromZ(weightZ);
+      const heightPct = heightZ === null ? null : percentileFromZ(heightZ);
+
+      weightPercentileEl.textContent = formatPercentile(weightPct);
+      heightPercentileEl.textContent = formatPercentile(heightPct);
+      weightZScoreEl.textContent = weightZ === null ? "No CDC result for this age." : `z-score ${formatNumber(weightZ, 2)}`;
+      heightZScoreEl.textContent = heightZ === null ? "No CDC result for this age." : `z-score ${formatNumber(heightZ, 2)}`;
+    }
+
+    function renderMedicationTable() {
+      const weightKg = getWeightKg();
+
+      medTableBody.innerHTML = state.meds.map((med, medIndex) => {
+        const doseOptions = Array.isArray(med.doseOptions) ? med.doseOptions : [];
+        const concentrationOptions = Array.isArray(med.concentrationOptions) ? med.concentrationOptions : [];
+        const selectedDose = doseOptions[0] || null;
+        const selectedConcentration = concentrationOptions[0] || null;
+        const rawDose = weightKg && selectedDose && selectedDose.doseMgPerKg ? weightKg * selectedDose.doseMgPerKg : null;
+        const cappedDose = rawDose === null ? null : Math.min(rawDose, selectedDose.maxDoseMg || rawDose);
+        const mlDose = cappedDose !== null && selectedConcentration && selectedConcentration.concentrationMgPerMl ? cappedDose / selectedConcentration.concentrationMgPerMl : null;
+
+        const doseSelectHtml = doseOptions.length
+          ? `<select class="dose-option-select" data-med-index="${medIndex}">
+              ${doseOptions.map((option, optionIndex) => `<option value="${optionIndex}">${escapeHtml(option.label || `${option.doseMgPerKg} mg/kg/dose`)}</option>`).join("")}
+            </select>`
+          : `<span class="muted">-</span>`;
+
+        const concentrationSelectHtml = concentrationOptions.length
+          ? `<select class="concentration-option-select" data-med-index="${medIndex}">
+              ${concentrationOptions.map((option, optionIndex) => `<option value="${optionIndex}">${escapeHtml(option.label || `${option.concentrationMgPerMl} mg/mL`)}</option>`).join("")}
+            </select>`
+          : `<span class="muted">-</span>`;
+
+        return `
+          <tr data-med-index="${medIndex}">
+            <td>${escapeHtml(med.name || "")}</td>
+            <td>${escapeHtml(med.indication || "")}</td>
+            <td>${doseSelectHtml}</td>
+            <td class="dose-mgkg-cell">${selectedDose ? selectedDose.doseMgPerKg ?? "" : ""}</td>
+            <td class="dose-max-cell">${selectedDose ? selectedDose.maxDoseMg ?? "" : ""}</td>
+            <td>${escapeHtml(med.route || "")}</td>
+            <td class="dose-frequency-cell">${escapeHtml(selectedDose ? selectedDose.frequency || "" : "")}</td>
+            <td>${concentrationSelectHtml}</td>
+            <td class="concentration-mgml-cell">${selectedConcentration ? selectedConcentration.concentrationMgPerMl ?? "" : ""}</td>
+            <td class="output calculated-dose-cell">${cappedDose === null ? "-" : `${formatNumber(cappedDose, cappedDose < 10 ? 1 : 0)} mg`}</td>
+            <td class="output calculated-ml-cell">${mlDose === null ? "-" : `${formatNumber(mlDose, 1)} mL`}</td>
+            <td class="muted">${escapeHtml(med.notes || "")}</td>
+          </tr>
+        `;
+      }).join("");
+
+      bindMedicationSelectors();
+    }
+
+    function updateMedicationRow(row) {
+      const medIndex = parseInt(row.dataset.medIndex, 10);
+      const med = state.meds[medIndex];
+      if (!med) return;
+
+      const weightKg = getWeightKg();
+      const doseOptions = Array.isArray(med.doseOptions) ? med.doseOptions : [];
+      const concentrationOptions = Array.isArray(med.concentrationOptions) ? med.concentrationOptions : [];
+      const doseSelect = row.querySelector(".dose-option-select");
+      const concentrationSelect = row.querySelector(".concentration-option-select");
+      const selectedDose = doseOptions[doseSelect ? parseInt(doseSelect.value, 10) || 0 : 0] || null;
+      const selectedConcentration = concentrationOptions[concentrationSelect ? parseInt(concentrationSelect.value, 10) || 0 : 0] || null;
+      const rawDose = weightKg && selectedDose && selectedDose.doseMgPerKg ? weightKg * selectedDose.doseMgPerKg : null;
+      const cappedDose = rawDose === null ? null : Math.min(rawDose, selectedDose.maxDoseMg || rawDose);
+      const mlDose = cappedDose !== null && selectedConcentration && selectedConcentration.concentrationMgPerMl ? cappedDose / selectedConcentration.concentrationMgPerMl : null;
+
+      row.querySelector(".dose-mgkg-cell").textContent = selectedDose ? selectedDose.doseMgPerKg ?? "" : "";
+      row.querySelector(".dose-max-cell").textContent = selectedDose ? selectedDose.maxDoseMg ?? "" : "";
+      row.querySelector(".dose-frequency-cell").textContent = selectedDose ? selectedDose.frequency || "" : "";
+      row.querySelector(".concentration-mgml-cell").textContent = selectedConcentration ? selectedConcentration.concentrationMgPerMl ?? "" : "";
+      row.querySelector(".calculated-dose-cell").textContent = cappedDose === null ? "-" : `${formatNumber(cappedDose, cappedDose < 10 ? 1 : 0)} mg`;
+      row.querySelector(".calculated-ml-cell").textContent = mlDose === null ? "-" : `${formatNumber(mlDose, 1)} mL`;
+    }
+
+    function bindMedicationSelectors() {
+      medTableBody.querySelectorAll(".dose-option-select, .concentration-option-select").forEach((select) => {
+        select.addEventListener("change", () => {
+          const row = select.closest("tr");
+          if (row) updateMedicationRow(row);
+        });
+      });
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function renderAll() {
+      renderPercentiles();
+      renderMedicationTable();
+    }
+
+    async function loadData() {
+      try {
+        const [medsResponse, wtageResponse, statageResponse] = await Promise.all([
+          fetch("Support/pediatric_medications.json"),
+          fetch("Support/cdc_wtage.json"),
+          fetch("Support/cdc_statage.json")
+        ]);
+
+        if (!medsResponse.ok || !wtageResponse.ok || !statageResponse.ok) {
+          throw new Error("Failed to load one or more JSON files.");
+        }
+
+        state.meds = await medsResponse.json();
+        state.growth.wtage = await wtageResponse.json();
+        state.growth.statage = await statageResponse.json();
+
+        dataStatusEl.textContent = `Loaded ${state.meds.length} medications and CDC growth datasets.`;
+        renderAll();
+      } catch (error) {
+        console.error(error);
+        dataStatusEl.textContent = "Could not load JSON data files.";
+        warningBox.classList.add("active");
+        warningBox.textContent = "The page could not load its JSON files. If you opened it directly from disk, run it from your local web server/workflow used by the rest of this repo.";
+      }
+    }
+
+    sexSelect.addEventListener("change", renderAll);
+    ageYearsInput.addEventListener("input", renderAll);
+    ageMonthsRemainderInput.addEventListener("input", renderAll);
+
+    weightKgInput.addEventListener("input", () => {
+      syncWeightFromKg();
+      renderAll();
+    });
+
+    weightLbInput.addEventListener("input", () => {
+      syncWeightFromLb();
+      renderAll();
+    });
+
+    heightCmInput.addEventListener("input", () => {
+      syncHeightFromCm();
+      renderAll();
+    });
+
+    heightInInput.addEventListener("input", () => {
+      syncHeightFromIn();
+      renderAll();
+    });
+
+    loadData();
+  </script>
+</body>
+
+</html>

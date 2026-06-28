@@ -1,0 +1,971 @@
+[
+  {
+    "title": "Pregnancy Calculator",
+    "href": "PDDC.html",
+    "section": "calculateurs",
+    "sectionTitle": "Calculateurs",
+    "sectionDescription": "Outils de calcul clinique et conversions.",
+    "sectionOrder": 10,
+    "category": "",
+    "tags": [
+      "EDD",
+      "US",
+      "LMP",
+      "Grossesse"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Acid-Base Calculator",
+    "href": "acid_base_tox_V1.html",
+    "section": "calculateurs",
+    "sectionTitle": "Calculateurs",
+    "sectionDescription": "Outils de calcul clinique et conversions.",
+    "sectionOrder": 10,
+    "category": "",
+    "tags": [
+      "Acid-base",
+      "Compensation",
+      "Toxicologie"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Rx dose converter",
+    "href": "convdose.html",
+    "section": "calculateurs",
+    "sectionTitle": "Calculateurs",
+    "sectionDescription": "Outils de calcul clinique et conversions.",
+    "sectionOrder": 10,
+    "category": "",
+    "tags": [
+      "Dose",
+      "Rx",
+      "Conversion"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Unit converter",
+    "href": "unitconverter.html",
+    "section": "calculateurs",
+    "sectionTitle": "Calculateurs",
+    "sectionDescription": "Outils de calcul clinique et conversions.",
+    "sectionOrder": 10,
+    "category": "",
+    "tags": [
+      "Height",
+      "Temperature",
+      "BMI",
+      "IBW"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Date calculator",
+    "href": "date_calculator_v2.html",
+    "section": "calculateurs",
+    "sectionTitle": "Calculateurs",
+    "sectionDescription": "Outils de calcul clinique et conversions.",
+    "sectionOrder": 10,
+    "category": "",
+    "tags": [
+      "Dates",
+      "Jours"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Pediatric ED Rx calculator",
+    "href": "pediatric_rx_calculator.html",
+    "section": "calculateurs",
+    "sectionTitle": "Calculateurs",
+    "sectionDescription": "Outils de calcul clinique et conversions.",
+    "sectionOrder": 10,
+    "category": "",
+    "tags": [
+      "Pediatrie",
+      "Rx",
+      "Poids",
+      "Urgence"
+    ],
+    "targetBlank": true,
+    "description": "Posologies pediatriques frequentes a l'urgence selon le poids."
+  },
+  {
+    "title": "Prescripteur externe",
+    "href": "Prescription_externe.html",
+    "section": "prescripteur",
+    "sectionTitle": "Prescripteur",
+    "sectionDescription": "Documents cliniques personnalisables.",
+    "sectionOrder": 20,
+    "category": "",
+    "tags": [
+      "Prescription",
+      "Externe",
+      "HSCM"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Justification d'absence",
+    "href": "lettreabsence.html",
+    "section": "prescripteur",
+    "sectionTitle": "Prescripteur",
+    "sectionDescription": "Documents cliniques personnalisables.",
+    "sectionOrder": 20,
+    "category": "",
+    "tags": [
+      "Absence",
+      "Lettre",
+      "HSCM"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "GASP - General",
+    "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/referer-un-usager/guichet-dacces-en-sante-physique-gasp/medecins-urgentologues",
+    "section": "liens-institutionnels",
+    "sectionTitle": "Liens institutionnels",
+    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
+    "sectionOrder": 30,
+    "category": "Reference",
+    "tags": [
+      "GASP",
+      "Specialite",
+      "Reference"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Accueil clinique",
+    "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/medecins/accueil-clinique/accueil-clinique-de-lhopital-du-sacre-coeur-de-montreal/pour-medecins-de-lurgence",
+    "section": "liens-institutionnels",
+    "sectionTitle": "Liens institutionnels",
+    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
+    "sectionOrder": 30,
+    "category": "HSCM",
+    "tags": [
+      "Accueil clinique",
+      "HSCM"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Guide antibio",
+    "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/medecins/guide-dantibiotherapie-empirique",
+    "section": "liens-institutionnels",
+    "sectionTitle": "Liens institutionnels",
+    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
+    "sectionOrder": 30,
+    "category": "HSCM",
+    "tags": [
+      "Antibiotherapie",
+      "HSCM"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Ortho HMR",
+    "href": "http://www.orthohmr.ca/medecine-sportive/algorithmes-decisionnels/",
+    "section": "liens-institutionnels",
+    "sectionTitle": "Liens institutionnels",
+    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
+    "sectionOrder": 30,
+    "category": "Orthopedie",
+    "tags": [
+      "Ortho",
+      "HMR",
+      "Reference"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Guide antidotes - CAPQ",
+    "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antidotes",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Toxicologie",
+    "tags": [
+      "Antidotes",
+      "CAPQ"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Guide expo - CNESST",
+    "href": "https://reptox.cnesst.gouv.qc.ca/Pages/recherche-produit.aspx",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Toxicologie",
+    "tags": [
+      "Exposition",
+      "CNESST"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Ressource CAPQ",
+    "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antipoison/ressources-et-partenaires",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Toxicologie",
+    "tags": [
+      "CAPQ",
+      "Antipoison"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Acetaminophen plotter",
+    "href": "acetaminophen_plotter.html",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Toxicologie",
+    "tags": [
+      "NAC",
+      "Acetaminophene",
+      "APAP"
+    ],
+    "targetBlank": false,
+    "description": ""
+  },
+  {
+    "title": "Syndrome tox",
+    "href": "https://chemm.hhs.gov/chemmist.htm",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Toxicologie",
+    "tags": [
+      "Toxidrome",
+      "CHEMM"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Guide GMU CANUTEC",
+    "href": "https://wwwapps.tc.gc.ca/Saf-Sec-Sur/3/erg-gmu-web/",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Toxicologie",
+    "tags": [
+      "CANUTEC",
+      "GMU",
+      "Matiere dangereuse"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Rx - Pre/Post-Partum",
+    "href": "https://www.ncbi.nlm.nih.gov/books/NBK501922/",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Obstetrique",
+    "tags": [
+      "LactMed",
+      "Grossesse",
+      "Allaitement"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "INESSS - Accueil GUO",
+    "description": "Liste des guides d'usage optimaux INESSS",
+    "href": "https://www.inesss.qc.ca/formations-et-outils/outils-cliniques/outils-par-types/guides-dusage-optimal.html",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 50,
+    "category": "",
+    "tags": [
+      "INESSS",
+      "GUO",
+      "Guide",
+      "Optimal",
+      "Québec"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "HSJ - Liste des FOPR",
+    "description": "FOPR HSJ",
+    "href": "https://msss365.sharepoint.com/:u:/r/teams/CHUSJ-TestdebibliothquepartagedansSharepoint/SitePages/Home.aspx?csf=1&web=1&e=jvHuE9",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 50,
+    "category": "",
+    "tags": [
+      "HSJ",
+      "Ped",
+      "Sainte-Justine",
+      "Ste-Justine",
+      "FOPR"
+    ],
+    "targetBlank": true
+  },
+  {
+    "title": "Communication MDF",
+    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/a9b0958ceee59c7685256e2a0052d887/dc7d1a1c58372f9a85256ed2006c76e9/$FILE/AH-245_DT9098(2021-09)%20D%20.pdf",
+    "category": "Formulaires généraux",
+    "tags": [
+      "AH-240",
+      "Sommaire"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Niveau de soins",
+    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/a9b0958ceee59c7685256e2a0052d887/d57fc1d9eb98eed385257f50005206c7/$FILE/AH-744_DT9261(2016-01)D.pdf",
+    "category": "Formulaires généraux",
+    "tags": [
+      "NIM",
+      "RCR"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "GAMF FR",
+    "href": "Support/Inscription_medecin_famille_Quebec.pdf",
+    "category": "Formulaires généraux",
+    "tags": [
+      "RAMQ",
+      "MDF",
+      "Famille",
+      "Guichet"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "GAMF EN",
+    "href": "Support/Inscription_medecin_famille_Quebec_en.pdf",
+    "category": "Formulaires généraux",
+    "tags": [
+      "RAMQ",
+      "MDF",
+      "Famille",
+      "Guichet"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Ma Grossesse - FR",
+    "href": "Support/MaGrossesse_PDF.pdf",
+    "category": "Formulaires généraux",
+    "tags": [
+      "Obstetrique",
+      "Suivi",
+      "Inscription",
+      "Guichet"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "CNESST - Ensemble de la documentation",
+    "href": "https://www.cnesst.gouv.qc.ca/fr/demarches-formulaires/professionnels-intervenants-sante/formulaires-professionnels-sante-traitants",
+    "category": "CNESST",
+    "tags": [
+      "CNESST",
+      "Travail"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "CNESST - Attestation médicale (initiale)",
+    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/1936-attestation-medicale_0.pdf?cid=1752156944",
+    "category": "CNESST",
+    "tags": [
+      "CNESST",
+      "Travail"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "CNESST - Rapport médical (suivi)",
+    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/1937-rapport-medical.pdf?cid=1752157001",
+    "category": "CNESST",
+    "tags": [
+      "CNESST",
+      "Travail"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Affiche - Explication pour le travailleur",
+    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/affiche-quoi-faire-accident-travail.pdf?cid=1751984222",
+    "category": "CNESST",
+    "tags": [
+      "Affiche",
+      "comment",
+      "Travail"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Poster - What to do if you get hurt",
+    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/what-to-do-get-hurt-work_0.pdf?cid=1751984318",
+    "category": "CNESST",
+    "tags": [
+      "Affiche",
+      "comment",
+      "Travail"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "SAAQ - Ensemble de la documentation",
+    "href": "https://saaq.gouv.qc.ca/extranet-sante/indemnisation-accidentes-route/medecins",
+    "category": "SAAQ",
+    "tags": [
+      "SAAQ"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "SAAQ - Rapport médical initial",
+    "href": "https://saaq.gouv.qc.ca/blob/saaq/documents/extranet_sante/medecins/rapport-initial-facture.pdf",
+    "category": "SAAQ",
+    "tags": [
+      "SAAQ"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "SAAQ - Déclaration d'inaptitude à conduire",
+    "href": "https://saaq.gouv.qc.ca/blob/saaq/documents/extranet_sante/sante-conducteur/formulaires/5626.pdf",
+    "category": "SAAQ",
+    "tags": [
+      "SAAQ"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "IVAC - Attestation médicale (initiale)",
+    "href": "https://www.ivac.qc.ca/Documents/227_2019-09-attestation-medicale.pdf",
+    "category": "IVAC",
+    "tags": [
+      "Victime",
+      "Violence",
+      "Indemnisation",
+      "Criminel"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Dépliant TCCL",
+    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/INESSS_Depliant_TCCL_INESSS.pdf",
+    "category": "INESSS",
+    "tags": [
+      "TCCL",
+      "Trauma",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Algorithme TCCL",
+    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/Algo_decisionnel_TCCL_Adulte_2021.pdf",
+    "category": "INESSS",
+    "tags": [
+      "TCCL",
+      "Trauma",
+      "Clinicien"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Étiquettes HSCM",
+    "href": "Support/Étiquettes_HSCM.pdf",
+    "category": "Admin",
+    "tags": [
+      "etiquettes",
+      "Sacre-Coeur"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Diabète - Médicament à arrêter",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2023/01/Jours-de-maladie-FR-RECTO-VERSO-2019-2.pdf",
+    "category": "Diabète",
+    "tags": [
+      "Déshydratation",
+      "Medication",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Diabète T2 - Référer un patient",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/12/Demande-consult.-DbT2-DQ__dynamique.pdf",
+    "category": "Diabète",
+    "tags": [
+      "Reference",
+      "Clinicien",
+      "Guichet"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Diabète T1 - Référer un patient",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/12/Demande-de-consult-DbT1-DQ_dynamique.pdf",
+    "category": "Diabète",
+    "tags": [
+      "Reference",
+      "Clinicien",
+      "Guichet"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Diabète - Liste des médicaments",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/05/114015-DQ25-TableauMedicaments-MAJ-FR-MR.pdf",
+    "category": "Diabète",
+    "tags": [
+      "Tableau",
+      "Ressources",
+      "Clinicien",
+      "Medicaments"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Diabète - Ajustement Rx fonction rénale",
+    "href": "https://www.coffreaoutilsdiabete.ca/pdf/Tableau-fr-FRv11.pdf",
+    "category": "Diabète",
+    "tags": [
+      "Clinicien",
+      "Medicaments",
+      "Renale",
+      "Ajustement"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "HTA - Journal de pression artérielle à domicile (FR)",
+    "href": "https://hypertension.ca/wp-content/uploads/2018/07/HTC_HomeBPLog_FRE.pdf",
+    "category": "Hypertension",
+    "tags": [
+      "Journal",
+      "Pression",
+      "Domicile",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "HTA - Home blood pressure monitoring log (EN)",
+    "href": "https://hypertension.ca/wp-content/uploads/2017/11/HTC_BloodPressureLog_ENG_PREVIEW-1.pdf",
+    "category": "Hypertension",
+    "tags": [
+      "Journal",
+      "Pression",
+      "Domicile",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Prendre soins de sa plaie",
+    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/NIM-DSI-FicheInfoUsager-PlaiePost-8900032__1_.pdf",
+    "category": "Plaies",
+    "tags": [
+      "Soins",
+      "Plaie",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Soingner une gastroenterite à la maison",
+    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/NIM-DSI-FicheInfoUsager-Gastroenterite-8900031.pdf",
+    "category": "Gastroenterite",
+    "tags": [
+      "Soins",
+      "Gastroenterite",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Prendre soins de sa sonde urinaire",
+    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/CIUSSS-407_1_Prendre_soin_d_une_sonde_final-Protege.pdf",
+    "category": "Urologie",
+    "tags": [
+      "Soins",
+      "Sonde",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Liste - Fiches aux usagers (CIUSSS NIM)",
+    "href": "https://www.ciusssnordmtl.ca/usagers-et-visiteurs/fiches-aux-usagers",
+    "category": "Usagers",
+    "tags": [
+      "Fiches",
+      "Usagers",
+      "Information"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Mastite - Soins à domicile",
+    "href": "https://cdn.ciussscentreouest.ca/documents/hgj/pfrc/Breastfeeding_clinic/mastite_info_pour_patients_2022_final.pdf",
+    "category": "Post-partum",
+    "tags": [
+      "Fiches",
+      "Usagers",
+      "Information",
+      "Grossesse",
+      "Allaitement"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Mastitis - Home care",
+    "href": "https://cdn.ciussscentreouest.ca/documents/hgj/pfrc/Breastfeeding_clinic/mastitis_handout_2022_final.pdf",
+    "category": "Post-partum",
+    "tags": [
+      "Fiches",
+      "Usagers",
+      "Information",
+      "Grossesse",
+      "Allaitement"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Protocole NAC - CAPQ",
+    "href": "Support/Protocole NAC.pdf",
+    "category": "Toxicologie",
+    "tags": [
+      "Protocole",
+      "NAC",
+      "CAPQ",
+      "Acetaminophene",
+      "APAP"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Formulaire de signalement - MADO",
+    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/64631465d0d5c09085256ecf006b4afd/$FILE/AS-770_DT9070%20(2024-06)%20D.pdf",
+    "category": "Santé publique",
+    "tags": [
+      "MADO",
+      "Déclaration",
+      "Santé publique",
+      "Maladie à déclaration obligatoire"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Évaluation initiale du pt intoxiqué",
+    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/831818955b7114c885257a15004c134c/$FILE/AH-262-1_DT9228%20(2012-05).pdf",
+    "category": "Toxicologie",
+    "tags": [
+      "Évaluation",
+      "Intoxication",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Prescription - Patient intoxiqué",
+    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/831818955b7114c885257a15004c134c/$FILE/AH-262-4_DT9228%20(2012-05).pdf",
+    "category": "Toxicologie",
+    "tags": [
+      "Prescription",
+      "Intoxication",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Aide à la décision - Rage",
+    "href": "https://msss.gouv.qc.ca/aide-decision-app/etape.php?situation=Rage",
+    "category": "Aide à la décision",
+    "tags": [
+      "Rage",
+      "Rabies",
+      "Algorithme"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Formulaire de signalement - Demande d’évaluation du risque de rage d’un animal domestique mordeur",
+    "href": "https://publications.msss.gouv.qc.ca/msss/fichiers/2024/24-277-01W.pdf",
+    "category": "Signalement",
+    "tags": [
+      "Rage",
+      "Rabies",
+      "Déclaration",
+      "Signalement"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Aide à la décision - Tetanos",
+    "href": "https://msss.gouv.qc.ca/aide-decision-app/etape.php?p&situation=Tetanos",
+    "category": "Aide à la décision",
+    "tags": [
+      "Tetanos",
+      "Vaccination",
+      "Algorithme"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Formulaire de signalement - Morsure de chien",
+    "href": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/agriculture-pecheries-alimentation/sante-animale/obligations/encadrement-chiens/FO_Formulaire_signalement_morsures_chien_md_MAPAQ.pdf",
+    "category": "Signalement",
+    "tags": [
+      "Morsure de chien",
+      "Signalement",
+      "Bite",
+      "Santé publique",
+      "Public health"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50
+  },
+  {
+    "title": "Procédure de signalement - Maladie à déclaration obligatoire (MADO)",
+    "description": "",
+    "href": "https://www.quebec.ca/sante/professionnels/mado/declaration/demarche-pour-les-medecins",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Santé publique",
+    "tags": [
+      "MADO",
+      "Signalement",
+      "Santé publique",
+      "ITSS",
+      "Sexuellement",
+      "Infection"
+    ],
+    "targetBlank": true
+  }
+]

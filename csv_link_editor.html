@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EMTools CSV / JSON editor</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:16px;background:#f7f7f8;color:#111}
+    .wrap{max-width:1800px;margin:0 auto}
+    h1{font-size:18px;margin:0 0 12px 0}
+    .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+    .bar > *{margin:0}
+    button,input[type="file"]{font:inherit}
+    button{padding:8px 10px;border:1px solid #ccc;border-radius:8px;background:#fff;cursor:pointer}
+    button:hover{background:#f0f0f2}
+    button:disabled{opacity:.5;cursor:not-allowed}
+    .note{font-size:12px;color:#444;margin:8px 0 0 0}
+    .panel{background:#fff;border:1px solid #ddd;border-radius:10px;padding:12px}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{border-top:1px solid #eee;padding:6px 6px;vertical-align:top}
+    th{background:#fafafa;font-size:12px;text-align:left;position:sticky;top:0;z-index:1}
+    td input,td textarea,td select{width:100%;box-sizing:border-box;font:inherit;border:1px solid #ddd;border-radius:6px;padding:6px;background:#fff}
+    td textarea{min-height:48px;resize:vertical}
+    .miniBtn{padding:6px 8px;border-radius:8px}
+    .danger{border-color:#e3b4b4}
+    .danger:hover{background:#ffecec}
+    .small{font-size:12px;color:#555}
+    .status{font-size:12px;color:#333;margin-left:auto}
+    .kpi{display:flex;gap:12px;flex-wrap:wrap}
+    .kpi div{font-size:12px;color:#444}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
+    .rowActions{white-space:normal;min-width:120px}
+    .actionGroup{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+    .headerCell{display:flex;gap:6px;align-items:center}
+    .headerCell input{min-width:0}
+    .cellInput{min-width:140px}
+    @media (max-width: 1100px){
+      .wrap{max-width:none}
+      .rowActions{min-width:100px}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <h1>EMTools CSV / JSON editor</h1>
+
+  <div class="panel">
+    <div class="bar">
+      <input id="fileInput" type="file" accept=".csv,.json,text/csv,application/json" />
+      <button id="btnNew" type="button">New empty</button>
+      <button id="btnAddRow" type="button">Add row</button>
+      <button id="btnAddCol" type="button">Add column</button>
+      <button id="btnSaveCsv" type="button">Download CSV</button>
+      <button id="btnSaveJson" type="button">Download JSON</button>
+      <button id="btnCopyCsv" type="button">Copy CSV</button>
+      <button id="btnCopyJson" type="button">Copy JSON</button>
+      <button id="btnLoadDefaultJson" type="button">Load default JSON</button>
+      <button id="btnLoadSample" type="button">Load sample</button>
+      <span class="status" id="status">No data loaded.</span>
+    </div>
+
+    <div class="kpi small">
+      <div>Rows: <span id="kRows">0</span></div>
+      <div>Columns: <span id="kCols">0</span></div>
+      <div class="mono" id="kFilename"></div>
+    </div>
+
+    <p class="note">
+      Import either a CSV or a JSON array of objects. JSON values are preserved as text, numbers, booleans and arrays when possible, and exported back in the same shape.
+    </p>
+
+    <div id="tableHost" style="overflow:auto;"></div>
+  </div>
+
+  <div class="panel" style="margin-top:12px;">
+    <div class="small">JSON preview (read-only)</div>
+    <textarea id="raw" readonly style="width:100%;min-height:220px;margin-top:6px;border:1px solid #ddd;border-radius:10px;padding:10px;box-sizing:border-box;background:#fff" class="mono"></textarea>
+  </div>
+</div>
+
+<script>
+  let headers = ['title', 'href'];
+  let items = [
+    { title: 'Example', href: 'https://example.org' }
+  ];
+  let filename = 'data.json';
+
+  const fileInput = document.getElementById('fileInput');
+  const btnNew = document.getElementById('btnNew');
+  const btnAddRow = document.getElementById('btnAddRow');
+  const btnAddCol = document.getElementById('btnAddCol');
+  const btnSaveCsv = document.getElementById('btnSaveCsv');
+  const btnSaveJson = document.getElementById('btnSaveJson');
+  const btnCopyCsv = document.getElementById('btnCopyCsv');
+  const btnCopyJson = document.getElementById('btnCopyJson');
+  const btnLoadDefaultJson = document.getElementById('btnLoadDefaultJson');
+  const btnLoadSample = document.getElementById('btnLoadSample');
+  const tableHost = document.getElementById('tableHost');
+  const statusEl = document.getElementById('status');
+  const rawEl = document.getElementById('raw');
+  const kRows = document.getElementById('kRows');
+  const kCols = document.getElementById('kCols');
+  const kFilename = document.getElementById('kFilename');
+
+  function setStatus(msg){
+    statusEl.textContent = msg;
+  }
+
+  function refreshKpis(){
+    kRows.textContent = items.length;
+    kCols.textContent = headers.length;
+    kFilename.textContent = `File: ${filename}`;
+  }
+
+  function createRowFromHeaders(){
+    return headers.reduce((acc, header) => {
+      acc[header] = '';
+      return acc;
+    }, {});
+  }
+
+  function normalizeHeaderName(name, index){
+    const base = String(name ?? '').trim();
+    if (base) return base;
+    return `column${index + 1}`;
+  }
+
+  function normalizeHeaders(list){
+    const out = [];
+    const seen = new Set();
+    list.forEach((value, index) => {
+      let name = normalizeHeaderName(value, index);
+      if (seen.has(name)) {
+        let suffix = 2;
+        let base = name;
+        while (seen.has(`${base}${suffix}`)) suffix += 1;
+        name = `${base}${suffix}`;
+      }
+      seen.add(name);
+      out.push(name);
+    });
+    return out;
+  }
+
+  function stripBom(text){
+    return (text && text.charCodeAt(0) === 0xFEFF) ? text.slice(1) : text;
+  }
+
+  function detectDelimiter(text){
+    const cleaned = stripBom(text || '').trim();
+    const firstLine = cleaned.split(/\r?\n/)[0] || '';
+    let semicolons = 0;
+    let commas = 0;
+    let inQuotes = false;
+
+    for (let i = 0; i < firstLine.length; i += 1){
+      const char = firstLine[i];
+      if (char === '"'){
+        if (inQuotes && firstLine[i + 1] === '"'){
+          i += 1;
+        } else {
+          inQuotes = !inQuotes;
+        }
+      } else if (!inQuotes) {
+        if (char === ';') semicolons += 1;
+        if (char === ',') commas += 1;
+      }
+    }
+
+    if (semicolons && !commas) return ';';
+    if (commas && !semicolons) return ',';
+    return semicolons >= commas ? ';' : ',';
+  }
+
+  function parseCsv(text){
+    const cleaned = stripBom(text || '').trim();
+    const rowsOut = [];
+    let row = [];
+    let cell = '';
+    let inQuotes = false;
+    const delimiter = detectDelimiter(cleaned);
+
+    for (let i = 0; i < cleaned.length; i += 1){
+      const char = cleaned[i];
+      if (char === '"'){
+        if (inQuotes && cleaned[i + 1] === '"'){
+          cell += '"';
+          i += 1;
+        } else {
+          inQuotes = !inQuotes;
+        }
+      } else if (char === delimiter && !inQuotes){
+        row.push(cell);
+        cell = '';
+      } else if ((char === '\n' || char === '\r') && !inQuotes){
+        if (char === '\r' && cleaned[i + 1] === '\n') i += 1;
+        row.push(cell);
+        if (row.some(value => value !== '')) rowsOut.push(row);
+        row = [];
+        cell = '';
+      } else {
+        cell += char;
+      }
+    }
+
+    if (cell.length || row.length){
+      row.push(cell);
+      if (row.some(value => value !== '')) rowsOut.push(row);
+    }
+
+    return rowsOut;
+  }
+
+  function normalizeHeaderBase(header){
+    const text = String(header ?? '').trim();
+    if (!text) return '';
+    return text.replace(/\d+$/, '');
+  }
+
+  function parseCsvToItems(text){
+    const parsed = parseCsv(text);
+    if (!parsed.length) return { headers: ['title'], items: [] };
+
+    const headers = parsed[0];
+    const headerPositions = {};
+
+    headers.forEach((header, index) => {
+      const base = normalizeHeaderBase(header);
+      const key = base || `column${index + 1}`;
+      if (!headerPositions[key]) {
+        headerPositions[key] = [];
+      }
+      headerPositions[key].push(index);
+    });
+
+    const baseHeaders = Object.keys(headerPositions);
+
+    const items = parsed.slice(1).map(row => {
+      return baseHeaders.reduce((acc, header) => {
+        const positions = headerPositions[header];
+        const firstValue = positions.map(index => row[index] ?? '').find(value => String(value).trim() !== '');
+        acc[header] = parseCellValue(firstValue ?? '', header);
+        return acc;
+      }, {});
+    });
+
+    return { headers: baseHeaders, items };
+  }
+
+  function escapeCsvValue(value){
+    const text = value == null ? '' : String(value);
+    if (/[",\n\r]/.test(text) || text.startsWith(' ') || text.endsWith(' ')){
+      return `"${text.replace(/"/g, '""')}"`;
+    }
+    return text;
+  }
+
+  function buildCsvText(){
+    const delimiter = ';';
+    const lines = [];
+    lines.push(headers.map(escapeCsvValue).join(delimiter));
+    items.forEach(item => {
+      const values = headers.map(header => escapeCsvValue(item[header] ?? ''));
+      lines.push(values.join(delimiter));
+    });
+    return lines.join('\r\n');
+  }
+
+  function buildJsonText(){
+    return JSON.stringify(items.map(item => ({ ...item })), null, 2);
+  }
+
+  function renderPreview(){
+    rawEl.value = buildJsonText();
+  }
+
+  function download(filename, text, type){
+    const bytes = new TextEncoder().encode(text);
+    const bom = new Uint8Array([0xEF, 0xBB, 0xBF]);
+    const payload = type === 'csv' ? [bom, bytes] : [bytes];
+    const blob = new Blob(payload, { type: type === 'csv' ? 'text/csv;charset=utf-8' : 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  function copyToClipboard(text){
+    navigator.clipboard.writeText(text).then(
+      () => setStatus('Copied to clipboard.'),
+      () => setStatus('Copy failed (browser blocked clipboard).')
+    );
+  }
+
+  function isNumberField(header){
+    return header === 'sectionOrder';
+  }
+
+  function isBooleanField(header){
+    return header === 'sectionOpenOnSelect' || header === 'targetBlank';
+  }
+
+  function isArrayField(header){
+    return header === 'tags';
+  }
+
+  function parseCellValue(value, header){
+    if (value === null || value === undefined) return '';
+    if (typeof value === 'string'){
+      const text = value.trim();
+      if (isNumberField(header)) return Number(text) || 0;
+      if (isBooleanField(header)) return /^true$/i.test(text);
+      if (isArrayField(header)) return text ? text.split(',').map(part => part.trim()).filter(Boolean) : [];
+      return text;
+    }
+    if (typeof value === 'number' || typeof value === 'boolean' || Array.isArray(value)) return value;
+    return String(value);
+  }
+
+  function formatCellValue(value){
+    if (Array.isArray(value)) return value.join(', ');
+    if (typeof value === 'boolean') return value ? 'true' : 'false';
+    return value == null ? '' : String(value);
+  }
+
+  function render(){
+    refreshKpis();
+    renderPreview();
+
+    const table = document.createElement('table');
+    const thead = document.createElement('thead');
+    const headRow = document.createElement('tr');
+
+    const thActions = document.createElement('th');
+    thActions.textContent = 'Actions';
+    headRow.appendChild(thActions);
+
+    headers.forEach((header, colIndex) => {
+      const th = document.createElement('th');
+      const wrapper = document.createElement('div');
+      wrapper.className = 'headerCell';
+
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.value = header;
+      input.oninput = () => {
+        const newName = input.value.trim() || `column${colIndex + 1}`;
+        headers[colIndex] = newName;
+        renderPreview();
+        render();
+      };
+
+      const btnDel = document.createElement('button');
+      btnDel.type = 'button';
+      btnDel.className = 'miniBtn danger';
+      btnDel.textContent = '×';
+      btnDel.title = 'Delete column';
+      btnDel.onclick = () => {
+        headers.splice(colIndex, 1);
+        items = items.map(item => {
+          const next = { ...item };
+          delete next[header];
+          return next;
+        });
+        setStatus(`Deleted column ${colIndex + 1}.`);
+        render();
+      };
+
+      wrapper.appendChild(input);
+      wrapper.appendChild(btnDel);
+      th.appendChild(wrapper);
+      headRow.appendChild(th);
+    });
+
+    thead.appendChild(headRow);
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+
+    items.forEach((item, rowIndex) => {
+      const tr = document.createElement('tr');
+
+      const tdActions = document.createElement('td');
+      tdActions.className = 'rowActions';
+
+      const group = document.createElement('div');
+      group.className = 'actionGroup';
+
+      const btnUp = document.createElement('button');
+      btnUp.type = 'button';
+      btnUp.className = 'miniBtn';
+      btnUp.textContent = 'Up';
+      btnUp.disabled = rowIndex === 0;
+      btnUp.onclick = () => {
+        if (rowIndex > 0) {
+          [items[rowIndex - 1], items[rowIndex]] = [items[rowIndex], items[rowIndex - 1]];
+          setStatus(`Moved row ${rowIndex + 1} up.`);
+          render();
+        }
+      };
+
+      const btnDown = document.createElement('button');
+      btnDown.type = 'button';
+      btnDown.className = 'miniBtn';
+      btnDown.textContent = 'Down';
+      btnDown.disabled = rowIndex === items.length - 1;
+      btnDown.onclick = () => {
+        if (rowIndex < items.length - 1) {
+          [items[rowIndex], items[rowIndex + 1]] = [items[rowIndex + 1], items[rowIndex]];
+          setStatus(`Moved row ${rowIndex + 1} down.`);
+          render();
+        }
+      };
+
+      const btnDel = document.createElement('button');
+      btnDel.type = 'button';
+      btnDel.className = 'miniBtn danger';
+      btnDel.textContent = 'Delete';
+      btnDel.onclick = () => {
+        items.splice(rowIndex, 1);
+        setStatus(`Deleted row ${rowIndex + 1}.`);
+        render();
+      };
+
+      group.appendChild(btnUp);
+      group.appendChild(btnDown);
+      group.appendChild(btnDel);
+      tdActions.appendChild(group);
+      tr.appendChild(tdActions);
+
+      headers.forEach(header => {
+        const td = document.createElement('td');
+        if (isBooleanField(header)) {
+          const select = document.createElement('select');
+          const optTrue = document.createElement('option');
+          optTrue.value = 'true';
+          optTrue.textContent = 'true';
+          const optFalse = document.createElement('option');
+          optFalse.value = 'false';
+          optFalse.textContent = 'false';
+          select.appendChild(optTrue);
+          select.appendChild(optFalse);
+          select.value = Boolean(item[header]) ? 'true' : 'false';
+          select.onchange = () => {
+            item[header] = select.value === 'true';
+            renderPreview();
+          };
+          td.appendChild(select);
+        } else {
+          const input = document.createElement('input');
+          input.className = 'cellInput';
+          input.type = isNumberField(header) ? 'number' : 'text';
+          input.value = formatCellValue(item[header]);
+          input.oninput = () => {
+            item[header] = parseCellValue(input.value, header);
+            renderPreview();
+          };
+          td.appendChild(input);
+        }
+        tr.appendChild(td);
+      });
+
+      tbody.appendChild(tr);
+    });
+
+    table.appendChild(tbody);
+    tableHost.innerHTML = '';
+    tableHost.appendChild(table);
+  }
+
+  function loadFromCsvText(text, fileName){
+    try {
+      const parsed = parseCsvToItems(text);
+      headers = parsed.headers;
+      items = parsed.items;
+      filename = fileName || 'data.csv';
+      setStatus(`Loaded ${items.length} row(s) from ${filename}.`);
+      render();
+    } catch (error) {
+      setStatus(`Failed to load CSV: ${error.message}`);
+    }
+  }
+
+  function loadFromJsonText(text, fileName){
+    try {
+      const parsed = JSON.parse(stripBom(text || ''));
+      let source = [];
+      if (Array.isArray(parsed)) source = parsed;
+      else if (parsed && typeof parsed === 'object') {
+        const candidate = [parsed.links, parsed.LINKS, parsed.DOC_LINKS].find(value => Array.isArray(value));
+        if (candidate) source = candidate;
+      }
+      if (!Array.isArray(source)) throw new Error('JSON must be an array of objects.');
+      const filtered = source.filter(item => item && typeof item === 'object' && !Array.isArray(item));
+      if (!filtered.length) {
+        headers = ['title'];
+        items = [];
+      } else {
+        headers = normalizeHeaders(filtered.flatMap(item => Object.keys(item)));
+        items = filtered.map(item => headers.reduce((acc, header) => {
+          acc[header] = item[header] ?? '';
+          return acc;
+        }, {}));
+      }
+      filename = fileName || 'data.json';
+      setStatus(`Loaded ${items.length} row(s) from ${filename}.`);
+      render();
+    } catch (error) {
+      setStatus(`Failed to load JSON: ${error.message}`);
+    }
+  }
+
+  async function loadFromFile(file){
+    try {
+      const text = await file.text();
+      const name = (file.name || '').toLowerCase();
+      if (name.endsWith('.json')) {
+        loadFromJsonText(text, file.name || 'data.json');
+      } else {
+        loadFromCsvText(text, file.name || 'data.csv');
+      }
+    } catch (error) {
+      setStatus(`Failed to read file: ${error.message}`);
+    }
+  }
+
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files && fileInput.files[0]) loadFromFile(fileInput.files[0]);
+  });
+
+  btnNew.addEventListener('click', () => {
+    headers = ['title'];
+    items = [];
+    filename = 'data.json';
+    setStatus('Started a new empty table.');
+    render();
+  });
+
+  btnAddRow.addEventListener('click', () => {
+    items.push(createRowFromHeaders());
+    setStatus('Added a new row.');
+    render();
+  });
+
+  btnAddCol.addEventListener('click', () => {
+    const name = prompt('New column name', `column${headers.length + 1}`);
+    if (name === null) return;
+    const header = String(name).trim() || `column${headers.length + 1}`;
+    headers = [...headers, header];
+    items = items.map(item => ({ ...item, [header]: '' }));
+    setStatus('Added a new column.');
+    render();
+  });
+
+  btnSaveCsv.addEventListener('click', () => {
+    download(filename.replace(/\.json$/i, '.csv'), buildCsvText(), 'csv');
+    setStatus(`Downloaded ${filename.replace(/\.json$/i, '.csv')}.`);
+  });
+
+  btnSaveJson.addEventListener('click', () => {
+    download(filename.replace(/\.csv$/i, '.json'), buildJsonText(), 'json');
+    setStatus(`Downloaded ${filename.replace(/\.csv$/i, '.json')}.`);
+  });
+
+  btnCopyCsv.addEventListener('click', () => {
+    copyToClipboard(buildCsvText());
+  });
+
+  btnCopyJson.addEventListener('click', () => {
+    copyToClipboard(buildJsonText());
+  });
+
+  btnLoadDefaultJson.addEventListener('click', async () => {
+    try {
+      const res = await fetch('Support/links_documents.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      loadFromJsonText(text, 'links_documents.json');
+    } catch (error) {
+      setStatus(`Failed to load default JSON: ${error.message}`);
+    }
+  });
+
+  btnLoadSample.addEventListener('click', () => {
+    loadFromJsonText(JSON.stringify([
+      { title: 'Pregnancy Calculator', href: 'PDDC.html', section: 'calculateurs', sectionTitle: 'Calculateurs', sectionOrder: 10, category: '', tags: ['EDD', 'US'], targetBlank: true, description: '' }
+    ], null, 2), 'sample.json');
+  });
+
+  render();
+</script>
+</body>
+</html>

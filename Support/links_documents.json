@@ -130,6 +130,45 @@
     "description": ""
   },
   {
+    "title": "SIED - SP3 - Intranet",
+    "href": "https://cissslaval.intranet.reg13.rtss.qc.ca/carrefour-clinique/bulletin-de-deces-sp-3-sied/",
+    "section": "liens-institutionnels",
+    "sectionTitle": "Liens institutionnels",
+    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
+    "sectionOrder": 30,
+    "category": "",
+    "tags": [
+      "SP3",
+      "décès",
+      "deces",
+      "mort",
+      "constat",
+      "intranet"
+    ],
+    "targetBlank": true,
+    "description": "Intranet"
+  },
+  {
+    "title": "SIED - SP3 - MSSS (extranet)",
+    "href": "https://gia.sx5.rtss.qc.ca/auth/realms/msss/protocol/openid-connect/auth?client_id=siedwebprod&redirect_uri=https%3A%2F%2Fsied.apps.ti.sante.quebec%2Fsignin-oidc&response_type=code&scope=openid%20profile&code_challenge=PQ-NAAzcWKCAE8Mpj_7qIEpXcb8VkYkkku4LlaMscRk&code_challenge_method=S256&response_mode=form_post&nonce=639183510864483287.ZjZmYzJkZjMtMWJjYy00YTczLWI1NjMtZmZiNmEyOGMyMDkzMTA3MDIzYzEtMzgyZC00ZDAwLTllNjYtYmI2NTgwMjBjYzVi&state=CfDJ8Pa6fLXTtY5AtX4ngR54WRH47oFHrH-QdhKbH9YroRk8S-k84nRuEJV9USkNbIsATQ_0ul5E4OHVTaFtdfN3f25pL8XteMzovEI0C3HFrqmV1jPQ1CVAbgCmjnjHb-JrZVF3m55ZRVphipPohWYy1jiljmFoJAfx7-bRIZ4uMAG6Hfy0hjdM_5g1kTzf1avKMpvrxk1qS_lbPwMxyz2H0_uo8KuQXxnd3u1zO_JHKj3-ERUi4KE6n8MhHkKyFLbVUPMWsGzgwf255H9O-vXyo0ZMPr7ly5oPjasmevZX8ZqwvxwMKVV0jQExoBBqO5NPABCP2eo0yhsVKPvbIXYtulU2FawlOktuAIQSSPUIiXqaF5MaESteg4ovOYGkaosgoB0UjanI305YpIjwC3strl4vPVKw7MjS70mMJ4AoD1I5&x-client-SKU=ID_NET8_0&x-client-ver=8.9.0.0",
+    "section": "liens-institutionnels",
+    "sectionTitle": "Liens institutionnels",
+    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
+    "sectionOrder": 30,
+    "category": "",
+    "tags": [
+      "SP3",
+      "décès",
+      "deces",
+      "mort",
+      "constat",
+      "MSSS",
+      "extranet"
+    ],
+    "targetBlank": true,
+    "description": "Extranet"
+  },
+  {
     "title": "GASP - General",
     "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/referer-un-usager/guichet-dacces-en-sante-physique-gasp/medecins-urgentologues",
     "section": "liens-institutionnels",

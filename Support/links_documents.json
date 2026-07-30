@@ -248,6 +248,38 @@
     "description": ""
   },
   {
+    "title": "OIP - Protection rénale imagerie",
+    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_68-100-284_Ordonnances_Nephroprotection_(2023-06-19).pdf?Archive=115095793327&File=oiP%5F68%5F100%5F284%5Fordonnances%5FNephroprotection%5F%282023%5F06%5F19%29%5Fpdf",
+    "section": "ordonnances HCSL",
+    "sectionTitle": "",
+    "sectionDescription": "OIP HCSL",
+    "sectionOrder": 9,
+    "category": "Ordonnances pré-imprimés",
+    "tags": [
+      "Imagerie",
+      "allergie",
+      "protection",
+      "scan"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Prescription d'imagerie - Vide",
+    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/Requete_RADIOLOGIE_2023-06_60-700-508.pdf?Archive=111570293975&File=Requete%5FRaDioLoGie%5F2023%5F06%5F60%5F700%5F508%5Fpdf",
+    "section": "ordonnances HCSL",
+    "sectionTitle": "",
+    "sectionDescription": "",
+    "sectionOrder": 9,
+    "category": "",
+    "tags": [
+      "Imagerie",
+      "requête"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
     "title": "Prescription pharmacologique - Vide",
     "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-510-251_Medicaments_(2025).pdf?Archive=113736893191&File=62%5F510%5F251%5FMedicaments%5F%282025%29%5Fpdf",
     "section": "ordonnances HCSL",
@@ -648,7 +680,8 @@
     "sectionOrder": 50,
     "category": "Formulaires généraux",
     "tags": [
-      "AH-240",
+      "AH-245",
+      "AH245",
       "Sommaire"
     ],
     "targetBlank": true,

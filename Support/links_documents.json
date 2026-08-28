@@ -1,18 +1,30 @@
 [
   {
-    "title": "OC - Bronchospasme PED",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OC-142-3_medicament_bronchospasme_pediatrique.pdf?Archive=111438093961&File=oc%5F142%5F3%5Fmedicament%5Fbronchospasme%5Fpediatrique%5Fpdf",
+    "title": "OIP - Acidocétose diabétique - Partie 1",
+    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_64-801-102_Acidocetose-partie_1.pdf?Archive=115076893325&File=oiP%5F64%5F801%5F102%5Facidocetose%5Fpartie%5F1%5Fpdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "",
     "sectionDescription": "OIP HCSL",
     "sectionOrder": 9,
     "category": "Ordonnances pré-imprimés",
     "tags": [
-      "OC",
-      "Ped",
-      "Bronchospasme",
-      "inhalo",
-      "Asthme"
+      "Acidocétose",
+      "insuline IV"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "OIP - Acidocétose diabétique - Partie 2",
+    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_62-200-793_Acidocetose_-partie_2.pdf?Archive=115075793325&File=oiP%5F62%5F200%5F793%5Facidocetose%5F%5Fpartie%5F2%5Fpdf",
+    "section": "ordonnances HCSL",
+    "sectionTitle": "",
+    "sectionDescription": "OIP HCSL",
+    "sectionOrder": 9,
+    "category": "Ordonnances pré-imprimés",
+    "tags": [
+      "Acidocétose",
+      "insuline IV"
     ],
     "targetBlank": true,
     "description": ""
@@ -37,7 +49,11 @@
     "sectionDescription": "OIP HCSL",
     "sectionOrder": 9,
     "category": "Ordonnances pré-imprimés",
-    "tags": [],
+    "tags": [
+      "Traitement",
+      "asthme",
+      "mpoc"
+    ],
     "targetBlank": true,
     "description": ""
   },
@@ -49,7 +65,10 @@
     "sectionDescription": "OIP HCSL",
     "sectionOrder": 9,
     "category": "Ordonnances pré-imprimés",
-    "tags": [],
+    "tags": [
+      "Antibiotiques",
+      "ambulatoire"
+    ],
     "targetBlank": true,
     "description": ""
   },
@@ -61,7 +80,10 @@
     "sectionDescription": "OIP HCSL",
     "sectionOrder": 9,
     "category": "Ordonnances pré-imprimés",
-    "tags": [],
+    "tags": [
+      "Pediatrie",
+      "inhalo"
+    ],
     "targetBlank": true,
     "description": ""
   },
@@ -73,7 +95,10 @@
     "sectionDescription": "OIP HCSL",
     "sectionOrder": 9,
     "category": "Ordonnances pré-imprimés",
-    "tags": [],
+    "tags": [
+      "Infection",
+      "peau"
+    ],
     "targetBlank": true,
     "description": ""
   },
@@ -85,7 +110,9 @@
     "sectionDescription": "OIP HCSL",
     "sectionOrder": 9,
     "category": "Ordonnances pré-imprimés",
-    "tags": [],
+    "tags": [
+      "Infection urinaire"
+    ],
     "targetBlank": true,
     "description": ""
   },
@@ -97,7 +124,10 @@
     "sectionDescription": "OIP HCSL",
     "sectionOrder": 9,
     "category": "Ordonnances pré-imprimés",
-    "tags": [],
+    "tags": [
+      "Intraveineux",
+      "ambulatoire"
+    ],
     "targetBlank": true,
     "description": ""
   },
@@ -109,7 +139,9 @@
     "sectionDescription": "OIP HCSL",
     "sectionOrder": 9,
     "category": "Ordonnances pré-imprimés",
-    "tags": [],
+    "tags": [
+      "Gastroentérite"
+    ],
     "targetBlank": true,
     "description": ""
   },
@@ -154,19 +186,24 @@
     "sectionDescription": "OIP HCSL",
     "sectionOrder": 9,
     "category": "Ordonnances pré-imprimés",
-    "tags": [],
+    "tags": [
+      "Influ",
+      "grippe"
+    ],
     "targetBlank": true,
     "description": ""
   },
   {
-    "title": "OIP - Insuline IV",
+    "title": "OIP - Insuline IV (gestion de la glycémie)",
     "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-200-010_Ord_Insuline_IV_2021-08-18.pdf?Archive=113145793132&File=62%5F200%5F010%5Ford%5Finsuline%5FiV%5F2021%5F08%5F18%5Fpdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "",
     "sectionDescription": "OIP HCSL",
     "sectionOrder": 9,
     "category": "Ordonnances pré-imprimés",
-    "tags": [],
+    "tags": [
+      "Perfusion d'insuline"
+    ],
     "targetBlank": true,
     "description": ""
   },
@@ -178,19 +215,11 @@
     "sectionDescription": "OIP HCSL",
     "sectionOrder": 9,
     "category": "Ordonnances pré-imprimés",
-    "tags": [],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "OIP - Neutropénie fébrile TEST",
-    "href": "https://bibliotheques.cissslaval.ca/Record.htm?idlist=3&record=19351465124911796479",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 9,
-    "category": "Ordonnances pré-imprimés",
-    "tags": [],
+    "tags": [
+      "Insuline",
+      "sous-cutanée",
+      "SC"
+    ],
     "targetBlank": true,
     "description": ""
   },
@@ -231,19 +260,10 @@
     "sectionDescription": "OIP HCSL",
     "sectionOrder": 9,
     "category": "Ordonnances pré-imprimés",
-    "tags": [],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "OIP - Sédation post-intubation",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/68-000-377_Analgesie_et_sedation_aux_soins_intensifs_patient_intube_V-NG.pdf?Archive=113003593128&File=68%5F000%5F377%5Fanalgesie%5Fet%5Fsedation%5Faux%5Fsoins%5Fintensifs%5Fpatient%5Fintube%5FV%5FNG%5Fpdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 9,
-    "category": "Ordonnances pré-imprimés",
-    "tags": [],
+    "tags": [
+      "Délirium",
+      "prévention"
+    ],
     "targetBlank": true,
     "description": ""
   },
@@ -260,6 +280,72 @@
       "allergie",
       "protection",
       "scan"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "OIP - Protocole de détresse palliative",
+    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/68-000-715_Detresse_respiratoire_ou_hemorragie_en_fin_de_vie_MAJ_(2022-05-12).pdf?Archive=114525793270&File=68%5F000%5F715%5FDetresse%5Frespiratoire%5Fou%5Fhemorragie%5Fen%5Ffin%5Fde%5Fvie%5FMaJ%5F%5F%282022%5F05%5F12%29%5Fpdf",
+    "section": "ordonnances HCSL",
+    "sectionTitle": "",
+    "sectionDescription": "OIP HCSL",
+    "sectionOrder": 9,
+    "category": "Ordonnances pré-imprimés",
+    "tags": [
+      "Soins palliatifs",
+      "détresse",
+      "fin de vie",
+      "protocole de détresse"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "OIP - Sédation post-intubation",
+    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/68-000-377_Analgesie_et_sedation_aux_soins_intensifs_patient_intube_V-NG.pdf?Archive=113003593128&File=68%5F000%5F377%5Fanalgesie%5Fet%5Fsedation%5Faux%5Fsoins%5Fintensifs%5Fpatient%5Fintube%5FV%5FNG%5Fpdf",
+    "section": "ordonnances HCSL",
+    "sectionTitle": "",
+    "sectionDescription": "OIP HCSL",
+    "sectionOrder": 9,
+    "category": "Ordonnances pré-imprimés",
+    "tags": [
+      "Sédation",
+      "intubation",
+      "maintient"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "OIP - Sevrage alcoolique à l'urgence",
+    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_62-200-741_Ordonnance_de_sevrage_d_alcool_leger_a_modere_pour_la_clientele_adulte_(18_)_intrahospitaliere_et_du_CRDL.pdf?Archive=113171393135&File=oiP%5F62%5F200%5F741%5Fordonnance%5Fde%5Fsevrage%5Fd%5Falcool%5Fleger%5Fa%5Fmodere%5Fpour%5Fla%5Fclientele%5Fadulte%5F%2818%2B%29%5Fintrahospitaliere%5Fet%5Fdu%5FcRDL%5Fpdf",
+    "section": "ordonnances HCSL",
+    "sectionTitle": "",
+    "sectionDescription": "OIP HCSL",
+    "sectionOrder": 9,
+    "category": "Ordonnances pré-imprimés",
+    "tags": [
+      "Sevrage",
+      "alcool"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "OrdCollective - Bronchospasme PED",
+    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OC-142-3_medicament_bronchospasme_pediatrique.pdf?Archive=111438093961&File=oc%5F142%5F3%5Fmedicament%5Fbronchospasme%5Fpediatrique%5Fpdf",
+    "section": "ordonnances HCSL",
+    "sectionTitle": "",
+    "sectionDescription": "OIP HCSL",
+    "sectionOrder": 9,
+    "category": "Ordonnances pré-imprimés",
+    "tags": [
+      "OC",
+      "Ped",
+      "Bronchospasme",
+      "inhalo",
+      "Asthme"
     ],
     "targetBlank": true,
     "description": ""
@@ -297,6 +383,54 @@
     "description": ""
   },
   {
+    "title": "Acid-Base Calculator",
+    "href": "acid_base_tox_V1.html",
+    "section": "calculateurs",
+    "sectionTitle": "Calculateurs",
+    "sectionDescription": "Outils de calcul clinique et conversions.",
+    "sectionOrder": 10,
+    "category": "",
+    "tags": [
+      "Acid-base",
+      "Compensation",
+      "Toxicologie"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Date calculator",
+    "href": "date_calculator_v2.html",
+    "section": "calculateurs",
+    "sectionTitle": "Calculateurs",
+    "sectionDescription": "Outils de calcul clinique et conversions.",
+    "sectionOrder": 10,
+    "category": "",
+    "tags": [
+      "Dates",
+      "Jours"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Pediatric ED Rx calculator",
+    "href": "pediatric_rx_calculator.html",
+    "section": "calculateurs",
+    "sectionTitle": "Calculateurs",
+    "sectionDescription": "Outils de calcul clinique et conversions.",
+    "sectionOrder": 10,
+    "category": "",
+    "tags": [
+      "Pediatrie",
+      "Rx",
+      "Poids",
+      "Urgence"
+    ],
+    "targetBlank": true,
+    "description": "Posologies pediatriques frequentes a l'urgence selon le poids."
+  },
+  {
     "title": "Pregnancy Calculator",
     "href": "PDDC.html",
     "section": "calculateurs",
@@ -309,22 +443,6 @@
       "US",
       "LMP",
       "Grossesse"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Acid-Base Calculator",
-    "href": "acid_base_tox_V1.html",
-    "section": "calculateurs",
-    "sectionTitle": "Calculateurs",
-    "sectionDescription": "Outils de calcul clinique et conversions.",
-    "sectionOrder": 10,
-    "category": "",
-    "tags": [
-      "Acid-base",
-      "Compensation",
-      "Toxicologie"
     ],
     "targetBlank": true,
     "description": ""
@@ -363,54 +481,6 @@
     "description": ""
   },
   {
-    "title": "Date calculator",
-    "href": "date_calculator_v2.html",
-    "section": "calculateurs",
-    "sectionTitle": "Calculateurs",
-    "sectionDescription": "Outils de calcul clinique et conversions.",
-    "sectionOrder": 10,
-    "category": "",
-    "tags": [
-      "Dates",
-      "Jours"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Pediatric ED Rx calculator",
-    "href": "pediatric_rx_calculator.html",
-    "section": "calculateurs",
-    "sectionTitle": "Calculateurs",
-    "sectionDescription": "Outils de calcul clinique et conversions.",
-    "sectionOrder": 10,
-    "category": "",
-    "tags": [
-      "Pediatrie",
-      "Rx",
-      "Poids",
-      "Urgence"
-    ],
-    "targetBlank": true,
-    "description": "Posologies pediatriques frequentes a l'urgence selon le poids."
-  },
-  {
-    "title": "Prescripteur externe",
-    "href": "Prescription_externe.html",
-    "section": "prescripteur",
-    "sectionTitle": "Prescripteur",
-    "sectionDescription": "Documents cliniques personnalisables.",
-    "sectionOrder": 20,
-    "category": "",
-    "tags": [
-      "Prescription",
-      "Externe",
-      "HSCM"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
     "title": "Justification d'absence",
     "href": "lettreabsence.html",
     "section": "prescripteur",
@@ -427,56 +497,17 @@
     "description": ""
   },
   {
-    "title": "SIED - SP3 - Intranet",
-    "href": "https://cissslaval.intranet.reg13.rtss.qc.ca/carrefour-clinique/bulletin-de-deces-sp-3-sied/",
-    "section": "liens-institutionnels",
-    "sectionTitle": "Liens institutionnels",
-    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
-    "sectionOrder": 30,
+    "title": "Prescripteur externe",
+    "href": "Prescription_externe.html",
+    "section": "prescripteur",
+    "sectionTitle": "Prescripteur",
+    "sectionDescription": "Documents cliniques personnalisables.",
+    "sectionOrder": 20,
     "category": "",
     "tags": [
-      "SP3",
-      "décès",
-      "deces",
-      "mort",
-      "constat",
-      "intranet"
-    ],
-    "targetBlank": true,
-    "description": "Intranet"
-  },
-  {
-    "title": "SIED - SP3 - MSSS (extranet)",
-    "href": "https://gia.sx5.rtss.qc.ca/auth/realms/msss/protocol/openid-connect/auth?client_id=siedwebprod&redirect_uri=https%3A%2F%2Fsied.apps.ti.sante.quebec%2Fsignin-oidc&response_type=code&scope=openid%20profile&code_challenge=PQ-NAAzcWKCAE8Mpj_7qIEpXcb8VkYkkku4LlaMscRk&code_challenge_method=S256&response_mode=form_post&nonce=639183510864483287.ZjZmYzJkZjMtMWJjYy00YTczLWI1NjMtZmZiNmEyOGMyMDkzMTA3MDIzYzEtMzgyZC00ZDAwLTllNjYtYmI2NTgwMjBjYzVi&state=CfDJ8Pa6fLXTtY5AtX4ngR54WRH47oFHrH-QdhKbH9YroRk8S-k84nRuEJV9USkNbIsATQ_0ul5E4OHVTaFtdfN3f25pL8XteMzovEI0C3HFrqmV1jPQ1CVAbgCmjnjHb-JrZVF3m55ZRVphipPohWYy1jiljmFoJAfx7-bRIZ4uMAG6Hfy0hjdM_5g1kTzf1avKMpvrxk1qS_lbPwMxyz2H0_uo8KuQXxnd3u1zO_JHKj3-ERUi4KE6n8MhHkKyFLbVUPMWsGzgwf255H9O-vXyo0ZMPr7ly5oPjasmevZX8ZqwvxwMKVV0jQExoBBqO5NPABCP2eo0yhsVKPvbIXYtulU2FawlOktuAIQSSPUIiXqaF5MaESteg4ovOYGkaosgoB0UjanI305YpIjwC3strl4vPVKw7MjS70mMJ4AoD1I5&x-client-SKU=ID_NET8_0&x-client-ver=8.9.0.0",
-    "section": "liens-institutionnels",
-    "sectionTitle": "Liens institutionnels",
-    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
-    "sectionOrder": 30,
-    "category": "",
-    "tags": [
-      "SP3",
-      "décès",
-      "deces",
-      "mort",
-      "constat",
-      "MSSS",
-      "extranet"
-    ],
-    "targetBlank": true,
-    "description": "Extranet"
-  },
-  {
-    "title": "GASP - General",
-    "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/referer-un-usager/guichet-dacces-en-sante-physique-gasp/medecins-urgentologues",
-    "section": "liens-institutionnels",
-    "sectionTitle": "Liens institutionnels",
-    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
-    "sectionOrder": 30,
-    "category": "Reference",
-    "tags": [
-      "GASP",
-      "Specialite",
-      "Reference"
+      "Prescription",
+      "Externe",
+      "HSCM"
     ],
     "targetBlank": true,
     "description": ""
@@ -528,6 +559,124 @@
     "description": ""
   },
   {
+    "title": "GASP - General",
+    "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/referer-un-usager/guichet-dacces-en-sante-physique-gasp/medecins-urgentologues",
+    "section": "liens-institutionnels",
+    "sectionTitle": "Liens institutionnels",
+    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
+    "sectionOrder": 30,
+    "category": "Reference",
+    "tags": [
+      "GASP",
+      "Specialite",
+      "Reference"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "SIED - SP3 - Intranet",
+    "href": "https://cissslaval.intranet.reg13.rtss.qc.ca/carrefour-clinique/bulletin-de-deces-sp-3-sied/",
+    "section": "liens-institutionnels",
+    "sectionTitle": "Liens institutionnels",
+    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
+    "sectionOrder": 30,
+    "category": "",
+    "tags": [
+      "SP3",
+      "décès",
+      "deces",
+      "mort",
+      "constat",
+      "intranet"
+    ],
+    "targetBlank": true,
+    "description": "Intranet"
+  },
+  {
+    "title": "SIED - SP3 - MSSS (extranet)",
+    "href": "https://gia.sx5.rtss.qc.ca/auth/realms/msss/protocol/openid-connect/auth?client_id=siedwebprod&redirect_uri=https%3A%2F%2Fsied.apps.ti.sante.quebec%2Fsignin-oidc&response_type=code&scope=openid%20profile&code_challenge=PQ-NAAzcWKCAE8Mpj_7qIEpXcb8VkYkkku4LlaMscRk&code_challenge_method=S256&response_mode=form_post&nonce=639183510864483287.ZjZmYzJkZjMtMWJjYy00YTczLWI1NjMtZmZiNmEyOGMyMDkzMTA3MDIzYzEtMzgyZC00ZDAwLTllNjYtYmI2NTgwMjBjYzVi&state=CfDJ8Pa6fLXTtY5AtX4ngR54WRH47oFHrH-QdhKbH9YroRk8S-k84nRuEJV9USkNbIsATQ_0ul5E4OHVTaFtdfN3f25pL8XteMzovEI0C3HFrqmV1jPQ1CVAbgCmjnjHb-JrZVF3m55ZRVphipPohWYy1jiljmFoJAfx7-bRIZ4uMAG6Hfy0hjdM_5g1kTzf1avKMpvrxk1qS_lbPwMxyz2H0_uo8KuQXxnd3u1zO_JHKj3-ERUi4KE6n8MhHkKyFLbVUPMWsGzgwf255H9O-vXyo0ZMPr7ly5oPjasmevZX8ZqwvxwMKVV0jQExoBBqO5NPABCP2eo0yhsVKPvbIXYtulU2FawlOktuAIQSSPUIiXqaF5MaESteg4ovOYGkaosgoB0UjanI305YpIjwC3strl4vPVKw7MjS70mMJ4AoD1I5&x-client-SKU=ID_NET8_0&x-client-ver=8.9.0.0",
+    "section": "liens-institutionnels",
+    "sectionTitle": "Liens institutionnels",
+    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
+    "sectionOrder": 30,
+    "category": "",
+    "tags": [
+      "SP3",
+      "décès",
+      "deces",
+      "mort",
+      "constat",
+      "MSSS",
+      "extranet"
+    ],
+    "targetBlank": true,
+    "description": "Extranet"
+  },
+  {
+    "title": "Contraception - Outils et ressources",
+    "href": "https://www.inspq.qc.ca/publications/3466",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Gynéco/Obstetrique",
+    "tags": [
+      "Contraception",
+      "référence"
+    ],
+    "targetBlank": true,
+    "description": "Référence pour la contraception de l'INSPQ"
+  },
+  {
+    "title": "Contraception d'urgence",
+    "href": "https://www.inspq.qc.ca/sites/default/files/2024-05/3466-outil-contraception-urgence.pdf",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Gynéco/Obstetrique",
+    "tags": [
+      "Contraception",
+      "référence",
+      "urgence"
+    ],
+    "targetBlank": true,
+    "description": "Outils de sélection de la contraception d'urgence"
+  },
+  {
+    "title": "Rx - Pre/Post-Partum",
+    "href": "https://www.ncbi.nlm.nih.gov/books/NBK501922/",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Gynéco/Obstetrique",
+    "tags": [
+      "LactMed",
+      "Grossesse",
+      "Allaitement"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Acetaminophen plotter",
+    "href": "acetaminophen_plotter.html",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Toxicologie",
+    "tags": [
+      "NAC",
+      "Acetaminophene",
+      "APAP"
+    ],
+    "targetBlank": false,
+    "description": ""
+  },
+  {
     "title": "Guide antidotes - CAPQ",
     "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antidotes",
     "section": "ressources-cliniques",
@@ -558,6 +707,22 @@
     "description": ""
   },
   {
+    "title": "Guide GMU CANUTEC",
+    "href": "https://wwwapps.tc.gc.ca/Saf-Sec-Sur/3/erg-gmu-web/",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 40,
+    "category": "Toxicologie",
+    "tags": [
+      "CANUTEC",
+      "GMU",
+      "Matiere dangereuse"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
     "title": "Ressource CAPQ",
     "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antipoison/ressources-et-partenaires",
     "section": "ressources-cliniques",
@@ -570,22 +735,6 @@
       "Antipoison"
     ],
     "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Acetaminophen plotter",
-    "href": "acetaminophen_plotter.html",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 40,
-    "category": "Toxicologie",
-    "tags": [
-      "NAC",
-      "Acetaminophene",
-      "APAP"
-    ],
-    "targetBlank": false,
     "description": ""
   },
   {
@@ -604,72 +753,210 @@
     "description": ""
   },
   {
-    "title": "Guide GMU CANUTEC",
-    "href": "https://wwwapps.tc.gc.ca/Saf-Sec-Sur/3/erg-gmu-web/",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 40,
-    "category": "Toxicologie",
+    "title": "Étiquettes HSCM",
+    "href": "Support/Étiquettes_HSCM.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Admin",
     "tags": [
-      "CANUTEC",
-      "GMU",
-      "Matiere dangereuse"
+      "etiquettes",
+      "Sacre-Coeur"
     ],
     "targetBlank": true,
     "description": ""
   },
   {
-    "title": "Rx - Pre/Post-Partum",
-    "href": "https://www.ncbi.nlm.nih.gov/books/NBK501922/",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 40,
-    "category": "Obstetrique",
+    "title": "Aide à la décision - Rage",
+    "href": "https://msss.gouv.qc.ca/aide-decision-app/etape.php?situation=Rage",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Aide à la décision",
     "tags": [
-      "LactMed",
-      "Grossesse",
-      "Allaitement"
+      "Rage",
+      "Rabies",
+      "Algorithme"
     ],
     "targetBlank": true,
     "description": ""
   },
   {
-    "title": "INESSS - Accueil GUO",
-    "href": "https://www.inesss.qc.ca/formations-et-outils/outils-cliniques/outils-par-types/guides-dusage-optimal.html",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "title": "Aide à la décision - Tetanos",
+    "href": "https://msss.gouv.qc.ca/aide-decision-app/etape.php?p&situation=Tetanos",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
     "sectionOrder": 50,
-    "category": "",
+    "category": "Aide à la décision",
     "tags": [
-      "INESSS",
-      "GUO",
-      "Guide",
-      "Optimal",
-      "Québec"
+      "Tetanos",
+      "Vaccination",
+      "Algorithme"
     ],
     "targetBlank": true,
-    "description": "Liste des guides d'usage optimaux INESSS"
+    "description": ""
   },
   {
-    "title": "HSJ - Liste des FOPR",
-    "href": "https://msss365.sharepoint.com/:u:/r/teams/CHUSJ-TestdebibliothquepartagedansSharepoint/SitePages/Home.aspx?csf=1&web=1&e=jvHuE9",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "title": "Affiche - Explication pour le travailleur",
+    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/affiche-quoi-faire-accident-travail.pdf?cid=1751984222",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
     "sectionOrder": 50,
-    "category": "",
+    "category": "CNESST",
     "tags": [
-      "HSJ",
-      "Ped",
-      "Sainte-Justine",
-      "Ste-Justine",
-      "FOPR"
+      "Affiche",
+      "comment",
+      "Travail"
     ],
     "targetBlank": true,
-    "description": "FOPR HSJ"
+    "description": ""
+  },
+  {
+    "title": "CNESST - Attestation médicale (initiale)",
+    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/1936-attestation-medicale_0.pdf?cid=1752156944",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "CNESST",
+    "tags": [
+      "CNESST",
+      "Travail"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "CNESST - Ensemble de la documentation",
+    "href": "https://www.cnesst.gouv.qc.ca/fr/demarches-formulaires/professionnels-intervenants-sante/formulaires-professionnels-sante-traitants",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "CNESST",
+    "tags": [
+      "CNESST",
+      "Travail"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "CNESST - Rapport médical (suivi)",
+    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/1937-rapport-medical.pdf?cid=1752157001",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "CNESST",
+    "tags": [
+      "CNESST",
+      "Travail"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Poster - What to do if you get hurt",
+    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/what-to-do-get-hurt-work_0.pdf?cid=1751984318",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "CNESST",
+    "tags": [
+      "Affiche",
+      "comment",
+      "Travail"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Diabète - Ajustement Rx fonction rénale",
+    "href": "https://www.coffreaoutilsdiabete.ca/pdf/Tableau-fr-FRv11.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Diabète",
+    "tags": [
+      "Clinicien",
+      "Medicaments",
+      "Renale",
+      "Ajustement"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Diabète - Liste des médicaments",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/05/114015-DQ25-TableauMedicaments-MAJ-FR-MR.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Diabète",
+    "tags": [
+      "Tableau",
+      "Ressources",
+      "Clinicien",
+      "Medicaments"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Diabète - Médicament à arrêter",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2023/01/Jours-de-maladie-FR-RECTO-VERSO-2019-2.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Diabète",
+    "tags": [
+      "Déshydratation",
+      "Medication",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Diabète T1 - Référer un patient",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/12/Demande-de-consult-DbT1-DQ_dynamique.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Diabète",
+    "tags": [
+      "Reference",
+      "Clinicien",
+      "Guichet"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Diabète T2 - Référer un patient",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/12/Demande-consult.-DbT2-DQ__dynamique.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Diabète",
+    "tags": [
+      "Reference",
+      "Clinicien",
+      "Guichet"
+    ],
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Communication MDF",
@@ -688,23 +975,8 @@
     "description": ""
   },
   {
-    "title": "Niveau de soins",
-    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/a9b0958ceee59c7685256e2a0052d887/d57fc1d9eb98eed385257f50005206c7/$FILE/AH-744_DT9261(2016-01)D.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Formulaires généraux",
-    "tags": [
-      "NIM",
-      "RCR"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "GAMF FR",
-    "href": "Support/Inscription_medecin_famille_Quebec.pdf",
+    "title": "GAMF EN",
+    "href": "Support/Inscription_medecin_famille_Quebec_en.pdf",
     "section": "documents",
     "sectionTitle": "Documents / Liens",
     "sectionDescription": "Documents, formulaires et liens classes par categorie.",
@@ -720,8 +992,8 @@
     "description": ""
   },
   {
-    "title": "GAMF EN",
-    "href": "Support/Inscription_medecin_famille_Quebec_en.pdf",
+    "title": "GAMF FR",
+    "href": "Support/Inscription_medecin_famille_Quebec.pdf",
     "section": "documents",
     "sectionTitle": "Documents / Liens",
     "sectionDescription": "Documents, formulaires et liens classes par categorie.",
@@ -754,282 +1026,31 @@
     "description": ""
   },
   {
-    "title": "CNESST - Ensemble de la documentation",
-    "href": "https://www.cnesst.gouv.qc.ca/fr/demarches-formulaires/professionnels-intervenants-sante/formulaires-professionnels-sante-traitants",
+    "title": "Niveau de soins",
+    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/a9b0958ceee59c7685256e2a0052d887/d57fc1d9eb98eed385257f50005206c7/$FILE/AH-744_DT9261(2016-01)D.pdf",
     "section": "documents",
     "sectionTitle": "Documents / Liens",
     "sectionDescription": "Documents, formulaires et liens classes par categorie.",
     "sectionOrder": 50,
-    "category": "CNESST",
+    "category": "Formulaires généraux",
     "tags": [
-      "CNESST",
-      "Travail"
+      "NIM",
+      "RCR"
     ],
     "targetBlank": true,
     "description": ""
   },
   {
-    "title": "CNESST - Attestation médicale (initiale)",
-    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/1936-attestation-medicale_0.pdf?cid=1752156944",
+    "title": "Soingner une gastroenterite à la maison",
+    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/NIM-DSI-FicheInfoUsager-Gastroenterite-8900031.pdf",
     "section": "documents",
     "sectionTitle": "Documents / Liens",
     "sectionDescription": "Documents, formulaires et liens classes par categorie.",
     "sectionOrder": 50,
-    "category": "CNESST",
+    "category": "Gastroenterite",
     "tags": [
-      "CNESST",
-      "Travail"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "CNESST - Rapport médical (suivi)",
-    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/1937-rapport-medical.pdf?cid=1752157001",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "CNESST",
-    "tags": [
-      "CNESST",
-      "Travail"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Affiche - Explication pour le travailleur",
-    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/affiche-quoi-faire-accident-travail.pdf?cid=1751984222",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "CNESST",
-    "tags": [
-      "Affiche",
-      "comment",
-      "Travail"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Poster - What to do if you get hurt",
-    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/what-to-do-get-hurt-work_0.pdf?cid=1751984318",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "CNESST",
-    "tags": [
-      "Affiche",
-      "comment",
-      "Travail"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "SAAQ - Ensemble de la documentation",
-    "href": "https://saaq.gouv.qc.ca/extranet-sante/indemnisation-accidentes-route/medecins",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "SAAQ",
-    "tags": [
-      "SAAQ"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "SAAQ - Rapport médical initial",
-    "href": "https://saaq.gouv.qc.ca/blob/saaq/documents/extranet_sante/medecins/rapport-initial-facture.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "SAAQ",
-    "tags": [
-      "SAAQ"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "SAAQ - Déclaration d'inaptitude à conduire",
-    "href": "https://saaq.gouv.qc.ca/blob/saaq/documents/extranet_sante/sante-conducteur/formulaires/5626.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "SAAQ",
-    "tags": [
-      "SAAQ"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "IVAC - Attestation médicale (initiale)",
-    "href": "https://www.ivac.qc.ca/Documents/227_2019-09-attestation-medicale.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "IVAC",
-    "tags": [
-      "Victime",
-      "Violence",
-      "Indemnisation",
-      "Criminel"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Dépliant TCCL",
-    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/INESSS_Depliant_TCCL_INESSS.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "INESSS",
-    "tags": [
-      "TCCL",
-      "Trauma",
-      "Patient"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Algorithme TCCL",
-    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/Algo_decisionnel_TCCL_Adulte_2021.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "INESSS",
-    "tags": [
-      "TCCL",
-      "Trauma",
-      "Clinicien"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Étiquettes HSCM",
-    "href": "Support/Étiquettes_HSCM.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Admin",
-    "tags": [
-      "etiquettes",
-      "Sacre-Coeur"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Diabète - Médicament à arrêter",
-    "href": "https://www.diabete.qc.ca/wp-content/uploads/2023/01/Jours-de-maladie-FR-RECTO-VERSO-2019-2.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Diabète",
-    "tags": [
-      "Déshydratation",
-      "Medication",
-      "Patient"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Diabète T2 - Référer un patient",
-    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/12/Demande-consult.-DbT2-DQ__dynamique.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Diabète",
-    "tags": [
-      "Reference",
-      "Clinicien",
-      "Guichet"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Diabète T1 - Référer un patient",
-    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/12/Demande-de-consult-DbT1-DQ_dynamique.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Diabète",
-    "tags": [
-      "Reference",
-      "Clinicien",
-      "Guichet"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Diabète - Liste des médicaments",
-    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/05/114015-DQ25-TableauMedicaments-MAJ-FR-MR.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Diabète",
-    "tags": [
-      "Tableau",
-      "Ressources",
-      "Clinicien",
-      "Medicaments"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Diabète - Ajustement Rx fonction rénale",
-    "href": "https://www.coffreaoutilsdiabete.ca/pdf/Tableau-fr-FRv11.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Diabète",
-    "tags": [
-      "Clinicien",
-      "Medicaments",
-      "Renale",
-      "Ajustement"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "HTA - Journal de pression artérielle à domicile (FR)",
-    "href": "https://hypertension.ca/wp-content/uploads/2018/07/HTC_HomeBPLog_FRE.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Hypertension",
-    "tags": [
-      "Journal",
-      "Pression",
-      "Domicile",
+      "Soins",
+      "Gastroenterite",
       "Patient"
     ],
     "targetBlank": true,
@@ -1053,6 +1074,72 @@
     "description": ""
   },
   {
+    "title": "HTA - Journal de pression artérielle à domicile (FR)",
+    "href": "https://hypertension.ca/wp-content/uploads/2018/07/HTC_HomeBPLog_FRE.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Hypertension",
+    "tags": [
+      "Journal",
+      "Pression",
+      "Domicile",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Algorithme TCCL",
+    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/Algo_decisionnel_TCCL_Adulte_2021.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "INESSS",
+    "tags": [
+      "TCCL",
+      "Trauma",
+      "Clinicien"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Dépliant TCCL",
+    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/INESSS_Depliant_TCCL_INESSS.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "INESSS",
+    "tags": [
+      "TCCL",
+      "Trauma",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "IVAC - Attestation médicale (initiale)",
+    "href": "https://www.ivac.qc.ca/Documents/227_2019-09-attestation-medicale.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "IVAC",
+    "tags": [
+      "Victime",
+      "Violence",
+      "Indemnisation",
+      "Criminel"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
     "title": "Prendre soins de sa plaie",
     "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/NIM-DSI-FicheInfoUsager-PlaiePost-8900032__1_.pdf",
     "section": "documents",
@@ -1064,54 +1151,6 @@
       "Soins",
       "Plaie",
       "Patient"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Soingner une gastroenterite à la maison",
-    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/NIM-DSI-FicheInfoUsager-Gastroenterite-8900031.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Gastroenterite",
-    "tags": [
-      "Soins",
-      "Gastroenterite",
-      "Patient"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Prendre soins de sa sonde urinaire",
-    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/CIUSSS-407_1_Prendre_soin_d_une_sonde_final-Protege.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Urologie",
-    "tags": [
-      "Soins",
-      "Sonde",
-      "Patient"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Liste - Fiches aux usagers (CIUSSS NIM)",
-    "href": "https://www.ciusssnordmtl.ca/usagers-et-visiteurs/fiches-aux-usagers",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Usagers",
-    "tags": [
-      "Fiches",
-      "Usagers",
-      "Information"
     ],
     "targetBlank": true,
     "description": ""
@@ -1153,19 +1192,43 @@
     "description": ""
   },
   {
-    "title": "Protocole NAC - CAPQ",
-    "href": "Support/Protocole NAC.pdf",
+    "title": "SAAQ - Déclaration d'inaptitude à conduire",
+    "href": "https://saaq.gouv.qc.ca/blob/saaq/documents/extranet_sante/sante-conducteur/formulaires/5626.pdf",
     "section": "documents",
     "sectionTitle": "Documents / Liens",
     "sectionDescription": "Documents, formulaires et liens classes par categorie.",
     "sectionOrder": 50,
-    "category": "Toxicologie",
+    "category": "SAAQ",
     "tags": [
-      "Protocole",
-      "NAC",
-      "CAPQ",
-      "Acetaminophene",
-      "APAP"
+      "SAAQ"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "SAAQ - Ensemble de la documentation",
+    "href": "https://saaq.gouv.qc.ca/extranet-sante/indemnisation-accidentes-route/medecins",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "SAAQ",
+    "tags": [
+      "SAAQ"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "SAAQ - Rapport médical initial",
+    "href": "https://saaq.gouv.qc.ca/blob/saaq/documents/extranet_sante/medecins/rapport-initial-facture.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "SAAQ",
+    "tags": [
+      "SAAQ"
     ],
     "targetBlank": true,
     "description": ""
@@ -1183,6 +1246,60 @@
       "Déclaration",
       "Santé publique",
       "Maladie à déclaration obligatoire"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Procédure de signalement - Maladie à déclaration obligatoire (MADO)",
+    "href": "https://www.quebec.ca/sante/professionnels/mado/declaration/demarche-pour-les-medecins",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Santé publique",
+    "tags": [
+      "MADO",
+      "Signalement",
+      "Santé publique",
+      "ITSS",
+      "Sexuellement",
+      "Infection"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Formulaire de signalement - Demande d’évaluation du risque de rage d’un animal domestique mordeur",
+    "href": "https://publications.msss.gouv.qc.ca/msss/fichiers/2024/24-277-01W.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Signalement",
+    "tags": [
+      "Rage",
+      "Rabies",
+      "Déclaration",
+      "Signalement"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Formulaire de signalement - Morsure de chien",
+    "href": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/agriculture-pecheries-alimentation/sante-animale/obligations/encadrement-chiens/FO_Formulaire_signalement_morsures_chien_md_MAPAQ.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Signalement",
+    "tags": [
+      "Morsure de chien",
+      "Signalement",
+      "Bite",
+      "Santé publique",
+      "Public health"
     ],
     "targetBlank": true,
     "description": ""
@@ -1220,103 +1337,19 @@
     "description": ""
   },
   {
-    "title": "Aide à la décision - Rage",
-    "href": "https://msss.gouv.qc.ca/aide-decision-app/etape.php?situation=Rage",
+    "title": "Protocole NAC - CAPQ",
+    "href": "Support/Protocole NAC.pdf",
     "section": "documents",
     "sectionTitle": "Documents / Liens",
     "sectionDescription": "Documents, formulaires et liens classes par categorie.",
     "sectionOrder": 50,
-    "category": "Aide à la décision",
+    "category": "Toxicologie",
     "tags": [
-      "Rage",
-      "Rabies",
-      "Algorithme"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Formulaire de signalement - Demande d’évaluation du risque de rage d’un animal domestique mordeur",
-    "href": "https://publications.msss.gouv.qc.ca/msss/fichiers/2024/24-277-01W.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Signalement",
-    "tags": [
-      "Rage",
-      "Rabies",
-      "Déclaration",
-      "Signalement"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Aide à la décision - Tetanos",
-    "href": "https://msss.gouv.qc.ca/aide-decision-app/etape.php?p&situation=Tetanos",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Aide à la décision",
-    "tags": [
-      "Tetanos",
-      "Vaccination",
-      "Algorithme"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Formulaire de signalement - Morsure de chien",
-    "href": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/agriculture-pecheries-alimentation/sante-animale/obligations/encadrement-chiens/FO_Formulaire_signalement_morsures_chien_md_MAPAQ.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Signalement",
-    "tags": [
-      "Morsure de chien",
-      "Signalement",
-      "Bite",
-      "Santé publique",
-      "Public health"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Procédure de signalement - Maladie à déclaration obligatoire (MADO)",
-    "href": "https://www.quebec.ca/sante/professionnels/mado/declaration/demarche-pour-les-medecins",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Santé publique",
-    "tags": [
-      "MADO",
-      "Signalement",
-      "Santé publique",
-      "ITSS",
-      "Sexuellement",
-      "Infection"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Incontinence urinaire chez l'homme - CHUM",
-    "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-08/239-4-Prevenir-et-traiter-incontinence-urinaire-chez-homme.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 50,
-    "category": "Urologie",
-    "tags": [
-      "Incontinence",
-      "urinaire",
-      "vessie"
+      "Protocole",
+      "NAC",
+      "CAPQ",
+      "Acetaminophene",
+      "APAP"
     ],
     "targetBlank": true,
     "description": ""
@@ -1352,6 +1385,90 @@
     ],
     "targetBlank": true,
     "description": ""
+  },
+  {
+    "title": "Incontinence urinaire chez l'homme - CHUM",
+    "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-08/239-4-Prevenir-et-traiter-incontinence-urinaire-chez-homme.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Urologie",
+    "tags": [
+      "Incontinence",
+      "urinaire",
+      "vessie"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Prendre soins de sa sonde urinaire",
+    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/CIUSSS-407_1_Prendre_soin_d_une_sonde_final-Protege.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Urologie",
+    "tags": [
+      "Soins",
+      "Sonde",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Liste - Fiches aux usagers (CIUSSS NIM)",
+    "href": "https://www.ciusssnordmtl.ca/usagers-et-visiteurs/fiches-aux-usagers",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 50,
+    "category": "Usagers",
+    "tags": [
+      "Fiches",
+      "Usagers",
+      "Information"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "HSJ - Liste des FOPR",
+    "href": "https://msss365.sharepoint.com/:u:/r/teams/CHUSJ-TestdebibliothquepartagedansSharepoint/SitePages/Home.aspx?csf=1&web=1&e=jvHuE9",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 50,
+    "category": "",
+    "tags": [
+      "HSJ",
+      "Ped",
+      "Sainte-Justine",
+      "Ste-Justine",
+      "FOPR"
+    ],
+    "targetBlank": true,
+    "description": "FOPR HSJ"
+  },
+  {
+    "title": "INESSS - Accueil GUO",
+    "href": "https://www.inesss.qc.ca/formations-et-outils/outils-cliniques/outils-par-types/guides-dusage-optimal.html",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 50,
+    "category": "",
+    "tags": [
+      "INESSS",
+      "GUO",
+      "Guide",
+      "Optimal",
+      "Québec"
+    ],
+    "targetBlank": true,
+    "description": "Liste des guides d'usage optimaux INESSS"
   },
   {
     "title": "ACÉTATE DE SODIUM",

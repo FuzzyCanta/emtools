@@ -52,7 +52,8 @@
     "tags": [
       "Traitement",
       "asthme",
-      "mpoc"
+      "mpoc",
+      "inhalotherapie"
     ],
     "targetBlank": true,
     "description": ""
@@ -247,7 +248,7 @@
   },
   {
     "title": "Insuline IV (gestion de la glycémie)",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-200-010_Ord_Insuline_IV_2021-08-18.pdf?Archive=113145793132&File=62%5F200%5F010%5Ford%5Finsuline%5FiV%5F2021%5F08%5F18%5Fpdf",
+    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-200-010_Ord_Insuline_IV_2021-08-18.pdf?Archive=115350293353&File=62%5F200%5F010%5Ford%5Finsuline%5FiV%5F2021%5F08%5F18%5Fpdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "",
     "sectionDescription": "OIP HCSL",
@@ -261,7 +262,7 @@
   },
   {
     "title": "Insuline SOUS-CUTANÉE",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_62-200-267_Ord_Insuline_SC_2026-02-12.pdf?Archive=115037993321&File=oiP%5F62%5F200%5F267%5Ford%5Finsuline%5FSc%5F2026%5F02%5F12%5Fpdf",
+    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_62-200-267_Ord_Insuline_SC_2026-02-12.pdf?Archive=115558093373&File=oiP%5F62%5F200%5F267%5Ford%5Finsuline%5FSc%5F2026%5F02%5F12%5Fpdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "",
     "sectionDescription": "OIP HCSL",
@@ -303,6 +304,22 @@
       "Neutropenie",
       "febrile",
       "hospitalisation"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Occlusion intestinale",
+    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_62-200-834_Occlusion_intestinale_2026-08-12.pdf?Archive=115323593350&File=oiP%5F62%5F200%5F834%5Focclusion%5Fintestinale%5F2026%5F08%5F12%5Fpdf",
+    "section": "ordonnances HCSL",
+    "sectionTitle": "",
+    "sectionDescription": "OIP HCSL",
+    "sectionOrder": 9,
+    "category": "Ordonnances pré-imprimés",
+    "tags": [
+      "Occlusion intestinale",
+      "grafin",
+      "gastro"
     ],
     "targetBlank": true,
     "description": ""
@@ -424,23 +441,6 @@
     "description": ""
   },
   {
-    "title": "Sevrage nicotinique - Urgence",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-200-147_Ord_gestion_symptomes_de_sevrage_nicotine_en_utilisant_therapies_de_remplacment_de_nicotine_(VF-2).pdf?Archive=115423593360&File=62%5F200%5F147%5Ford%5Fgestion%5Fsymptomes%5Fde%5Fsevrage%5Fnicotine%5Fen%5Futilisant%5Ftherapies%5Fde%5Fremplacment%5Fde%5Fnicotine%5F%28VF%5F2%29%5Fpdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 9,
-    "category": "Ordonnances pré-imprimés",
-    "tags": [
-      "Nicotine",
-      "tabac",
-      "remplacement",
-      "cessation"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
     "title": "Remplacement nicotinique",
     "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-200-148_Ordonnances_cessation_tabagique_en_utilisant_des_therapies_de_remplacement_de_nicotine2018-05-30.pdf?Archive=115424693360&File=62%5F200%5F148%5Fordonnances%5Fcessation%5Ftabagique%5Fen%5Futilisant%5Fdes%5Ftherapies%5Fde%5Fremplacement%5Fde%5Fnicotine2018%5F05%5F30%5Fpdf",
     "section": "ordonnances HCSL",
@@ -489,6 +489,23 @@
     "description": ""
   },
   {
+    "title": "Sevrage nicotinique - Urgence",
+    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-200-147_Ord_gestion_symptomes_de_sevrage_nicotine_en_utilisant_therapies_de_remplacment_de_nicotine_(VF-2).pdf?Archive=115423593360&File=62%5F200%5F147%5Ford%5Fgestion%5Fsymptomes%5Fde%5Fsevrage%5Fnicotine%5Fen%5Futilisant%5Ftherapies%5Fde%5Fremplacment%5Fde%5Fnicotine%5F%28VF%5F2%29%5Fpdf",
+    "section": "ordonnances HCSL",
+    "sectionTitle": "",
+    "sectionDescription": "OIP HCSL",
+    "sectionOrder": 9,
+    "category": "Ordonnances pré-imprimés",
+    "tags": [
+      "Nicotine",
+      "tabac",
+      "remplacement",
+      "cessation"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
     "title": "Thrombolyse embolie pulmonaire",
     "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-200-002_Ord_Alteplase_thrombolyse_EP_11-2019.pdf?Archive=115344693352&File=62%5F200%5F002%5Ford%5Falteplase%5Fthrombolyse%5FeP%5F%5F11%5F2019%5Fpdf",
     "section": "ordonnances HCSL",
@@ -506,21 +523,6 @@
     "description": ""
   },
   {
-    "title": "Prescription d'imagerie - Vide",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/Requete_RADIOLOGIE_2023-06_60-700-508.pdf?Archive=111570293975&File=Requete%5FRaDioLoGie%5F2023%5F06%5F60%5F700%5F508%5Fpdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "",
-    "sectionDescription": "",
-    "sectionOrder": 9,
-    "category": "",
-    "tags": [
-      "Imagerie",
-      "requête"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
     "title": "Prescription pharmacologique - Vide",
     "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-510-251_Medicaments_(2025).pdf?Archive=113736893191&File=62%5F510%5F251%5FMedicaments%5F%282025%29%5Fpdf",
     "section": "ordonnances HCSL",
@@ -533,6 +535,21 @@
       "médicaments",
       "pharmaco",
       "prescription"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Prescription d'imagerie - Vide",
+    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/Requete_RADIOLOGIE_2023-06_60-700-508.pdf?Archive=111570293975&File=Requete%5FRaDioLoGie%5F2023%5F06%5F60%5F700%5F508%5Fpdf",
+    "section": "",
+    "sectionTitle": "",
+    "sectionDescription": "",
+    "sectionOrder": 9,
+    "category": "",
+    "tags": [
+      "Imagerie",
+      "requête"
     ],
     "targetBlank": true,
     "description": ""
@@ -769,15 +786,15 @@
     "description": "Extranet"
   },
   {
-    "title": "Insomnie - Choisir avec soins",
-    "href": "https://choisiravecsoinquebec.ca/wp-content/uploads/2024/03/Insomnie_FR_-FINAL.pdf",
+    "title": "Algorithme Lombalgie - Choisir avec soins",
+    "href": "https://choisiravecsoinquebec.ca/outils-et-ressources/prescriptions-non-pharmacologiques/#:~:text=Lombalgie",
     "section": "ressources-cliniques",
     "sectionTitle": "Ressources cliniques",
     "sectionDescription": "Liens et outils classes par sujets cliniques.",
     "sectionOrder": 40,
     "category": "Choisir avec soins",
     "tags": [
-      "Insomnie",
+      "Lombalgie",
       "prescription non pharmacologique",
       "Choosing wisely"
     ],
@@ -801,15 +818,15 @@
     "description": ""
   },
   {
-    "title": "Algorithme Lombalgie - Choisir avec soins",
-    "href": "https://choisiravecsoinquebec.ca/outils-et-ressources/prescriptions-non-pharmacologiques/#:~:text=Lombalgie",
+    "title": "Insomnie - Choisir avec soins",
+    "href": "https://choisiravecsoinquebec.ca/wp-content/uploads/2024/03/Insomnie_FR_-FINAL.pdf",
     "section": "ressources-cliniques",
     "sectionTitle": "Ressources cliniques",
     "sectionDescription": "Liens et outils classes par sujets cliniques.",
     "sectionOrder": 40,
     "category": "Choisir avec soins",
     "tags": [
-      "Lombalgie",
+      "Insomnie",
       "prescription non pharmacologique",
       "Choosing wisely"
     ],

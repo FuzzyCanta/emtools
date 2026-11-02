@@ -1,7 +1,7 @@
 [
   {
     "title": "Acidocétose diabétique - Partie 1",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_64-801-102_Acidocetose-partie_1.pdf?Archive=115076893325&File=oiP%5F64%5F801%5F102%5Facidocetose%5Fpartie%5F1%5Fpdf",
+    "href": "Support/acidocetose1.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -17,7 +17,7 @@
   },
   {
     "title": "Acidocétose diabétique - Partie 2",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_62-200-793_Acidocetose_-partie_2.pdf?Archive=115075793325&File=oiP%5F62%5F200%5F793%5Facidocetose%5F%5Fpartie%5F2%5Fpdf",
+    "href": "Support/acidocetose2.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -46,7 +46,7 @@
   },
   {
     "title": "Ajustement Tx inhalo général",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_61-040-022_Ordonnances_-_Ajustement_et_transfert_de_l_aerosoltherapie_-_Inhalotherapie_(2023-03-09).pdf?Archive=114709193298&File=oiP%5F61%5F040%5F022%5Fordonnances%5F%5F%5Fajustement%5Fet%5Ftransfert%5Fde%5Fl%5Faerosoltherapie%5F%5F%5Finhalotherapie%5F%282023%5F03%5F09%29%5Fpdf",
+    "href": "Support/ajustementtxinhalo.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -64,7 +64,7 @@
   },
   {
     "title": "Analgésie à l'urgence",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/61-040-018_Ordonnances_de_Titration_des_opioides_30_mai_2017.pdf?Archive=115272493345&File=61%5F040%5F018%5Fordonnances%5Fde%5FTitration%5Fdes%5Fopioides%5F30%5Fmai%5F2017%5Fpdf",
+    "href": "Support/titrationopioides.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -82,7 +82,7 @@
   },
   {
     "title": "Antibio à domicile",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-100-083_Ordonnance_antibiotherapie_a_domicile_2026-05-06_VD.pdf?Archive=115964693314&File=62%5F100%5F083%5Fordonnance%5Fantibiotherapie%5Fa%5Fdomicile%5F2026%5F05%5F06%5FVD%5Fpdf",
+    "href": "Support/antibiodomicile.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -113,15 +113,14 @@
     "Colonne": ""
   },
   {
-    "title": "Bronchospasme PED - Ordonnance collective",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OC-142-3_medicament_bronchospasme_pediatrique.pdf?Archive=111438093961&File=oc%5F142%5F3%5Fmedicament%5Fbronchospasme%5Fpediatrique%5Fpdf",
+    "title": "Bronchospasme PED",
+    "href": "Support/asthmepedhospit.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
     "sectionOrder": 10,
     "category": "Ordonnances pré-imprimés",
     "tags": [
-      "OC",
       "Ped",
       "Bronchospasme",
       "inhalo",
@@ -169,7 +168,7 @@
   },
   {
     "title": "Cellulite/Adénite pédiatrique",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-200-822_Cellulite_ou_adenite_pour_MDJP_VF_2026-02-17.pdf?Archive=114870293205&File=62%5F200%5F822%5Fcellulite%5Fou%5Fadenite%5Fpour%5FMDJP%5FVF%5F2026%5F02%5F17%5Fpdf",
+    "href": "Support/cellulitepedleg.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -200,7 +199,7 @@
   },
   {
     "title": "Fer IV en externe",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_62-200-262_Ordonnance_externe_Administration_fer_IV_ambulatoire.pdf?Archive=112784693096&File=oiP%5F62%5F200%5F262%5Fordonnance%5Fexterne%5Fadministration%5Ffer%5FiV%5Fambulatoire%5Fpdf",
+    "href": "Support/ferivambu.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -216,7 +215,7 @@
   },
   {
     "title": "Gastro pédiatrique",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/68-000-335_Gastroenterite_VF_2026-02-18.pdf?Archive=114875793205&File=68%5F000%5F335%5FGastroenterite%5FVF%5F2026%5F02%5F18%5Fpdf",
+    "href": "Support/gevpedhospit.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -231,7 +230,7 @@
   },
   {
     "title": "Héparine IV",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_62-200-059_Protocole_Heparine_IV_2026-02-12.pdf?Archive=115078093325&File=oiP%5F62%5F200%5F059%5FProtocole%5FHeparine%5FiV%5F2026%5F02%5F12%5Fpdf",
+    "href": "Support/heparineiv.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -241,24 +240,6 @@
       "Héparine",
       "heparine",
       "IV"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Hospitalisation PED bronchospasme",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/68-000-319_Ordonnances_pediatriques_Asthme_VF_2026-02-17.pdf?Archive=114877993205&File=68%5F000%5F319%5Fordonnances%5Fpediatriques%5Fasthme%5FVF%5F2026%5F02%5F17%5Fpdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
-    "category": "Ordonnances pré-imprimés",
-    "tags": [
-      "Hospitalisation",
-      "Ped",
-      "asthme",
-      "bronchspasme"
     ],
     "targetBlank": true,
     "description": "",
@@ -284,7 +265,7 @@
   },
   {
     "title": "Influenza",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_62-200-785_Prophylaxie_et_traitement_Influenza_2025-12-24.pdf?Archive=113648093182&File=oiP%5F62%5F200%5F785%5FProphylaxie%5Fet%5Ftraitement%5Finfluenza%5F2025%5F12%5F24%5Fpdf",
+    "href": "Support/influenza.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -300,7 +281,7 @@
   },
   {
     "title": "Insuline IV (gestion de la glycémie)",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-200-010_Ord_Insuline_IV_2021-08-18.pdf?Archive=115350293353&File=62%5F200%5F010%5Ford%5Finsuline%5FiV%5F2021%5F08%5F18%5Fpdf",
+    "href": "Support/insulineiv.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -315,7 +296,7 @@
   },
   {
     "title": "Insuline SOUS-CUTANÉE",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_62-200-267_Ord_Insuline_SC_2026-02-12.pdf?Archive=115558093373&File=oiP%5F62%5F200%5F267%5Ford%5Finsuline%5FSc%5F2026%5F02%5F12%5Fpdf",
+    "href": "Support/insulinesc.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -332,7 +313,7 @@
   },
   {
     "title": "Neutropénie fébrile bas risque",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-200-035_Ordonnances_Neutropenie_febrile_a_bas_risque_Cl%E2%80%A6.pdf?Archive=113155793133&File=62%5F200%5F035%5Fordonnances%5FNeutropenie%5Ffebrile%5Fa%5Fbas%5Frisque%5Fcl%5F%5Fpdf",
+    "href": "Support/neutropeniefebrilebasrisque.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -366,7 +347,7 @@
   },
   {
     "title": "Occlusion intestinale",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_62-200-834_Occlusion_intestinale_2026-08-12.pdf?Archive=115323593350&File=oiP%5F62%5F200%5F834%5Focclusion%5Fintestinale%5F2026%5F08%5F12%5Fpdf",
+    "href": "Support/occlusion.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -383,7 +364,7 @@
   },
   {
     "title": "OMA - Rx externe",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/61-040-103_Otite_Moyenne_Aigue_(OMA)_conge_(2022-01-18).pdf?Archive=113169193134&File=61%5F040%5F103%5Fotite%5FMoyenne%5Faigue%5F%28oMa%29%5Fconge%5F%282022%5F01%5F18%29%5Fpdf",
+    "href": "Support/oma3-18po.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -401,7 +382,7 @@
   },
   {
     "title": "OMA réfractaire",
-    "href": "https://bibliotheques.cissslaval.ca/Record.htm?idlist=1&record=19351472124911796549",
+    "href": "Support/omarefractaire.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -418,7 +399,7 @@
   },
   {
     "title": "PNA pédiatrique IV",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-200-030_ordonnance_pediatrique_pyelonephrite_aigue%CC%88_3_mois-18_ans-_IV_2026-02-17_VF.pdf?Archive=114874693205&File=62%5F200%5F030%5Fordonnance%5Fpe%CC%81diatrique%5Fpye%CC%81lone%CC%81phrite%5Faigue%CC%88%5F3%5Fmois%5F18%5Fans%5F%5FiV%5F2026%5F02%5F17%5FVF%5Fpdf",
+    "href": "Support/pna2-18iv.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -436,7 +417,7 @@
   },
   {
     "title": "PNA pédiatrique ORALE",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-200-031_Ordonnance_pediatrique_pyelonephrite_aigue%CC%88_2_mois-18_ans-traitement_VF_2026-02-18.pdf?Archive=114873593205&File=62%5F200%5F031%5Fordonnance%5Fpe%CC%81diatrique%5Fpye%CC%81lone%CC%81phrite%5Faigue%CC%88%5F2%5Fmois%5F18%5Fans%5Ftraitement%5FVF%5F2026%5F02%5F18%5Fpdf",
+    "href": "Support/pna2-18po.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -453,24 +434,8 @@
     "Colonne": ""
   },
   {
-    "title": "Prévention/dépistage délirium",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/68-000-850_Ordonnances_Prevention_et_diagnostic_du_delirium_personnes_agees_V2025-11-19.pdf?Archive=113759193193&File=68%5F000%5F850%5Fordonnances%5FPrevention%5Fet%5Fdiagnostic%5Fdu%5Fdelirium%5Fpersonnes%5Fagees%5FV2025%5F11%5F19%5Fpdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
-    "category": "Ordonnances pré-imprimés",
-    "tags": [
-      "Délirium",
-      "prévention"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
     "title": "Protection rénale imagerie",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_68-100-284_Ordonnances_Nephroprotection_(2023-06-19).pdf?Archive=115095793327&File=oiP%5F68%5F100%5F284%5Fordonnances%5FNephroprotection%5F%282023%5F06%5F19%29%5Fpdf",
+    "href": "Support/Nephroprot.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -488,7 +453,7 @@
   },
   {
     "title": "Protocole de détresse palliative",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/68-000-715_Detresse_respiratoire_ou_hemorragie_en_fin_de_vie_MAJ_(2022-05-12).pdf?Archive=114525793270&File=68%5F000%5F715%5FDetresse%5Frespiratoire%5Fou%5Fhemorragie%5Fen%5Ffin%5Fde%5Fvie%5FMaJ%5F%5F%282022%5F05%5F12%29%5Fpdf",
+    "href": "Support/detressepalliative.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -524,7 +489,7 @@
   },
   {
     "title": "Sédation post-intubation",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/68-000-377_Analgesie_et_sedation_aux_soins_intensifs_patient_intube_V-NG.pdf?Archive=113003593128&File=68%5F000%5F377%5Fanalgesie%5Fet%5Fsedation%5Faux%5Fsoins%5Fintensifs%5Fpatient%5Fintube%5FV%5FNG%5Fpdf",
+    "href": "Support/sedation.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -541,7 +506,7 @@
   },
   {
     "title": "Sevrage alcoolique à l'urgence",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_62-200-741_Ordonnance_de_sevrage_d_alcool_leger_a_modere_pour_la_clientele_adulte_(18_)_intrahospitaliere_et_du_CRDL.pdf?Archive=113171393135&File=oiP%5F62%5F200%5F741%5Fordonnance%5Fde%5Fsevrage%5Fd%5Falcool%5Fleger%5Fa%5Fmodere%5Fpour%5Fla%5Fclientele%5Fadulte%5F%2818%2B%29%5Fintrahospitaliere%5Fet%5Fdu%5FcRDL%5Fpdf",
+    "href": "Support/sevrageroh",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",
@@ -575,7 +540,7 @@
   },
   {
     "title": "Thrombolyse embolie pulmonaire",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-200-002_Ord_Alteplase_thrombolyse_EP_11-2019.pdf?Archive=115344693352&File=62%5F200%5F002%5Ford%5Falteplase%5Fthrombolyse%5FeP%5F%5F11%5F2019%5Fpdf",
+    "href": "Support/thrombolyseep.pdf",
     "section": "ordonnances HCSL",
     "sectionTitle": "OIP HCSL",
     "sectionDescription": "OIP HCSL",

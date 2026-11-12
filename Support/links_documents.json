@@ -695,19 +695,70 @@
     "Colonne": ""
   },
   {
-    "title": "Acetaminophen plotter",
-    "href": "acetaminophen_plotter.html",
+    "title": "Algorithme Lombalgie - Choisir avec soins",
+    "href": "https://choisiravecsoinquebec.ca/outils-et-ressources/prescriptions-non-pharmacologiques/#:~:text=Lombalgie",
     "section": "ressources-cliniques",
     "sectionTitle": "Ressources cliniques",
     "sectionDescription": "Liens et outils classes par sujets cliniques.",
     "sectionOrder": 30,
-    "category": "Toxicologie",
+    "category": "Choisir avec soins",
     "tags": [
-      "NAC",
-      "Acetaminophene",
-      "APAP"
+      "Lombalgie",
+      "prescription non pharmacologique",
+      "Choosing wisely"
     ],
-    "targetBlank": false,
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Insomnia - Choosing wisely",
+    "href": "https://choisiravecsoinquebec.ca/wp-content/uploads/2024/03/Insomnia_EN_FINAL.pdf",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 30,
+    "category": "Choisir avec soins",
+    "tags": [
+      "Insomnie",
+      "prescription non pharmacologique",
+      "Choosing wisely"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Insomnie - Choisir avec soins",
+    "href": "https://choisiravecsoinquebec.ca/wp-content/uploads/2024/03/Insomnie_FR_-FINAL.pdf",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 30,
+    "category": "Choisir avec soins",
+    "tags": [
+      "Insomnie",
+      "prescription non pharmacologique",
+      "Choosing wisely"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Lombalgie - Choisir avec soins",
+    "href": "https://choisiravecsoinquebec.ca/wp-content/uploads/2024/09/Prescription-non-pharmacologique-lombalgie.pdf",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 30,
+    "category": "Choisir avec soins",
+    "tags": [
+      "Lombalgie",
+      "prescription non pharmacologique",
+      "Choosing wisely"
+    ],
+    "targetBlank": true,
     "description": "",
     "Colonne": ""
   },
@@ -725,23 +776,6 @@
       "son",
       "ORL",
       "audiologiste"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Algorithme Lombalgie - Choisir avec soins",
-    "href": "https://choisiravecsoinquebec.ca/outils-et-ressources/prescriptions-non-pharmacologiques/#:~:text=Lombalgie",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
-    "category": "Choisir avec soins",
-    "tags": [
-      "Lombalgie",
-      "prescription non pharmacologique",
-      "Choosing wisely"
     ],
     "targetBlank": true,
     "description": "",
@@ -858,39 +892,6 @@
     "Colonne": ""
   },
   {
-    "title": "Contraception - Outils et ressources",
-    "href": "https://www.inspq.qc.ca/publications/3466",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
-    "category": "Gynéco/Obstetrique",
-    "tags": [
-      "Contraception",
-      "référence"
-    ],
-    "targetBlank": true,
-    "description": "Référence pour la contraception de l'INSPQ",
-    "Colonne": ""
-  },
-  {
-    "title": "Contraception d'urgence",
-    "href": "https://www.inspq.qc.ca/sites/default/files/2024-05/3466-outil-contraception-urgence.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
-    "category": "Gynéco/Obstetrique",
-    "tags": [
-      "Contraception",
-      "référence",
-      "urgence"
-    ],
-    "targetBlank": true,
-    "description": "Outils de sélection de la contraception d'urgence",
-    "Colonne": ""
-  },
-  {
     "title": "Diverticulite",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2023-11/994-1-diverticulite.pdf",
     "section": "ressources-cliniques",
@@ -982,6 +983,23 @@
     "Colonne": ""
   },
   {
+    "title": "Fibrillation auriculaire",
+    "href": "https://www.chumontreal.qc.ca/sites/default/files/2023-04/1086-1-fibrillation-auriculaire.pdf",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 30,
+    "category": "Fiche patients CHUM",
+    "tags": [
+      "Fibrillation",
+      "afib",
+      "FAP"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
     "title": "Fissure anale",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-09/715-1-coupure-a-l-anus.pdf",
     "section": "ressources-cliniques",
@@ -995,55 +1013,6 @@
       "anus",
       "coupure",
       "constipation"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Guide antidotes - CAPQ",
-    "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antidotes",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
-    "category": "Toxicologie",
-    "tags": [
-      "Antidotes",
-      "CAPQ"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Guide expo - CNESST",
-    "href": "https://reptox.cnesst.gouv.qc.ca/Pages/recherche-produit.aspx",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
-    "category": "Toxicologie",
-    "tags": [
-      "Exposition",
-      "CNESST"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Guide GMU CANUTEC",
-    "href": "https://wwwapps.tc.gc.ca/Saf-Sec-Sur/3/erg-gmu-web/",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
-    "category": "Toxicologie",
-    "tags": [
-      "CANUTEC",
-      "GMU",
-      "Matiere dangereuse"
     ],
     "targetBlank": true,
     "description": "",
@@ -1178,23 +1147,6 @@
     "Colonne": ""
   },
   {
-    "title": "Insomnia - Choosing wisely",
-    "href": "https://choisiravecsoinquebec.ca/wp-content/uploads/2024/03/Insomnia_EN_FINAL.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
-    "category": "Choisir avec soins",
-    "tags": [
-      "Insomnie",
-      "prescription non pharmacologique",
-      "Choosing wisely"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
     "title": "Insomnie",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2021-09/229-2-insomnie.pdf",
     "section": "ressources-cliniques",
@@ -1205,40 +1157,6 @@
     "tags": [
       "Insomnie",
       "sommeil"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Insomnie - Choisir avec soins",
-    "href": "https://choisiravecsoinquebec.ca/wp-content/uploads/2024/03/Insomnie_FR_-FINAL.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
-    "category": "Choisir avec soins",
-    "tags": [
-      "Insomnie",
-      "prescription non pharmacologique",
-      "Choosing wisely"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Lombalgie - Choisir avec soins",
-    "href": "https://choisiravecsoinquebec.ca/wp-content/uploads/2024/09/Prescription-non-pharmacologique-lombalgie.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
-    "category": "Choisir avec soins",
-    "tags": [
-      "Lombalgie",
-      "prescription non pharmacologique",
-      "Choosing wisely"
     ],
     "targetBlank": true,
     "description": "",
@@ -1380,22 +1298,6 @@
     "Colonne": ""
   },
   {
-    "title": "Ressource CAPQ",
-    "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antipoison/ressources-et-partenaires",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
-    "category": "Toxicologie",
-    "tags": [
-      "CAPQ",
-      "Antipoison"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
     "title": "Rhizarthrose",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2025-08/1184-la-rhizarthrose.pdf",
     "section": "ressources-cliniques",
@@ -1409,23 +1311,6 @@
       "arthrose",
       "rizarthrose",
       "rhizarthrose"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Rx - Pre/Post-Partum",
-    "href": "https://www.ncbi.nlm.nih.gov/books/NBK501922/",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
-    "category": "Gynéco/Obstetrique",
-    "tags": [
-      "LactMed",
-      "Grossesse",
-      "Allaitement"
     ],
     "targetBlank": true,
     "description": "",
@@ -1527,6 +1412,138 @@
     "Colonne": ""
   },
   {
+    "title": "Contraception - Outils et ressources",
+    "href": "https://www.inspq.qc.ca/publications/3466",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 30,
+    "category": "Gynéco/Obstetrique",
+    "tags": [
+      "Contraception",
+      "référence"
+    ],
+    "targetBlank": true,
+    "description": "Référence pour la contraception de l'INSPQ",
+    "Colonne": ""
+  },
+  {
+    "title": "Contraception d'urgence",
+    "href": "https://www.inspq.qc.ca/sites/default/files/2024-05/3466-outil-contraception-urgence.pdf",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 30,
+    "category": "Gynéco/Obstetrique",
+    "tags": [
+      "Contraception",
+      "référence",
+      "urgence"
+    ],
+    "targetBlank": true,
+    "description": "Outils de sélection de la contraception d'urgence",
+    "Colonne": ""
+  },
+  {
+    "title": "Rx - Pre/Post-Partum",
+    "href": "https://www.ncbi.nlm.nih.gov/books/NBK501922/",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 30,
+    "category": "Gynéco/Obstetrique",
+    "tags": [
+      "LactMed",
+      "Grossesse",
+      "Allaitement"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Acetaminophen plotter",
+    "href": "acetaminophen_plotter.html",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 30,
+    "category": "Toxicologie",
+    "tags": [
+      "NAC",
+      "Acetaminophene",
+      "APAP"
+    ],
+    "targetBlank": false,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Guide antidotes - CAPQ",
+    "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antidotes",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 30,
+    "category": "Toxicologie",
+    "tags": [
+      "Antidotes",
+      "CAPQ"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Guide expo - CNESST",
+    "href": "https://reptox.cnesst.gouv.qc.ca/Pages/recherche-produit.aspx",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 30,
+    "category": "Toxicologie",
+    "tags": [
+      "Exposition",
+      "CNESST"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Guide GMU CANUTEC",
+    "href": "https://wwwapps.tc.gc.ca/Saf-Sec-Sur/3/erg-gmu-web/",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 30,
+    "category": "Toxicologie",
+    "tags": [
+      "CANUTEC",
+      "GMU",
+      "Matiere dangereuse"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Ressource CAPQ",
+    "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antipoison/ressources-et-partenaires",
+    "section": "ressources-cliniques",
+    "sectionTitle": "Ressources cliniques",
+    "sectionDescription": "Liens et outils classes par sujets cliniques.",
+    "sectionOrder": 30,
+    "category": "Toxicologie",
+    "tags": [
+      "CAPQ",
+      "Antipoison"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
     "title": "Syndrome tox",
     "href": "https://chemm.hhs.gov/chemmist.htm",
     "section": "ressources-cliniques",
@@ -1559,23 +1576,6 @@
     "Colonne": ""
   },
   {
-    "title": "GASP - General",
-    "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/referer-un-usager/guichet-dacces-en-sante-physique-gasp/medecins-urgentologues",
-    "section": "liens-institutionnels",
-    "sectionTitle": "Liens institutionnels",
-    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
-    "sectionOrder": 40,
-    "category": "Reference",
-    "tags": [
-      "GASP",
-      "Specialite",
-      "Reference"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
     "title": "Guide antibio",
     "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/medecins/guide-dantibiotherapie-empirique",
     "section": "liens-institutionnels",
@@ -1602,6 +1602,23 @@
     "tags": [
       "Ortho",
       "HMR",
+      "Reference"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "GASP - General",
+    "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/referer-un-usager/guichet-dacces-en-sante-physique-gasp/medecins-urgentologues",
+    "section": "liens-institutionnels",
+    "sectionTitle": "Liens institutionnels",
+    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
+    "sectionOrder": 40,
+    "category": "Reference",
+    "tags": [
+      "GASP",
+      "Specialite",
       "Reference"
     ],
     "targetBlank": true,
@@ -1684,17 +1701,16 @@
     "Colonne": ""
   },
   {
-    "title": "Affiche - Explication pour le travailleur",
-    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/affiche-quoi-faire-accident-travail.pdf?cid=1751984222",
+    "title": "Étiquettes HSCM",
+    "href": "Support/Étiquettes_HSCM.pdf",
     "section": "documents",
     "sectionTitle": "Documents / Liens",
     "sectionDescription": "Documents, formulaires et liens classes par categorie.",
     "sectionOrder": 60,
-    "category": "CNESST",
+    "category": "Admin",
     "tags": [
-      "Affiche",
-      "comment",
-      "Travail"
+      "etiquettes",
+      "Sacre-Coeur"
     ],
     "targetBlank": true,
     "description": "",
@@ -1735,17 +1751,17 @@
     "Colonne": ""
   },
   {
-    "title": "Algorithme TCCL",
-    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/Algo_decisionnel_TCCL_Adulte_2021.pdf",
+    "title": "Affiche - Explication pour le travailleur",
+    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/affiche-quoi-faire-accident-travail.pdf?cid=1751984222",
     "section": "documents",
     "sectionTitle": "Documents / Liens",
     "sectionDescription": "Documents, formulaires et liens classes par categorie.",
     "sectionOrder": 60,
-    "category": "INESSS",
+    "category": "CNESST",
     "tags": [
-      "TCCL",
-      "Trauma",
-      "Clinicien"
+      "Affiche",
+      "comment",
+      "Travail"
     ],
     "targetBlank": true,
     "description": "",
@@ -1762,22 +1778,6 @@
     "tags": [
       "CNESST",
       "Travail"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Bundle SAAQ",
-    "href": "Bundle_SAAQ.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
-    "category": "SAAQ",
-    "tags": [
-      "SAAQ",
-      "Bundle"
     ],
     "targetBlank": true,
     "description": "",
@@ -1832,34 +1832,17 @@
     "Colonne": ""
   },
   {
-    "title": "Communication MDF",
-    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/a9b0958ceee59c7685256e2a0052d887/dc7d1a1c58372f9a85256ed2006c76e9/$FILE/AH-245_DT9098(2021-09)%20D%20.pdf",
+    "title": "Poster - What to do if you get hurt",
+    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/what-to-do-get-hurt-work_0.pdf?cid=1751984318",
     "section": "documents",
     "sectionTitle": "Documents / Liens",
     "sectionDescription": "Documents, formulaires et liens classes par categorie.",
     "sectionOrder": 60,
-    "category": "Formulaires généraux",
+    "category": "CNESST",
     "tags": [
-      "AH-245",
-      "AH245",
-      "Sommaire"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Dépliant TCCL",
-    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/INESSS_Depliant_TCCL_INESSS.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
-    "category": "INESSS",
-    "tags": [
-      "TCCL",
-      "Trauma",
-      "Patient"
+      "Affiche",
+      "comment",
+      "Travail"
     ],
     "targetBlank": true,
     "description": "",
@@ -1953,88 +1936,17 @@
     "Colonne": ""
   },
   {
-    "title": "Étiquettes HSCM",
-    "href": "Support/Étiquettes_HSCM.pdf",
+    "title": "Communication MDF",
+    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/a9b0958ceee59c7685256e2a0052d887/dc7d1a1c58372f9a85256ed2006c76e9/$FILE/AH-245_DT9098(2021-09)%20D%20.pdf",
     "section": "documents",
     "sectionTitle": "Documents / Liens",
     "sectionDescription": "Documents, formulaires et liens classes par categorie.",
     "sectionOrder": 60,
-    "category": "Admin",
+    "category": "Formulaires généraux",
     "tags": [
-      "etiquettes",
-      "Sacre-Coeur"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Évaluation initiale du pt intoxiqué",
-    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/831818955b7114c885257a15004c134c/$FILE/AH-262-1_DT9228%20(2012-05).pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
-    "category": "Toxicologie",
-    "tags": [
-      "Évaluation",
-      "Intoxication",
-      "Patient"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Formulaire de signalement - Demande d’évaluation du risque de rage d’un animal domestique mordeur",
-    "href": "https://publications.msss.gouv.qc.ca/msss/fichiers/2024/24-277-01W.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
-    "category": "Signalement",
-    "tags": [
-      "Rage",
-      "Rabies",
-      "Déclaration",
-      "Signalement"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Formulaire de signalement - MADO",
-    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/64631465d0d5c09085256ecf006b4afd/$FILE/AS-770_DT9070%20(2024-06)%20D.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
-    "category": "Santé publique",
-    "tags": [
-      "MADO",
-      "Déclaration",
-      "Santé publique",
-      "Maladie à déclaration obligatoire"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Formulaire de signalement - Morsure de chien",
-    "href": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/agriculture-pecheries-alimentation/sante-animale/obligations/encadrement-chiens/FO_Formulaire_signalement_morsures_chien_md_MAPAQ.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
-    "category": "Signalement",
-    "tags": [
-      "Morsure de chien",
-      "Signalement",
-      "Bite",
-      "Santé publique",
-      "Public health"
+      "AH-245",
+      "AH245",
+      "Sommaire"
     ],
     "targetBlank": true,
     "description": "",
@@ -2077,6 +1989,57 @@
     "Colonne": ""
   },
   {
+    "title": "Ma Grossesse - FR",
+    "href": "Support/MaGrossesse_PDF.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 60,
+    "category": "Formulaires généraux",
+    "tags": [
+      "Obstetrique",
+      "Suivi",
+      "Inscription",
+      "Guichet"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Niveau de soins",
+    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/a9b0958ceee59c7685256e2a0052d887/d57fc1d9eb98eed385257f50005206c7/$FILE/AH-744_DT9261(2016-01)D.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 60,
+    "category": "Formulaires généraux",
+    "tags": [
+      "NIM",
+      "RCR"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Soingner une gastroenterite à la maison",
+    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/NIM-DSI-FicheInfoUsager-Gastroenterite-8900031.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 60,
+    "category": "Gastroenterite",
+    "tags": [
+      "Soins",
+      "Gastroenterite",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
     "title": "HTA - Home blood pressure monitoring log (EN)",
     "href": "https://hypertension.ca/wp-content/uploads/2017/11/HTC_BloodPressureLog_ENG_PREVIEW-1.pdf",
     "section": "documents",
@@ -2113,6 +2076,40 @@
     "Colonne": ""
   },
   {
+    "title": "Algorithme TCCL",
+    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/Algo_decisionnel_TCCL_Adulte_2021.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 60,
+    "category": "INESSS",
+    "tags": [
+      "TCCL",
+      "Trauma",
+      "Clinicien"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Dépliant TCCL",
+    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/INESSS_Depliant_TCCL_INESSS.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 60,
+    "category": "INESSS",
+    "tags": [
+      "TCCL",
+      "Trauma",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
     "title": "IVAC - Attestation médicale (initiale)",
     "href": "https://www.ivac.qc.ca/Documents/227_2019-09-attestation-medicale.pdf",
     "section": "documents",
@@ -2131,35 +2128,17 @@
     "Colonne": ""
   },
   {
-    "title": "Liste - Fiches aux usagers (CIUSSS NIM)",
-    "href": "https://www.ciusssnordmtl.ca/usagers-et-visiteurs/fiches-aux-usagers",
+    "title": "Prendre soins de sa plaie",
+    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/NIM-DSI-FicheInfoUsager-PlaiePost-8900032__1_.pdf",
     "section": "documents",
     "sectionTitle": "Documents / Liens",
     "sectionDescription": "Documents, formulaires et liens classes par categorie.",
     "sectionOrder": 60,
-    "category": "Usagers",
+    "category": "Plaies",
     "tags": [
-      "Fiches",
-      "Usagers",
-      "Information"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Ma Grossesse - FR",
-    "href": "Support/MaGrossesse_PDF.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
-    "category": "Formulaires généraux",
-    "tags": [
-      "Obstetrique",
-      "Suivi",
-      "Inscription",
-      "Guichet"
+      "Soins",
+      "Plaie",
+      "Patient"
     ],
     "targetBlank": true,
     "description": "",
@@ -2204,123 +2183,16 @@
     "Colonne": ""
   },
   {
-    "title": "Niveau de soins",
-    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/a9b0958ceee59c7685256e2a0052d887/d57fc1d9eb98eed385257f50005206c7/$FILE/AH-744_DT9261(2016-01)D.pdf",
+    "title": "Bundle SAAQ",
+    "href": "Bundle_SAAQ.pdf",
     "section": "documents",
     "sectionTitle": "Documents / Liens",
     "sectionDescription": "Documents, formulaires et liens classes par categorie.",
     "sectionOrder": 60,
-    "category": "Formulaires généraux",
+    "category": "SAAQ",
     "tags": [
-      "NIM",
-      "RCR"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Poster - What to do if you get hurt",
-    "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/what-to-do-get-hurt-work_0.pdf?cid=1751984318",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
-    "category": "CNESST",
-    "tags": [
-      "Affiche",
-      "comment",
-      "Travail"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Prendre soins de sa plaie",
-    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/NIM-DSI-FicheInfoUsager-PlaiePost-8900032__1_.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
-    "category": "Plaies",
-    "tags": [
-      "Soins",
-      "Plaie",
-      "Patient"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Prendre soins de sa sonde urinaire",
-    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/CIUSSS-407_1_Prendre_soin_d_une_sonde_final-Protege.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
-    "category": "Urologie",
-    "tags": [
-      "Soins",
-      "Sonde",
-      "Patient"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Prescription - Patient intoxiqué",
-    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/831818955b7114c885257a15004c134c/$FILE/AH-262-4_DT9228%20(2012-05).pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
-    "category": "Toxicologie",
-    "tags": [
-      "Prescription",
-      "Intoxication",
-      "Patient"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Procédure de signalement - Maladie à déclaration obligatoire (MADO)",
-    "href": "https://www.quebec.ca/sante/professionnels/mado/declaration/demarche-pour-les-medecins",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
-    "category": "Santé publique",
-    "tags": [
-      "MADO",
-      "Signalement",
-      "Santé publique",
-      "ITSS",
-      "Sexuellement",
-      "Infection"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Protocole NAC - CAPQ",
-    "href": "Support/Protocole NAC.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
-    "category": "Toxicologie",
-    "tags": [
-      "Protocole",
-      "NAC",
-      "CAPQ",
-      "Acetaminophene",
-      "APAP"
+      "SAAQ",
+      "Bundle"
     ],
     "targetBlank": true,
     "description": "",
@@ -2372,17 +2244,162 @@
     "Colonne": ""
   },
   {
-    "title": "Soingner une gastroenterite à la maison",
-    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/NIM-DSI-FicheInfoUsager-Gastroenterite-8900031.pdf",
+    "title": "Formulaire de signalement - MADO",
+    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/64631465d0d5c09085256ecf006b4afd/$FILE/AS-770_DT9070%20(2024-06)%20D.pdf",
     "section": "documents",
     "sectionTitle": "Documents / Liens",
     "sectionDescription": "Documents, formulaires et liens classes par categorie.",
     "sectionOrder": 60,
-    "category": "Gastroenterite",
+    "category": "Santé publique",
+    "tags": [
+      "MADO",
+      "Déclaration",
+      "Santé publique",
+      "Maladie à déclaration obligatoire"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Procédure de signalement - Maladie à déclaration obligatoire (MADO)",
+    "href": "https://www.quebec.ca/sante/professionnels/mado/declaration/demarche-pour-les-medecins",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 60,
+    "category": "Santé publique",
+    "tags": [
+      "MADO",
+      "Signalement",
+      "Santé publique",
+      "ITSS",
+      "Sexuellement",
+      "Infection"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Formulaire de signalement - Demande d’évaluation du risque de rage d’un animal domestique mordeur",
+    "href": "https://publications.msss.gouv.qc.ca/msss/fichiers/2024/24-277-01W.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 60,
+    "category": "Signalement",
+    "tags": [
+      "Rage",
+      "Rabies",
+      "Déclaration",
+      "Signalement"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Formulaire de signalement - Morsure de chien",
+    "href": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/agriculture-pecheries-alimentation/sante-animale/obligations/encadrement-chiens/FO_Formulaire_signalement_morsures_chien_md_MAPAQ.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 60,
+    "category": "Signalement",
+    "tags": [
+      "Morsure de chien",
+      "Signalement",
+      "Bite",
+      "Santé publique",
+      "Public health"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Évaluation initiale du pt intoxiqué",
+    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/831818955b7114c885257a15004c134c/$FILE/AH-262-1_DT9228%20(2012-05).pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 60,
+    "category": "Toxicologie",
+    "tags": [
+      "Évaluation",
+      "Intoxication",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Prescription - Patient intoxiqué",
+    "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/831818955b7114c885257a15004c134c/$FILE/AH-262-4_DT9228%20(2012-05).pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 60,
+    "category": "Toxicologie",
+    "tags": [
+      "Prescription",
+      "Intoxication",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Protocole NAC - CAPQ",
+    "href": "Support/Protocole NAC.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 60,
+    "category": "Toxicologie",
+    "tags": [
+      "Protocole",
+      "NAC",
+      "CAPQ",
+      "Acetaminophene",
+      "APAP"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Prendre soins de sa sonde urinaire",
+    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/CIUSSS-407_1_Prendre_soin_d_une_sonde_final-Protege.pdf",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 60,
+    "category": "Urologie",
     "tags": [
       "Soins",
-      "Gastroenterite",
+      "Sonde",
       "Patient"
+    ],
+    "targetBlank": true,
+    "description": "",
+    "Colonne": ""
+  },
+  {
+    "title": "Liste - Fiches aux usagers (CIUSSS NIM)",
+    "href": "https://www.ciusssnordmtl.ca/usagers-et-visiteurs/fiches-aux-usagers",
+    "section": "documents",
+    "sectionTitle": "Documents / Liens",
+    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
+    "sectionOrder": 60,
+    "category": "Usagers",
+    "tags": [
+      "Fiches",
+      "Usagers",
+      "Information"
     ],
     "targetBlank": true,
     "description": "",

@@ -50,6 +50,23 @@
       text-align: center;
     }
 
+    .pageLinks .filterButton,
+    .pageLinks .filterButton:visited {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid #aeb9c8;
+      border-radius: 16px;
+      background: #fff;
+      color: #004080;
+      font-size: 0.88rem;
+      text-decoration: none;
+    }
+
+    .pageLinks .filterButton:hover {
+      background: #f1f5fa;
+      text-decoration: none;
+    }
+
     a,
     a:visited {
       color: #0066cc;
@@ -277,7 +294,8 @@
   <main>
     <h2>Menu principal</h2>
     <p class="pageLinks">
-      <a href="https://publish.obsidian.md/medreborn" target="_blank" rel="noopener noreferrer">MedReborn quicklink</a>
+      <a class="filterButton" href="https://publish.obsidian.md/medreborn" target="_blank" rel="noopener noreferrer">MedReborn @ Obsidian</a>
+      <a class="filterButton" href="https://visualiseurplus.dossiersante.gouv.qc.ca/" target="_blank" rel="noopener noreferrer">Visualisateur DSQ+</a>
     </p>
 
     <section class="tableWrap" aria-label="Outils et documents">

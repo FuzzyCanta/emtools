@@ -1,248 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
-  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
   <link rel="manifest" href="favicon_io/site.webmanifest">
-  <link rel="icon" href="favicon.ico" />
-  
-  <title>EMtools</title>
+  <link rel="icon" href="favicon.ico">
+  <title>EMTools</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
       background: #f5f5f5;
-    }
-
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
+      color: #222;
+      font-family: Arial, sans-serif;
     }
 
     header {
-      background: #004080;
-      color: white;
       padding: 16px 24px;
+      background: #004080;
+      color: #fff;
+      text-align: center;
     }
 
     header h1 {
       margin: 0;
       font-size: 1.8rem;
-      text-align: center;
     }
 
     header p {
       margin: 4px 0 0;
       font-size: 0.95rem;
       opacity: 0.9;
-      text-align: center;
     }
 
     main {
-      display: block;
-      justify-content: center;
-      width: 100%;
-      max-width: 1200px;
+      width: min(1200px, calc(100% - 32px));
       margin: 24px auto;
-      padding: 0 0 40px;
     }
 
-    /* Center wrapper */
-    .main {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-
-    /* Master card category picker */
-    .menu-shell {
-      width: min(100% - 32px, 1000px);
-      margin: 0 auto 32px;
-    }
-
-    .master-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .master-card {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 8px 12px;
-      align-items: center;
-      min-height: 96px;
-      padding: 16px;
-      background: white;
-      border: 1px solid #d7dce5;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-      color: inherit;
-      font: inherit;
-      text-align: left;
-      cursor: pointer;
-      transition: transform 0.1s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-    }
-
-    .master-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
-    }
-
-    .master-card[aria-selected="true"] {
-      border-color: #004080;
-      box-shadow: 0 0 0 3px rgba(0, 64, 128, 0.12);
-    }
-
-    .master-card.hidden,
-    .card.hidden {
-      display: none;
-    }
-
-    .master-card::after {
-      content: ">";
-      display: grid;
-      place-items: center;
-      width: 28px;
-      height: 28px;
-      border: 1px solid #c7d2e6;
-      border-radius: 50%;
-      color: #004080;
-      font-size: 1rem;
-      line-height: 1;
-    }
-
-    .master-card[aria-selected="true"]::after {
-      background: #004080;
-      border-color: #004080;
-      color: white;
-    }
-
-    .master-card h2 {
-      margin: 0;
-      color: #004080;
-      font-size: 1.15rem;
-    }
-
-    .master-card p {
-      grid-column: 1 / -1;
-      margin: 0;
-      color: #555;
-      font-size: 0.9rem;
-    }
-
-    .category-panel {
-      display: none;
-      background: white;
-      border: 1px solid #d7dce5;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-    }
-
-    .category-panel.active {
-      display: block;
-      animation: panelFadeIn 0.18s ease-out;
-    }
-
-    @keyframes panelFadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(6px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .category-panel .tableWrap {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    /* Grid layout */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(234px, max-content));
-      gap: 16px;
-      justify-content: center;
-    }
-
-    /* Entire card is a link */
-    .card {
-      display: block;
-      background: white;
-      width: 200px;
-      height: 46px;
-      border-radius: 8px;
-      padding: 16px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      border: 1px solid #ddd;
-      text-align: center;
-      text-decoration: none;
-      /* removes link underline */
-      color: inherit;
-      /* text inherits normal color */
-      transition: transform 0.1s ease, box-shadow 0.2s ease;
-      cursor: pointer;
-    }
-
-    /* Hover effect for entire card */
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-    }
-
-    /* Card text */
-    .card h2 {
-      margin: 0 0 8px;
-      font-size: 1.1rem;
-      text-align: center;
-      color: #004080;
-    }
-
-    .card p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: #444;
+    h2 {
       text-align: center;
     }
 
-    @media (max-width: 640px) {
-      main {
-        margin-top: 16px;
-      }
-
-      .menu-shell {
-        width: min(100% - 24px, 1000px);
-      }
-
-      .master-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .category-panel {
-        padding: 16px;
-      }
+    .pageLinks {
+      margin: 0 0 16px;
+      text-align: center;
     }
 
     a,
     a:visited {
       color: #0066cc;
-      /* same color for normal and visited */
       text-decoration: none;
     }
 
@@ -250,204 +60,210 @@
       text-decoration: underline;
     }
 
-    footer {
-      text-align: center;
-      font-size: 0.8rem;
-      color: #777;
-      padding-bottom: 16px;
-    }
-
-
-    /* ---------------------------
-      Searchable document/link cards
-    ----------------------------*/
     .tableWrap {
-      width: 90%;
-      margin: 0 auto;
+      overflow-x: auto;
+      border: 1px solid #c8d0dc;
       background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 12px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     }
 
     .toolbar {
       display: flex;
-      gap: 12px;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
+      gap: 12px;
+      padding: 12px;
+      border-bottom: 1px solid #aeb9c8;
     }
 
     .toolbar input {
+      box-sizing: border-box;
       width: 100%;
+      min-width: 180px;
       padding: 10px 12px;
-      border: 1px solid #d0d4e0;
-      border-radius: 10px;
-      font-size: 14px;
+      border: 1px solid #c2cad5;
+      font: inherit;
     }
 
-    .toolbarActions {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      white-space: nowrap;
-    }
-
-    .count {
-      white-space: nowrap;
-      font-size: 12px;
-      color: #555;
-    }
-
-    .toolbarBtn {
-      padding: 7px 10px;
-      border: 1px solid #d0d4e0;
-      border-radius: 8px;
+    .toolbar button {
+      padding: 9px 12px;
+      border: 1px solid #aeb9c8;
       background: #fff;
       color: #004080;
       cursor: pointer;
       font: inherit;
-      font-size: 12px;
+      white-space: nowrap;
     }
 
-    .toolbarBtn:hover {
-      background: #f4f7ff;
+    .toolbar button:hover {
+      background: #f1f5fa;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 2px 8px;
-      border: 1px solid #e2e8f0;
-      border-radius: 999px;
-      font-size: 12px;
-      margin: 2px 6px 2px 0;
-      background: #fff;
-      color: #334155;
-    }
-
-    .openBtn {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 10px;
-      border: 1px solid #d0d4e0;
-      background: #fff;
-      text-decoration: none;
-      color: #004080;
-    }
-
-    .openBtn:hover {
-      background: #f4f7ff;
-    }
-
-    .documentGroups {
+    .filters {
       display: grid;
-      gap: 14px;
-    }
-
-    .docSubcard {
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      background: #fff;
-      overflow: hidden;
-    }
-
-    .docSubcard summary {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       gap: 12px;
-      padding: 12px 14px;
-      cursor: pointer;
-      color: #004080;
-      font-weight: 700;
-      list-style: none;
+      padding: 12px;
+      border-bottom: 1px solid #aeb9c8;
     }
 
-    .docSubcard summary::-webkit-details-marker {
+    .filterGroup {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr);
+      align-items: start;
+      gap: 8px 12px;
+    }
+
+    .filterGroup[hidden] {
       display: none;
     }
 
-    .docSubcard summary::after {
-      content: "+";
-      display: grid;
-      place-items: center;
-      width: 24px;
-      height: 24px;
-      border: 1px solid #c7d2e6;
-      border-radius: 50%;
-      flex: 0 0 auto;
-      font-weight: 400;
+    .filterLabel {
+      padding-top: 6px;
+      color: #444;
+      font-size: 0.9rem;
+      font-weight: 700;
     }
 
-    .docSubcard[open] summary::after {
-      content: "-";
-    }
-
-    .docSubcardCount {
-      color: #555;
-      font-size: 0.82rem;
-      font-weight: 400;
-      margin-left: auto;
-    }
-
-    .documentGrid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 240px);
-      gap: 12px;
-      justify-content: start;
-      padding: 0 14px 14px;
-    }
-
-    .directDocumentGrid {
-      padding-top: 0;
-    }
-
-    .documentCard {
+    .filterButtons {
       display: flex;
-      box-sizing: border-box;
-      flex-direction: column;
-      gap: 10px;
-      width: 240px;
-      height: 118px;
-      padding: 14px;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      background: #fbfdff;
-      color: inherit;
-      text-decoration: none;
-      transition: transform 0.1s ease, box-shadow 0.2s ease;
+      flex-wrap: wrap;
+      gap: 6px;
     }
 
-    .documentCard:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
-      text-decoration: none;
+    .filterButton {
+      padding: 6px 10px;
+      border: 1px solid #aeb9c8;
+      border-radius: 16px;
+      background: #fff;
+      color: #004080;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.88rem;
     }
 
-        .documentCard h3 {
-      margin: 0;
+    .filterButton:hover {
+      background: #f1f5fa;
+    }
+
+    .filterButton[aria-pressed="true"] {
+      border-color: #004080;
+      background: #004080;
+      color: #fff;
+    }
+
+    .count {
+      color: #555;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th,
+    td {
+      padding: 10px 12px;
+      border: 1px solid #c8d0dc;
+      vertical-align: top;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      background: #eaf0f7;
+      color: #173a60;
+      font-size: 0.9rem;
+    }
+
+    .sectionRow th,
+    .categoryRow th {
+      position: static;
+      text-align: left;
+    }
+
+    .sectionRow th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      border-top: 2px solid #004080;
+      background: #dce8f5;
       color: #004080;
       font-size: 1rem;
-      line-height: 1.25;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
 
-    .documentCardDescription {
-      margin: 0;
+    .categoryRow th {
+      padding-left: 28px;
+      background: #f0f3f7;
+      color: #34495e;
+      font-weight: 600;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    tbody tr:hover {
+      background: #eef5fc;
+    }
+
+    .itemTitle {
+      font-weight: 700;
+    }
+
+    .tags {
       color: #444;
       font-size: 0.88rem;
-      line-height: 1.3;
-      margin-top: auto;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+    }
+
+    .empty {
+      padding: 24px;
+      color: #555;
+      text-align: center;
+    }
+
+    footer {
+      padding: 0 0 16px;
+      color: #777;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      main {
+        width: calc(100% - 16px);
+        margin-top: 16px;
+      }
+
+      .toolbar {
+        flex-wrap: wrap;
+      }
+
+      .toolbar input {
+        flex-basis: 100%;
+      }
+
+      .filterGroup {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .filterLabel {
+        padding-top: 0;
+      }
+
+      .descriptionColumn {
+        display: none;
+      }
+
+      #categoryFilterGroup {
+        display: none;
+      }
+
+      th,
+      td {
+        padding: 8px;
+      }
     }
   </style>
 </head>
@@ -459,24 +275,39 @@
   </header>
 
   <main>
-    <h2 style="text-align: center;">Menu principal</h2>
-    <h4 style="text-align: center;"><a href="https://publish.obsidian.md/medreborn" target="_blank">MedReborn quicklink</a></h4>
+    <h2>Menu principal</h2>
+    <p class="pageLinks">
+      <a href="https://publish.obsidian.md/medreborn" target="_blank" rel="noopener noreferrer">MedReborn quicklink</a>
+    </p>
 
-    <div class="menu-shell">
+    <section class="tableWrap" aria-label="Outils et documents">
       <div class="toolbar">
-        <input id="linkSearch" type="text" placeholder="Chercher dans les outils, documents, categories, tags..." />
-        <div class="toolbarActions">
-          <button class="toolbarBtn" id="clearSearch" type="button">Effacer</button>
-          <button class="toolbarBtn" id="expandDocs" type="button">Tout ouvrir</button>
-          <button class="toolbarBtn" id="collapseDocs" type="button">Tout fermer</button>
-          <span class="count" id="linkCount"></span>
+        <input id="linkSearch" type="search" placeholder="Chercher dans les outils, documents, cat&eacute;gories, tags..." aria-label="Chercher dans les liens">
+        <button id="clearSearch" type="button">Effacer</button>
+        <span class="count" id="linkCount" aria-live="polite"></span>
+      </div>
+      <div class="filters">
+        <div class="filterGroup">
+          <span class="filterLabel" id="sectionFilterLabel">Section</span>
+          <div class="filterButtons" id="sectionFilters" role="group" aria-labelledby="sectionFilterLabel"></div>
+        </div>
+        <div class="filterGroup" id="categoryFilterGroup" hidden>
+          <span class="filterLabel" id="categoryFilterLabel">Cat&eacute;gorie</span>
+          <div class="filterButtons" id="categoryFilters" role="group" aria-labelledby="categoryFilterLabel"></div>
         </div>
       </div>
-
-      <div class="master-grid" id="masterGrid" role="tablist" aria-label="Menu principal"></div>
-
-      <div id="panelContainer"></div>
-    </div>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Outil / document</th>
+            <th class="descriptionColumn" scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody id="linkRows">
+          <tr><td class="empty" colspan="2">Chargement...</td></tr>
+        </tbody>
+      </table>
+    </section>
   </main>
 
   <footer>
@@ -484,342 +315,207 @@
   </footer>
 
   <script>
-    // Footer year
-    const yearEl = document.getElementById("year");
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    // ---------------------------
-    // JSON-driven menu rendering
-    // ---------------------------
-    const masterGrid = document.getElementById("masterGrid");
-    const panelContainer = document.getElementById("panelContainer");
     const searchInput = document.getElementById("linkSearch");
-    const countEl = document.getElementById("linkCount");
     const clearSearchBtn = document.getElementById("clearSearch");
-    const expandDocsBtn = document.getElementById("expandDocs");
-    const collapseDocsBtn = document.getElementById("collapseDocs");
-
-    let LINKS = [];
+    const countEl = document.getElementById("linkCount");
+    const rowsEl = document.getElementById("linkRows");
+    const sectionFiltersEl = document.getElementById("sectionFilters");
+    const categoryFilterGroupEl = document.getElementById("categoryFilterGroup");
+    const categoryFiltersEl = document.getElementById("categoryFilters");
+    const yearEl = document.getElementById("year");
+    let links = [];
     let selectedSection = "";
+    let selectedCategory = "";
+
+    yearEl.textContent = new Date().getFullYear();
 
     fetch("Support/links_documents.json")
-      .then(r => {
-        if (!r.ok) throw new Error("Failed to load links_documents.json");
-        return r.json();
+      .then(response => {
+        if (!response.ok) throw new Error("Failed to load links_documents.json");
+        return response.json();
       })
       .then(data => {
-        if (!Array.isArray(data)) {
-          throw new Error("links_documents.json must be an array");
-        }
-        LINKS = data.map(normalizeLink);
-        selectedSection = getSections(LINKS)[0]?.section || "";
+        if (!Array.isArray(data)) throw new Error("links_documents.json must be an array");
+        links = data.map(normalizeLink);
+        renderFilters();
         render();
       })
-      .catch(err => {
-        console.error(err);
-        alert("Could not load links_documents.json");
+      .catch(error => {
+        console.error(error);
+        rowsEl.innerHTML = `<tr><td class="empty" colspan="2">Impossible de charger la liste des liens.</td></tr>`;
       });
 
     function normalizeLink(link) {
       const section = link.section || "documents";
       return {
         ...link,
-        section,
         sectionTitle: link.sectionTitle || (section === "documents" ? "Documents / Liens" : section),
-        sectionDescription: link.sectionDescription || (section === "documents" ? "Documents, formulaires et liens classes par categorie." : ""),
-        sectionOrder: Number.isFinite(Number(link.sectionOrder)) ? Number(link.sectionOrder) : 50,
-        sectionOpenOnSelect: Boolean(link.sectionOpenOnSelect),
         category: String(link.category || "").trim(),
         description: String(link.description || "").trim(),
-        tags: Array.isArray(link.tags) ? link.tags : []
+        tags: Array.isArray(link.tags) ? link.tags.map(String) : []
       };
     }
 
-    function escapeHtml(s) {
-      return String(s)
-        .replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
     }
 
-    function searchableText(item) {
-      return [
+    function matchesSearch(item, query) {
+      const searchable = [
         item.title,
         item.href,
         item.section,
         item.sectionTitle,
         item.sectionDescription,
-        item.description,
         item.category,
+        item.description,
         item.tags.join(" ")
       ].join(" ").toLowerCase();
+      return searchable.includes(query);
     }
 
-    function textMatches(text, q) {
-      return !q || String(text || "").toLowerCase().includes(q);
-    }
-
-    function itemMatches(item, q) {
-      return !q || searchableText(item).includes(q);
-    }
-
-    function sectionMatches(section, q) {
-      return !q || [section.title, section.description, section.section].join(" ").toLowerCase().includes(q);
-    }
-
-    function getSections(items) {
-      const map = new Map();
-
-      items.forEach(item => {
-        if (!map.has(item.section)) {
-          map.set(item.section, {
-            section: item.section,
+    function getSections() {
+      const sections = new Map();
+      links.forEach(item => {
+        if (!sections.has(item.section)) {
+          sections.set(item.section, {
+            id: item.section,
             title: item.sectionTitle,
-            description: item.sectionDescription,
-            order: item.sectionOrder,
-            openOnSelect: item.sectionOpenOnSelect,
-            total: 0
+            order: sectionOrder(item)
           });
         }
-
-        const meta = map.get(item.section);
-        meta.total += 1;
-        meta.order = Math.min(meta.order, item.sectionOrder);
-        meta.openOnSelect = meta.openOnSelect || item.sectionOpenOnSelect;
       });
-
-      return Array.from(map.values()).sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
+      return Array.from(sections.values()).sort((a, b) =>
+        a.order - b.order || a.title.localeCompare(b.title)
+      );
     }
 
-    function groupByCategory(items) {
-      return items.reduce((groups, item) => {
-        if (!item.category) return groups;
-        if (!groups[item.category]) groups[item.category] = [];
-        groups[item.category].push(item);
-        return groups;
-      }, {});
-    }
+    function renderFilters() {
+      categoryFilterGroupEl.hidden = !selectedSection;
 
-    function selectMenuPanel(section) {
-      selectedSection = section;
-      const sectionMeta = getSections(LINKS).find(item => item.section === section);
+      const sections = getSections();
+      const sectionOptions = [{ id: "", title: "Toutes les sections" }, ...sections];
+      sectionFiltersEl.innerHTML = sectionOptions.map(section => `
+        <button class="filterButton" type="button" data-section="${escapeHtml(section.id)}"
+          aria-pressed="${section.id === selectedSection}">${escapeHtml(section.title)}</button>
+      `).join("");
 
-      document.querySelectorAll(".master-card[data-section]").forEach(card => {
-        const isSelected = card.dataset.section === section;
-        card.setAttribute("aria-selected", isSelected ? "true" : "false");
-      });
+      const categoryItems = selectedSection
+        ? links.filter(item => item.section === selectedSection)
+        : links;
+      const categories = [...new Set(categoryItems.map(item => item.category).filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b));
 
-      document.querySelectorAll(".category-panel[data-section]").forEach(panel => {
-        panel.classList.toggle("active", panel.dataset.section === section);
-      });
-
-      setSubcardsOpen(Boolean(sectionMeta && sectionMeta.openOnSelect));
-    }
-
-    function setSubcardsOpen(isOpen) {
-      const activePanel = document.querySelector(".category-panel.active");
-      if (!activePanel) return;
-
-      activePanel.querySelectorAll(".docSubcard").forEach(subcard => {
-        if (isOpen) {
-          subcard.setAttribute("open", "");
-        } else {
-          subcard.removeAttribute("open");
-        }
-      });
-    }
-
-    function renderMasterCards(sections, visibleItems, q) {
-      if (!masterGrid) return;
-
-      if (!sections.length) {
-        masterGrid.innerHTML = "";
-        return;
+      if (selectedCategory && !categories.includes(selectedCategory)) {
+        selectedCategory = "";
       }
 
-      masterGrid.innerHTML = sections.map(section => {
-        const sectionItems = visibleItems.filter(item => item.section === section.section);
-        const isSelected = !q && section.section === selectedSection;
-        const count = q && sectionMatches(section, q) ? section.total : sectionItems.length;
-        const countLabel = count === 1 ? "1 lien" : `${count} liens`;
-
-        return `
-          <button class="master-card" type="button" role="tab" aria-selected="${isSelected ? "true" : "false"}"
-            data-section="${escapeHtml(section.section)}">
-            <h2>${escapeHtml(section.title)}</h2>
-            <p>${escapeHtml(section.description)} ${countLabel}</p>
-          </button>
-        `;
-      }).join("");
-
-      if (!q) {
-        masterGrid.querySelectorAll(".master-card[data-section]").forEach(card => {
-          card.addEventListener("click", () => selectMenuPanel(card.dataset.section));
-        });
-      }
-    }
-
-    function renderPanels(sections, visibleItems, q) {
-      if (!panelContainer) return;
-
-      if (q) {
-        renderSearchPanel(visibleItems);
-        return;
-      }
-
-      if (!sections.length) {
-        panelContainer.innerHTML = `<section class="category-panel active" role="tabpanel"><p class="count">Aucun lien trouve.</p></section>`;
-        return;
-      }
-
-      panelContainer.innerHTML = sections.map(section => {
-        const sectionItems = sectionMatches(section, q)
-          ? LINKS.filter(item => item.section === section.section)
-          : visibleItems.filter(item => item.section === section.section);
-        const uncategorizedItems = sectionItems.filter(item => !item.category);
-        const categorizedItems = sectionItems.filter(item => item.category);
-        const grouped = groupByCategory(categorizedItems);
-        const categories = Object.keys(grouped).sort((a, b) => a.localeCompare(b));
-        const isActive = section.section === selectedSection;
-        const uncategorizedHtml = uncategorizedItems.length
-          ? `<div class="documentGrid directDocumentGrid">${uncategorizedItems.map(item => renderLinkCard(item)).join("")}</div>`
-          : "";
-
-        const groupsHtml = categories.map(category => {
-          const linksHtml = grouped[category].map(item => renderLinkCard(item)).join("");
-          const countLabel = grouped[category].length === 1 ? "1 item" : `${grouped[category].length} items`;
-
-          return `
-            <details class="docSubcard"${q ? " open" : ""}>
-              <summary>
-                <span>${escapeHtml(category)}</span>
-                <span class="docSubcardCount">${countLabel}</span>
-              </summary>
-              <div class="documentGrid">
-                ${linksHtml}
-              </div>
-            </details>
-          `;
-        }).join("");
-
-        return `
-          <section class="category-panel${isActive ? " active" : ""}" data-section="${escapeHtml(section.section)}" role="tabpanel">
-            <div class="documentGroups">
-              ${uncategorizedHtml}
-              ${groupsHtml || (uncategorizedHtml ? "" : `<p class="count">Aucun lien trouve.</p>`)}
-            </div>
-          </section>
-        `;
-      }).join("");
-    }
-
-    function renderSearchPanel(items) {
-      if (!panelContainer) return;
-
-      if (!items.length) {
-        panelContainer.innerHTML = `<section class="category-panel active" role="tabpanel"><p class="count">Aucun lien trouve.</p></section>`;
-        return;
-      }
-
-      const groups = items.reduce((acc, item) => {
-        const groupName = item.category
-          ? `${item.sectionTitle} / ${item.category}`
-          : item.sectionTitle;
-        if (!acc[groupName]) acc[groupName] = [];
-        acc[groupName].push(item);
-        return acc;
-      }, {});
-
-      const groupsHtml = Object.keys(groups).sort((a, b) => a.localeCompare(b)).map(groupName => {
-        const linksHtml = groups[groupName].map(item => renderLinkCard(item)).join("");
-        const countLabel = groups[groupName].length === 1 ? "1 item" : `${groups[groupName].length} items`;
-
-        return `
-          <details class="docSubcard" open>
-            <summary>
-              <span>${escapeHtml(groupName)}</span>
-              <span class="docSubcardCount">${countLabel}</span>
-            </summary>
-            <div class="documentGrid">
-              ${linksHtml}
-            </div>
-          </details>
-        `;
-      }).join("");
-
-      panelContainer.innerHTML = `
-        <section class="category-panel active" data-section="search-results" role="tabpanel">
-          <div class="documentGroups">
-            ${groupsHtml}
-          </div>
-        </section>
-      `;
-    }
-
-    function renderLinkCard(item) {
-      const targetAttr = item.targetBlank ? ` target="_blank" rel="noopener noreferrer"` : "";
-      const descriptionHtml = item.description
-        ? `<p class="documentCardDescription">${escapeHtml(item.description)}</p>`
-        : "";
-
-      return `
-        <a class="documentCard" href="${escapeHtml(item.href)}"${targetAttr}>
-          <h3>${escapeHtml(item.title)}</h3>
-          ${descriptionHtml}
-        </a>
-      `;
+      categoryFiltersEl.innerHTML = [
+        `<button class="filterButton" type="button" data-category="" aria-pressed="${selectedCategory === ""}">Toutes les cat&eacute;gories</button>`,
+        ...categories.map(category => `
+          <button class="filterButton" type="button" data-category="${escapeHtml(category)}"
+            aria-pressed="${category === selectedCategory}">${escapeHtml(category)}</button>
+        `)
+      ].join("");
     }
 
     function render() {
-      const q = (searchInput.value || "").trim().toLowerCase();
-      const allSections = getSections(LINKS);
-      const matchingItems = LINKS.filter(item => itemMatches(item, q));
-      const visibleSections = allSections.filter(section => {
-        return sectionMatches(section, q) || matchingItems.some(item => item.section === section.section);
+      const query = searchInput.value.trim().toLowerCase();
+      const visibleLinks = links.filter(item =>
+        (!selectedSection || item.section === selectedSection)
+        && (!selectedCategory || item.category === selectedCategory)
+        && matchesSearch(item, query)
+      );
+
+      visibleLinks.sort((a, b) =>
+        sectionOrder(a) - sectionOrder(b)
+        || a.sectionTitle.localeCompare(b.sectionTitle)
+        || a.category.localeCompare(b.category)
+        || a.title.localeCompare(b.title)
+      );
+
+      rowsEl.innerHTML = visibleLinks.length
+        ? renderGroupedRows(visibleLinks)
+        : `<tr><td class="empty" colspan="2">Aucun lien trouv&eacute;.</td></tr>`;
+      countEl.textContent = `${visibleLinks.length} / ${links.length} liens`;
+    }
+
+    function sectionOrder(item) {
+      const order = Number(item.sectionOrder);
+      return Number.isFinite(order) ? order : 50;
+    }
+
+    function renderGroupedRows(items) {
+      let currentSection = "";
+      let currentCategory = "";
+      const rows = [];
+
+      items.forEach(item => {
+        if (item.section !== currentSection) {
+          currentSection = item.section;
+          currentCategory = "";
+          rows.push(`
+            <tr class="sectionRow">
+              <th scope="row" colspan="2">${escapeHtml(item.sectionTitle)}</th>
+            </tr>
+          `);
+        }
+
+        if (item.category && item.category !== currentCategory) {
+          currentCategory = item.category;
+          rows.push(`
+            <tr class="categoryRow">
+              <th scope="row" colspan="2">${escapeHtml(item.category)}</th>
+            </tr>
+          `);
+        } else if (!item.category) {
+          currentCategory = "";
+        }
+
+        rows.push(renderRow(item));
       });
-      const displayedItems = new Map();
 
-      visibleSections.forEach(section => {
-        const sectionItems = sectionMatches(section, q)
-          ? LINKS.filter(item => item.section === section.section)
-          : matchingItems.filter(item => item.section === section.section);
-
-        sectionItems.forEach(item => displayedItems.set(`${item.section}|${item.category}|${item.title}|${item.href}`, item));
-      });
-
-      if (visibleSections.length && !visibleSections.some(section => section.section === selectedSection)) {
-        selectedSection = visibleSections[0].section;
-      }
-
-      renderMasterCards(visibleSections, matchingItems, q);
-      renderPanels(visibleSections, Array.from(displayedItems.values()), q);
-
-      if (!q) {
-        const selectedMeta = visibleSections.find(section => section.section === selectedSection);
-        setSubcardsOpen(Boolean(selectedMeta && selectedMeta.openOnSelect));
-      }
-
-      if (countEl) countEl.textContent = `${displayedItems.size} / ${LINKS.length}`;
+      return rows.join("");
     }
 
-    if (searchInput) {
-      searchInput.addEventListener("input", render);
+    function renderRow(item) {
+      const target = item.targetBlank ? ` target="_blank" rel="noopener noreferrer"` : "";
+
+      return `
+        <tr>
+          <td><a class="itemTitle" href="${escapeHtml(item.href)}"${target}>${escapeHtml(item.title)}</a></td>
+          <td class="descriptionColumn">${escapeHtml(item.description)}</td>
+        </tr>
+      `;
     }
 
-    if (clearSearchBtn && searchInput) {
-      clearSearchBtn.addEventListener("click", () => {
-        searchInput.value = "";
-        render();
-        searchInput.focus();
-      });
-    }
+    searchInput.addEventListener("input", render);
+    sectionFiltersEl.addEventListener("click", event => {
+      const button = event.target.closest("button[data-section]");
+      if (!button) return;
+      selectedSection = button.dataset.section;
+      selectedCategory = "";
+      renderFilters();
+      render();
+    });
+    categoryFiltersEl.addEventListener("click", event => {
+      const button = event.target.closest("button[data-category]");
+      if (!button) return;
+      selectedCategory = button.dataset.category;
+      renderFilters();
+      render();
+    });
+    clearSearchBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      render();
+      searchInput.focus();
+    });
 
-    if (expandDocsBtn) {
-      expandDocsBtn.addEventListener("click", () => setSubcardsOpen(true));
-    }
-
-    if (collapseDocsBtn) {
-      collapseDocsBtn.addEventListener("click", () => setSubcardsOpen(false));
-    }
   </script>
 </body>
 

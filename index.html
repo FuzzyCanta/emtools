@@ -364,10 +364,10 @@
       });
 
     function normalizeLink(link) {
-      const section = link.section || "documents";
+      const section = String(link.section || "documents").trim() || "documents";
       return {
         ...link,
-        sectionTitle: link.sectionTitle || (section === "documents" ? "Documents / Liens" : section),
+        section,
         category: String(link.category || "").trim(),
         description: String(link.description || "").trim(),
         tags: Array.isArray(link.tags) ? link.tags.map(String) : []
@@ -388,8 +388,6 @@
         item.title,
         item.href,
         item.section,
-        item.sectionTitle,
-        item.sectionDescription,
         item.category,
         item.description,
         item.tags.join(" ")
@@ -403,7 +401,7 @@
         if (!sections.has(item.section)) {
           sections.set(item.section, {
             id: item.section,
-            title: item.sectionTitle,
+            title: item.section,
             order: sectionOrder(item)
           });
         }
@@ -452,7 +450,7 @@
 
       visibleLinks.sort((a, b) =>
         sectionOrder(a) - sectionOrder(b)
-        || a.sectionTitle.localeCompare(b.sectionTitle)
+        || a.section.localeCompare(b.section)
         || a.category.localeCompare(b.category)
         || a.title.localeCompare(b.title)
       );
@@ -479,7 +477,7 @@
           currentCategory = "";
           rows.push(`
             <tr class="sectionRow">
-              <th scope="row" colspan="2">${escapeHtml(item.sectionTitle)}</th>
+              <th scope="row" colspan="2">${escapeHtml(item.section)}</th>
             </tr>
           `);
         }

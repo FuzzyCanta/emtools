@@ -2,56 +2,35 @@
   {
     "title": "Acidocétose diabétique - Partie 1",
     "href": "Support/acidocetose1.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Acidocétose",
       "insuline IV"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Acidocétose diabétique - Partie 2",
     "href": "Support/acidocetose2.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Acidocétose",
       "insuline IV"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Admission générale",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_62-200-825_Admission_medecine_generale_2026-06-26.pdf?Archive=115086893326&File=oiP%5F62%5F200%5F825%5Fadmission%5Fmedecine%5Fgenerale%5F2026%5F06%5F26%5Fpdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
-    "category": "Ordonnances pré-imprimés",
-    "tags": [],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Ajustement Tx inhalo général",
     "href": "Support/ajustementtxinhalo.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Traitement",
       "asthme",
@@ -59,17 +38,14 @@
       "inhalotherapie"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Analgésie à l'urgence",
     "href": "Support/titrationopioides.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Analgésie",
       "opioides",
@@ -77,49 +53,40 @@
       "urgence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Antibio à domicile",
     "href": "Support/antibiodomicile.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Antibiotiques",
       "ambulatoire"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Bronchiolite",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/68-000-301_Ordonnances_pediatrique_Bronchilite.pdf?Archive=112776893095&File=68%5F000%5F301%5Fordonnances%5Fpediatrique%5FBronchilite%5Fpdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "href": "Support/bronchiolite.pdf",
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Pediatrie",
       "inhalo"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Bronchospasme PED",
     "href": "Support/asthmepedhospit.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Ped",
       "Bronchospasme",
@@ -127,17 +94,14 @@
       "Asthme"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Bundle colique néphrétique",
     "href": "Support/Bundle_CN.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Colique",
       "nephretique",
@@ -146,113 +110,92 @@
       "bundle"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Bundle Pneumonie",
     "href": "Support/Bundle_pneumonie.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Pneumonie",
       "suivi",
       "bundle"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Cellulite/Adénite pédiatrique",
     "href": "Support/cellulitepedleg.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Infection",
       "peau"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Cystite CHSLD",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/OIP_68-000-421_Traitement_des_infection_urinaire_CHSLD.pdf?Archive=113025793120&File=oiP%5F68%5F000%5F421%5FTraitement%5Fdes%5Finfection%5Furinaire%5FcHSLD%5Fpdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "href": "Support/uibchsld.pdf",
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Infection urinaire"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Fer IV en externe",
     "href": "Support/ferivambu.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Intraveineux",
       "ambulatoire"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Gastro pédiatrique",
     "href": "Support/gevpedhospit.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Gastroentérite"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Héparine IV",
     "href": "Support/heparineiv.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Héparine",
       "heparine",
       "IV"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Hypertension gestationnelle",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-130-710_Ordonnances_Hypertension_gestationnelle_2018-03-15.pdf?Archive=115342493352&File=62%5F130%5F710%5Fordonnances%5FHypertension%5Fgestationnelle%5F2018%5F03%5F15%5Fpdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "href": "Support/htagest.pdf",
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Pré-éclampsie",
       "hypertension",
@@ -260,116 +203,95 @@
       "grossesse"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Influenza",
     "href": "Support/influenza.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Influ",
       "grippe"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Insuline IV (gestion de la glycémie)",
     "href": "Support/insulineiv.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Perfusion d'insuline"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Insuline SOUS-CUTANÉE",
     "href": "Support/insulinesc.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Insuline",
       "sous-cutanée",
       "SC"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Neutropénie fébrile bas risque",
     "href": "Support/neutropeniefebrilebasrisque.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Neutropenie",
       "febrile",
       "externe"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Neutropénie fébrile hospit",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/68-000-059_Ordonnances_Neutropenie_febrile.pdf?Archive=113154693133&File=68%5F000%5F059%5Fordonnances%5FNeutropenie%5Ffebrile%5Fpdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "href": "Support/neutfebhospit.pdf",
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Neutropenie",
       "febrile",
       "hospitalisation"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Occlusion intestinale",
     "href": "Support/occlusion.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Occlusion intestinale",
       "grafin",
       "gastro"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "OMA - Rx externe",
     "href": "Support/oma3-18po.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Otite",
       "congé",
@@ -377,34 +299,28 @@
       "pediatrie"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "OMA réfractaire",
     "href": "Support/omarefractaire.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Otite",
       "pediatrie",
       "medecine de jour"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "PNA pédiatrique IV",
     "href": "Support/pna2-18iv.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Pyélonéphrite",
       "Pediatrie",
@@ -412,17 +328,14 @@
       "IV"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "PNA pédiatrique ORALE",
     "href": "Support/pna2-18po.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Pyélonéphrite",
       "Pediatrie",
@@ -430,35 +343,47 @@
       "PO"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
+  },
+  {
+    "title": "Prescription externe sevrage nicotine",
+    "href": "Support/nicotineext.pdf",
+    "section": "HCSL",
+    "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
+    "tags": [
+      "Tabac",
+      "nicotine",
+      "remplacement",
+      "cessation",
+      "externe",
+      "TRN"
+    ],
+    "targetBlank": true,
+    "description": "Prescription externe TRN"
   },
   {
     "title": "Protection rénale imagerie",
     "href": "Support/Nephroprot.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Imagerie",
       "allergie",
       "protection",
-      "scan"
+      "scan",
+      "renal"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Protocole de détresse palliative",
     "href": "Support/detressepalliative.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Soins palliatifs",
       "détresse",
@@ -466,68 +391,41 @@
       "protocole de détresse"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Remplacement nicotinique",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-200-148_Ordonnances_cessation_tabagique_en_utilisant_des_therapies_de_remplacement_de_nicotine2018-05-30.pdf?Archive=115424693360&File=62%5F200%5F148%5Fordonnances%5Fcessation%5Ftabagique%5Fen%5Futilisant%5Fdes%5Ftherapies%5Fde%5Fremplacement%5Fde%5Fnicotine2018%5F05%5F30%5Fpdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
-    "category": "Ordonnances pré-imprimés",
-    "tags": [
-      "Tabac",
-      "nicotine",
-      "remplacement",
-      "cessation"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Sédation post-intubation",
     "href": "Support/sedation.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Sédation",
       "intubation",
       "maintient"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Sevrage alcoolique à l'urgence",
     "href": "Support/sevrageroh.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Sevrage",
       "alcool"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Sevrage nicotinique - Urgence",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-200-147_Ord_gestion_symptomes_de_sevrage_nicotine_en_utilisant_therapies_de_remplacment_de_nicotine_(VF-2).pdf?Archive=115423593360&File=62%5F200%5F147%5Ford%5Fgestion%5Fsymptomes%5Fde%5Fsevrage%5Fnicotine%5Fen%5Futilisant%5Ftherapies%5Fde%5Fremplacment%5Fde%5Fnicotine%5F%28VF%5F2%29%5Fpdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "href": "Support/nicotineurgence.pdf",
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Nicotine",
       "tabac",
@@ -535,17 +433,14 @@
       "cessation"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Thrombolyse embolie pulmonaire",
     "href": "Support/thrombolyseep.pdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "OIP HCSL",
-    "sectionDescription": "OIP HCSL",
-    "sectionOrder": 10,
+    "section": "HCSL",
     "category": "Ordonnances pré-imprimés",
+    "sectionOrder": 10,
     "tags": [
       "Embolie pulmonaire",
       "thrombolyse",
@@ -553,33 +448,27 @@
       "Alteplase"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Prescription d'imagerie - Vide",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/Requete_RADIOLOGIE_2023-06_60-700-508.pdf?Archive=111570293975&File=Requete%5FRaDioLoGie%5F2023%5F06%5F60%5F700%5F508%5Fpdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "Prescription",
-    "sectionDescription": "Prescription",
+    "href": "Support/radiologievide.pdf",
+    "section": "HCSL",
+    "category": "Prescription",
     "sectionOrder": 10,
-    "category": "",
     "tags": [
       "Imagerie",
       "requête"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Prescription pharmacologique - Vide",
-    "href": "https://bibliotheques.cissslaval.ca/GEIDEFile/62-510-251_Medicaments_(2025).pdf?Archive=113736893191&File=62%5F510%5F251%5FMedicaments%5F%282025%29%5Fpdf",
-    "section": "ordonnances HCSL",
-    "sectionTitle": "Prescription",
-    "sectionDescription": "Prescription",
+    "href": "Support/prescription.pdf",
+    "section": "HCSL",
+    "category": "Prescription",
     "sectionOrder": 10,
-    "category": "",
     "tags": [
       "Rx",
       "médicaments",
@@ -587,50 +476,41 @@
       "prescription"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Acid-Base Calculator",
     "href": "acid_base_tox_V1.html",
-    "section": "calculateurs",
-    "sectionTitle": "Calculateurs",
-    "sectionDescription": "Outils de calcul clinique et conversions.",
-    "sectionOrder": 20,
+    "section": "Calculateurs",
     "category": "",
+    "sectionOrder": 20,
     "tags": [
       "Acid-base",
       "Compensation",
       "Toxicologie"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Date calculator",
     "href": "date_calculator_v2.html",
-    "section": "calculateurs",
-    "sectionTitle": "Calculateurs",
-    "sectionDescription": "Outils de calcul clinique et conversions.",
-    "sectionOrder": 20,
+    "section": "Calculateurs",
     "category": "",
+    "sectionOrder": 20,
     "tags": [
       "Dates",
       "Jours"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Pediatric ED Rx calculator",
     "href": "pediatric_rx_calculator.html",
-    "section": "calculateurs",
-    "sectionTitle": "Calculateurs",
-    "sectionDescription": "Outils de calcul clinique et conversions.",
-    "sectionOrder": 20,
+    "section": "Calculateurs",
     "category": "",
+    "sectionOrder": 20,
     "tags": [
       "Pediatrie",
       "Rx",
@@ -638,17 +518,14 @@
       "Urgence"
     ],
     "targetBlank": true,
-    "description": "Posologies pediatriques frequentes a l'urgence selon le poids.",
-    "Colonne": ""
+    "description": "Posologies pediatriques frequentes a l'urgence selon le poids."
   },
   {
     "title": "Pregnancy Calculator",
     "href": "PDDC.html",
-    "section": "calculateurs",
-    "sectionTitle": "Calculateurs",
-    "sectionDescription": "Outils de calcul clinique et conversions.",
-    "sectionOrder": 20,
+    "section": "Calculateurs",
     "category": "",
+    "sectionOrder": 20,
     "tags": [
       "EDD",
       "US",
@@ -656,34 +533,28 @@
       "Grossesse"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Rx dose converter",
     "href": "convdose.html",
-    "section": "calculateurs",
-    "sectionTitle": "Calculateurs",
-    "sectionDescription": "Outils de calcul clinique et conversions.",
-    "sectionOrder": 20,
+    "section": "Calculateurs",
     "category": "",
+    "sectionOrder": 20,
     "tags": [
       "Dose",
       "Rx",
       "Conversion"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Unit converter",
     "href": "unitconverter.html",
-    "section": "calculateurs",
-    "sectionTitle": "Calculateurs",
-    "sectionDescription": "Outils de calcul clinique et conversions.",
-    "sectionOrder": 20,
+    "section": "Calculateurs",
     "category": "",
+    "sectionOrder": 20,
     "tags": [
       "Height",
       "Temperature",
@@ -691,85 +562,70 @@
       "IBW"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Algorithme Lombalgie - Choisir avec soins",
     "href": "https://choisiravecsoinquebec.ca/outils-et-ressources/prescriptions-non-pharmacologiques/#:~:text=Lombalgie",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Choisir avec soins",
+    "sectionOrder": 30,
     "tags": [
       "Lombalgie",
       "prescription non pharmacologique",
       "Choosing wisely"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Insomnia - Choosing wisely",
     "href": "https://choisiravecsoinquebec.ca/wp-content/uploads/2024/03/Insomnia_EN_FINAL.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Choisir avec soins",
+    "sectionOrder": 30,
     "tags": [
       "Insomnie",
       "prescription non pharmacologique",
       "Choosing wisely"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Insomnie - Choisir avec soins",
     "href": "https://choisiravecsoinquebec.ca/wp-content/uploads/2024/03/Insomnie_FR_-FINAL.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Choisir avec soins",
+    "sectionOrder": 30,
     "tags": [
       "Insomnie",
       "prescription non pharmacologique",
       "Choosing wisely"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Lombalgie - Choisir avec soins",
     "href": "https://choisiravecsoinquebec.ca/wp-content/uploads/2024/09/Prescription-non-pharmacologique-lombalgie.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Choisir avec soins",
+    "sectionOrder": 30,
     "tags": [
       "Lombalgie",
       "prescription non pharmacologique",
       "Choosing wisely"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Acouphène",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-08/99-3-acouphenes.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Acouphene",
       "oreille",
@@ -778,17 +634,14 @@
       "audiologiste"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Allergie à la pénicilline",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2023-02/1023-1-allergie-a-la-penicilline.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Penicilline",
       "allergie",
@@ -796,17 +649,14 @@
       "allergologie"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Anémie",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-09/814-1-anemie.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Anemie",
       "sang",
@@ -814,34 +664,28 @@
       "alimentation"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Cellulite infectieuse",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-03/399-2-soigner-une-infection-de-la-peau-cellulite-infectieuse_0.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Cellulite",
       "infection",
       "peau"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Céphalée médicamenteuse",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-01/109-3-cephalee-medicamenteuse.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Céphalée",
       "cephalee",
@@ -852,17 +696,14 @@
       "medicaments"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Coliques néphrétiques",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2023-08/639-1-Colique-nephretique.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Coliques",
       "nephretique",
@@ -871,34 +712,28 @@
       "pierres"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Constipation",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-12/326-3-des_moyens_pour_combattre_la_constipation_0.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Constipation",
       "selles",
       "alimentation"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Diverticulite",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2023-11/994-1-diverticulite.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Diverticulite",
       "abdominale",
@@ -906,17 +741,14 @@
       "alimentation"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Douleur à la vulve",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-12/186-3-les-douleurs-a-la-vulve-au-perinee-et-au-vagin.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Vulvodynie",
       "perine",
@@ -927,33 +759,27 @@
       "femme"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Douleur chroniques",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-07/505-1-vivre-avec-une-douleur-chronique.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Douleur",
       "chronique"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Douleur dorsale - Exercices",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-09/867-1-avoir-un-dos-en-bonne-sante-grace-a-l-activite-physique.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Dorsalgie",
       "lombalgie",
@@ -962,51 +788,42 @@
       "exercices"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Épistaxis",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2026-03/1305-1-quoi-faire-quand-on-saigne%20du%20nez-arreter-une-epistaxis.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Saignement",
       "nez",
       "épistaxis"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Fibrillation auriculaire",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2023-04/1086-1-fibrillation-auriculaire.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Fibrillation",
       "afib",
       "FAP"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Fissure anale",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-09/715-1-coupure-a-l-anus.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Fissure",
       "anale",
@@ -1015,17 +832,14 @@
       "constipation"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Hématurie macroscopique",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2023-03/1063-1-avoir-du-sang-dans-les-urines-l-hematurie-macroscopique.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Hematurie",
       "sang",
@@ -1034,17 +848,14 @@
       "uro"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Hernie discale",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-01/424-2-hernie-discale.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Hernie",
       "discale",
@@ -1053,17 +864,14 @@
       "cervicalgie"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Hygiène nasale - Adulte",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2024-01/1126-1-hygiene-nasale.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Nez",
       "nasale",
@@ -1071,17 +879,14 @@
       "rince"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Hypotension orthostatique",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-08/506-1-la-baisse-de-pression-quand-on-se-leve-hypotension-orthostatique.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "HTO",
       "hypotension",
@@ -1090,51 +895,42 @@
       "syncope"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Incontinence urinaire - Femme",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-08/133-4-Prevenir-et-traiter-incontinence-urinaire-femme.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Incontinence",
       "urinaire",
       "femme"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Incontinence urinaire - Hommes",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-08/239-4-Prevenir-et-traiter-incontinence-urinaire-chez-homme.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Incontinence",
       "urinaire",
       "homme"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Incontinence urinaire - Personnes âgées",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-12/566-2-incontinence-urinaire-chez-la-personne-ainee-exercices-et-traitements.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Exercices",
       "incontinence",
@@ -1143,33 +939,27 @@
       "urine"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Insomnie",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2021-09/229-2-insomnie.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Insomnie",
       "sommeil"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Paralysie de Bell",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2025-09/1150-1-paralysie-de-Bell.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Bell",
       "paralysie",
@@ -1178,17 +968,14 @@
       "patient"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Pierres aux reins",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-10/638-1-pierres-aux-reins-calculs-renaux.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Pierre",
       "lithiases",
@@ -1198,17 +985,14 @@
       "nephretique"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Précaution post-sevrage",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-04/259-3-retour-a-la-maison-apres-un-sevrage.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Sevrage",
       "alcool",
@@ -1216,17 +1000,14 @@
       "convulsion"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Prendre soins de mon plâtre",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2021-11/52-4-prendre-soin-de-mon-membre-platre.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Plâtre",
       "platre",
@@ -1237,17 +1018,14 @@
       "orthopedie"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Prendre soins des cicatrices",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2021-09/137-3-prendre-soin-de-mes-cicatrices-par-le-massage.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Cicatrice",
       "massage",
@@ -1257,17 +1035,14 @@
       "plaie"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Prévenir la migraine",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-01/116-3-migraine-reduire-les-crises-par-vos-habuitudes-de-vie.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Prevention",
       "migraine",
@@ -1275,17 +1050,14 @@
       "cephalee"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Prurit anal",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2024-01/858-1-demangeaisons-a-l-anus-ou-prurit-anal.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Demangeaison",
       "démangeaison",
@@ -1294,17 +1066,14 @@
       "prurit"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Rhizarthrose",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2025-08/1184-la-rhizarthrose.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Pouce",
       "douleur",
@@ -1313,17 +1082,14 @@
       "rhizarthrose"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Sécheresse vaginale",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-09/934-1-la-secheresse-vaginale.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Sécheresse",
       "secheresse",
@@ -1333,34 +1099,28 @@
       "menopause"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Sinusite chronique",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2024-01/1127-1-sinusite-chronique.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Sinusite",
       "chronique",
       "sinus"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Soins de la bouche",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2025-12/1263-1-garder-sa-bouche-en-sante.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Bouche",
       "dents",
@@ -1369,17 +1129,14 @@
       "haleine"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Soins de sonde",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-02/407-2-prendre-soins-d-une-sonde-dans-la-vessie.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Sonde",
       "soins",
@@ -1389,17 +1146,14 @@
       "catheter"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Soins post-sédation",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2023-03/15_4_4005013_retour_a_la_maison_apres_26_fin_2022-11-30.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Fiche patients CHUM",
+    "sectionOrder": 30,
     "tags": [
       "Sédation",
       "sedation",
@@ -1408,231 +1162,219 @@
       "soins post"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
+  },
+  {
+    "title": "TCC < 2 ans (En)",
+    "href": "Support/TCC2yo_en.pdf",
+    "section": "Ressources cliniques",
+    "category": "Fiche patients HSJ",
+    "sectionOrder": 30,
+    "tags": [
+      "TCCL",
+      "Trauma",
+      "Clinicien",
+      "Ped"
+    ],
+    "targetBlank": true,
+    "description": "Version anglaise"
+  },
+  {
+    "title": "TCC < 2 ans (Fr)",
+    "href": "Support/TCC2yo.pdf",
+    "section": "Ressources cliniques",
+    "category": "Fiche patients HSJ",
+    "sectionOrder": 30,
+    "tags": [
+      "TCCL",
+      "Trauma",
+      "Clinicien",
+      "Ped"
+    ],
+    "targetBlank": true,
+    "description": "Version française"
   },
   {
     "title": "Contraception - Outils et ressources",
     "href": "https://www.inspq.qc.ca/publications/3466",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Gynéco/Obstetrique",
+    "sectionOrder": 30,
     "tags": [
       "Contraception",
       "référence"
     ],
     "targetBlank": true,
-    "description": "Référence pour la contraception de l'INSPQ",
-    "Colonne": ""
+    "description": "Référence pour la contraception de l'INSPQ"
   },
   {
     "title": "Contraception d'urgence",
     "href": "https://www.inspq.qc.ca/sites/default/files/2024-05/3466-outil-contraception-urgence.pdf",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Gynéco/Obstetrique",
+    "sectionOrder": 30,
     "tags": [
       "Contraception",
       "référence",
       "urgence"
     ],
     "targetBlank": true,
-    "description": "Outils de sélection de la contraception d'urgence",
-    "Colonne": ""
+    "description": "Outils de sélection de la contraception d'urgence"
   },
   {
     "title": "Rx - Pre/Post-Partum",
     "href": "https://www.ncbi.nlm.nih.gov/books/NBK501922/",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Gynéco/Obstetrique",
+    "sectionOrder": 30,
     "tags": [
       "LactMed",
       "Grossesse",
       "Allaitement"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Acetaminophen plotter",
     "href": "acetaminophen_plotter.html",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Toxicologie",
+    "sectionOrder": 30,
     "tags": [
       "NAC",
       "Acetaminophene",
       "APAP"
     ],
     "targetBlank": false,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Guide antidotes - CAPQ",
     "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antidotes",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Toxicologie",
+    "sectionOrder": 30,
     "tags": [
       "Antidotes",
       "CAPQ"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Guide expo - CNESST",
     "href": "https://reptox.cnesst.gouv.qc.ca/Pages/recherche-produit.aspx",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Toxicologie",
+    "sectionOrder": 30,
     "tags": [
       "Exposition",
       "CNESST"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Guide GMU CANUTEC",
     "href": "https://wwwapps.tc.gc.ca/Saf-Sec-Sur/3/erg-gmu-web/",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Toxicologie",
+    "sectionOrder": 30,
     "tags": [
       "CANUTEC",
       "GMU",
       "Matiere dangereuse"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Ressource CAPQ",
     "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antipoison/ressources-et-partenaires",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Toxicologie",
+    "sectionOrder": 30,
     "tags": [
       "CAPQ",
       "Antipoison"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Syndrome tox",
     "href": "https://chemm.hhs.gov/chemmist.htm",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 30,
+    "section": "Ressources cliniques",
     "category": "Toxicologie",
+    "sectionOrder": 30,
     "tags": [
       "Toxidrome",
       "CHEMM"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Accueil clinique",
     "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/medecins/accueil-clinique/accueil-clinique-de-lhopital-du-sacre-coeur-de-montreal/pour-medecins-de-lurgence",
-    "section": "liens-institutionnels",
-    "sectionTitle": "Liens institutionnels",
-    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
-    "sectionOrder": 40,
+    "section": "Liens institutionnels",
     "category": "HSCM",
+    "sectionOrder": 40,
     "tags": [
       "Accueil clinique",
       "HSCM"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Guide antibio",
     "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/medecins/guide-dantibiotherapie-empirique",
-    "section": "liens-institutionnels",
-    "sectionTitle": "Liens institutionnels",
-    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
-    "sectionOrder": 40,
+    "section": "Liens institutionnels",
     "category": "HSCM",
+    "sectionOrder": 40,
     "tags": [
       "Antibiotherapie",
       "HSCM"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Ortho HMR",
     "href": "http://www.orthohmr.ca/medecine-sportive/algorithmes-decisionnels/",
-    "section": "liens-institutionnels",
-    "sectionTitle": "Liens institutionnels",
-    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
-    "sectionOrder": 40,
+    "section": "Liens institutionnels",
     "category": "Orthopedie",
+    "sectionOrder": 40,
     "tags": [
       "Ortho",
       "HMR",
       "Reference"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "GASP - General",
     "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/referer-un-usager/guichet-dacces-en-sante-physique-gasp/medecins-urgentologues",
-    "section": "liens-institutionnels",
-    "sectionTitle": "Liens institutionnels",
-    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
-    "sectionOrder": 40,
+    "section": "Liens institutionnels",
     "category": "Reference",
+    "sectionOrder": 40,
     "tags": [
       "GASP",
       "Specialite",
       "Reference"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "SIED - SP3 - Intranet",
     "href": "https://cissslaval.intranet.reg13.rtss.qc.ca/carrefour-clinique/bulletin-de-deces-sp-3-sied/",
-    "section": "liens-institutionnels",
-    "sectionTitle": "Liens institutionnels",
-    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
-    "sectionOrder": 40,
+    "section": "Liens institutionnels",
     "category": "",
+    "sectionOrder": 40,
     "tags": [
       "SP3",
       "décès",
@@ -1642,17 +1384,14 @@
       "intranet"
     ],
     "targetBlank": true,
-    "description": "Intranet",
-    "Colonne": ""
+    "description": "Intranet"
   },
   {
     "title": "SIED - SP3 - MSSS (extranet)",
     "href": "https://gia.sx5.rtss.qc.ca/auth/realms/msss/protocol/openid-connect/auth?client_id=siedwebprod&redirect_uri=https%3A%2F%2Fsied.apps.ti.sante.quebec%2Fsignin-oidc&response_type=code&scope=openid%20profile&code_challenge=PQ-NAAzcWKCAE8Mpj_7qIEpXcb8VkYkkku4LlaMscRk&code_challenge_method=S256&response_mode=form_post&nonce=639183510864483287.ZjZmYzJkZjMtMWJjYy00YTczLWI1NjMtZmZiNmEyOGMyMDkzMTA3MDIzYzEtMzgyZC00ZDAwLTllNjYtYmI2NTgwMjBjYzVi&state=CfDJ8Pa6fLXTtY5AtX4ngR54WRH47oFHrH-QdhKbH9YroRk8S-k84nRuEJV9USkNbIsATQ_0ul5E4OHVTaFtdfN3f25pL8XteMzovEI0C3HFrqmV1jPQ1CVAbgCmjnjHb-JrZVF3m55ZRVphipPohWYy1jiljmFoJAfx7-bRIZ4uMAG6Hfy0hjdM_5g1kTzf1avKMpvrxk1qS_lbPwMxyz2H0_uo8KuQXxnd3u1zO_JHKj3-ERUi4KE6n8MhHkKyFLbVUPMWsGzgwf255H9O-vXyo0ZMPr7ly5oPjasmevZX8ZqwvxwMKVV0jQExoBBqO5NPABCP2eo0yhsVKPvbIXYtulU2FawlOktuAIQSSPUIiXqaF5MaESteg4ovOYGkaosgoB0UjanI305YpIjwC3strl4vPVKw7MjS70mMJ4AoD1I5&x-client-SKU=ID_NET8_0&x-client-ver=8.9.0.0",
-    "section": "liens-institutionnels",
-    "sectionTitle": "Liens institutionnels",
-    "sectionDescription": "Ressources institutionnelles frequemment utilisees.",
-    "sectionOrder": 40,
+    "section": "Liens institutionnels",
     "category": "",
+    "sectionOrder": 40,
     "tags": [
       "SP3",
       "décès",
@@ -1663,199 +1402,165 @@
       "extranet"
     ],
     "targetBlank": true,
-    "description": "Extranet",
-    "Colonne": ""
+    "description": "Extranet"
   },
   {
     "title": "Justification d'absence",
     "href": "lettreabsence.html",
-    "section": "prescripteur",
-    "sectionTitle": "Prescripteur",
-    "sectionDescription": "Documents cliniques personnalisables.",
-    "sectionOrder": 50,
+    "section": "Prescripteur",
     "category": "",
+    "sectionOrder": 50,
     "tags": [
       "Absence",
       "Lettre",
       "HSCM"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Prescripteur externe",
     "href": "Prescription_externe.html",
-    "section": "prescripteur",
-    "sectionTitle": "Prescripteur",
-    "sectionDescription": "Documents cliniques personnalisables.",
-    "sectionOrder": 50,
+    "section": "Prescripteur",
     "category": "",
+    "sectionOrder": 50,
     "tags": [
       "Prescription",
       "Externe",
       "HSCM"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Étiquettes HSCM",
-    "href": "Support/Étiquettes_HSCM.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
-    "category": "Admin",
-    "tags": [
-      "etiquettes",
-      "Sacre-Coeur"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Aide à la décision - Rage",
     "href": "https://msss.gouv.qc.ca/aide-decision-app/etape.php?situation=Rage",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Aide à la décision",
+    "sectionOrder": 60,
     "tags": [
       "Rage",
       "Rabies",
       "Algorithme"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Aide à la décision - Tetanos",
     "href": "https://msss.gouv.qc.ca/aide-decision-app/etape.php?p&situation=Tetanos",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Aide à la décision",
+    "sectionOrder": 60,
     "tags": [
       "Tetanos",
       "Vaccination",
       "Algorithme"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
+  },
+  {
+    "title": "Formulaire de signalement MAPAQ",
+    "href": "https://publications.msss.gouv.qc.ca/msss/fichiers/2024/24-277-01W.pdf",
+    "section": "Documents / Liens",
+    "category": "Aide à la décision",
+    "sectionOrder": 60,
+    "tags": [
+      "Rage",
+      "Rabies",
+      "Déclaration",
+      "Signalement"
+    ],
+    "targetBlank": true,
+    "description": ""
   },
   {
     "title": "Affiche - Explication pour le travailleur",
     "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/affiche-quoi-faire-accident-travail.pdf?cid=1751984222",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "CNESST",
+    "sectionOrder": 60,
     "tags": [
       "Affiche",
       "comment",
       "Travail"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Bundle CNESST",
-    "href": "Bundle_CNESST.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "href": "Support/Bundle_CNESST.pdf",
+    "section": "Documents / Liens",
     "category": "CNESST",
+    "sectionOrder": 60,
     "tags": [
       "CNESST",
       "Travail"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "CNESST - Attestation médicale (initiale)",
     "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/1936-attestation-medicale_0.pdf?cid=1752156944",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "CNESST",
+    "sectionOrder": 60,
     "tags": [
       "CNESST",
       "Travail"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "CNESST - Ensemble de la documentation",
     "href": "https://www.cnesst.gouv.qc.ca/fr/demarches-formulaires/professionnels-intervenants-sante/formulaires-professionnels-sante-traitants",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "CNESST",
+    "sectionOrder": 60,
     "tags": [
       "CNESST",
       "Travail"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "CNESST - Rapport médical (suivi)",
     "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/1937-rapport-medical.pdf?cid=1752157001",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "CNESST",
+    "sectionOrder": 60,
     "tags": [
       "CNESST",
       "Travail"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Poster - What to do if you get hurt",
     "href": "https://www.cnesst.gouv.qc.ca/sites/default/files/documents/what-to-do-get-hurt-work_0.pdf?cid=1751984318",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "CNESST",
+    "sectionOrder": 60,
     "tags": [
       "Affiche",
       "comment",
       "Travail"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Diabète - Ajustement Rx fonction rénale",
     "href": "https://www.coffreaoutilsdiabete.ca/pdf/Tableau-fr-FRv11.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Diabète",
+    "sectionOrder": 60,
     "tags": [
       "Clinicien",
       "Medicaments",
@@ -1863,17 +1568,14 @@
       "Ajustement"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Diabète - Liste des médicaments",
     "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/05/114015-DQ25-TableauMedicaments-MAJ-FR-MR.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Diabète",
+    "sectionOrder": 60,
     "tags": [
       "Tableau",
       "Ressources",
@@ -1881,85 +1583,87 @@
       "Medicaments"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Diabète - Médicament à arrêter",
     "href": "https://www.diabete.qc.ca/wp-content/uploads/2023/01/Jours-de-maladie-FR-RECTO-VERSO-2019-2.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Diabète",
+    "sectionOrder": 60,
     "tags": [
       "Déshydratation",
       "Medication",
       "Patient"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Diabète T1 - Référer un patient",
     "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/12/Demande-de-consult-DbT1-DQ_dynamique.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Diabète",
+    "sectionOrder": 60,
     "tags": [
       "Reference",
       "Clinicien",
       "Guichet"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Diabète T2 - Référer un patient",
     "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/12/Demande-consult.-DbT2-DQ__dynamique.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Diabète",
+    "sectionOrder": 60,
     "tags": [
       "Reference",
       "Clinicien",
       "Guichet"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Communication MDF",
     "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/a9b0958ceee59c7685256e2a0052d887/dc7d1a1c58372f9a85256ed2006c76e9/$FILE/AH-245_DT9098(2021-09)%20D%20.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Formulaires généraux",
+    "sectionOrder": 60,
     "tags": [
       "AH-245",
       "AH245",
       "Sommaire"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": "AH-245"
+  },
+  {
+    "title": "Évaluation initiale - Polytraumatisé",
+    "href": "Support/AH450.pdf",
+    "section": "Documents / Liens",
+    "category": "Formulaires généraux",
+    "sectionOrder": 60,
+    "tags": [
+      "AH-450",
+      "polytraumatise",
+      "trauma",
+      "eval",
+      "éval",
+      "initiale"
+    ],
+    "targetBlank": true,
+    "description": "AH-450"
   },
   {
     "title": "GAMF EN",
     "href": "Support/Inscription_medecin_famille_Quebec_en.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Formulaires généraux",
+    "sectionOrder": 60,
     "tags": [
       "RAMQ",
       "MDF",
@@ -1967,17 +1671,14 @@
       "Guichet"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "GAMF FR",
     "href": "Support/Inscription_medecin_famille_Quebec.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Formulaires généraux",
+    "sectionOrder": 60,
     "tags": [
       "RAMQ",
       "MDF",
@@ -1985,17 +1686,14 @@
       "Guichet"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Ma Grossesse - FR",
     "href": "Support/MaGrossesse_PDF.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Formulaires généraux",
+    "sectionOrder": 60,
     "tags": [
       "Obstetrique",
       "Suivi",
@@ -2003,50 +1701,41 @@
       "Guichet"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Niveau de soins",
     "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/a9b0958ceee59c7685256e2a0052d887/d57fc1d9eb98eed385257f50005206c7/$FILE/AH-744_DT9261(2016-01)D.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Formulaires généraux",
+    "sectionOrder": 60,
     "tags": [
       "NIM",
       "RCR"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Soingner une gastroenterite à la maison",
     "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/NIM-DSI-FicheInfoUsager-Gastroenterite-8900031.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Gastroenterite",
+    "sectionOrder": 60,
     "tags": [
       "Soins",
       "Gastroenterite",
       "Patient"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "HTA - Home blood pressure monitoring log (EN)",
     "href": "https://hypertension.ca/wp-content/uploads/2017/11/HTC_BloodPressureLog_ENG_PREVIEW-1.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Hypertension",
+    "sectionOrder": 60,
     "tags": [
       "Journal",
       "Pression",
@@ -2054,17 +1743,14 @@
       "Patient"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "HTA - Journal de pression artérielle à domicile (FR)",
     "href": "https://hypertension.ca/wp-content/uploads/2018/07/HTC_HomeBPLog_FRE.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Hypertension",
+    "sectionOrder": 60,
     "tags": [
       "Journal",
       "Pression",
@@ -2072,51 +1758,42 @@
       "Patient"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Algorithme TCCL",
     "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/Algo_decisionnel_TCCL_Adulte_2021.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "INESSS",
+    "sectionOrder": 60,
     "tags": [
       "TCCL",
       "Trauma",
       "Clinicien"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Dépliant TCCL",
     "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/INESSS_Depliant_TCCL_INESSS.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "INESSS",
+    "sectionOrder": 60,
     "tags": [
       "TCCL",
       "Trauma",
       "Patient"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "IVAC - Attestation médicale (initiale)",
     "href": "https://www.ivac.qc.ca/Documents/227_2019-09-attestation-medicale.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "IVAC",
+    "sectionOrder": 60,
     "tags": [
       "Victime",
       "Violence",
@@ -2124,34 +1801,28 @@
       "Criminel"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Prendre soins de sa plaie",
     "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/NIM-DSI-FicheInfoUsager-PlaiePost-8900032__1_.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Plaies",
+    "sectionOrder": 60,
     "tags": [
       "Soins",
       "Plaie",
       "Patient"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Mastite - Soins à domicile",
     "href": "https://cdn.ciussscentreouest.ca/documents/hgj/pfrc/Breastfeeding_clinic/mastite_info_pour_patients_2022_final.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Post-partum",
+    "sectionOrder": 60,
     "tags": [
       "Fiches",
       "Usagers",
@@ -2160,17 +1831,14 @@
       "Allaitement"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Mastitis - Home care",
     "href": "https://cdn.ciussscentreouest.ca/documents/hgj/pfrc/Breastfeeding_clinic/mastitis_handout_2022_final.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Post-partum",
+    "sectionOrder": 60,
     "tags": [
       "Fiches",
       "Usagers",
@@ -2179,78 +1847,63 @@
       "Allaitement"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Bundle SAAQ",
-    "href": "Bundle_SAAQ.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "href": "Support/Bundle_SAAQ.pdf",
+    "section": "Documents / Liens",
     "category": "SAAQ",
+    "sectionOrder": 60,
     "tags": [
       "SAAQ",
       "Bundle"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "SAAQ - Déclaration d'inaptitude à conduire",
     "href": "https://saaq.gouv.qc.ca/blob/saaq/documents/extranet_sante/sante-conducteur/formulaires/5626.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "SAAQ",
+    "sectionOrder": 60,
     "tags": [
       "SAAQ"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "SAAQ - Ensemble de la documentation",
     "href": "https://saaq.gouv.qc.ca/extranet-sante/indemnisation-accidentes-route/medecins",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "SAAQ",
+    "sectionOrder": 60,
     "tags": [
       "SAAQ"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "SAAQ - Rapport médical initial",
     "href": "https://saaq.gouv.qc.ca/blob/saaq/documents/extranet_sante/medecins/rapport-initial-facture.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "SAAQ",
+    "sectionOrder": 60,
     "tags": [
       "SAAQ"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Formulaire de signalement - MADO",
     "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/64631465d0d5c09085256ecf006b4afd/$FILE/AS-770_DT9070%20(2024-06)%20D.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Santé publique",
+    "sectionOrder": 60,
     "tags": [
       "MADO",
       "Déclaration",
@@ -2258,17 +1911,14 @@
       "Maladie à déclaration obligatoire"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Procédure de signalement - Maladie à déclaration obligatoire (MADO)",
     "href": "https://www.quebec.ca/sante/professionnels/mado/declaration/demarche-pour-les-medecins",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Santé publique",
+    "sectionOrder": 60,
     "tags": [
       "MADO",
       "Signalement",
@@ -2278,35 +1928,14 @@
       "Infection"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
-  },
-  {
-    "title": "Formulaire de signalement - Demande d’évaluation du risque de rage d’un animal domestique mordeur",
-    "href": "https://publications.msss.gouv.qc.ca/msss/fichiers/2024/24-277-01W.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
-    "category": "Signalement",
-    "tags": [
-      "Rage",
-      "Rabies",
-      "Déclaration",
-      "Signalement"
-    ],
-    "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Formulaire de signalement - Morsure de chien",
     "href": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/agriculture-pecheries-alimentation/sante-animale/obligations/encadrement-chiens/FO_Formulaire_signalement_morsures_chien_md_MAPAQ.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Signalement",
+    "sectionOrder": 60,
     "tags": [
       "Morsure de chien",
       "Signalement",
@@ -2315,51 +1944,42 @@
       "Public health"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Évaluation initiale du pt intoxiqué",
     "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/831818955b7114c885257a15004c134c/$FILE/AH-262-1_DT9228%20(2012-05).pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Toxicologie",
+    "sectionOrder": 60,
     "tags": [
       "Évaluation",
       "Intoxication",
       "Patient"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Prescription - Patient intoxiqué",
     "href": "http://msssa4.msss.gouv.qc.ca/intra/formres.nsf/36e747f5dc7d0d6585256e1a006ba727/831818955b7114c885257a15004c134c/$FILE/AH-262-4_DT9228%20(2012-05).pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Toxicologie",
+    "sectionOrder": 60,
     "tags": [
       "Prescription",
       "Intoxication",
       "Patient"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Protocole NAC - CAPQ",
     "href": "Support/Protocole NAC.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Toxicologie",
+    "sectionOrder": 60,
     "tags": [
       "Protocole",
       "NAC",
@@ -2368,51 +1988,42 @@
       "APAP"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Prendre soins de sa sonde urinaire",
     "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/CIUSSS-407_1_Prendre_soin_d_une_sonde_final-Protege.pdf",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Urologie",
+    "sectionOrder": 60,
     "tags": [
       "Soins",
       "Sonde",
       "Patient"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Liste - Fiches aux usagers (CIUSSS NIM)",
     "href": "https://www.ciusssnordmtl.ca/usagers-et-visiteurs/fiches-aux-usagers",
-    "section": "documents",
-    "sectionTitle": "Documents / Liens",
-    "sectionDescription": "Documents, formulaires et liens classes par categorie.",
-    "sectionOrder": 60,
+    "section": "Documents / Liens",
     "category": "Usagers",
+    "sectionOrder": 60,
     "tags": [
       "Fiches",
       "Usagers",
       "Information"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "HSJ - Liste des FOPR",
     "href": "https://msss365.sharepoint.com/:u:/r/teams/CHUSJ-TestdebibliothquepartagedansSharepoint/SitePages/Home.aspx?csf=1&web=1&e=jvHuE9",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 60,
+    "section": "Ressources cliniques",
     "category": "",
+    "sectionOrder": 60,
     "tags": [
       "HSJ",
       "Ped",
@@ -2421,17 +2032,14 @@
       "FOPR"
     ],
     "targetBlank": true,
-    "description": "FOPR HSJ",
-    "Colonne": ""
+    "description": "FOPR HSJ"
   },
   {
     "title": "INESSS - Accueil GUO",
     "href": "https://www.inesss.qc.ca/formations-et-outils/outils-cliniques/outils-par-types/guides-dusage-optimal.html",
-    "section": "ressources-cliniques",
-    "sectionTitle": "Ressources cliniques",
-    "sectionDescription": "Liens et outils classes par sujets cliniques.",
-    "sectionOrder": 60,
+    "section": "Ressources cliniques",
     "category": "",
+    "sectionOrder": 60,
     "tags": [
       "INESSS",
       "GUO",
@@ -2440,17 +2048,14 @@
       "Québec"
     ],
     "targetBlank": true,
-    "description": "Liste des guides d'usage optimaux INESSS",
-    "Colonne": ""
+    "description": "Liste des guides d'usage optimaux INESSS"
   },
   {
     "title": "ACÉTATE DE SODIUM",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Acetate-de-sodium-1.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2458,17 +2063,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ACÉTYLCYSTÉINE (Mucomyst md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Acetylcysteine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2476,17 +2078,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ACIDE FOLINIQUE (Leucovorin md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Acide-folinique-Leucovorinmd-1.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2494,17 +2093,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ACIDE FOLIQUE (Folvite md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Acide-folinique-Folvitemd-1.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2512,17 +2108,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ACIDE TRANEXAMIQUE (Cyklokapron md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Acide-tranexamique.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2530,17 +2123,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ADÉNOSINE (Adenocard md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Adenosine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2548,17 +2138,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ALTÉPLASE (Activase md) (Embolie pulmonaire)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Alteplase-embolie-pulmonaire.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2566,17 +2153,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ALTÉPLASE (Activase md) (Valve mécanique)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Alteplase-valve-mecanique.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2584,17 +2168,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "AMINOPHYLLINE",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Aminophylline.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2602,17 +2183,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "AMIODARONE (Cordarone md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Amiodarone.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2620,17 +2198,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Annexe 1 Tableau des principaux électrolytes ou additifs",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Annexe-1-Tableau-des-principaux-electrolytes-ou-additifs.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2638,17 +2213,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Annexe 2 Algorithme pour la prise en charge de l’extravasation de médicaments non cytotoxiques par voie périphérique à l’IUCPQ-UL",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Annexe-2-Algorithme-pour-la-prise-en-charge-de-lextravasation-de.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2656,17 +2228,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "Annexe 3 Tableaux des débits d’administration en mL/h en l’absence d’utilisation des pompes volumétriques intelligentes",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Annexe-3-Tableaux-des-debits-dadministration-en-mL-h-en.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2674,17 +2243,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ARGATROBAN (Argatroban md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Argatroban.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2692,17 +2258,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ATROPINE",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Atropine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2710,17 +2273,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "BICARBONATE DE SODIUM (NaHCO3)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Bicarbonate-de-sodium.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2728,17 +2288,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "BIVALIRUDINE (Angiomax md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Bivalirudine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2746,17 +2303,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "BLEU DE MÉTHYLÈNE",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Bleu-de-methylene-1.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2764,17 +2318,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "CALCIUM (CHLORURE)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Calcium-chlorure.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2782,17 +2333,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "CALCIUM (gluconate)",
     "href": "https://www.iucpq.ca/app/uploads/2025/11/Calcium-gluconate.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2800,17 +2348,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "CANGRELOR (Kengrexal md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/12/Cangrelor.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2818,17 +2363,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "CISATRACURIUM (Nimbex md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Cisatracurium.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2836,17 +2378,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "CLÉVIDIPINE (Cleviprex md)",
     "href": "https://www.iucpq.ca/app/uploads/2025/11/Clevidipine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2854,17 +2393,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "DANTROLÈNE SODIQUE (Dantrium md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Dantrolene-sodique.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2872,17 +2408,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "DEFEROXAMINE (Desferal md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Deferoxamine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2890,17 +2423,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "DESMOPRESSINE (DDAVP md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Desmopressine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2908,17 +2438,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "DEXMÉDÉTOMIDINE (Precedex md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Dexmedetomidine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2926,17 +2453,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "DIGOXINE (Lanoxin md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Digoxine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2944,17 +2468,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "DILTIAZEM (Cardizem md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Diltiazem.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2962,17 +2483,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "DOBUTAMINE (Dobutrex md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Dobutamine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2980,17 +2498,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "DOPAMINE (Intropin md, Révimine md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Dopamine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -2998,17 +2513,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ÉMULSION LIPIDIQUE (SMOFlipid md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Emulsion-lipidique.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3016,17 +2528,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ÉNALAPRIL (Vasotec I.V. md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Enalapril.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3034,17 +2543,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ÉPHÉDRINE",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Ephedrine-1.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3052,17 +2558,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ÉPINÉPHRINE, adrénaline",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Epinephrine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3070,17 +2573,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "EPTIFIBATIDE (Integrilin md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Eptifibatide.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3088,17 +2588,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ESMOLOL (Brevibloc md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Esmolol.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3106,17 +2603,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ÉTOMIDATE (Tomvi md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Etomidate.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3124,17 +2618,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "FENTANYL (Sublimaze md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Fentanyl.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3142,17 +2633,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "FLUMAZÉNIL (Anexate md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Flumazenil.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3160,17 +2648,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "FOMÉPIZOLE (Antizol md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Fomepizole.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3178,17 +2663,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "FRAGMENTS D’ANTICORPS SPÉCIFIQUES CONTRE LA DIGOXINE (DigiFab md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Fragments-danticorps-specifiques-de-la-digoxine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3196,17 +2678,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "FUROSÉMIDE (Lasix md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Furosemide.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3214,17 +2693,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "HYDRALAZINE (Aprésoline md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/hydralazine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3232,17 +2708,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "HYDROMORPHONE (Dilaudid md)",
     "href": "https://www.iucpq.ca/app/uploads/2025/11/hydromorphone.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3250,17 +2723,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "HYDROXOCOBALAMINE (Cyanokit md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/hydroxocobalamine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3268,17 +2738,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ICATIBANT (Firazyr md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Icatibant.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3286,17 +2753,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "IDARUCIZUMAB (Praxbind md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Idarucizumab.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3304,17 +2768,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "INSULINE RÉGULIERE (Humulin R md, Novolin GE Toronto md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Insuline-reguliere.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3322,17 +2783,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ISOPROTÉRÉNOL (Isuprel md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Isoproterenol.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3340,17 +2798,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "KÉTAMINE (Kétalar md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Ketamine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3358,17 +2813,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "LABÉTALOL (Trandate md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Labetalol-Trandatemd.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3376,17 +2828,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "LÉVÉTIRACÉTAM (Keppra md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Levetiracetam.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3394,17 +2843,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "LEVOCARNITINE",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Levocarnitine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3412,17 +2858,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "LIDOCAÏNE (Xylocaïne md, Xylocard md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Lidocaine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3430,17 +2873,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "MAGNÉSIUM (SULFATE)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Magnesium.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3448,17 +2888,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "MANNITOL",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Mannitol.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3466,17 +2903,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "MÉTOPROLOL (Bétaloc md, Lopresor md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Metoprolol.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3484,17 +2918,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "MIDAZOLAM (Versed md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Midazolam.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3502,17 +2933,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "MILRINONE (Primacor md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Milrinone.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3520,17 +2948,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "NALOXONE (Narcan md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Naloxone.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3538,17 +2963,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "NITROGLYCÉRINE (Tridil md, TNT)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Nitroglycerine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3556,17 +2978,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "NITROPRUSSIATE DE SODIUM (Nipride md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Nitroprussiate-de-sodium.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3574,17 +2993,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "NORÉPINÉPHRINE, NORADRÉNALINE (Lévophed md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Norepinephrine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3592,17 +3008,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "OCTRÉOTIDE (Sandostatin md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Octreotide.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3610,17 +3023,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "PANTOPRAZOLE (Pantoloc md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Pantoprazole.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3628,17 +3038,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "PHENOBARBITAL",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Phenobarbital.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3646,17 +3053,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "PHENTOLAMINE (Rogitine md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Phentolamine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3664,17 +3068,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "PHÉNYLÉPHRINE (Néo-Synéphrine md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Phenylephrine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3682,17 +3083,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "PHÉNYTOÏNE (Dilantin md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Phenytoine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3700,17 +3098,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "PHOSPHATE (SODIUM OU POTASSIUM)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Phosphate.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3718,17 +3113,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "PHYSOSTIGMINE (Antilirium md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Physostigmine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3736,17 +3128,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "POTASSIUM (CHLORURE DE, KCl)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Potassium.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3754,17 +3143,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "PRALIDOXIME (Protopam md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Pralidoxime.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3772,17 +3158,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "PROCAINAMIDE (Pronestyl md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Procainamide.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3790,17 +3173,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "PROPOFOL (Diprivan md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Propofol.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3808,17 +3188,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "PROPRANOLOL (Indéral md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Propranolol.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3826,17 +3203,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "PROTAMINE (Protamine md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Protamine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3844,17 +3218,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "PYRIDOXINE (Vitamine B6)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Pyridoxine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3862,17 +3233,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "ROCURONIUM (Zémuron md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Rocuronium.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3880,17 +3248,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "SODIUM (CHLORURE) HYPERTONIQUE 3% (NaCl 3%)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Sodium-chlorure-hypertonique.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3898,17 +3263,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "SUCCINYLCHOLINE (Anectine md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Succinylcholine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3916,17 +3278,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "SUGAMMADEX (Bridion md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Sugammadex.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3934,17 +3293,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "TENECTÉPLASE (TNKase md) (Accident vasculaire cérébral)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Tenecteplase-accident-vasculaire-cerebral.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3952,17 +3308,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "TENECTÉPLASE (TNKase md) (Infarctus du myocarde)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Tenecteplase-infarctus-du-myocarde.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3970,17 +3323,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "THIAMINE (Vitamine B1)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Thiamine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -3988,17 +3338,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "THIOSULFATE DE SODIUM (Seacalphyx md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Thiosulfate-de-sodium.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -4006,17 +3353,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "VASOPRESSINE",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Vasopressine.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -4024,17 +3368,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "VÉRAPAMIL (Isoptin I.V. md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Verapamil.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -4042,17 +3383,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "VERNAKALANT (Brinavess md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Vernakalant.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -4060,17 +3398,14 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   },
   {
     "title": "VITAMINE K1 (Phytonadione)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Vitamine-K1.pdf",
-    "section": "medication",
-    "sectionTitle": "Médication",
-    "sectionDescription": "Médicaments IUCPQ",
-    "sectionOrder": 70,
+    "section": "Médication",
     "category": "Médicaments",
+    "sectionOrder": 70,
     "tags": [
       "Medicaments",
       "Médicaments",
@@ -4078,7 +3413,6 @@
       "Référence"
     ],
     "targetBlank": true,
-    "description": "",
-    "Colonne": ""
+    "description": ""
   }
 ]

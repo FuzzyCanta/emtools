@@ -2051,6 +2051,51 @@
     "description": "Liste des guides d'usage optimaux INESSS"
   },
   {
+    "title": "Ajustement de débit sans pompes",
+    "href": "https://www.iucpq.ca/app/uploads/2024/07/Annexe-3-Tableaux-des-debits-dadministration-en-mL-h-en.pdf",
+    "section": "Médication",
+    "category": "Médicaments",
+    "sectionOrder": 69,
+    "tags": [
+      "Medicaments",
+      "Médicaments",
+      "IUCPQ",
+      "Référence"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Principaux électrolytes ou additifs",
+    "href": "https://www.iucpq.ca/app/uploads/2024/07/Annexe-1-Tableau-des-principaux-electrolytes-ou-additifs.pdf",
+    "section": "Médication",
+    "category": "Médicaments",
+    "sectionOrder": 69,
+    "tags": [
+      "Medicaments",
+      "Médicaments",
+      "IUCPQ",
+      "Référence"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Protocole extravasation",
+    "href": "https://www.iucpq.ca/app/uploads/2024/07/Annexe-2-Algorithme-pour-la-prise-en-charge-de-lextravasation-de.pdf",
+    "section": "Médication",
+    "category": "Médicaments",
+    "sectionOrder": 69,
+    "tags": [
+      "Medicaments",
+      "Médicaments",
+      "IUCPQ",
+      "Référence"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
     "title": "ACÉTATE DE SODIUM",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Acetate-de-sodium-1.pdf",
     "section": "Médication",
@@ -2201,38 +2246,8 @@
     "description": ""
   },
   {
-    "title": "Annexe 1 Tableau des principaux électrolytes ou additifs",
-    "href": "https://www.iucpq.ca/app/uploads/2024/07/Annexe-1-Tableau-des-principaux-electrolytes-ou-additifs.pdf",
-    "section": "Médication",
-    "category": "Médicaments",
-    "sectionOrder": 70,
-    "tags": [
-      "Medicaments",
-      "Médicaments",
-      "IUCPQ",
-      "Référence"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Annexe 2 Algorithme pour la prise en charge de l’extravasation de médicaments non cytotoxiques par voie périphérique à l’IUCPQ-UL",
-    "href": "https://www.iucpq.ca/app/uploads/2024/07/Annexe-2-Algorithme-pour-la-prise-en-charge-de-lextravasation-de.pdf",
-    "section": "Médication",
-    "category": "Médicaments",
-    "sectionOrder": 70,
-    "tags": [
-      "Medicaments",
-      "Médicaments",
-      "IUCPQ",
-      "Référence"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Annexe 3 Tableaux des débits d’administration en mL/h en l’absence d’utilisation des pompes volumétriques intelligentes",
-    "href": "https://www.iucpq.ca/app/uploads/2024/07/Annexe-3-Tableaux-des-debits-dadministration-en-mL-h-en.pdf",
+    "title": "ANTICORPS SPÉCIFIQUES DIGOXINE (DigiFab md)",
+    "href": "https://www.iucpq.ca/app/uploads/2024/07/Fragments-danticorps-specifiques-de-la-digoxine.pdf",
     "section": "Médication",
     "category": "Médicaments",
     "sectionOrder": 70,
@@ -2653,21 +2668,6 @@
   {
     "title": "FOMÉPIZOLE (Antizol md)",
     "href": "https://www.iucpq.ca/app/uploads/2024/07/Fomepizole.pdf",
-    "section": "Médication",
-    "category": "Médicaments",
-    "sectionOrder": 70,
-    "tags": [
-      "Medicaments",
-      "Médicaments",
-      "IUCPQ",
-      "Référence"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "FRAGMENTS D’ANTICORPS SPÉCIFIQUES CONTRE LA DIGOXINE (DigiFab md)",
-    "href": "https://www.iucpq.ca/app/uploads/2024/07/Fragments-danticorps-specifiques-de-la-digoxine.pdf",
     "section": "Médication",
     "category": "Médicaments",
     "sectionOrder": 70,

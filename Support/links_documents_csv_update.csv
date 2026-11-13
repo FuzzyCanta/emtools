@@ -140,6 +140,9 @@ Prendre soins de sa sonde urinaire;https://cdn.ciusssnordmtl.ca/Fichiers/07Usage
 Liste - Fiches aux usagers (CIUSSS NIM);https://www.ciusssnordmtl.ca/usagers-et-visiteurs/fiches-aux-usagers;Documents / Liens;Usagers;60;Fiches,Usagers,Information;TRUE;
 HSJ - Liste des FOPR;https://msss365.sharepoint.com/:u:/r/teams/CHUSJ-TestdebibliothquepartagedansSharepoint/SitePages/Home.aspx?csf=1&web=1&e=jvHuE9;Ressources cliniques;;60;HSJ,Ped,Sainte-Justine,Ste-Justine,FOPR;TRUE;FOPR HSJ
 INESSS - Accueil GUO;https://www.inesss.qc.ca/formations-et-outils/outils-cliniques/outils-par-types/guides-dusage-optimal.html;Ressources cliniques;;60;INESSS,GUO,Guide,Optimal,Québec;TRUE;Liste des guides d'usage optimaux INESSS
+Ajustement de débit sans pompes;https://www.iucpq.ca/app/uploads/2024/07/Annexe-3-Tableaux-des-debits-dadministration-en-mL-h-en.pdf;Médication;Médicaments;69;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
+Principaux électrolytes ou additifs;https://www.iucpq.ca/app/uploads/2024/07/Annexe-1-Tableau-des-principaux-electrolytes-ou-additifs.pdf;Médication;Médicaments;69;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
+Protocole extravasation;https://www.iucpq.ca/app/uploads/2024/07/Annexe-2-Algorithme-pour-la-prise-en-charge-de-lextravasation-de.pdf;Médication;Médicaments;69;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
 ACÉTATE DE SODIUM;https://www.iucpq.ca/app/uploads/2024/07/Acetate-de-sodium-1.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
 ACÉTYLCYSTÉINE (Mucomyst md);https://www.iucpq.ca/app/uploads/2024/07/Acetylcysteine.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
 ACIDE FOLINIQUE (Leucovorin md);https://www.iucpq.ca/app/uploads/2024/07/Acide-folinique-Leucovorinmd-1.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
@@ -150,9 +153,7 @@ ALTÉPLASE (Activase md) (Embolie pulmonaire);https://www.iucpq.ca/app/uploads/2
 ALTÉPLASE (Activase md) (Valve mécanique);https://www.iucpq.ca/app/uploads/2024/07/Alteplase-valve-mecanique.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
 AMINOPHYLLINE;https://www.iucpq.ca/app/uploads/2024/07/Aminophylline.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
 AMIODARONE (Cordarone md);https://www.iucpq.ca/app/uploads/2024/07/Amiodarone.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
-Annexe 1 Tableau des principaux électrolytes ou additifs;https://www.iucpq.ca/app/uploads/2024/07/Annexe-1-Tableau-des-principaux-electrolytes-ou-additifs.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
-Annexe 2 Algorithme pour la prise en charge de l’extravasation de médicaments non cytotoxiques par voie périphérique à l’IUCPQ-UL;https://www.iucpq.ca/app/uploads/2024/07/Annexe-2-Algorithme-pour-la-prise-en-charge-de-lextravasation-de.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
-Annexe 3 Tableaux des débits d’administration en mL/h en l’absence d’utilisation des pompes volumétriques intelligentes;https://www.iucpq.ca/app/uploads/2024/07/Annexe-3-Tableaux-des-debits-dadministration-en-mL-h-en.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
+ANTICORPS SPÉCIFIQUES DIGOXINE (DigiFab md);https://www.iucpq.ca/app/uploads/2024/07/Fragments-danticorps-specifiques-de-la-digoxine.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
 ARGATROBAN (Argatroban md);https://www.iucpq.ca/app/uploads/2024/07/Argatroban.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
 ATROPINE;https://www.iucpq.ca/app/uploads/2024/07/Atropine.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
 BICARBONATE DE SODIUM (NaHCO3);https://www.iucpq.ca/app/uploads/2024/07/Bicarbonate-de-sodium.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
@@ -181,7 +182,6 @@ ESMOLOL (Brevibloc md);https://www.iucpq.ca/app/uploads/2024/07/Esmolol.pdf;Méd
 FENTANYL (Sublimaze md);https://www.iucpq.ca/app/uploads/2024/07/Fentanyl.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
 FLUMAZÉNIL (Anexate md);https://www.iucpq.ca/app/uploads/2024/07/Flumazenil.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
 FOMÉPIZOLE (Antizol md);https://www.iucpq.ca/app/uploads/2024/07/Fomepizole.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
-FRAGMENTS D’ANTICORPS SPÉCIFIQUES CONTRE LA DIGOXINE (DigiFab md);https://www.iucpq.ca/app/uploads/2024/07/Fragments-danticorps-specifiques-de-la-digoxine.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
 FUROSÉMIDE (Lasix md);https://www.iucpq.ca/app/uploads/2024/07/Furosemide.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
 HYDRALAZINE (Aprésoline md);https://www.iucpq.ca/app/uploads/2024/07/hydralazine.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;
 HYDROMORPHONE (Dilaudid md);https://www.iucpq.ca/app/uploads/2025/11/hydromorphone.pdf;Médication;Médicaments;70;Medicaments, Médicaments, IUCPQ, Référence;TRUE;

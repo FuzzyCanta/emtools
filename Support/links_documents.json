@@ -69,34 +69,6 @@
     "description": ""
   },
   {
-    "title": "Bronchiolite",
-    "href": "Support/bronchiolite.pdf",
-    "section": "HCSL",
-    "category": "Ordonnances pré-imprimés",
-    "sectionOrder": 10,
-    "tags": [
-      "Pediatrie",
-      "inhalo"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Bronchospasme PED",
-    "href": "Support/asthmepedhospit.pdf",
-    "section": "HCSL",
-    "category": "Ordonnances pré-imprimés",
-    "sectionOrder": 10,
-    "tags": [
-      "Ped",
-      "Bronchospasme",
-      "inhalo",
-      "Asthme"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
     "title": "Bundle colique néphrétique",
     "href": "Support/Bundle_CN.pdf",
     "section": "HCSL",
@@ -127,19 +99,6 @@
     "description": ""
   },
   {
-    "title": "Cellulite/Adénite pédiatrique",
-    "href": "Support/cellulitepedleg.pdf",
-    "section": "HCSL",
-    "category": "Ordonnances pré-imprimés",
-    "sectionOrder": 10,
-    "tags": [
-      "Infection",
-      "peau"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
     "title": "Cystite CHSLD",
     "href": "Support/uibchsld.pdf",
     "section": "HCSL",
@@ -160,18 +119,6 @@
     "tags": [
       "Intraveineux",
       "ambulatoire"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Gastro pédiatrique",
-    "href": "Support/gevpedhospit.pdf",
-    "section": "HCSL",
-    "category": "Ordonnances pré-imprimés",
-    "sectionOrder": 10,
-    "tags": [
-      "Gastroentérite"
     ],
     "targetBlank": true,
     "description": ""
@@ -287,65 +234,6 @@
     "description": ""
   },
   {
-    "title": "OMA - Rx externe",
-    "href": "Support/oma3-18po.pdf",
-    "section": "HCSL",
-    "category": "Ordonnances pré-imprimés",
-    "sectionOrder": 10,
-    "tags": [
-      "Otite",
-      "congé",
-      "ordonnance externe",
-      "pediatrie"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "OMA réfractaire",
-    "href": "Support/omarefractaire.pdf",
-    "section": "HCSL",
-    "category": "Ordonnances pré-imprimés",
-    "sectionOrder": 10,
-    "tags": [
-      "Otite",
-      "pediatrie",
-      "medecine de jour"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "PNA pédiatrique IV",
-    "href": "Support/pna2-18iv.pdf",
-    "section": "HCSL",
-    "category": "Ordonnances pré-imprimés",
-    "sectionOrder": 10,
-    "tags": [
-      "Pyélonéphrite",
-      "Pediatrie",
-      "Urinaire",
-      "IV"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "PNA pédiatrique ORALE",
-    "href": "Support/pna2-18po.pdf",
-    "section": "HCSL",
-    "category": "Ordonnances pré-imprimés",
-    "sectionOrder": 10,
-    "tags": [
-      "Pyélonéphrite",
-      "Pediatrie",
-      "Urinaire",
-      "PO"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
     "title": "Prescription externe sevrage nicotine",
     "href": "Support/nicotineext.pdf",
     "section": "HCSL",
@@ -449,6 +337,159 @@
     ],
     "targetBlank": true,
     "description": ""
+  },
+  {
+    "title": "Asthme PED - HOSPIT",
+    "href": "Support/asthmepedhospit.pdf",
+    "section": "HCSL",
+    "category": "Pédiatrie",
+    "sectionOrder": 10,
+    "tags": [
+      "Ped",
+      "Bronchospasme",
+      "inhalo",
+      "Asthme"
+    ],
+    "targetBlank": true,
+    "description": "Protocole d'hospitalisation"
+  },
+  {
+    "title": "Bronchiolite - HOSPIT",
+    "href": "Support/bronchiolite.pdf",
+    "section": "HCSL",
+    "category": "Pédiatrie",
+    "sectionOrder": 10,
+    "tags": [
+      "Pediatrie",
+      "inhalo"
+    ],
+    "targetBlank": true,
+    "description": "Protocole d'hospitalisation"
+  },
+  {
+    "title": "Cellulite/Adénite pédiatrique - EXTERNE",
+    "href": "Support/cellulitepedleg.pdf",
+    "section": "HCSL",
+    "category": "Pédiatrie",
+    "sectionOrder": 10,
+    "tags": [
+      "Infection",
+      "peau",
+      "pediatrie",
+      "adenite",
+      "medecine de jour",
+      "médecine de jour"
+    ],
+    "targetBlank": true,
+    "description": "Ordonnance de suivi en MDJ"
+  },
+  {
+    "title": "Gastro pédiatrique - HOSPIT",
+    "href": "Support/gevpedhospit.pdf",
+    "section": "HCSL",
+    "category": "Pédiatrie",
+    "sectionOrder": 10,
+    "tags": [
+      "Gastroentérite"
+    ],
+    "targetBlank": true,
+    "description": "Protocole d'hospitalisation"
+  },
+  {
+    "title": "OMA - EXTERNE",
+    "href": "Support/oma3-18po.pdf",
+    "section": "HCSL",
+    "category": "Pédiatrie",
+    "sectionOrder": 10,
+    "tags": [
+      "Otite",
+      "congé",
+      "ordonnance externe",
+      "pediatrie"
+    ],
+    "targetBlank": true,
+    "description": "Ordonnance externe"
+  },
+  {
+    "title": "OMA réfractaire - EXTERNE",
+    "href": "Support/omarefractaire.pdf",
+    "section": "HCSL",
+    "category": "Pédiatrie",
+    "sectionOrder": 10,
+    "tags": [
+      "Otite",
+      "pediatrie",
+      "medecine de jour",
+      "médecine de jour"
+    ],
+    "targetBlank": true,
+    "description": "Ordonnance de suivi en MDJ"
+  },
+  {
+    "title": "PNA pédiatrique - HOSPIT",
+    "href": "Support/pnapedhospit.pdf",
+    "section": "HCSL",
+    "category": "Pédiatrie",
+    "sectionOrder": 10,
+    "tags": [
+      "Pyélonéphrite",
+      "pyelonephrite",
+      "pediatrie",
+      "urinaire",
+      "hospit"
+    ],
+    "targetBlank": true,
+    "description": "Protocole d'hospitalisation"
+  },
+  {
+    "title": "PNA pédiatrique IV - EXTERNE",
+    "href": "Support/pna2-18iv.pdf",
+    "section": "HCSL",
+    "category": "Pédiatrie",
+    "sectionOrder": 10,
+    "tags": [
+      "Pyélonéphrite",
+      "pyelonephrite",
+      "Pediatrie",
+      "Urinaire",
+      "IV",
+      "medecine de jour",
+      "médecine de jour"
+    ],
+    "targetBlank": true,
+    "description": "Ordonnance de suivi en MDJ"
+  },
+  {
+    "title": "PNA pédiatrique ORALE - EXTERNE",
+    "href": "Support/pna2-18po.pdf",
+    "section": "HCSL",
+    "category": "Pédiatrie",
+    "sectionOrder": 10,
+    "tags": [
+      "Pyélonéphrite",
+      "pyelonephrite",
+      "Pediatrie",
+      "Urinaire",
+      "PO",
+      "medecine de jour",
+      "médecine de jour"
+    ],
+    "targetBlank": true,
+    "description": "Ordonnance de suivi en MDJ"
+  },
+  {
+    "title": "Pneumonie pédiatrique - HOSPIT",
+    "href": "Support/pneumoniepedhospit.pdf",
+    "section": "HCSL",
+    "category": "Pédiatrie",
+    "sectionOrder": 10,
+    "tags": [
+      "Pneumonie",
+      "pediatrie",
+      "hospit"
+    ],
+    "targetBlank": true,
+    "description": "Protocole d'hospitalisation"
   },
   {
     "title": "Prescription d'imagerie - Vide",

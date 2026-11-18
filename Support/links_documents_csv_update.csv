@@ -4,14 +4,10 @@ Acidocétose diabétique - Partie 2;Support/acidocetose2.pdf;HCSL;Ordonnances pr
 Ajustement Tx inhalo général;Support/ajustementtxinhalo.pdf;HCSL;Ordonnances pré-imprimés;10;Traitement, asthme, mpoc, inhalotherapie;TRUE;
 Analgésie à l'urgence;Support/titrationopioides.pdf;HCSL;Ordonnances pré-imprimés;10;Analgésie, opioides, titration, urgence;TRUE;
 Antibio à domicile;Support/antibiodomicile.pdf;HCSL;Ordonnances pré-imprimés;10;Antibiotiques, ambulatoire;TRUE;
-Bronchiolite;Support/bronchiolite.pdf;HCSL;Ordonnances pré-imprimés;10;Pediatrie, inhalo;TRUE;
-Bronchospasme PED;Support/asthmepedhospit.pdf;HCSL;Ordonnances pré-imprimés;10;Ped, Bronchospasme, inhalo, Asthme;TRUE;
 Bundle colique néphrétique;Support/Bundle_CN.pdf;HCSL;Ordonnances pré-imprimés;10;Colique, nephretique, néphrétique, suivi, bundle;TRUE;
 Bundle Pneumonie;Support/Bundle_pneumonie.pdf;HCSL;Ordonnances pré-imprimés;10;Pneumonie, suivi, bundle;TRUE;
-Cellulite/Adénite pédiatrique;Support/cellulitepedleg.pdf;HCSL;Ordonnances pré-imprimés;10;Infection, peau;TRUE;
 Cystite CHSLD;Support/uibchsld.pdf;HCSL;Ordonnances pré-imprimés;10;Infection urinaire;TRUE;
 Fer IV en externe;Support/ferivambu.pdf;HCSL;Ordonnances pré-imprimés;10;Intraveineux, ambulatoire;TRUE;
-Gastro pédiatrique;Support/gevpedhospit.pdf;HCSL;Ordonnances pré-imprimés;10;Gastroentérite;TRUE;
 Héparine IV;Support/heparineiv.pdf;HCSL;Ordonnances pré-imprimés;10;Héparine, heparine, IV;TRUE;
 Hypertension gestationnelle;Support/htagest.pdf;HCSL;Ordonnances pré-imprimés;10;Pré-éclampsie, hypertension, urgence, grossesse;TRUE;
 Influenza;Support/influenza.pdf;HCSL;Ordonnances pré-imprimés;10;Influ, grippe;TRUE;
@@ -20,10 +16,6 @@ Insuline SOUS-CUTANÉE;Support/insulinesc.pdf;HCSL;Ordonnances pré-imprimés;10
 Neutropénie fébrile bas risque;Support/neutropeniefebrilebasrisque.pdf;HCSL;Ordonnances pré-imprimés;10;Neutropenie, febrile, externe;TRUE;
 Neutropénie fébrile hospit;Support/neutfebhospit.pdf;HCSL;Ordonnances pré-imprimés;10;Neutropenie, febrile, hospitalisation;TRUE;
 Occlusion intestinale;Support/occlusion.pdf;HCSL;Ordonnances pré-imprimés;10;Occlusion intestinale, grafin, gastro;TRUE;
-OMA - Rx externe;Support/oma3-18po.pdf;HCSL;Ordonnances pré-imprimés;10;Otite, congé, ordonnance externe, pediatrie;TRUE;
-OMA réfractaire;Support/omarefractaire.pdf;HCSL;Ordonnances pré-imprimés;10;Otite, pediatrie, medecine de jour;TRUE;
-PNA pédiatrique IV;Support/pna2-18iv.pdf;HCSL;Ordonnances pré-imprimés;10;Pyélonéphrite, Pediatrie, Urinaire, IV;TRUE;
-PNA pédiatrique ORALE;Support/pna2-18po.pdf;HCSL;Ordonnances pré-imprimés;10;Pyélonéphrite, Pediatrie, Urinaire, PO;TRUE;
 Prescription externe sevrage nicotine;Support/nicotineext.pdf;HCSL;Ordonnances pré-imprimés;10;Tabac, nicotine, remplacement, cessation, externe, TRN;TRUE;Prescription externe TRN
 Protection rénale imagerie;Support/Nephroprot.pdf;HCSL;Ordonnances pré-imprimés;10;Imagerie, allergie, protection, scan, renal;TRUE;
 Protocole de détresse palliative;Support/detressepalliative.pdf;HCSL;Ordonnances pré-imprimés;10;Soins palliatifs, détresse, fin de vie, protocole de détresse;TRUE;
@@ -31,6 +23,16 @@ Sédation post-intubation;Support/sedation.pdf;HCSL;Ordonnances pré-imprimés;1
 Sevrage alcoolique à l'urgence;Support/sevrageroh.pdf;HCSL;Ordonnances pré-imprimés;10;Sevrage, alcool;TRUE;
 Sevrage nicotinique - Urgence;Support/nicotineurgence.pdf;HCSL;Ordonnances pré-imprimés;10;Nicotine, tabac, remplacement, cessation;TRUE;
 Thrombolyse embolie pulmonaire;Support/thrombolyseep.pdf;HCSL;Ordonnances pré-imprimés;10;Embolie pulmonaire, thrombolyse, TPA, Alteplase;TRUE;
+Asthme PED - HOSPIT;Support/asthmepedhospit.pdf;HCSL;Pédiatrie;10;Ped, Bronchospasme, inhalo, Asthme;TRUE;Protocole d'hospitalisation
+Bronchiolite - HOSPIT;Support/bronchiolite.pdf;HCSL;Pédiatrie;10;Pediatrie, inhalo;TRUE;Protocole d'hospitalisation
+Cellulite/Adénite pédiatrique - EXTERNE;Support/cellulitepedleg.pdf;HCSL;Pédiatrie;10;Infection, peau, pediatrie, adenite, medecine de jour, médecine de jour;TRUE;Ordonnance de suivi en MDJ
+Gastro pédiatrique - HOSPIT;Support/gevpedhospit.pdf;HCSL;Pédiatrie;10;Gastroentérite;TRUE;Protocole d'hospitalisation
+OMA - EXTERNE;Support/oma3-18po.pdf;HCSL;Pédiatrie;10;Otite, congé, ordonnance externe, pediatrie;TRUE;Ordonnance externe
+OMA réfractaire - EXTERNE;Support/omarefractaire.pdf;HCSL;Pédiatrie;10;Otite, pediatrie, medecine de jour, médecine de jour;TRUE;Ordonnance de suivi en MDJ
+PNA pédiatrique - HOSPIT;Support/pnapedhospit.pdf;HCSL;Pédiatrie;10;Pyélonéphrite, pyelonephrite, pediatrie, urinaire, hospit;TRUE;Protocole d'hospitalisation
+PNA pédiatrique IV - EXTERNE;Support/pna2-18iv.pdf;HCSL;Pédiatrie;10;Pyélonéphrite, pyelonephrite, Pediatrie, Urinaire, IV, medecine de jour, médecine de jour;TRUE;Ordonnance de suivi en MDJ
+PNA pédiatrique ORALE - EXTERNE;Support/pna2-18po.pdf;HCSL;Pédiatrie;10;Pyélonéphrite, pyelonephrite, Pediatrie, Urinaire, PO, medecine de jour, médecine de jour;TRUE;Ordonnance de suivi en MDJ
+Pneumonie pédiatrique - HOSPIT;Support/pneumoniepedhospit.pdf;HCSL;Pédiatrie;10;Pneumonie, pediatrie, hospit;TRUE;Protocole d'hospitalisation
 Prescription d'imagerie - Vide;Support/radiologievide.pdf;HCSL;Prescription;10;Imagerie, requête;TRUE;
 Prescription pharmacologique - Vide;Support/prescription.pdf;HCSL;Prescription;10;Rx, médicaments, pharmaco, prescription;TRUE;
 Acid-Base Calculator;acid_base_tox_V1.html;Calculateurs;;20;Acid-base,Compensation,Toxicologie;TRUE;

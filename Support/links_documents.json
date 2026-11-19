@@ -608,7 +608,7 @@
   {
     "title": "Algorithme Lombalgie - Choisir avec soins",
     "href": "https://choisiravecsoinquebec.ca/outils-et-ressources/prescriptions-non-pharmacologiques/#:~:text=Lombalgie",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Choisir avec soins",
     "sectionOrder": 30,
     "tags": [
@@ -622,7 +622,7 @@
   {
     "title": "Insomnia - Choosing wisely",
     "href": "https://choisiravecsoinquebec.ca/wp-content/uploads/2024/03/Insomnia_EN_FINAL.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Choisir avec soins",
     "sectionOrder": 30,
     "tags": [
@@ -636,7 +636,7 @@
   {
     "title": "Insomnie - Choisir avec soins",
     "href": "https://choisiravecsoinquebec.ca/wp-content/uploads/2024/03/Insomnie_FR_-FINAL.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Choisir avec soins",
     "sectionOrder": 30,
     "tags": [
@@ -650,7 +650,7 @@
   {
     "title": "Lombalgie - Choisir avec soins",
     "href": "https://choisiravecsoinquebec.ca/wp-content/uploads/2024/09/Prescription-non-pharmacologique-lombalgie.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Choisir avec soins",
     "sectionOrder": 30,
     "tags": [
@@ -664,7 +664,7 @@
   {
     "title": "Acouphène",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-08/99-3-acouphenes.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -680,7 +680,7 @@
   {
     "title": "Allergie à la pénicilline",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2023-02/1023-1-allergie-a-la-penicilline.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -695,7 +695,7 @@
   {
     "title": "Anémie",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-09/814-1-anemie.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -710,7 +710,7 @@
   {
     "title": "Cellulite infectieuse",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-03/399-2-soigner-une-infection-de-la-peau-cellulite-infectieuse_0.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -724,7 +724,7 @@
   {
     "title": "Céphalée médicamenteuse",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-01/109-3-cephalee-medicamenteuse.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -742,7 +742,7 @@
   {
     "title": "Coliques néphrétiques",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2023-08/639-1-Colique-nephretique.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -758,7 +758,7 @@
   {
     "title": "Constipation",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-12/326-3-des_moyens_pour_combattre_la_constipation_0.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -772,7 +772,7 @@
   {
     "title": "Diverticulite",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2023-11/994-1-diverticulite.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -787,7 +787,7 @@
   {
     "title": "Douleur à la vulve",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-12/186-3-les-douleurs-a-la-vulve-au-perinee-et-au-vagin.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -805,7 +805,7 @@
   {
     "title": "Douleur chroniques",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-07/505-1-vivre-avec-une-douleur-chronique.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -818,7 +818,7 @@
   {
     "title": "Douleur dorsale - Exercices",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-09/867-1-avoir-un-dos-en-bonne-sante-grace-a-l-activite-physique.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -834,7 +834,7 @@
   {
     "title": "Épistaxis",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2026-03/1305-1-quoi-faire-quand-on-saigne%20du%20nez-arreter-une-epistaxis.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -848,7 +848,7 @@
   {
     "title": "Fibrillation auriculaire",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2023-04/1086-1-fibrillation-auriculaire.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -862,7 +862,7 @@
   {
     "title": "Fissure anale",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-09/715-1-coupure-a-l-anus.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -878,7 +878,7 @@
   {
     "title": "Hématurie macroscopique",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2023-03/1063-1-avoir-du-sang-dans-les-urines-l-hematurie-macroscopique.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -894,7 +894,7 @@
   {
     "title": "Hernie discale",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-01/424-2-hernie-discale.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -910,7 +910,7 @@
   {
     "title": "Hygiène nasale - Adulte",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2024-01/1126-1-hygiene-nasale.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -925,7 +925,7 @@
   {
     "title": "Hypotension orthostatique",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-08/506-1-la-baisse-de-pression-quand-on-se-leve-hypotension-orthostatique.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -941,7 +941,7 @@
   {
     "title": "Incontinence urinaire - Femme",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-08/133-4-Prevenir-et-traiter-incontinence-urinaire-femme.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -955,7 +955,7 @@
   {
     "title": "Incontinence urinaire - Hommes",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-08/239-4-Prevenir-et-traiter-incontinence-urinaire-chez-homme.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -969,7 +969,7 @@
   {
     "title": "Incontinence urinaire - Personnes âgées",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-12/566-2-incontinence-urinaire-chez-la-personne-ainee-exercices-et-traitements.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -985,7 +985,7 @@
   {
     "title": "Insomnie",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2021-09/229-2-insomnie.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -998,7 +998,7 @@
   {
     "title": "Paralysie de Bell",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2025-09/1150-1-paralysie-de-Bell.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -1014,7 +1014,7 @@
   {
     "title": "Pierres aux reins",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-10/638-1-pierres-aux-reins-calculs-renaux.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -1031,7 +1031,7 @@
   {
     "title": "Précaution post-sevrage",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-04/259-3-retour-a-la-maison-apres-un-sevrage.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -1046,7 +1046,7 @@
   {
     "title": "Prendre soins de mon plâtre",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2021-11/52-4-prendre-soin-de-mon-membre-platre.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -1064,7 +1064,7 @@
   {
     "title": "Prendre soins des cicatrices",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2021-09/137-3-prendre-soin-de-mes-cicatrices-par-le-massage.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -1081,7 +1081,7 @@
   {
     "title": "Prévenir la migraine",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-01/116-3-migraine-reduire-les-crises-par-vos-habuitudes-de-vie.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -1096,7 +1096,7 @@
   {
     "title": "Prurit anal",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2024-01/858-1-demangeaisons-a-l-anus-ou-prurit-anal.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -1112,7 +1112,7 @@
   {
     "title": "Rhizarthrose",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2025-08/1184-la-rhizarthrose.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -1128,7 +1128,7 @@
   {
     "title": "Sécheresse vaginale",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2022-09/934-1-la-secheresse-vaginale.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -1145,7 +1145,7 @@
   {
     "title": "Sinusite chronique",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2024-01/1127-1-sinusite-chronique.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -1159,7 +1159,7 @@
   {
     "title": "Soins de la bouche",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2025-12/1263-1-garder-sa-bouche-en-sante.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -1175,7 +1175,7 @@
   {
     "title": "Soins de sonde",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2020-02/407-2-prendre-soins-d-une-sonde-dans-la-vessie.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -1192,7 +1192,7 @@
   {
     "title": "Soins post-sédation",
     "href": "https://www.chumontreal.qc.ca/sites/default/files/2023-03/15_4_4005013_retour_a_la_maison_apres_26_fin_2022-11-30.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients CHUM",
     "sectionOrder": 30,
     "tags": [
@@ -1208,7 +1208,7 @@
   {
     "title": "TCC < 2 ans (En)",
     "href": "Support/TCC2yo_en.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients HSJ",
     "sectionOrder": 30,
     "tags": [
@@ -1223,7 +1223,7 @@
   {
     "title": "TCC < 2 ans (Fr)",
     "href": "Support/TCC2yo.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Fiche patients HSJ",
     "sectionOrder": 30,
     "tags": [
@@ -1236,9 +1236,23 @@
     "description": "Version française"
   },
   {
+    "title": "Soigner une gastroenterite à la maison",
+    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/NIM-DSI-FicheInfoUsager-Gastroenterite-8900031.pdf",
+    "section": "Info Patient",
+    "category": "Gastroenterite",
+    "sectionOrder": 30,
+    "tags": [
+      "Soins",
+      "Gastroenterite",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
     "title": "Contraception - Outils et ressources",
     "href": "https://www.inspq.qc.ca/publications/3466",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Gynéco/Obstetrique",
     "sectionOrder": 30,
     "tags": [
@@ -1251,7 +1265,7 @@
   {
     "title": "Contraception d'urgence",
     "href": "https://www.inspq.qc.ca/sites/default/files/2024-05/3466-outil-contraception-urgence.pdf",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Gynéco/Obstetrique",
     "sectionOrder": 30,
     "tags": [
@@ -1265,7 +1279,7 @@
   {
     "title": "Rx - Pre/Post-Partum",
     "href": "https://www.ncbi.nlm.nih.gov/books/NBK501922/",
-    "section": "Ressources cliniques",
+    "section": "Info Patient",
     "category": "Gynéco/Obstetrique",
     "sectionOrder": 30,
     "tags": [
@@ -1277,94 +1291,208 @@
     "description": ""
   },
   {
-    "title": "Acetaminophen plotter",
-    "href": "acetaminophen_plotter.html",
-    "section": "Ressources cliniques",
-    "category": "Toxicologie",
+    "title": "Dépliant TCCL",
+    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/INESSS_Depliant_TCCL_INESSS.pdf",
+    "section": "Info Patient",
+    "category": "INESSS",
     "sectionOrder": 30,
     "tags": [
-      "NAC",
-      "Acetaminophene",
-      "APAP"
-    ],
-    "targetBlank": false,
-    "description": ""
-  },
-  {
-    "title": "Guide antidotes - CAPQ",
-    "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antidotes",
-    "section": "Ressources cliniques",
-    "category": "Toxicologie",
-    "sectionOrder": 30,
-    "tags": [
-      "Antidotes",
-      "CAPQ"
+      "TCCL",
+      "Trauma",
+      "Patient"
     ],
     "targetBlank": true,
     "description": ""
   },
   {
-    "title": "Guide expo - CNESST",
-    "href": "https://reptox.cnesst.gouv.qc.ca/Pages/recherche-produit.aspx",
-    "section": "Ressources cliniques",
-    "category": "Toxicologie",
+    "title": "Mastite - Soins à domicile",
+    "href": "https://cdn.ciussscentreouest.ca/documents/hgj/pfrc/Breastfeeding_clinic/mastite_info_pour_patients_2022_final.pdf",
+    "section": "Info Patient",
+    "category": "Post-partum",
     "sectionOrder": 30,
     "tags": [
-      "Exposition",
-      "CNESST"
+      "Fiches",
+      "Usagers",
+      "Information",
+      "Grossesse",
+      "Allaitement"
     ],
     "targetBlank": true,
     "description": ""
   },
   {
-    "title": "Guide GMU CANUTEC",
-    "href": "https://wwwapps.tc.gc.ca/Saf-Sec-Sur/3/erg-gmu-web/",
-    "section": "Ressources cliniques",
-    "category": "Toxicologie",
+    "title": "Mastitis - Home care",
+    "href": "https://cdn.ciussscentreouest.ca/documents/hgj/pfrc/Breastfeeding_clinic/mastitis_handout_2022_final.pdf",
+    "section": "Info Patient",
+    "category": "Post-partum",
     "sectionOrder": 30,
     "tags": [
-      "CANUTEC",
-      "GMU",
-      "Matiere dangereuse"
+      "Fiches",
+      "Usagers",
+      "Information",
+      "Grossesse",
+      "Allaitement"
     ],
     "targetBlank": true,
     "description": ""
   },
   {
-    "title": "Ressource CAPQ",
-    "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antipoison/ressources-et-partenaires",
-    "section": "Ressources cliniques",
-    "category": "Toxicologie",
+    "title": "Prendre soins de sa sonde urinaire",
+    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/CIUSSS-407_1_Prendre_soin_d_une_sonde_final-Protege.pdf",
+    "section": "Info Patient",
+    "category": "Urologie",
     "sectionOrder": 30,
     "tags": [
-      "CAPQ",
-      "Antipoison"
+      "Soins",
+      "Sonde",
+      "Patient"
     ],
     "targetBlank": true,
     "description": ""
   },
   {
-    "title": "Syndrome tox",
-    "href": "https://chemm.hhs.gov/chemmist.htm",
+    "title": "HSJ - Liste des FOPR",
+    "href": "https://msss365.sharepoint.com/:u:/r/teams/CHUSJ-TestdebibliothquepartagedansSharepoint/SitePages/Home.aspx?csf=1&web=1&e=jvHuE9",
     "section": "Ressources cliniques",
-    "category": "Toxicologie",
-    "sectionOrder": 30,
-    "tags": [
-      "Toxidrome",
-      "CHEMM"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Accueil clinique",
-    "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/medecins/accueil-clinique/accueil-clinique-de-lhopital-du-sacre-coeur-de-montreal/pour-medecins-de-lurgence",
-    "section": "Liens institutionnels",
-    "category": "HSCM",
+    "category": "",
     "sectionOrder": 40,
     "tags": [
-      "Accueil clinique",
-      "HSCM"
+      "HSJ",
+      "Ped",
+      "Sainte-Justine",
+      "Ste-Justine",
+      "FOPR"
+    ],
+    "targetBlank": true,
+    "description": "FOPR HSJ"
+  },
+  {
+    "title": "INESSS - Accueil GUO",
+    "href": "https://www.inesss.qc.ca/formations-et-outils/outils-cliniques/outils-par-types/guides-dusage-optimal.html",
+    "section": "Ressources cliniques",
+    "category": "",
+    "sectionOrder": 40,
+    "tags": [
+      "INESSS",
+      "GUO",
+      "Guide",
+      "Optimal",
+      "Québec"
+    ],
+    "targetBlank": true,
+    "description": "Liste des guides d'usage optimaux INESSS"
+  },
+  {
+    "title": "Aide à la décision - Rage",
+    "href": "https://msss.gouv.qc.ca/aide-decision-app/etape.php?situation=Rage",
+    "section": "Ressources cliniques",
+    "category": "Aide à la décision",
+    "sectionOrder": 40,
+    "tags": [
+      "Rage",
+      "Rabies",
+      "Algorithme"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Aide à la décision - Tetanos",
+    "href": "https://msss.gouv.qc.ca/aide-decision-app/etape.php?p&situation=Tetanos",
+    "section": "Ressources cliniques",
+    "category": "Aide à la décision",
+    "sectionOrder": 40,
+    "tags": [
+      "Tetanos",
+      "Vaccination",
+      "Algorithme"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Formulaire de signalement MAPAQ",
+    "href": "https://publications.msss.gouv.qc.ca/msss/fichiers/2024/24-277-01W.pdf",
+    "section": "Ressources cliniques",
+    "category": "Aide à la décision",
+    "sectionOrder": 40,
+    "tags": [
+      "Rage",
+      "Rabies",
+      "Déclaration",
+      "Signalement"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Diabète - Ajustement Rx fonction rénale",
+    "href": "https://www.coffreaoutilsdiabete.ca/pdf/Tableau-fr-FRv11.pdf",
+    "section": "Ressources cliniques",
+    "category": "Diabète",
+    "sectionOrder": 40,
+    "tags": [
+      "Clinicien",
+      "Medicaments",
+      "Renale",
+      "Ajustement"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Diabète - Liste des médicaments",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/05/114015-DQ25-TableauMedicaments-MAJ-FR-MR.pdf",
+    "section": "Ressources cliniques",
+    "category": "Diabète",
+    "sectionOrder": 40,
+    "tags": [
+      "Tableau",
+      "Ressources",
+      "Clinicien",
+      "Medicaments"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Diabète - Médicament à arrêter",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2023/01/Jours-de-maladie-FR-RECTO-VERSO-2019-2.pdf",
+    "section": "Ressources cliniques",
+    "category": "Diabète",
+    "sectionOrder": 40,
+    "tags": [
+      "Déshydratation",
+      "Medication",
+      "Patient"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Diabète T1 - Référer un patient",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/12/Demande-de-consult-DbT1-DQ_dynamique.pdf",
+    "section": "Ressources cliniques",
+    "category": "Diabète",
+    "sectionOrder": 40,
+    "tags": [
+      "Reference",
+      "Clinicien",
+      "Guichet"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Diabète T2 - Référer un patient",
+    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/12/Demande-consult.-DbT2-DQ__dynamique.pdf",
+    "section": "Ressources cliniques",
+    "category": "Diabète",
+    "sectionOrder": 40,
+    "tags": [
+      "Reference",
+      "Clinicien",
+      "Guichet"
     ],
     "targetBlank": true,
     "description": ""
@@ -1372,7 +1500,7 @@
   {
     "title": "Guide antibio",
     "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/medecins/guide-dantibiotherapie-empirique",
-    "section": "Liens institutionnels",
+    "section": "Ressources cliniques",
     "category": "HSCM",
     "sectionOrder": 40,
     "tags": [
@@ -1383,9 +1511,23 @@
     "description": ""
   },
   {
+    "title": "Algorithme TCCL",
+    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/Algo_decisionnel_TCCL_Adulte_2021.pdf",
+    "section": "Ressources cliniques",
+    "category": "INESSS",
+    "sectionOrder": 40,
+    "tags": [
+      "TCCL",
+      "Trauma",
+      "Clinicien"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
     "title": "Ortho HMR",
     "href": "http://www.orthohmr.ca/medecine-sportive/algorithmes-decisionnels/",
-    "section": "Liens institutionnels",
+    "section": "Ressources cliniques",
     "category": "Orthopedie",
     "sectionOrder": 40,
     "tags": [
@@ -1399,7 +1541,7 @@
   {
     "title": "GASP - General",
     "href": "https://www.ciusssnordmtl.ca/zone-des-professionnels/referer-un-usager/guichet-dacces-en-sante-physique-gasp/medecins-urgentologues",
-    "section": "Liens institutionnels",
+    "section": "Ressources cliniques",
     "category": "Reference",
     "sectionOrder": 40,
     "tags": [
@@ -1411,9 +1553,89 @@
     "description": ""
   },
   {
+    "title": "Acetaminophen plotter",
+    "href": "acetaminophen_plotter.html",
+    "section": "Ressources cliniques",
+    "category": "Toxicologie",
+    "sectionOrder": 40,
+    "tags": [
+      "NAC",
+      "Acetaminophene",
+      "APAP"
+    ],
+    "targetBlank": false,
+    "description": ""
+  },
+  {
+    "title": "Guide antidotes - CAPQ",
+    "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antidotes",
+    "section": "Ressources cliniques",
+    "category": "Toxicologie",
+    "sectionOrder": 40,
+    "tags": [
+      "Antidotes",
+      "CAPQ"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Guide expo - CNESST",
+    "href": "https://reptox.cnesst.gouv.qc.ca/Pages/recherche-produit.aspx",
+    "section": "Ressources cliniques",
+    "category": "Toxicologie",
+    "sectionOrder": 40,
+    "tags": [
+      "Exposition",
+      "CNESST"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Guide GMU CANUTEC",
+    "href": "https://wwwapps.tc.gc.ca/Saf-Sec-Sur/3/erg-gmu-web/",
+    "section": "Ressources cliniques",
+    "category": "Toxicologie",
+    "sectionOrder": 40,
+    "tags": [
+      "CANUTEC",
+      "GMU",
+      "Matiere dangereuse"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Ressource CAPQ",
+    "href": "https://www.ciusss-capitalenationale.gouv.qc.ca/antipoison/ressources-et-partenaires",
+    "section": "Ressources cliniques",
+    "category": "Toxicologie",
+    "sectionOrder": 40,
+    "tags": [
+      "CAPQ",
+      "Antipoison"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
+    "title": "Syndrome tox",
+    "href": "https://chemm.hhs.gov/chemmist.htm",
+    "section": "Ressources cliniques",
+    "category": "Toxicologie",
+    "sectionOrder": 40,
+    "tags": [
+      "Toxidrome",
+      "CHEMM"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
     "title": "SIED - SP3 - Intranet",
     "href": "https://cissslaval.intranet.reg13.rtss.qc.ca/carrefour-clinique/bulletin-de-deces-sp-3-sied/",
-    "section": "Liens institutionnels",
+    "section": "Ressources cliniques",
     "category": "",
     "sectionOrder": 40,
     "tags": [
@@ -1430,7 +1652,7 @@
   {
     "title": "SIED - SP3 - MSSS (extranet)",
     "href": "https://gia.sx5.rtss.qc.ca/auth/realms/msss/protocol/openid-connect/auth?client_id=siedwebprod&redirect_uri=https%3A%2F%2Fsied.apps.ti.sante.quebec%2Fsignin-oidc&response_type=code&scope=openid%20profile&code_challenge=PQ-NAAzcWKCAE8Mpj_7qIEpXcb8VkYkkku4LlaMscRk&code_challenge_method=S256&response_mode=form_post&nonce=639183510864483287.ZjZmYzJkZjMtMWJjYy00YTczLWI1NjMtZmZiNmEyOGMyMDkzMTA3MDIzYzEtMzgyZC00ZDAwLTllNjYtYmI2NTgwMjBjYzVi&state=CfDJ8Pa6fLXTtY5AtX4ngR54WRH47oFHrH-QdhKbH9YroRk8S-k84nRuEJV9USkNbIsATQ_0ul5E4OHVTaFtdfN3f25pL8XteMzovEI0C3HFrqmV1jPQ1CVAbgCmjnjHb-JrZVF3m55ZRVphipPohWYy1jiljmFoJAfx7-bRIZ4uMAG6Hfy0hjdM_5g1kTzf1avKMpvrxk1qS_lbPwMxyz2H0_uo8KuQXxnd3u1zO_JHKj3-ERUi4KE6n8MhHkKyFLbVUPMWsGzgwf255H9O-vXyo0ZMPr7ly5oPjasmevZX8ZqwvxwMKVV0jQExoBBqO5NPABCP2eo0yhsVKPvbIXYtulU2FawlOktuAIQSSPUIiXqaF5MaESteg4ovOYGkaosgoB0UjanI305YpIjwC3strl4vPVKw7MjS70mMJ4AoD1I5&x-client-SKU=ID_NET8_0&x-client-ver=8.9.0.0",
-    "section": "Liens institutionnels",
+    "section": "Ressources cliniques",
     "category": "",
     "sectionOrder": 40,
     "tags": [
@@ -1469,49 +1691,6 @@
       "Prescription",
       "Externe",
       "HSCM"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Aide à la décision - Rage",
-    "href": "https://msss.gouv.qc.ca/aide-decision-app/etape.php?situation=Rage",
-    "section": "Documents / Liens",
-    "category": "Aide à la décision",
-    "sectionOrder": 60,
-    "tags": [
-      "Rage",
-      "Rabies",
-      "Algorithme"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Aide à la décision - Tetanos",
-    "href": "https://msss.gouv.qc.ca/aide-decision-app/etape.php?p&situation=Tetanos",
-    "section": "Documents / Liens",
-    "category": "Aide à la décision",
-    "sectionOrder": 60,
-    "tags": [
-      "Tetanos",
-      "Vaccination",
-      "Algorithme"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Formulaire de signalement MAPAQ",
-    "href": "https://publications.msss.gouv.qc.ca/msss/fichiers/2024/24-277-01W.pdf",
-    "section": "Documents / Liens",
-    "category": "Aide à la décision",
-    "sectionOrder": 60,
-    "tags": [
-      "Rage",
-      "Rabies",
-      "Déclaration",
-      "Signalement"
     ],
     "targetBlank": true,
     "description": ""
@@ -1592,78 +1771,6 @@
       "Affiche",
       "comment",
       "Travail"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Diabète - Ajustement Rx fonction rénale",
-    "href": "https://www.coffreaoutilsdiabete.ca/pdf/Tableau-fr-FRv11.pdf",
-    "section": "Documents / Liens",
-    "category": "Diabète",
-    "sectionOrder": 60,
-    "tags": [
-      "Clinicien",
-      "Medicaments",
-      "Renale",
-      "Ajustement"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Diabète - Liste des médicaments",
-    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/05/114015-DQ25-TableauMedicaments-MAJ-FR-MR.pdf",
-    "section": "Documents / Liens",
-    "category": "Diabète",
-    "sectionOrder": 60,
-    "tags": [
-      "Tableau",
-      "Ressources",
-      "Clinicien",
-      "Medicaments"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Diabète - Médicament à arrêter",
-    "href": "https://www.diabete.qc.ca/wp-content/uploads/2023/01/Jours-de-maladie-FR-RECTO-VERSO-2019-2.pdf",
-    "section": "Documents / Liens",
-    "category": "Diabète",
-    "sectionOrder": 60,
-    "tags": [
-      "Déshydratation",
-      "Medication",
-      "Patient"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Diabète T1 - Référer un patient",
-    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/12/Demande-de-consult-DbT1-DQ_dynamique.pdf",
-    "section": "Documents / Liens",
-    "category": "Diabète",
-    "sectionOrder": 60,
-    "tags": [
-      "Reference",
-      "Clinicien",
-      "Guichet"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Diabète T2 - Référer un patient",
-    "href": "https://www.diabete.qc.ca/wp-content/uploads/2024/12/Demande-consult.-DbT2-DQ__dynamique.pdf",
-    "section": "Documents / Liens",
-    "category": "Diabète",
-    "sectionOrder": 60,
-    "tags": [
-      "Reference",
-      "Clinicien",
-      "Guichet"
     ],
     "targetBlank": true,
     "description": ""
@@ -1758,15 +1865,15 @@
     "description": ""
   },
   {
-    "title": "Soingner une gastroenterite à la maison",
-    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/NIM-DSI-FicheInfoUsager-Gastroenterite-8900031.pdf",
+    "title": "Référence au GAP",
+    "href": "Support/suivigap.pdf",
     "section": "Documents / Liens",
-    "category": "Gastroenterite",
+    "category": "Formulaires généraux",
     "sectionOrder": 60,
     "tags": [
-      "Soins",
-      "Gastroenterite",
-      "Patient"
+      "GAP",
+      "Suivi",
+      "Guichet"
     ],
     "targetBlank": true,
     "description": ""
@@ -1802,34 +1909,6 @@
     "description": ""
   },
   {
-    "title": "Algorithme TCCL",
-    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/Algo_decisionnel_TCCL_Adulte_2021.pdf",
-    "section": "Documents / Liens",
-    "category": "INESSS",
-    "sectionOrder": 60,
-    "tags": [
-      "TCCL",
-      "Trauma",
-      "Clinicien"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Dépliant TCCL",
-    "href": "https://www.inesss.qc.ca/fileadmin/doc/INESSS/Rapports/Traumatologie/INESSS_Depliant_TCCL_INESSS.pdf",
-    "section": "Documents / Liens",
-    "category": "INESSS",
-    "sectionOrder": 60,
-    "tags": [
-      "TCCL",
-      "Trauma",
-      "Patient"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
     "title": "IVAC - Attestation médicale (initiale)",
     "href": "https://www.ivac.qc.ca/Documents/227_2019-09-attestation-medicale.pdf",
     "section": "Documents / Liens",
@@ -1854,38 +1933,6 @@
       "Soins",
       "Plaie",
       "Patient"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Mastite - Soins à domicile",
-    "href": "https://cdn.ciussscentreouest.ca/documents/hgj/pfrc/Breastfeeding_clinic/mastite_info_pour_patients_2022_final.pdf",
-    "section": "Documents / Liens",
-    "category": "Post-partum",
-    "sectionOrder": 60,
-    "tags": [
-      "Fiches",
-      "Usagers",
-      "Information",
-      "Grossesse",
-      "Allaitement"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Mastitis - Home care",
-    "href": "https://cdn.ciussscentreouest.ca/documents/hgj/pfrc/Breastfeeding_clinic/mastitis_handout_2022_final.pdf",
-    "section": "Documents / Liens",
-    "category": "Post-partum",
-    "sectionOrder": 60,
-    "tags": [
-      "Fiches",
-      "Usagers",
-      "Information",
-      "Grossesse",
-      "Allaitement"
     ],
     "targetBlank": true,
     "description": ""
@@ -1955,6 +2002,22 @@
     "description": ""
   },
   {
+    "title": "Formulaire de signalement - Morsure de chien",
+    "href": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/agriculture-pecheries-alimentation/sante-animale/obligations/encadrement-chiens/FO_Formulaire_signalement_morsures_chien_md_MAPAQ.pdf",
+    "section": "Documents / Liens",
+    "category": "Santé publique",
+    "sectionOrder": 60,
+    "tags": [
+      "Morsure de chien",
+      "Signalement",
+      "Bite",
+      "Santé publique",
+      "Public health"
+    ],
+    "targetBlank": true,
+    "description": ""
+  },
+  {
     "title": "Procédure de signalement - Maladie à déclaration obligatoire (MADO)",
     "href": "https://www.quebec.ca/sante/professionnels/mado/declaration/demarche-pour-les-medecins",
     "section": "Documents / Liens",
@@ -1967,22 +2030,6 @@
       "ITSS",
       "Sexuellement",
       "Infection"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
-    "title": "Formulaire de signalement - Morsure de chien",
-    "href": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/agriculture-pecheries-alimentation/sante-animale/obligations/encadrement-chiens/FO_Formulaire_signalement_morsures_chien_md_MAPAQ.pdf",
-    "section": "Documents / Liens",
-    "category": "Signalement",
-    "sectionOrder": 60,
-    "tags": [
-      "Morsure de chien",
-      "Signalement",
-      "Bite",
-      "Santé publique",
-      "Public health"
     ],
     "targetBlank": true,
     "description": ""
@@ -2032,20 +2079,6 @@
     "description": ""
   },
   {
-    "title": "Prendre soins de sa sonde urinaire",
-    "href": "https://cdn.ciusssnordmtl.ca/Fichiers/07Usagers_Visiteurs/Fiches_usagers/CIUSSS-407_1_Prendre_soin_d_une_sonde_final-Protege.pdf",
-    "section": "Documents / Liens",
-    "category": "Urologie",
-    "sectionOrder": 60,
-    "tags": [
-      "Soins",
-      "Sonde",
-      "Patient"
-    ],
-    "targetBlank": true,
-    "description": ""
-  },
-  {
     "title": "Liste - Fiches aux usagers (CIUSSS NIM)",
     "href": "https://www.ciusssnordmtl.ca/usagers-et-visiteurs/fiches-aux-usagers",
     "section": "Documents / Liens",
@@ -2058,38 +2091,6 @@
     ],
     "targetBlank": true,
     "description": ""
-  },
-  {
-    "title": "HSJ - Liste des FOPR",
-    "href": "https://msss365.sharepoint.com/:u:/r/teams/CHUSJ-TestdebibliothquepartagedansSharepoint/SitePages/Home.aspx?csf=1&web=1&e=jvHuE9",
-    "section": "Ressources cliniques",
-    "category": "",
-    "sectionOrder": 60,
-    "tags": [
-      "HSJ",
-      "Ped",
-      "Sainte-Justine",
-      "Ste-Justine",
-      "FOPR"
-    ],
-    "targetBlank": true,
-    "description": "FOPR HSJ"
-  },
-  {
-    "title": "INESSS - Accueil GUO",
-    "href": "https://www.inesss.qc.ca/formations-et-outils/outils-cliniques/outils-par-types/guides-dusage-optimal.html",
-    "section": "Ressources cliniques",
-    "category": "",
-    "sectionOrder": 60,
-    "tags": [
-      "INESSS",
-      "GUO",
-      "Guide",
-      "Optimal",
-      "Québec"
-    ],
-    "targetBlank": true,
-    "description": "Liste des guides d'usage optimaux INESSS"
   },
   {
     "title": "Ajustement de débit sans pompes",

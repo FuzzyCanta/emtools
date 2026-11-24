@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Work Time Tracker</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: system-ui, sans-serif;
+      color: #14252a;
+      background: #f1f5f4;
+      --muted: #51676a;
+      --line: #d7e2e0;
+      --accent: #086650;
+      --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    main {
+      width: min(100%, 64rem);
+      margin: auto;
+      padding: 2.5rem 1.25rem;
+    }
+
+    h1,
+    h2,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -.045em;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      letter-spacing: -.015em;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 3px solid #087c66;
+      outline-offset: 2px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .375rem 1rem;
+      margin-bottom: 1.375rem;
+    }
+
+    .storage,
+    .hint,
+    .empty {
+      color: var(--muted);
+      font-size: .875rem;
+    }
+
+    .storage[data-error] {
+      color: #953729;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    section+section {
+      margin-top: .875rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .625rem 1rem;
+    }
+
+    .add-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    .add-form input,
+    .rename-form input,
+    .action {
+      min-width: 0;
+      min-height: 2.375rem;
+      padding: .375rem .75rem;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+    }
+
+    .add-form input {
+      flex: 1;
+      width: 13rem;
+      color: inherit;
+    }
+
+    .action {
+      background: #fff;
+      color: var(--accent);
+      font-size: .875rem;
+      font-weight: 650;
+    }
+
+    .action:hover {
+      background: #ebf5f1;
+    }
+
+    .action.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .action.primary:hover {
+      background: #064e3e;
+    }
+
+    .action.danger {
+      color: #953729;
+    }
+
+    .action.danger:hover {
+      border-color: #dbada3;
+      background: #fff1ee;
+    }
+
+    .hint {
+      margin: .5rem 0 .875rem;
+    }
+
+    .task-list {
+      display: grid;
+      gap: .375rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .empty {
+      padding: .625rem .75rem;
+      border: 1px dashed var(--line);
+      border-radius: 7px;
+    }
+
+    .task {
+      display: grid;
+      grid-template-columns: minmax(10rem, 1fr) minmax(0, 4fr);
+      align-items: center;
+      gap: .5rem;
+      padding: .375rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .task.is-running {
+      border-color: #61a692;
+      background: #f4faf7;
+    }
+
+    .task-title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .375rem;
+    }
+
+    .task-name {
+      flex: 1 0 5rem;
+      min-width: 0;
+      padding-inline: .375rem;
+      font-weight: 650;
+      overflow-wrap: anywhere;
+    }
+
+    .task-actions {
+      display: flex;
+      gap: .25rem;
+    }
+
+    .task-title .action,
+    .rename-form .action {
+      min-height: 2rem;
+      padding: .25rem .5rem;
+    }
+
+    .rename-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .375rem;
+    }
+
+    .rename-form input {
+      grid-column: 1 / -1;
+      width: 100%;
+      color: inherit;
+    }
+
+    .event-buttons {
+      display: grid;
+      grid-template-columns: repeat(var(--event-count), minmax(0, 1fr));
+      gap: .375rem;
+    }
+
+    .event-button {
+      display: grid;
+      align-content: center;
+      justify-items: start;
+      gap: .125rem;
+      min-height: 2.75rem;
+      padding: .25rem .5rem;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      background: #eef3f2;
+      color: #23393c;
+      text-align: left;
+    }
+
+    .event-button:hover {
+      background: #e1eeea;
+    }
+
+    .event-button[aria-pressed="true"] {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .event-label {
+      font-size: .875rem;
+      font-weight: 650;
+      overflow-wrap: anywhere;
+    }
+
+    .duration {
+      font-family: var(--mono);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .event-button .duration {
+      font-size: .8125rem;
+    }
+
+    .summary-scroll {
+      margin-top: .625rem;
+      overflow-x: auto;
+    }
+
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .summary-table th,
+    .summary-table td {
+      padding: .5rem .375rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .summary-table th {
+      text-align: left;
+    }
+
+    .summary-table thead th {
+      border-top: 0;
+      color: var(--muted);
+      font-size: .875rem;
+      font-weight: 600;
+    }
+
+    .summary-table tbody th {
+      font-weight: 500;
+      overflow-wrap: anywhere;
+    }
+
+    .summary-table .numeric {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .summary-table thead .numeric {
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .summary-table tbody td:last-child {
+      font-weight: 700;
+    }
+
+    .summary-table tfoot {
+      background: #edf5f2;
+      font-weight: 700;
+    }
+
+    @media (max-width: 42rem) {
+      main {
+        padding: 1.5rem .75rem;
+      }
+
+      .task {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .task-name {
+        padding-block: .125rem;
+      }
+    }
+
+    @media (max-width: 30rem) {
+      section {
+        padding: .75rem;
+      }
+
+      .add-form {
+        width: 100%;
+      }
+
+      .event-buttons {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header class="page-header">
+      <h1>Work Time Tracker</h1>
+      <p id="storage-status" class="storage" role="status"></p>
+    </header>
+
+    <section aria-labelledby="tasks-heading">
+      <div class="section-header">
+        <h2 id="tasks-heading">Tasks</h2>
+        <form id="add-task" class="add-form">
+          <input id="task-name" aria-label="Task name" placeholder="Task name" required>
+          <button class="action primary" type="submit">Add task</button>
+        </form>
+      </div>
+      <p class="hint">Click an event to start or stop it. Starting another event saves the current timer.</p>
+      <p id="empty-tasks" class="empty">Add a task to start tracking time.</p>
+      <ul id="tasks" class="task-list" aria-labelledby="tasks-heading"></ul>
+    </section>
+
+    <section aria-labelledby="summary-heading">
+      <div class="section-header">
+        <h2 id="summary-heading">Time by task</h2>
+        <button id="export-csv" class="action" type="button">Export CSV</button>
+      </div>
+      <div class="summary-scroll" role="region" aria-labelledby="summary-heading" tabindex="0">
+        <table class="summary-table" aria-labelledby="summary-heading">
+          <thead>
+            <tr id="summary-header">
+              <th scope="col">Task</th>
+            </tr>
+          </thead>
+          <tbody id="summary"></tbody>
+          <tfoot>
+            <tr id="summary-footer">
+              <th scope="row">Total</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    'use strict';
+
+    const storageKey = 'workTimeStudy.v1';
+    const defaultEvents = [
+      { id: 'e0', code: 'E01', name: 'Evaluate' },
+      { id: 'e1', code: 'E02', name: 'Chart' },
+      { id: 'e2', code: 'E03', name: 'Review' },
+      { id: 'e3', code: 'E04', name: 'Communication' }
+    ];
+
+    const byId = id => document.getElementById(id);
+    const createId = () => crypto.randomUUID?.() ?? Date.now().toString(36) + Math.random().toString(36).slice(2, 9);
+    const storageStatus = byId('storage-status');
+    const taskName = byId('task-name');
+    const taskList = byId('tasks');
+    const taskRows = new Map();
+
+    function setStorageStatus(message, error = false) {
+      storageStatus.textContent = message;
+      storageStatus.toggleAttribute('data-error', error);
+    }
+
+    function loadState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(storageKey));
+        if (saved) {
+          if (saved.version !== 1 || !Array.isArray(saved.events) ||
+            !Array.isArray(saved.tasks) || !Array.isArray(saved.records)) {
+            throw new Error('Unsupported saved data');
+          }
+          setStorageStatus('Saved on this device');
+          return saved;
+        }
+        setStorageStatus('Stored on this device');
+      } catch {
+        setStorageStatus('Saved data could not be read', true);
+      }
+      return { version: 1, events: [...defaultEvents], tasks: [], records: [], active: null };
+    }
+
+    const state = loadState();
+
+    function selectTimerEvents() {
+      const events = state.events.filter(event => !event.archived).slice(0, 4);
+      const runningEvent = state.events.find(event => event.id === state.active?.event);
+      if (runningEvent && !events.includes(runningEvent)) {
+        if (events.length === 4) events.pop();
+        events.push(runningEvent);
+      }
+
+      for (const fallback of defaultEvents) {
+        if (events.length >= 3) break;
+        if (events.some(event => event.id === fallback.id)) continue;
+        const existing = state.events.find(event => event.id === fallback.id);
+        if (!existing) state.events.push(fallback);
+        events.push(existing ?? fallback);
+      }
+
+      return events;
+    }
+
+    const timerEvents = selectTimerEvents();
+    const recordedEvents = new Set(state.records.map(record => record.event));
+    const summaryEvents = [
+      ...timerEvents,
+      ...state.events.filter(event => recordedEvents.has(event.id) && !timerEvents.includes(event))
+    ];
+
+    function eventLabel(event) {
+      return summaryEvents.some(other => other !== event && other.name === event.name)
+        ? event.name + ' (' + event.code + ')'
+        : event.name;
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(state));
+        setStorageStatus('Saved on this device');
+      } catch {
+        setStorageStatus('Changes are not saved on this device', true);
+      }
+    }
+
+    function createElement(tag, className, text) {
+      const element = document.createElement(tag);
+      if (className) element.className = className;
+      if (text !== undefined) element.textContent = text;
+      return element;
+    }
+
+    function formatTime(milliseconds) {
+      const seconds = Math.floor(milliseconds / 1000);
+      const parts = [Math.floor(seconds / 3600), Math.floor(seconds / 60) % 60, seconds % 60];
+      return parts.map(part => String(part).padStart(2, '0')).join(':');
+    }
+
+    const taskTotals = new Map();
+
+    function addInterval({ task, event, start, end }) {
+      const duration = end - start;
+      if (!taskTotals.has(task)) taskTotals.set(task, new Map());
+      const totals = taskTotals.get(task);
+      totals.set(event, (totals.get(event) ?? 0) + duration);
+    }
+
+    state.records.forEach(addInterval);
+
+    function eventTime(taskId, eventId, now) {
+      const active = state.active;
+      const running = active?.task === taskId && active.event === eventId;
+      const elapsed = running ? Math.max(0, now - active.start) : 0;
+      return (taskTotals.get(taskId)?.get(eventId) ?? 0) + elapsed;
+    }
+
+    const summaryColumns = [...summaryEvents.map(eventLabel), 'Total'];
+    const summaryFooterCells = summaryColumns.map(label => {
+      const heading = createElement('th', 'numeric', label);
+      heading.scope = 'col';
+      byId('summary-header').append(heading);
+
+      const time = createElement('td', 'numeric duration');
+      byId('summary-footer').append(time);
+      return time;
+    });
+
+    function summarizeTimes(now) {
+      const totals = summaryColumns.map(() => 0);
+      const rows = state.tasks.map(task => {
+        const durations = summaryEvents.map(event => eventTime(task.id, event.id, now));
+        durations.push(durations.reduce((sum, duration) => sum + duration, 0));
+        durations.forEach((duration, index) => { totals[index] += duration; });
+        return { task, durations };
+      });
+      return { rows, totals };
+    }
+
+    function renderTimes(now = Date.now()) {
+      const active = state.active;
+      const summary = summarizeTimes(now);
+      for (const { task, durations } of summary.rows) {
+        const taskId = task.id;
+        const { row, buttons, summaryCells } = taskRows.get(taskId);
+        const running = taskId === active?.task;
+        row.classList.toggle('is-running', running);
+        for (const { eventId, button, time } of buttons) {
+          const pressed = running && eventId === active.event;
+          button.setAttribute('aria-pressed', String(pressed));
+          time.textContent = formatTime(eventTime(taskId, eventId, now));
+        }
+
+        summaryCells.forEach((cell, index) => { cell.textContent = formatTime(durations[index]); });
+      }
+      summaryFooterCells.forEach((cell, index) => { cell.textContent = formatTime(summary.totals[index]); });
+    }
+
+    function toggleTimer(taskId, eventId) {
+      const now = Date.now();
+      const active = state.active;
+      if (active) {
+        const record = { ...active, id: createId(), end: Math.max(active.start, now) };
+        state.records.push(record);
+        addInterval(record);
+      }
+
+      const stopping = active?.task === taskId && active.event === eventId;
+      state.active = stopping ? null : { task: taskId, event: eventId, start: now };
+      saveState();
+      renderTimes(now);
+    }
+
+    function deleteTask(task) {
+      const running = state.active?.task === task.id;
+      const timerWarning = running ? ' The running timer will stop and its current interval will be discarded.' : '';
+      if (!window.confirm('Delete "' + task.name + '" and all its recorded time?' + timerWarning + ' This cannot be undone.')) return;
+
+      state.tasks = state.tasks.filter(other => other.id !== task.id);
+      state.records = state.records.filter(record => record.task !== task.id);
+      if (running) state.active = null;
+      taskTotals.delete(task.id);
+
+      const { row, summaryRow } = taskRows.get(task.id);
+      row.remove();
+      summaryRow.remove();
+      taskRows.delete(task.id);
+      byId('empty-tasks').hidden = state.tasks.length > 0;
+      saveState();
+      renderTimes();
+      taskName.focus();
+    }
+
+    function appendTask(task) {
+      const row = createElement('li', 'task');
+      const controls = createElement('div', 'event-buttons');
+      controls.style.setProperty('--event-count', timerEvents.length);
+      controls.setAttribute('role', 'group');
+
+      const buttons = timerEvents.map(event => {
+        const button = createElement('button', 'event-button');
+        const time = createElement('span', 'duration');
+        button.type = 'button';
+        button.append(createElement('span', 'event-label', eventLabel(event)), time);
+        button.addEventListener('click', () => toggleTimer(task.id, event.id));
+        controls.append(button);
+        return { eventId: event.id, button, time };
+      });
+
+      const summaryRow = createElement('tr');
+      const summaryName = createElement('th');
+      summaryName.scope = 'row';
+      const summaryCells = summaryColumns.map(() => createElement('td', 'numeric duration'));
+      summaryRow.append(summaryName, ...summaryCells);
+      byId('summary').append(summaryRow);
+
+      row.append(createTaskHeading(task, summaryName, controls), controls);
+      taskList.append(row);
+      taskRows.set(task.id, { row, buttons, summaryRow, summaryCells });
+      byId('empty-tasks').hidden = true;
+    }
+
+    function readTaskName(input, taskId) {
+      const name = input.value.trim();
+      const duplicate = state.tasks.some(task => task.id !== taskId && task.name === name);
+      input.setCustomValidity(!name ? 'Enter a task name.' : duplicate ? 'A task with this name already exists.' : '');
+      return input.reportValidity() ? name : '';
+    }
+
+    function createTaskHeading(task, summaryName, controls) {
+      const heading = createElement('div');
+      const title = createElement('div', 'task-title');
+      const name = createElement('span', 'task-name');
+      const edit = createElement('button', 'action', 'Edit');
+      edit.type = 'button';
+      const remove = createElement('button', 'action danger', 'Delete');
+      remove.type = 'button';
+      remove.addEventListener('click', () => deleteTask(task));
+      const actions = createElement('div', 'task-actions');
+      actions.append(edit, remove);
+      title.append(name, actions);
+
+      const form = createElement('form', 'rename-form');
+      form.hidden = true;
+      const input = createElement('input');
+      input.setAttribute('aria-label', 'New task name');
+      input.required = true;
+      const save = createElement('button', 'action primary', 'Save');
+      save.type = 'submit';
+      const cancel = createElement('button', 'action', 'Cancel');
+      cancel.type = 'button';
+      form.append(input, save, cancel);
+      heading.append(title, form);
+
+      function showName() {
+        name.textContent = task.name;
+        summaryName.textContent = task.name;
+        controls.setAttribute('aria-label', task.name);
+        edit.setAttribute('aria-label', 'Edit task name for ' + task.name);
+        remove.setAttribute('aria-label', 'Delete task ' + task.name);
+      }
+
+      function closeEditor() {
+        form.hidden = true;
+        title.hidden = false;
+        edit.focus();
+      }
+
+      edit.addEventListener('click', () => {
+        input.value = task.name;
+        input.setCustomValidity('');
+        title.hidden = true;
+        form.hidden = false;
+        input.focus();
+        input.select();
+      });
+      input.addEventListener('input', () => input.setCustomValidity(''));
+      cancel.addEventListener('click', closeEditor);
+      form.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closeEditor();
+        }
+      });
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        const newName = readTaskName(input, task.id);
+        if (!newName) return;
+        task.name = newName;
+        saveState();
+        showName();
+        closeEditor();
+      });
+
+      showName();
+      return heading;
+    }
+
+    state.tasks.forEach(appendTask);
+
+    taskName.addEventListener('input', () => taskName.setCustomValidity(''));
+
+    byId('add-task').addEventListener('submit', event => {
+      event.preventDefault();
+      const name = readTaskName(taskName);
+      if (!name) return;
+
+      const task = { id: createId(), name, done: false };
+      state.tasks.push(task);
+      appendTask(task);
+      saveState();
+      renderTimes();
+      taskName.value = '';
+      taskName.focus();
+    });
+
+    function csvCell(value) {
+      // Keep names from being interpreted as spreadsheet formulas.
+      const text = typeof value === 'string' && /^[\s]*[=+\-@]/.test(value) ? "'" + value : String(value);
+      return '"' + text.replaceAll('"', '""') + '"';
+    }
+
+    byId('export-csv').addEventListener('click', () => {
+      const summary = summarizeTimes(Date.now());
+      const seconds = durations => durations.map(duration => duration / 1000);
+      const rows = [
+        ['Task', ...summaryColumns.map(label => label + ' (seconds)')],
+        ...summary.rows.map(({ task, durations }) => [task.name, ...seconds(durations)]),
+        ['Total', ...seconds(summary.totals)]
+      ];
+
+      const csv = '\ufeff' + rows.map(row => row.map(csvCell).join(',')).join('\r\n');
+      const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+      const link = createElement('a');
+      link.href = url;
+      link.download = 'work-time-summary.csv';
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
+
+    renderTimes();
+    setInterval(() => {
+      if (state.active) renderTimes();
+    }, 250);
+  </script>
+</body>
+
+</html>

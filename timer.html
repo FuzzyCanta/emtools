@@ -273,55 +273,73 @@
       font-size: .8125rem;
     }
 
-    .summary-scroll {
+    .table-scroll {
       margin-top: .625rem;
       overflow-x: auto;
     }
 
-    .summary-table {
+    .time-table {
       width: 100%;
       border-collapse: collapse;
     }
 
-    .summary-table th,
-    .summary-table td {
+    .time-table th,
+    .time-table td {
       padding: .5rem .375rem;
       border-top: 1px solid var(--line);
     }
 
-    .summary-table th {
+    .time-table th {
       text-align: left;
     }
 
-    .summary-table thead th {
+    .time-table thead th {
       border-top: 0;
       color: var(--muted);
       font-size: .875rem;
       font-weight: 600;
     }
 
-    .summary-table tbody th {
+    .time-table tbody th {
       font-weight: 500;
       overflow-wrap: anywhere;
     }
 
-    .summary-table .numeric {
+    .time-table .numeric {
       text-align: right;
       white-space: nowrap;
     }
 
-    .summary-table thead .numeric {
+    .time-table thead .numeric {
       white-space: normal;
       overflow-wrap: anywhere;
     }
 
-    .summary-table tbody td:last-child {
+    .time-table tbody .numeric:last-child {
       font-weight: 700;
     }
 
-    .summary-table tfoot {
+    .time-table tfoot {
       background: #edf5f2;
       font-weight: 700;
+    }
+
+    .log-scroll {
+      max-height: 24rem;
+    }
+
+    .log-scroll thead th {
+      position: sticky;
+      top: 0;
+      background: #fff;
+    }
+
+    .log-scroll td {
+      overflow-wrap: anywhere;
+    }
+
+    .log-scroll time {
+      white-space: nowrap;
     }
 
     @media (max-width: 42rem) {
@@ -379,8 +397,8 @@
         <h2 id="summary-heading">Time by task</h2>
         <button id="export-csv" class="action" type="button">Export CSV</button>
       </div>
-      <div class="summary-scroll" role="region" aria-labelledby="summary-heading" tabindex="0">
-        <table class="summary-table" aria-labelledby="summary-heading">
+      <div class="table-scroll" role="region" aria-labelledby="summary-heading" tabindex="0">
+        <table class="time-table" aria-labelledby="summary-heading">
           <thead>
             <tr id="summary-header">
               <th scope="col">Task</th>
@@ -392,6 +410,29 @@
               <th scope="row">Total</th>
             </tr>
           </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="log-heading">
+      <div class="section-header">
+        <h2 id="log-heading">Time log</h2>
+        <p>Total idle time <strong id="idle-time" class="duration">00:00:00</strong></p>
+        <button id="export-log-csv" class="action" type="button">Export log CSV</button>
+      </div>
+      <p class="hint">Idle time includes every gap with no timer running since the first recorded start, even while this page is closed.</p>
+      <p id="empty-log" class="empty">Start a timer to see its history here.</p>
+      <div id="log-scroll" class="table-scroll log-scroll" role="region" aria-labelledby="log-heading" tabindex="0" hidden>
+        <table class="time-table" aria-labelledby="log-heading">
+          <thead>
+            <tr>
+              <th scope="col" aria-sort="ascending">Timestamp</th>
+              <th scope="col">Task</th>
+              <th scope="col">Event</th>
+              <th scope="col" class="numeric">Duration</th>
+            </tr>
+          </thead>
+          <tbody id="time-log"></tbody>
         </table>
       </div>
     </section>
@@ -460,7 +501,9 @@
     }
 
     const timerEvents = selectTimerEvents();
-    const recordedEvents = new Set(state.records.map(record => record.event));
+    const currentTaskIds = new Set(state.tasks.map(task => task.id));
+    const currentRecords = state.records.filter(record => currentTaskIds.has(record.task));
+    const recordedEvents = new Set(currentRecords.map(record => record.event));
     const summaryEvents = [
       ...timerEvents,
       ...state.events.filter(event => recordedEvents.has(event.id) && !timerEvents.includes(event))
@@ -471,6 +514,18 @@
         ? event.name + ' (' + event.code + ')'
         : event.name;
     }
+
+    function restoreLogNames() {
+      const taskNames = new Map(state.tasks.map(task => [task.id, task.name]));
+      const eventNames = new Map(state.events.map(event => [event.id, eventLabel(event)]));
+      const intervals = state.active ? [...state.records, state.active] : state.records;
+      for (const interval of intervals) {
+        interval.taskName ??= taskNames.get(interval.task) ?? interval.task;
+        interval.eventName ??= eventNames.get(interval.event) ?? interval.event;
+      }
+    }
+
+    restoreLogNames();
 
     function saveState() {
       try {
@@ -494,6 +549,64 @@
       return parts.map(part => String(part).padStart(2, '0')).join(':');
     }
 
+    const timestampFormat = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'medium' });
+    const idleDisplay = byId('idle-time');
+    let idleBetweenIntervals = 0;
+    let lastIntervalEnd = null;
+    let logEntries = [];
+    let liveLogDuration = null;
+
+    function logDuration({ timestamp, end }, now) {
+      return Math.max(0, (end ?? now) - timestamp);
+    }
+
+    function renderIdleTime(now) {
+      const currentGap = !state.active && lastIntervalEnd !== null ? Math.max(0, now - lastIntervalEnd) : 0;
+      idleDisplay.textContent = formatTime(idleBetweenIntervals + currentGap);
+    }
+
+    function renderLog(now = Date.now()) {
+      const intervals = state.active ? [...state.records, state.active] : [...state.records];
+      intervals.sort((first, second) => first.start - second.start);
+      const entries = [];
+      idleBetweenIntervals = 0;
+      lastIntervalEnd = null;
+      for (const [index, interval] of intervals.entries()) {
+        const { start, end, taskName, eventName } = interval;
+        const nextStart = intervals[index + 1]?.start;
+        if (lastIntervalEnd !== null) idleBetweenIntervals += Math.max(0, start - lastIntervalEnd);
+        lastIntervalEnd = Math.max(lastIntervalEnd ?? start, start, end ?? now);
+        entries.push({ timestamp: start, end, taskName, eventName });
+
+        // Older records identify switches by the shared stop and start timestamp.
+        const switched = interval.switched ?? (end === nextStart);
+        if (end !== undefined && !switched) {
+          entries.push({ timestamp: end, end: nextStart, taskName: 'Idle', eventName: 'Idle' });
+        }
+      }
+
+      const rows = document.createDocumentFragment();
+      liveLogDuration = null;
+      logEntries = entries.sort((first, second) => first.timestamp - second.timestamp);
+      for (const entry of logEntries) {
+        const { timestamp, end, taskName, eventName } = entry;
+        const row = createElement('tr');
+        const date = new Date(timestamp);
+        const time = createElement('time', '', timestampFormat.format(date));
+        time.dateTime = date.toISOString();
+        const timestampCell = createElement('td');
+        timestampCell.append(time);
+        const durationCell = createElement('td', 'numeric duration', formatTime(logDuration(entry, now)));
+        if (end === undefined) liveLogDuration = { cell: durationCell, entry };
+        row.append(timestampCell, createElement('td', '', taskName), createElement('td', '', eventName), durationCell);
+        rows.append(row);
+      }
+      byId('time-log').replaceChildren(rows);
+      byId('log-scroll').hidden = entries.length === 0;
+      byId('empty-log').hidden = entries.length > 0;
+      renderIdleTime(now);
+    }
+
     const taskTotals = new Map();
 
     function addInterval({ task, event, start, end }) {
@@ -503,7 +616,7 @@
       totals.set(event, (totals.get(event) ?? 0) + duration);
     }
 
-    state.records.forEach(addInterval);
+    currentRecords.forEach(addInterval);
 
     function eventTime(taskId, eventId, now) {
       const active = state.active;
@@ -542,40 +655,46 @@
         const { row, buttons, summaryCells } = taskRows.get(taskId);
         const running = taskId === active?.task;
         row.classList.toggle('is-running', running);
-        for (const { eventId, button, time } of buttons) {
+        buttons.forEach(({ eventId, button, time }, index) => {
           const pressed = running && eventId === active.event;
           button.setAttribute('aria-pressed', String(pressed));
-          time.textContent = formatTime(eventTime(taskId, eventId, now));
-        }
+          time.textContent = formatTime(durations[index]);
+        });
 
         summaryCells.forEach((cell, index) => { cell.textContent = formatTime(durations[index]); });
       }
       summaryFooterCells.forEach((cell, index) => { cell.textContent = formatTime(summary.totals[index]); });
     }
 
-    function toggleTimer(taskId, eventId) {
+    function stopTimer(now, switched = false) {
+      const active = state.active;
+      const record = { ...active, end: Math.max(active.start, now), switched };
+      state.records.push(record);
+      addInterval(record);
+      state.active = null;
+    }
+
+    function toggleTimer(task, event) {
       const now = Date.now();
       const active = state.active;
-      if (active) {
-        const record = { ...active, id: createId(), end: Math.max(active.start, now) };
-        state.records.push(record);
-        addInterval(record);
+      const stopping = active?.task === task.id && active.event === event.id;
+      if (active) stopTimer(now, !stopping);
+      if (!stopping) {
+        state.active = { task: task.id, event: event.id, start: now, taskName: task.name, eventName: eventLabel(event) };
       }
-
-      const stopping = active?.task === taskId && active.event === eventId;
-      state.active = stopping ? null : { task: taskId, event: eventId, start: now };
       saveState();
       renderTimes(now);
+      renderLog(now);
     }
 
     function deleteTask(task) {
       const running = state.active?.task === task.id;
-      const timerWarning = running ? ' The running timer will stop and its current interval will be discarded.' : '';
-      if (!window.confirm('Delete "' + task.name + '" and all its recorded time?' + timerWarning + ' This cannot be undone.')) return;
+      const timerWarning = running ? ' The running timer will stop.' : '';
+      if (!window.confirm('Delete "' + task.name + '"? Its history will remain in the time log.' + timerWarning + ' This cannot be undone.')) return;
 
+      const now = Date.now();
+      if (running) stopTimer(now);
       state.tasks = state.tasks.filter(other => other.id !== task.id);
-      state.records = state.records.filter(record => record.task !== task.id);
-      if (running) state.active = null;
       taskTotals.delete(task.id);
 
       const { row, summaryRow } = taskRows.get(task.id);
@@ -584,7 +703,8 @@
       taskRows.delete(task.id);
       byId('empty-tasks').hidden = state.tasks.length > 0;
       saveState();
-      renderTimes();
+      renderTimes(now);
+      if (running) renderLog(now);
       taskName.focus();
     }
 
@@ -599,7 +719,7 @@
         const time = createElement('span', 'duration');
         button.type = 'button';
         button.append(createElement('span', 'event-label', eventLabel(event)), time);
-        button.addEventListener('click', () => toggleTimer(task.id, event.id));
+        button.addEventListener('click', () => toggleTimer(task, event));
         controls.append(button);
         return { eventId: event.id, button, time };
       });
@@ -702,7 +822,7 @@
       const name = readTaskName(taskName);
       if (!name) return;
 
-      const task = { id: createId(), name, done: false };
+      const task = { id: createId(), name };
       state.tasks.push(task);
       appendTask(task);
       saveState();
@@ -712,9 +832,20 @@
     });
 
     function csvCell(value) {
+      if (typeof value === 'number') return String(value).replace('.', ',');
       // Keep names from being interpreted as spreadsheet formulas.
       const text = typeof value === 'string' && /^[\s]*[=+\-@]/.test(value) ? "'" + value : String(value);
       return '"' + text.replaceAll('"', '""') + '"';
+    }
+
+    function downloadCsv(filename, rows) {
+      const csv = '\ufeff' + rows.map(row => row.map(csvCell).join(';')).join('\r\n');
+      const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+      const link = createElement('a');
+      link.href = url;
+      link.download = filename;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
     }
 
     byId('export-csv').addEventListener('click', () => {
@@ -726,18 +857,28 @@
         ['Total', ...seconds(summary.totals)]
       ];
 
-      const csv = '\ufeff' + rows.map(row => row.map(csvCell).join(',')).join('\r\n');
-      const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
-      const link = createElement('a');
-      link.href = url;
-      link.download = 'work-time-summary.csv';
-      link.click();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      downloadCsv('work-time-summary.csv', rows);
+    });
+
+    byId('export-log-csv').addEventListener('click', () => {
+      const now = Date.now();
+      const rows = [['Timestamp (UTC)', 'Task', 'Event', 'Duration (seconds)']];
+      for (const entry of logEntries) {
+        rows.push([new Date(entry.timestamp).toISOString(), entry.taskName, entry.eventName, logDuration(entry, now) / 1000]);
+      }
+      downloadCsv('work-time-log.csv', rows);
     });
 
     renderTimes();
+    renderLog();
     setInterval(() => {
-      if (state.active) renderTimes();
+      const now = Date.now();
+      if (state.active) renderTimes(now);
+      else renderIdleTime(now);
+      if (liveLogDuration) {
+        const { cell, entry } = liveLogDuration;
+        cell.textContent = formatTime(logDuration(entry, now));
+      }
     }, 250);
   </script>
 </body>
